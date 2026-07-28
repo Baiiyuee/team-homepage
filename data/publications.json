@@ -1,0 +1,716 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-28",
+  "entries": [
+    {
+      "id": "journal-2026-zhang-dhrl-fleet-maintenance",
+      "category": "journals",
+      "year": 2026,
+      "title": {
+        "zh": "Distributed hierarchical reinforcement learning for dynamic maintenance scheduling of large-scale airline fleets",
+        "en": "Distributed hierarchical reinforcement learning for dynamic maintenance scheduling of large-scale airline fleets"
+      },
+      "authors": {
+        "zh": "Zhang, D., Hu, Y*, Zhang, S. & Zhang, Y.",
+        "en": "Zhang, D., Hu, Y*, Zhang, S. & Zhang, Y."
+      },
+      "venue": {
+        "zh": "Reliability Engineering & System Safety",
+        "en": "Reliability Engineering & System Safety"
+      },
+      "details": {
+        "zh": "256, 112249 (2026).",
+        "en": "256, 112249 (2026)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0951832026000657"
+    },
+    {
+      "id": "journal-2024-yang-uav-conflict-resolution",
+      "category": "journals",
+      "year": 2024,
+      "title": {
+        "zh": "In-depth coordination and extension: Decentralized onboard conflict resolution of UAVs in the low altitude airspace",
+        "en": "In-depth coordination and extension: Decentralized onboard conflict resolution of UAVs in the low altitude airspace"
+      },
+      "authors": {
+        "zh": "Yang, J., Hu, Y*, Yu, Z., Chen, F. & Xu, X.",
+        "en": "Yang, J., Hu, Y*, Yu, Z., Chen, F. & Xu, X."
+      },
+      "venue": {
+        "zh": "IEEE Transactions on Intelligent Vehicles",
+        "en": "IEEE Transactions on Intelligent Vehicles"
+      },
+      "details": {
+        "zh": "9(1) (2024).",
+        "en": "9(1) (2024)."
+      },
+      "url": "https://ieeexplore.ieee.org/abstract/document/10250955"
+    },
+    {
+      "id": "journal-2023-liu-differentiable-nas",
+      "category": "journals",
+      "year": 2023,
+      "title": {
+        "zh": "Differentiable neural architecture search for domain adaptation in fault diagnosis",
+        "en": "Differentiable neural architecture search for domain adaptation in fault diagnosis"
+      },
+      "authors": {
+        "zh": "Liu, Y., Li, X. & Hu, Y*.",
+        "en": "Liu, Y., Li, X. & Hu, Y*."
+      },
+      "venue": {
+        "zh": "Mechanical Systems and Signal Processing",
+        "en": "Mechanical Systems and Signal Processing"
+      },
+      "details": {
+        "zh": "202, 110639 (2023).",
+        "en": "202, 110639 (2023)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0888327023005472"
+    },
+    {
+      "id": "journal-2022-hu-phm-review",
+      "category": "journals",
+      "year": 2022,
+      "title": {
+        "zh": "Prognostics and health management: A review from the perspectives of design, development and decision",
+        "en": "Prognostics and health management: A review from the perspectives of design, development and decision"
+      },
+      "authors": {
+        "zh": "Hu, Y*, Miao, X., Si, Y., Pan, E. & Zio, E.",
+        "en": "Hu, Y*, Miao, X., Si, Y., Pan, E. & Zio, E."
+      },
+      "venue": {
+        "zh": "Reliability Engineering & System Safety",
+        "en": "Reliability Engineering & System Safety"
+      },
+      "details": {
+        "zh": "217, 108063 (2022).",
+        "en": "217, 108063 (2022)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0951832021005652"
+    },
+    {
+      "id": "journal-2022-li-one-shot-nas",
+      "category": "journals",
+      "year": 2022,
+      "title": {
+        "zh": "One-shot neural architecture search for fault diagnosis using vibration signals",
+        "en": "One-shot neural architecture search for fault diagnosis using vibration signals"
+      },
+      "authors": {
+        "zh": "Li, X., Zheng, J., Li, M., Ma, W. & Hu, Y*.",
+        "en": "Li, X., Zheng, J., Li, M., Ma, W. & Hu, Y*."
+      },
+      "venue": {
+        "zh": "Expert Systems with Applications",
+        "en": "Expert Systems with Applications"
+      },
+      "details": {
+        "zh": "190, 116027 (2022).",
+        "en": "190, 116027 (2022)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0957417421013737"
+    },
+    {
+      "id": "journal-2021-li-frequency-domain-fusing-cnn",
+      "category": "journals",
+      "year": 2021,
+      "title": {
+        "zh": "Frequency-domain fusing convolutional neural network: A unified architecture improving effect of domain adaptation for fault diagnosis",
+        "en": "Frequency-domain fusing convolutional neural network: A unified architecture improving effect of domain adaptation for fault diagnosis"
+      },
+      "authors": {
+        "zh": "Li, X., Zheng, J., Li, M., Ma, W. & Hu, Y*.",
+        "en": "Li, X., Zheng, J., Li, M., Ma, W. & Hu, Y*."
+      },
+      "venue": {
+        "zh": "Sensors",
+        "en": "Sensors"
+      },
+      "details": {
+        "zh": "21(2), 1-26 (2021).",
+        "en": "21(2), 1-26 (2021)."
+      },
+      "url": "https://www.mdpi.com/1424-8220/21/2/450"
+    },
+    {
+      "id": "journal-2021-hu-rl-maintenance-strategy",
+      "category": "journals",
+      "year": 2021,
+      "title": {
+        "zh": "Reinforcement learning-driven maintenance strategy: A novel solution for long-term aircraft maintenance decision optimization",
+        "en": "Reinforcement learning-driven maintenance strategy: A novel solution for long-term aircraft maintenance decision optimization"
+      },
+      "authors": {
+        "zh": "Hu, Y, Miao, X., Zhang, J., Liu, J.* & Pan, E.",
+        "en": "Hu, Y, Miao, X., Zhang, J., Liu, J.* & Pan, E."
+      },
+      "venue": {
+        "zh": "Computers & Industrial Engineering",
+        "en": "Computers & Industrial Engineering"
+      },
+      "details": {
+        "zh": "153, 107056 (2021).",
+        "en": "153, 107056 (2021)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0360835220307269"
+    },
+    {
+      "id": "journal-2021-li-central-moment-discrepancy",
+      "category": "journals",
+      "year": 2021,
+      "title": {
+        "zh": "Central moment discrepancy based domain adaptation for intelligent bearing fault diagnosis",
+        "en": "Central moment discrepancy based domain adaptation for intelligent bearing fault diagnosis"
+      },
+      "authors": {
+        "zh": "Li, X., Hu, Y*, Zheng, J., Li, M. & Ma, W.",
+        "en": "Li, X., Hu, Y*, Zheng, J., Li, M. & Ma, W."
+      },
+      "venue": {
+        "zh": "Neurocomputing",
+        "en": "Neurocomputing"
+      },
+      "details": {
+        "zh": "429, 12-24 (2021).",
+        "en": "429, 12-24 (2021)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0925231220318579"
+    },
+    {
+      "id": "journal-2021-liu-svm-high-speed-trains",
+      "category": "journals",
+      "year": 2021,
+      "title": {
+        "zh": "A SVM-based framework for fault detection in high-speed trains",
+        "en": "A SVM-based framework for fault detection in high-speed trains"
+      },
+      "authors": {
+        "zh": "Liu, J., Hu, Y* & Yang, S.",
+        "en": "Liu, J., Hu, Y* & Yang, S."
+      },
+      "venue": {
+        "zh": "Measurement",
+        "en": "Measurement"
+      },
+      "details": {
+        "zh": "172, 108779 (2021).",
+        "en": "172, 108779 (2021)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S026322412031277X"
+    },
+    {
+      "id": "journal-2021-lin-dynamic-mode-transfer",
+      "category": "journals",
+      "year": 2021,
+      "title": {
+        "zh": "Dynamic mode transfer scheduling for degrading standby system considering load-sharing characteristic",
+        "en": "Dynamic mode transfer scheduling for degrading standby system considering load-sharing characteristic"
+      },
+      "authors": {
+        "zh": "Lin, Y. H., Ruan, S. J., Tao, F. & Hu, Y*.",
+        "en": "Lin, Y. H., Ruan, S. J., Tao, F. & Hu, Y*."
+      },
+      "venue": {
+        "zh": "IEEE Systems Journal",
+        "en": "IEEE Systems Journal"
+      },
+      "details": {
+        "zh": "15(4), 5405-5416 (2021).",
+        "en": "15(4), 5405-5416 (2021)."
+      },
+      "url": "https://ieeexplore.ieee.org/abstract/document/9296341"
+    },
+    {
+      "id": "journal-2021-hu-evolving-environment",
+      "category": "journals",
+      "year": 2021,
+      "title": {
+        "zh": "A method for fault diagnosis in evolving environment using unlabeled data",
+        "en": "A method for fault diagnosis in evolving environment using unlabeled data"
+      },
+      "authors": {
+        "zh": "Hu, Y*, Baraldi, P., Di Maio, F., Liu, J. & Zio, E.",
+        "en": "Hu, Y*, Baraldi, P., Di Maio, F., Liu, J. & Zio, E."
+      },
+      "venue": {
+        "zh": "Proceedings of the Institution of Mechanical Engineers, Part O: Journal of Risk and Reliability",
+        "en": "Proceedings of the Institution of Mechanical Engineers, Part O: Journal of Risk and Reliability"
+      },
+      "details": {
+        "zh": "235(1), 33-49 (2021).",
+        "en": "235(1), 33-49 (2021)."
+      },
+      "url": "https://journals.sagepub.com/doi/abs/10.1177/1748006X20946529"
+    },
+    {
+      "id": "journal-2020-michau-feature-learning",
+      "category": "journals",
+      "year": 2020,
+      "title": {
+        "zh": "Feature learning for fault detection in high-dimensional condition monitoring signals",
+        "en": "Feature learning for fault detection in high-dimensional condition monitoring signals"
+      },
+      "authors": {
+        "zh": "Michau, G., Hu, Y, Palmé, T. & Fink, O.*",
+        "en": "Michau, G., Hu, Y, Palmé, T. & Fink, O.*"
+      },
+      "venue": {
+        "zh": "Proceedings of the Institution of Mechanical Engineers, Part O: Journal of Risk and Reliability",
+        "en": "Proceedings of the Institution of Mechanical Engineers, Part O: Journal of Risk and Reliability"
+      },
+      "details": {
+        "zh": "234(1), 104-115 (2020).",
+        "en": "234(1), 104-115 (2020)."
+      },
+      "url": "https://journals.sagepub.com/doi/abs/10.1177/1748006X19868335"
+    },
+    {
+      "id": "journal-2020-li-cross-component-transfer",
+      "category": "journals",
+      "year": 2020,
+      "title": {
+        "zh": "Fault diagnostics between different type of components: A transfer learning approach",
+        "en": "Fault diagnostics between different type of components: A transfer learning approach"
+      },
+      "authors": {
+        "zh": "Li, X. D., Hu, Y*, Li, M. T. & Zheng, J. H.",
+        "en": "Li, X. D., Hu, Y*, Li, M. T. & Zheng, J. H."
+      },
+      "venue": {
+        "zh": "Applied Soft Computing",
+        "en": "Applied Soft Computing"
+      },
+      "details": {
+        "zh": "86, 105950 (2020).",
+        "en": "86, 105950 (2020)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S1568494619307318"
+    },
+    {
+      "id": "journal-2020-miao-intelligent-support-system",
+      "category": "journals",
+      "year": 2020,
+      "title": {
+        "zh": "航空装备智能保障系统论证研究",
+        "en": "Conceptual Study of an Intelligent Support System for Aviation Equipment"
+      },
+      "authors": {
+        "zh": "苗学问、胡杨*、钱征文、路涛.",
+        "en": "Miao, X., Hu, Y*, Qian, Z. & Lu, T."
+      },
+      "venue": {
+        "zh": "测控技术",
+        "en": "Measurement & Control Technology"
+      },
+      "details": {
+        "zh": "39(6) (2020).",
+        "en": "39(6) (2020)."
+      },
+      "url": "http://ckjs.ijournals.cn/ckjs/ch/reader/view_abstract.aspx?file_no=20201204&flag=1"
+    },
+    {
+      "id": "journal-2018-lin-deep-diagnostics-prognostics",
+      "category": "journals",
+      "year": 2018,
+      "title": {
+        "zh": "Deep diagnostics and prognostics: An integrated hierarchical learning framework in PHM applications",
+        "en": "Deep diagnostics and prognostics: An integrated hierarchical learning framework in PHM applications"
+      },
+      "authors": {
+        "zh": "Lin, Y., Li, X. & Hu, Y*.",
+        "en": "Lin, Y., Li, X. & Hu, Y*."
+      },
+      "venue": {
+        "zh": "Applied Soft Computing",
+        "en": "Applied Soft Computing"
+      },
+      "details": {
+        "zh": "72, 555-564 (2018).",
+        "en": "72, 555-564 (2018)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S1568494618300425"
+    },
+    {
+      "id": "journal-2017-hu-semi-supervised-fault-diagnostics",
+      "category": "journals",
+      "year": 2017,
+      "title": {
+        "zh": "A systematic semi-supervised self-adaptable fault diagnostics approach in an evolving environment",
+        "en": "A systematic semi-supervised self-adaptable fault diagnostics approach in an evolving environment"
+      },
+      "authors": {
+        "zh": "Hu, Y*, Baraldi, P., Di Maio, F. & Zio, E.",
+        "en": "Hu, Y*, Baraldi, P., Di Maio, F. & Zio, E."
+      },
+      "venue": {
+        "zh": "Mechanical Systems and Signal Processing",
+        "en": "Mechanical Systems and Signal Processing"
+      },
+      "details": {
+        "zh": "88, 413-427 (2017).",
+        "en": "88, 413-427 (2017)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0888327016304666"
+    },
+    {
+      "id": "journal-2017-hu-auto-associative-elm",
+      "category": "journals",
+      "year": 2017,
+      "title": {
+        "zh": "Fault detection based on signal reconstruction with auto-associative extreme learning machines",
+        "en": "Fault detection based on signal reconstruction with auto-associative extreme learning machines"
+      },
+      "authors": {
+        "zh": "Hu, Y, Palmé, T. & Fink, O.*",
+        "en": "Hu, Y, Palmé, T. & Fink, O.*"
+      },
+      "venue": {
+        "zh": "Engineering Applications of Artificial Intelligence",
+        "en": "Engineering Applications of Artificial Intelligence"
+      },
+      "details": {
+        "zh": "57, 105-117 (2017).",
+        "en": "57, 105-117 (2017)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0952197616301853"
+    },
+    {
+      "id": "journal-2016-hu-online-performance-assessment",
+      "category": "journals",
+      "year": 2016,
+      "title": {
+        "zh": "Online performance assessment method for a model-based prognostic approach",
+        "en": "Online performance assessment method for a model-based prognostic approach"
+      },
+      "authors": {
+        "zh": "Hu, Y, Baraldi, P., Di Maio, F. & Zio, E.*",
+        "en": "Hu, Y, Baraldi, P., Di Maio, F. & Zio, E.*"
+      },
+      "venue": {
+        "zh": "IEEE Transactions on Reliability",
+        "en": "IEEE Transactions on Reliability"
+      },
+      "details": {
+        "zh": "65(2), 718-735 (2016).",
+        "en": "65(2), 718-735 (2016)."
+      },
+      "url": "https://ieeexplore.ieee.org/abstract/document/7361762"
+    },
+    {
+      "id": "journal-2016-cremona-wheel-wear",
+      "category": "journals",
+      "year": 2016,
+      "title": {
+        "zh": "Predicting railway wheel wear under uncertainty using universal kriging",
+        "en": "Predicting railway wheel wear under uncertainty using universal kriging"
+      },
+      "authors": {
+        "zh": "Cremona, M. A., Liu, B., Hu, Y, Bruni, S. & Lewis, R.",
+        "en": "Cremona, M. A., Liu, B., Hu, Y, Bruni, S. & Lewis, R."
+      },
+      "venue": {
+        "zh": "Reliability Engineering & System Safety",
+        "en": "Reliability Engineering & System Safety"
+      },
+      "details": {
+        "zh": "154, 49-59 (2016).",
+        "en": "154, 49-59 (2016)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0951832016300588"
+    },
+    {
+      "id": "journal-2015-hu-particle-filtering-kernel",
+      "category": "journals",
+      "year": 2015,
+      "title": {
+        "zh": "A particle filtering and kernel smoothing-based approach for new design component prognostics",
+        "en": "A particle filtering and kernel smoothing-based approach for new design component prognostics"
+      },
+      "authors": {
+        "zh": "Hu, Y*, Baraldi, P., Di Maio, F. & Zio, E.",
+        "en": "Hu, Y*, Baraldi, P., Di Maio, F. & Zio, E."
+      },
+      "venue": {
+        "zh": "Reliability Engineering & System Safety",
+        "en": "Reliability Engineering & System Safety"
+      },
+      "details": {
+        "zh": "134, 19-31 (2015).",
+        "en": "134, 19-31 (2015)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0951832014002439"
+    },
+    {
+      "id": "journal-2013-luo-system-risk-evolution",
+      "category": "journals",
+      "year": 2013,
+      "title": {
+        "zh": "System risk evolution analysis and critical event identification",
+        "en": "System risk evolution analysis and critical event identification"
+      },
+      "authors": {
+        "zh": "Luo, P. & Hu, Y.",
+        "en": "Luo, P. & Hu, Y."
+      },
+      "venue": {
+        "zh": "Reliability Engineering & System Safety",
+        "en": "Reliability Engineering & System Safety"
+      },
+      "details": {
+        "zh": "114, 21-28 (2013).",
+        "en": "114, 21-28 (2013)."
+      },
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0951832013000136"
+    },
+    {
+      "id": "conference-2016-hu-deep-health-indicator",
+      "category": "conferences",
+      "year": 2016,
+      "title": {
+        "zh": "Deep health indicator extraction: A method based on auto-encoders and extreme learning machines",
+        "en": "Deep health indicator extraction: A method based on auto-encoders and extreme learning machines"
+      },
+      "authors": {
+        "zh": "Hu, Y, Palmé, T. & Fink, O.",
+        "en": "Hu, Y, Palmé, T. & Fink, O."
+      },
+      "venue": {
+        "zh": "Annual Conference of the PHM Society",
+        "en": "Annual Conference of the PHM Society"
+      },
+      "details": {
+        "zh": "(2016).",
+        "en": "(2016)."
+      },
+      "url": "http://www.papers.phmsociety.org/index.php/phmconf/article/view/2587"
+    },
+    {
+      "id": "conference-2018-liu-particle-filtering-prognostics",
+      "category": "conferences",
+      "year": 2018,
+      "title": {
+        "zh": "Particle filtering for prognostics of a newly designed product with a new parameters initialization strategy",
+        "en": "Particle filtering for prognostics of a newly designed product with a new parameters initialization strategy"
+      },
+      "authors": {
+        "zh": "Liu, J., Zio, E. & Hu, Y.",
+        "en": "Liu, J., Zio, E. & Hu, Y."
+      },
+      "venue": {
+        "zh": "IEEE Access",
+        "en": "IEEE Access"
+      },
+      "details": {
+        "zh": "6 (2018).",
+        "en": "6 (2018)."
+      },
+      "url": "https://ieeexplore.ieee.org/abstract/document/8493459"
+    },
+    {
+      "id": "book-2025-intelligent-prognostics",
+      "category": "books",
+      "year": 2025,
+      "title": {
+        "zh": "《智预——装备故障预测与健康管理：全寿命周期解读与实践》",
+        "en": "Intelligent Prognostics—Equipment Fault Prognostics and Health Management: Lifecycle Perspectives and Practice"
+      },
+      "authors": {
+        "zh": "胡杨 等.",
+        "en": "Hu, Y. et al."
+      },
+      "venue": {
+        "zh": "电子工业出版社",
+        "en": "Publishing House of Electronics Industry"
+      },
+      "details": {
+        "zh": "2025.6，ISBN 978-7-121-24762-0.",
+        "en": "June 2025. ISBN 978-7-121-24762-0."
+      },
+      "url": ""
+    },
+    {
+      "id": "patent-2025-digital-twin-phm-training-data",
+      "category": "patents",
+      "subtype": {
+        "zh": "国家发明专利",
+        "en": "National Invention Patents"
+      },
+      "year": 2025,
+      "title": {
+        "zh": "基于数字孪生的PHM模型训练数据生成方法及设备.",
+        "en": "Method and Equipment for Generating PHM Model Training Data Based on Digital Twins."
+      },
+      "authors": {
+        "zh": "胡杨，韩丹阳，陈昕航 等.",
+        "en": "Hu, Y., Han, D., Chen, X. et al."
+      },
+      "venue": {
+        "zh": "",
+        "en": ""
+      },
+      "details": {
+        "zh": "申请号 202511156367.7，2025.9.",
+        "en": "Application No. 202511156367.7, September 2025."
+      },
+      "url": ""
+    },
+    {
+      "id": "patent-2024-aircraft-phm-indicators",
+      "category": "patents",
+      "subtype": {
+        "zh": "国家发明专利",
+        "en": "National Invention Patents"
+      },
+      "year": 2024,
+      "title": {
+        "zh": "一种飞机预测与健康管理性能指标确定方法及装置.",
+        "en": "Method and Device for Determining Aircraft Prognostics and Health Management Performance Indicators."
+      },
+      "authors": {
+        "zh": "胡杨，苗学问，何庆杰 等.",
+        "en": "Hu, Y., Miao, X., He, Q. et al."
+      },
+      "venue": {
+        "zh": "",
+        "en": ""
+      },
+      "details": {
+        "zh": "申请号 202310827847.6，2024.2.",
+        "en": "Application No. 202310827847.6, February 2024."
+      },
+      "url": ""
+    },
+    {
+      "id": "patent-2024-test-resource-optimization",
+      "category": "patents",
+      "subtype": {
+        "zh": "国家发明专利",
+        "en": "National Invention Patents"
+      },
+      "year": 2024,
+      "title": {
+        "zh": "一种面向多机型通信导航设备的测试资源优化确定方法.",
+        "en": "Method for Optimally Determining Test Resources for Multi-Type Communication and Navigation Equipment."
+      },
+      "authors": {
+        "zh": "苗学问，胡杨，林敏 等.",
+        "en": "Miao, X., Hu, Y., Lin, M. et al."
+      },
+      "venue": {
+        "zh": "",
+        "en": ""
+      },
+      "details": {
+        "zh": "申请号 202318005084.8，2024.1.",
+        "en": "Application No. 202318005084.8, January 2024."
+      },
+      "url": ""
+    },
+    {
+      "id": "patent-2023-atml-signal-flow-modeling",
+      "category": "patents",
+      "subtype": {
+        "zh": "国家发明专利",
+        "en": "National Invention Patents"
+      },
+      "year": 2023,
+      "title": {
+        "zh": "一种基于ATML多信号流建模与仿真方法.",
+        "en": "ATML-Based Multi-Signal-Flow Modeling and Simulation Method."
+      },
+      "authors": {
+        "zh": "苗学问，胡杨，任朝旭 等.",
+        "en": "Miao, X., Hu, Y., Ren, Z. et al."
+      },
+      "venue": {
+        "zh": "",
+        "en": ""
+      },
+      "details": {
+        "zh": "申请号 202318005087.1，2023.12.",
+        "en": "Application No. 202318005087.1, December 2023."
+      },
+      "url": ""
+    },
+    {
+      "id": "patent-2023-atml-test-program-generation",
+      "category": "patents",
+      "subtype": {
+        "zh": "国家发明专利",
+        "en": "National Invention Patents"
+      },
+      "year": 2023,
+      "title": {
+        "zh": "一种面向ATML的诊断测试程序自动生成方法.",
+        "en": "Method for Automatically Generating ATML-Oriented Diagnostic Test Programs."
+      },
+      "authors": {
+        "zh": "苗学问，胡杨，任朝旭 等.",
+        "en": "Miao, X., Hu, Y., Ren, Z. et al."
+      },
+      "venue": {
+        "zh": "",
+        "en": ""
+      },
+      "details": {
+        "zh": "申请号 202318005086.7，2023.12.",
+        "en": "Application No. 202318005086.7, December 2023."
+      },
+      "url": ""
+    },
+    {
+      "id": "software-2021-operational-support-simulation",
+      "category": "patents",
+      "subtype": {
+        "zh": "软件著作权",
+        "en": "Software Copyrights"
+      },
+      "year": 2021,
+      "title": {
+        "zh": "航空装备作战保障仿真软件.",
+        "en": "Aviation Equipment Operational Support Simulation Software."
+      },
+      "authors": {
+        "zh": "胡杨，苗学问，张军 等.",
+        "en": "Hu, Y., Miao, X., Zhang, J. et al."
+      },
+      "venue": {
+        "zh": "",
+        "en": ""
+      },
+      "details": {
+        "zh": "2021R11L1050664，2021.2.",
+        "en": "2021R11L1050664, February 2021."
+      },
+      "url": ""
+    },
+    {
+      "id": "software-2021-six-quality-data-management",
+      "category": "patents",
+      "subtype": {
+        "zh": "软件著作权",
+        "en": "Software Copyrights"
+      },
+      "year": 2021,
+      "title": {
+        "zh": "航空装备“六性”与综合保障数据管理系统.",
+        "en": "Aviation Equipment “Six Quality Characteristics” and Integrated Support Data Management System."
+      },
+      "authors": {
+        "zh": "胡杨，苗学问，张军 等.",
+        "en": "Hu, Y., Miao, X., Zhang, J. et al."
+      },
+      "venue": {
+        "zh": "",
+        "en": ""
+      },
+      "details": {
+        "zh": "2021R11L1051074，2021.2.",
+        "en": "2021R11L1051074, February 2021."
+      },
+      "url": ""
+    }
+  ]
+}

@@ -1,0 +1,2803 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="中意健康管理与智能维修联合实验室，聚焦复杂装备智能运维、故障预测与健康管理、数字孪生建模与韧性可靠性分析。">
+  <title>胡杨课题组 - 北航国新院</title>
+  <style>
+:root {
+  --navy: #163a5f;
+  --blue: #1e5a96;
+  --blue-light: #eaf2f8;
+  --ink: #1f2937;
+  --text: #3f4a58;
+  --muted: #6b7280;
+  --line: #e3e9ef;
+  --surface: #f5f8fb;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  scroll-padding-top: 76px;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--white);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section-shell {
+  width: min(1160px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.page-panel {
+  display: none;
+}
+
+.page-panel.is-active {
+  display: block;
+  animation: pageFade .22s ease;
+}
+
+@keyframes pageFade {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.home-research {
+  scroll-margin-top: 72px;
+  background: var(--white);
+}
+
+.research-intro {
+  width: min(100%, 900px);
+  margin-bottom: 28px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0;
+  color: #2f3b49;
+  font-size: 17px;
+  line-height: 1.95;
+}
+
+.research-intro p {
+  margin-bottom: 16px;
+}
+
+.research-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.research-intro strong,
+.research-outro strong {
+  color: var(--ink);
+  font-weight: 780;
+}
+
+.research-intro-lead {
+  display: block;
+  margin-top: 14px;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.research-topic-list {
+  display: grid;
+  gap: 16px;
+  width: min(100%, 900px);
+  margin: 0 auto;
+}
+
+.research-topic-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: 0 8px 28px rgba(31, 41, 55, .045);
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.research-topic-card:hover,
+.research-topic-card[open] {
+  border-color: rgba(30, 90, 150, .35);
+  box-shadow: 0 14px 38px rgba(31, 41, 55, .08);
+}
+
+.research-topic-card summary {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 24px 26px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.research-topic-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.research-topic-number {
+  color: rgba(30, 90, 150, .48);
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -.03em;
+}
+
+.research-topic-copy {
+  min-width: 0;
+}
+
+.research-topic-copy strong,
+.research-topic-copy small {
+  display: block;
+}
+
+.research-topic-copy strong {
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 780;
+  line-height: 1.45;
+}
+
+.research-topic-copy small {
+  margin-top: 6px;
+  color: #526170;
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+.research-topic-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  border: 1px solid rgba(30, 90, 150, .24);
+  border-radius: 999px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.research-topic-action::after {
+  content: "↓";
+  transition: transform .25s ease;
+}
+
+.research-topic-action-close {
+  display: none;
+}
+
+.research-topic-card[open] .research-topic-action-open {
+  display: none;
+}
+
+.research-topic-card[open] .research-topic-action-close {
+  display: inline;
+}
+
+.research-topic-card[open] .research-topic-action::after {
+  transform: rotate(180deg);
+}
+
+.research-topic-detail {
+  display: block;
+  overflow: hidden;
+  padding: 30px 30px 34px;
+  border-top: 1px solid var(--line);
+  color: #334155;
+  opacity: 1;
+}
+
+.research-topic-detail p {
+  line-height: 1.95;
+}
+
+.research-topic-detail-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.research-topic-detail-inner > :first-child {
+  margin-top: 0;
+}
+
+.research-outro {
+  width: min(100%, 900px);
+  margin: 28px auto 0 !important;
+  color: #334155;
+  font-size: 16.5px;
+  line-height: 1.9;
+}
+
+.research-collapse-button {
+  position: fixed;
+  z-index: 90;
+  right: max(24px, calc((100vw - 1180px) / 2));
+  bottom: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 17px;
+  border: 1px solid rgba(255, 255, 255, .48);
+  border-radius: 999px;
+  color: var(--blue);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .38), rgba(255, 255, 255, .13));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .66),
+    0 10px 30px rgba(31, 41, 55, .12);
+  -webkit-backdrop-filter: blur(9px) saturate(150%);
+  backdrop-filter: blur(9px) saturate(150%);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 750;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(14px) scale(.96);
+  transition: opacity .25s ease, transform .25s ease, background .2s ease;
+}
+
+.research-collapse-button.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.research-collapse-button:hover {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .56), rgba(255, 255, 255, .2));
+}
+
+.research-collapse-button span {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.research-figure {
+  width: min(100%, 900px);
+  margin: 38px auto 8px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.research-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.js-ready .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.22, 1, .36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js-ready .reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-ready .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.content-page {
+  min-height: calc(100vh - 128px);
+  padding: 54px 0 96px;
+  background: var(--white);
+}
+
+.page-shell {
+  width: min(980px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 45px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.page-header h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.25;
+}
+
+.prose {
+  color: var(--text);
+  font-size: 16.5px;
+  line-height: 1.9;
+}
+
+.prose h2 {
+  position: relative;
+  margin: 58px 0 22px;
+  padding-left: 16px;
+  font-size: 27px;
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose h2::before {
+  position: absolute;
+  top: .15em;
+  bottom: .15em;
+  left: 0;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--blue);
+  content: "";
+}
+
+.prose h3 {
+  margin: 38px 0 14px;
+  color: var(--ink);
+  font-size: 21px;
+}
+
+.prose h4 {
+  margin: 28px 0 10px;
+  color: var(--blue);
+  font-size: 17px;
+}
+
+.prose p {
+  margin: 0 0 19px;
+}
+
+.prose a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose ul,
+.prose ol {
+  margin: 10px 0 22px;
+  padding-left: 28px;
+}
+
+.prose li {
+  margin: 8px 0;
+}
+
+.page-lead {
+  max-width: 760px;
+  margin: 0 0 42px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.education-feature {
+  margin-bottom: 72px;
+  scroll-margin-top: 150px;
+}
+
+.education-subnav {
+  position: sticky;
+  z-index: 20;
+  top: 84px;
+  display: inline-flex;
+  gap: 5px;
+  margin: 0 0 42px;
+  padding: 5px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .46);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .34), rgba(255, 255, 255, .1));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .62),
+    inset 0 -1px 0 rgba(255, 255, 255, .18),
+    0 8px 24px rgba(31, 41, 55, .07);
+  -webkit-backdrop-filter: blur(8px) saturate(145%);
+  backdrop-filter: blur(8px) saturate(145%);
+}
+
+.education-subnav button {
+  padding: 7px 18px;
+  border: 0;
+  border-radius: 999px;
+  color: var(--muted);
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.education-subnav button:hover,
+.education-subnav button.is-active {
+  color: var(--blue);
+  background: rgba(255, 255, 255, .24);
+  box-shadow:
+    inset 0 0 0 1px rgba(30, 90, 150, .22),
+    0 2px 8px rgba(31, 41, 55, .05);
+}
+
+.education-section-title {
+  position: relative;
+  margin: 0 0 28px !important;
+  padding: 0 0 16px !important;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 29px !important;
+}
+
+.education-section-title::before {
+  display: none !important;
+}
+
+.education-section-title::after {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 58px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--blue);
+  content: "";
+}
+
+.student-summary {
+  margin-bottom: 26px !important;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.student-subheading {
+  margin: 0 0 10px !important;
+  color: var(--ink);
+  font-size: 21px !important;
+}
+
+.student-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 42px;
+  row-gap: 0;
+  margin: 0 !important;
+  padding: 8px 0 0 26px !important;
+}
+
+.student-list li {
+  margin: 0;
+  padding: 3px 0;
+  border: 0;
+  line-height: 1.65;
+}
+
+.recruitment-section {
+  scroll-margin-top: 150px;
+}
+
+.recruitment-section {
+  color: #45515f;
+  font-size: 16.5px;
+  line-height: 1.95;
+}
+
+.recruitment-section > .education-section-title {
+  margin-bottom: 38px !important;
+  font-size: 31px !important;
+}
+
+.recruitment-section > h2:not(.education-section-title) {
+  margin: 66px 0 24px 14px;
+  padding: 0;
+  border-bottom: 0;
+  color: var(--ink);
+  font-size: 23px;
+  letter-spacing: .01em;
+  line-height: 1.45;
+}
+
+.recruitment-section > .education-section-title + h2 {
+  margin-top: 0;
+}
+
+.recruitment-section > h2:not(.education-section-title)::before {
+  display: none;
+}
+
+.recruitment-section > h3 {
+  margin: 32px 0 10px 14px;
+  color: #274b70;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.recruitment-section > p {
+  margin-left: 14px;
+  margin-bottom: 17px;
+}
+
+.recruitment-section > ul,
+.recruitment-section > ol {
+  margin: 8px 0 26px 14px;
+  padding-left: 30px;
+}
+
+.recruitment-section > ul li,
+.recruitment-section > ol li {
+  margin: 4px 0;
+  padding-left: 3px;
+  line-height: 1.82;
+}
+
+.recruitment-section li::marker {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.recruitment-section strong {
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.recruitment-section a {
+  overflow-wrap: anywhere;
+}
+
+.recruitment-section > .recruitment-conclusion {
+  margin-top: 50px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  color: #2f3b49;
+  font-size: 18px;
+  font-weight: 520;
+  line-height: 1.9;
+}
+
+.recruitment-section > .recruitment-invitation {
+  margin-top: 20px;
+  color: #274b70;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.85;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 28px 0 40px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.info-grid p {
+  margin: 0;
+  padding: 14px 17px;
+  background: var(--white);
+}
+
+.info-grid strong {
+  color: var(--ink);
+}
+
+.content-card {
+  margin: 24px 0;
+  padding: 24px 26px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--white);
+}
+
+.lab-introduction {
+  color: #334155;
+}
+
+.lab-introduction > h2 {
+  margin-bottom: 26px;
+}
+
+.lab-introduction > p {
+  line-height: 1.95;
+}
+
+.lab-figure {
+  width: min(100%, 940px);
+  margin: 34px auto 42px;
+}
+
+.lab-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lab-module-list {
+  margin: 16px 0 34px !important;
+  padding-left: 30px !important;
+}
+
+.lab-module-list li {
+  margin: 0 !important;
+  padding: 8px 0 8px 6px;
+  line-height: 1.9;
+}
+
+.lab-module-list li::marker {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.lab-module-list strong,
+.lab-mode-list strong {
+  color: var(--ink);
+  font-weight: 760;
+}
+
+.lab-mode-list {
+  margin-top: 10px !important;
+}
+
+.site-header {
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  border-bottom: 1px solid rgba(227, 233, 239, .9);
+  background: rgba(255, 255, 255, .94);
+  backdrop-filter: blur(14px);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  width: min(1240px, calc(100% - 40px));
+  min-height: 70px;
+  margin: 0 auto;
+}
+
+.site-brand {
+  display: flex;
+  flex: 0 0 250px;
+  align-items: center;
+  width: 250px;
+  height: 54px;
+  margin-right: auto;
+  padding: 7px 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.site-brand-logo {
+  display: block;
+  width: 225px;
+  max-width: none;
+  height: auto;
+  filter: brightness(0) saturate(100%) invert(17%) sepia(39%) saturate(1793%)
+    hue-rotate(174deg) brightness(88%) contrast(101%);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-links a {
+  position: relative;
+  padding: 23px 13px 21px;
+  color: #344150;
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.nav-links a::after {
+  position: absolute;
+  right: 13px;
+  bottom: 16px;
+  left: 13px;
+  height: 2px;
+  background: var(--blue);
+  content: "";
+  opacity: 0;
+  transform: scaleX(.4);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.is-active {
+  color: var(--blue);
+}
+
+.nav-links a:hover::after,
+.nav-links a.is-active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 22px;
+  color: #a0a7b1;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.language-switch .is-active {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 0 0;
+  background: var(--white);
+}
+
+.hero > .section-shell {
+  width: 100%;
+}
+
+.hero-frame {
+  position: relative;
+  min-height: 520px;
+  padding:
+    76px max(28px, calc((100vw - 1160px) / 2 + 24px))
+    68px;
+  overflow: hidden;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(85, 178, 219, .22), transparent 31%),
+    radial-gradient(circle at 15% 100%, rgba(93, 166, 211, .18), transparent 35%),
+    linear-gradient(132deg, #f2f8fb 0%, #e4f1f7 54%, #dbeaf3 100%);
+  box-shadow: none;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+.hero-frame::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(20, 82, 127, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 82, 127, .055) 1px, transparent 1px);
+  background-size: 42px 42px;
+  content: "";
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, .72) 62%, transparent);
+  mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, .72) 62%, transparent);
+}
+
+.hero-frame::after {
+  position: absolute;
+  top: -130px;
+  right: -100px;
+  width: 470px;
+  height: 470px;
+  border: 1px solid rgba(35, 105, 153, .13);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 70px rgba(42, 120, 168, .025),
+    0 0 0 145px rgba(42, 120, 168, .018);
+  content: "";
+}
+
+.hero-backdrop {
+  position: absolute;
+  z-index: 1;
+  right: 8%;
+  bottom: 13%;
+  width: 170px;
+  height: 170px;
+  border: 1px solid rgba(38, 112, 160, .18);
+  border-radius: 50%;
+}
+
+.hero-backdrop::before,
+.hero-backdrop::after {
+  position: absolute;
+  border-radius: 50%;
+  background: #318bb9;
+  box-shadow: 0 0 18px rgba(49, 139, 185, .35);
+  content: "";
+}
+
+.hero-backdrop::before {
+  top: 18px;
+  left: 23px;
+  width: 7px;
+  height: 7px;
+}
+
+.hero-backdrop::after {
+  right: 13px;
+  bottom: 31px;
+  width: 5px;
+  height: 5px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #2879aa;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.section-kicker {
+  margin: 0 0 12px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.hero h1 {
+  max-width: 820px;
+  margin: 0;
+  color: #153b5b;
+  font-size: clamp(42px, 4.8vw, 62px);
+  font-weight: 780;
+  letter-spacing: -.025em;
+  line-height: 1.2;
+}
+
+.hero-lead {
+  max-width: 790px;
+  margin: 24px 0 0;
+  color: #496276;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.hero-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 25px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-keywords li {
+  padding: 5px 11px;
+  border: 1px solid rgba(42, 112, 160, .18);
+  border-radius: 999px;
+  color: #315e7e;
+  background: rgba(255, 255, 255, .38);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-top: 32px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 43px;
+  padding: 0 17px;
+  border: 1px solid rgba(34, 102, 150, .2);
+  border-radius: 6px;
+  color: #285676;
+  background: rgba(255, 255, 255, .42);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(34, 102, 150, .42);
+  background: rgba(255, 255, 255, .72);
+}
+
+.button-primary,
+.button-secondary {
+  border-color: rgba(35, 80, 110, .16);
+  color: #234b66;
+  background: rgba(255, 255, 255, .58);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .9),
+    0 6px 18px rgba(28, 70, 100, .07);
+}
+
+.button-primary:hover,
+.button-secondary:hover {
+  border-color: rgba(35, 80, 110, .28);
+  color: #173f5b;
+  background: rgba(255, 255, 255, .86);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 9px 24px rgba(28, 70, 100, .11);
+}
+
+.home-news {
+  padding: 72px 0 92px;
+}
+
+.home-news-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.home-news-heading p {
+  margin: 0;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.home-news-heading h2 {
+  font-size: 30px;
+}
+
+.news-list {
+  border-top: 1px solid var(--line);
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr) auto;
+  gap: 30px;
+  align-items: center;
+  padding: 27px 2px;
+  border-bottom: 1px solid var(--line);
+}
+
+.news-meta {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.news-meta time,
+.news-meta span {
+  display: block;
+}
+
+.news-meta time {
+  color: var(--blue);
+  font-weight: 750;
+}
+
+.news-copy h3 {
+  margin: 0 0 7px;
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.news-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.news-link {
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.news-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.team-intro {
+  padding: 86px 0 72px;
+}
+
+.intro-grid,
+.section-heading,
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, .78fr) minmax(0, 1.22fr);
+  gap: 76px;
+}
+
+h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(30px, 3.3vw, 42px);
+  font-weight: 750;
+  letter-spacing: -.025em;
+  line-height: 1.28;
+}
+
+.intro-copy p {
+  margin: 0 0 16px;
+  font-size: 17px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 54px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.stats div {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 25px 22px;
+  border-right: 1px solid var(--line);
+}
+
+.stats div:last-child {
+  border-right: 0;
+}
+
+.stats strong {
+  color: var(--blue);
+  font-size: 31px;
+  line-height: 1;
+}
+
+.stats span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.section {
+  padding: 92px 0;
+}
+
+.section-muted {
+  background: var(--white);
+}
+
+.section-heading {
+  align-items: end;
+  margin-bottom: 46px;
+}
+
+.section-heading > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.research-card {
+  position: relative;
+  min-height: 235px;
+  padding: 34px 34px 30px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--white);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.research-card:hover {
+  border-color: #b9cee0;
+  box-shadow: 0 14px 38px rgba(26, 60, 91, .08);
+  transform: translateY(-3px);
+}
+
+.research-card > span {
+  position: absolute;
+  top: 18px;
+  right: 25px;
+  color: #dbe7f0;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.research-card h3,
+.achievement-grid h3 {
+  position: relative;
+  margin: 30px 0 10px;
+  color: var(--ink);
+  font-size: 21px;
+}
+
+.research-card p,
+.achievement-grid p {
+  position: relative;
+  margin: 0;
+  color: var(--muted);
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-bottom: 72px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--line);
+}
+
+.achievement-grid article {
+  min-height: 255px;
+  padding: 34px 28px;
+  background: var(--white);
+}
+
+.achievement-grid strong {
+  color: var(--blue);
+  font-size: 38px;
+}
+
+.achievement-grid h3 {
+  margin-top: 30px;
+}
+
+.achievement-subnav {
+  max-width: 100%;
+  margin-bottom: 42px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.achievement-subnav::-webkit-scrollbar {
+  display: none;
+}
+
+.achievement-subnav button {
+  flex: 0 0 auto;
+}
+
+.achievement-publications {
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+.publication-block {
+  margin-bottom: 68px;
+  scroll-margin-top: 150px;
+}
+
+.publication-block:last-child {
+  margin-bottom: 18px;
+}
+
+.publication-block h2 {
+  position: relative;
+  margin: 0 0 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 28px;
+  line-height: 1.3;
+}
+
+.publication-block h2::after {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 58px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--blue);
+  content: "";
+}
+
+.publication-heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.publication-heading-row h2 {
+  flex: 0 0 auto;
+}
+
+.publication-heading-row > a {
+  margin-bottom: 24px;
+  color: var(--blue);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.publication-year {
+  margin: 26px 0 10px 28px;
+  color: var(--ink);
+  font-size: 21px;
+}
+
+.publication-list {
+  margin: 0 0 15px;
+  padding-left: 28px;
+}
+
+.publication-list-by-year,
+#achievement-patents .publication-list {
+  margin-left: 28px;
+}
+
+.publication-list li {
+  margin-bottom: 16px;
+  padding-left: 2px;
+}
+
+.publication-list li::marker {
+  color: #4b5563;
+}
+
+.publication-title,
+.publication-meta {
+  display: block;
+}
+
+.publication-title {
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.publication-meta {
+  margin-top: 2px;
+  color: #111827;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.paper-link {
+  color: var(--blue);
+  font-weight: 650;
+}
+
+.section-dark {
+  color: var(--text);
+  background: var(--white);
+}
+
+.section-dark .section-kicker {
+  color: #90bbdc;
+}
+
+.section-dark h2 {
+  color: var(--white);
+}
+
+.team-layout,
+.education-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(350px, .9fr);
+  gap: 86px;
+  align-items: center;
+}
+
+.team-layout > div:first-child > p:not(.section-kicker) {
+  margin: 25px 0 0;
+  color: #c4d2de;
+  font-size: 17px;
+}
+
+.text-link {
+  display: inline-flex;
+  gap: 10px;
+  margin-top: 28px;
+  color: #9bc4e3;
+  font-weight: 700;
+}
+
+.text-link span {
+  transition: transform .2s ease;
+}
+
+.text-link:hover span {
+  transform: translateX(5px);
+}
+
+.team-panel {
+  padding: 33px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(255, 255, 255, .055);
+}
+
+.team-panel > p {
+  margin: 0 0 15px;
+  color: #8eb4d1;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.team-panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.team-panel li {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+.team-panel li:last-child {
+  border-bottom: 0;
+}
+
+.team-panel span {
+  color: #9cb4c7;
+}
+
+.team-panel strong {
+  color: var(--white);
+  font-weight: 650;
+}
+
+.education-layout {
+  align-items: start;
+}
+
+.education-layout > div:first-child > p:not(.section-kicker) {
+  margin: 24px 0 0;
+  color: var(--muted);
+}
+
+.education-list article {
+  display: grid;
+  grid-template-columns: 95px 1fr;
+  gap: 20px;
+  padding: 19px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.education-list article:first-child {
+  padding-top: 4px;
+}
+
+.education-list span {
+  color: var(--blue);
+  font-weight: 750;
+}
+
+.education-list p {
+  margin: 0;
+}
+
+.contact {
+  padding: 75px 0;
+  border-top: 1px solid var(--line);
+  background: var(--white);
+}
+
+.contact-layout {
+  align-items: end;
+}
+
+.contact-details p {
+  display: grid;
+  grid-template-columns: 65px 1fr;
+  gap: 14px;
+  margin: 10px 0;
+}
+
+.contact-details span {
+  color: var(--muted);
+}
+
+.contact-details strong {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.contact-page {
+  width: min(100%, 900px);
+  margin: 0 auto;
+  color: #334155;
+}
+
+.contact-title {
+  position: relative;
+  margin: 0 0 20px;
+  padding: 0 0 18px 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+.contact-title::before {
+  position: absolute;
+  top: .18em;
+  bottom: calc(.18em + 18px);
+  left: 0;
+  width: 4px;
+  border-radius: 3px;
+  background: var(--blue);
+  content: "";
+}
+
+.contact-list {
+  margin: 0;
+}
+
+.contact-item {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  padding: 8px 2px;
+}
+
+.contact-item dt {
+  color: var(--ink);
+  font-weight: 750;
+  text-align: center;
+}
+
+.contact-item dd {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.contact-item a {
+  color: var(--blue);
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: rgba(30, 90, 150, .28);
+  text-underline-offset: 4px;
+}
+
+.contact-recruitment {
+  margin-top: 62px;
+}
+
+.contact-recruitment p {
+  margin: 0;
+  color: #334155;
+  font-size: 18px;
+  line-height: 1.95;
+}
+
+.site-footer {
+  padding: 25px 0;
+  color: #8a929b;
+  border-top: 1px solid var(--line);
+  background: var(--white);
+  font-size: 13px;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .site-brand {
+    flex-basis: 52px;
+    width: 52px;
+    height: 52px;
+    padding: 6px 0;
+    border-radius: 0;
+  }
+
+  .site-brand-logo {
+    width: 178px;
+  }
+
+  .nav-links a {
+    padding-right: 9px;
+    padding-left: 9px;
+    font-size: 14px;
+  }
+
+  .language-switch {
+    margin-left: 10px;
+  }
+
+  .achievement-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 64px;
+  }
+
+  .content-page {
+    padding-top: 46px;
+  }
+
+  .section-shell {
+    width: min(100% - 30px, 1160px);
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    width: min(100% - 28px, 1240px);
+    min-height: 62px;
+  }
+
+  .site-brand {
+    margin-right: auto;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+    margin-left: auto;
+    padding: 6px 10px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    color: var(--ink);
+    background: var(--white);
+    font: inherit;
+  }
+
+  .language-switch {
+    margin-left: 12px;
+  }
+
+  .nav-links {
+    display: none;
+    order: 3;
+    width: 100%;
+    padding: 8px 0 14px;
+    border-top: 1px solid var(--line);
+  }
+
+  .nav-links.is-open {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-links a {
+    padding: 9px 3px;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 18px;
+  }
+
+  .hero-frame {
+    min-height: auto;
+    padding: 52px 25px 46px;
+    border-radius: 0;
+  }
+
+  .hero-content {
+    padding: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 10vw, 46px);
+  }
+
+  .hero-lead {
+    font-size: 16.5px;
+  }
+
+  .hero-backdrop {
+    right: -45px;
+    bottom: 8%;
+    opacity: .5;
+  }
+
+  .hero-keywords {
+    gap: 7px;
+  }
+
+  .hero-actions {
+    gap: 9px;
+  }
+
+  .button {
+    min-height: 41px;
+    padding: 0 14px;
+    font-size: 13.5px;
+  }
+
+  .home-news {
+    padding: 58px 0 72px;
+  }
+
+  .news-item {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 23px 0;
+  }
+
+  .news-meta time,
+  .news-meta span {
+    display: inline;
+  }
+
+  .news-meta span::before {
+    margin: 0 7px;
+    content: "·";
+  }
+
+  .intro-grid,
+  .section-heading,
+  .contact-layout,
+  .team-layout,
+  .education-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .stats div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section,
+  .team-intro {
+    padding: 68px 0;
+  }
+
+  .research-grid,
+  .achievement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 17px 0;
+  }
+
+  .contact-recruitment {
+    margin-top: 48px;
+  }
+
+  .contact-recruitment p {
+    font-size: 16.5px;
+  }
+
+  .education-subnav {
+    top: 72px;
+    margin-bottom: 34px;
+  }
+
+  .education-subnav button {
+    padding: 7px 14px;
+  }
+
+  .student-list {
+    grid-template-columns: 1fr;
+    padding-left: 22px !important;
+  }
+
+  .recruitment-section > .education-section-title {
+    font-size: 27px !important;
+  }
+
+  .recruitment-section > h2:not(.education-section-title) {
+    margin-top: 52px;
+    font-size: 21px;
+  }
+
+  .recruitment-section > h3 {
+    font-size: 17px;
+  }
+
+  .research-intro {
+    margin-bottom: 24px;
+    padding: 0;
+    font-size: 16px;
+  }
+
+  .research-topic-card summary {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 12px;
+    padding: 20px 18px;
+  }
+
+  .research-topic-number {
+    font-size: 21px;
+  }
+
+  .research-topic-copy strong {
+    font-size: 18px;
+  }
+
+  .research-topic-action {
+    grid-column: 2;
+    width: max-content;
+    margin-top: 2px;
+  }
+
+  .research-topic-detail {
+    padding: 24px 18px 28px;
+  }
+
+  .research-collapse-button {
+    right: 16px;
+    bottom: 18px;
+    padding: 9px 14px;
+  }
+
+  .research-figure {
+    margin-top: 28px;
+    padding: 8px;
+  }
+
+  .research-card,
+  .achievement-grid article {
+    min-height: auto;
+  }
+
+  .team-panel {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 430px) {
+  .stats div {
+    display: block;
+  }
+
+  .stats span {
+    display: block;
+    margin-top: 8px;
+  }
+
+  .team-panel li,
+  .education-list article {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="主导航">
+      <a class="site-brand" href="#home" data-page-link="home" aria-label="返回首页">
+        <img class="site-brand-logo" src="image/logo.png" alt="杭州北航国际创新研究院（学院）">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">菜单</button>
+      <div class="nav-links" id="primary-nav">
+        <a class="is-active" href="#home" data-page-link="home">首页</a>
+        <a href="#team" data-page-link="team">实验室简介</a>
+        <a href="#research" data-page-link="research">研究领域</a>
+        <a href="#achievements" data-page-link="achievements">科研成果</a>
+        <a href="#education" data-page-link="education">人才培养</a>
+        <a href="#contact" data-page-link="contact">联系我们</a>
+      </div>
+      <div class="language-switch" aria-label="语言选择">
+        <a class="is-active" href="index.html" lang="zh-CN">中文</a>
+        <span>/</span>
+        <a href="?lang=en" lang="en">English</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-panel is-active" id="home" data-page="home">
+      <section class="hero">
+        <div class="section-shell">
+          <div class="hero-frame">
+            <div class="hero-backdrop" aria-hidden="true"></div>
+            <div class="hero-content">
+              <p class="eyebrow">HU YANG RESEARCH GROUP · BEIHANG UNIVERSITY</p>
+              <h1>面向复杂工程系统的<br>智能运维与健康管理</h1>
+              <p class="hero-lead">聚焦故障预测与健康管理（PHM）、数字孪生、智能运维及复杂系统韧性可靠性，融合人工智能、建模仿真与工程数据，推动前沿方法从理论研究走向工程应用。</p>
+              <ul class="hero-keywords" aria-label="核心研究关键词">
+                <li>PHM</li>
+                <li>ARTIFICIAL INTELLIGENCE</li>
+                <li>DIGITAL TWIN</li>
+                <li>SYSTEM RESILIENCE</li>
+              </ul>
+              <div class="hero-actions">
+                <a class="button button-primary" href="#research" data-page-link="research">研究领域 <span>→</span></a>
+                <a class="button button-secondary" href="#team" data-page-link="team">实验室简介 <span>→</span></a>
+                <a class="button button-secondary" href="#achievements" data-page-link="achievements">科研成果 <span>→</span></a>
+                <a class="button button-secondary" href="#education" data-page-link="education">人才培养 <span>→</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-news" aria-labelledby="home-news-title">
+        <div class="section-shell">
+          <header class="home-news-heading">
+            <p>NEWS</p>
+            <h2 id="home-news-title">动态资讯</h2>
+          </header>
+          <div class="news-list">
+            <article class="news-item">
+              <div class="news-meta">
+                <time datetime="2026-07-19">2026.07.19–21</time>
+                <span>北航杭州国际校园</span>
+              </div>
+              <div class="news-copy">
+                <h3>可靠性工程 × 可持续未来 ICRE 2026重磅来袭</h3>
+                <p>第10届可靠性工程国际会议将在杭州举办，聚焦“面向可持续未来的可靠性工程：从经典可靠性到智能韧性系统”。</p>
+              </div>
+              <a class="news-link" href="https://h3i.buaa.edu.cn/info/1708/4581.htm" target="_blank" rel="noopener">[Link]</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="page-panel content-page" id="team" data-page="team">
+      <div class="page-shell">
+        <article class="prose lab-introduction">
+          <h2>中意健康管理与智能维修联合实验室</h2>
+          <p>中意健康管理与智能维修联合实验室由北航康锐教授与米兰理工大学Enrico Zio教授共同创建，由胡杨副研究员担任执行主任。实验室以“虚实融合、智能驱动、体系赋能”为总体理念，聚焦复杂工程系统的故障预测与健康管理（PHM）、建模仿真、智慧运维、多模态大模型等研究，形成贯通“模型—算法—仿真—验证—应用”的完整研究链路，为航空航天、能源交通、生产制造等系统的PHM与智慧运维提供多学科交叉研究实验的平台。现有教授2人，副研究员2人，副教授1人，博士后3人，研究生13人。</p>
+          <figure class="lab-figure">
+            <img src="image/中意健康管理与智能维修联合实验室照片1.png" alt="中意健康管理与智能维修联合实验室虚实融合实验平台" loading="lazy">
+          </figure>
+          <p>实验室由<strong>四大核心模块</strong>构成，构成PHM与智慧运维虚实一体化的实验环境：</p>
+          <ol class="lab-module-list">
+            <li><strong>PHM仿真系统：</strong>可模拟空客A320与波音737两型飞机的12个关键子系统、300余项关键飞行参数，支持LRU、设备、分系统层级故障注入、飞行环境建模与数据生成，用于PHM算法和运维策略验证。</li>
+            <li><strong>物理故障实验平台：</strong>可模拟机载齿轮箱、轴承、机电、泵机等部件或设备的典型故障模式，配备动态扭矩传感器（精度0.01 Nm）与液压加载装置（最大载荷50 kN），可实现退化机理与故障演化实验。</li>
+            <li><strong>虚拟故障实验平台：</strong>包括故障逻辑数据库、传感器虚拟注入模块与机载软总线模拟器，模拟机载设备在正常与典型故障状态下的运行数据，经软总线处理后可实时传入PHM仿真系统，实现从信号异常到系统级失效的多层级模拟。</li>
+            <li><strong>高性能计算平台：</strong>配置128核CPU、1 TB内存及多张NVIDIA A100的GPU集群，支持多模态大模型的预训练、微调与推理，为智能诊断、强化学习决策与数字孪生推演提供算力保障。</li>
+          </ol>
+          <figure class="lab-figure">
+            <img src="image/中意健康管理与智能维修联合实验室照片2.png" alt="中意健康管理与智能维修联合实验室四大核心模块" loading="lazy">
+          </figure>
+          <p>依托虚拟—物理一体化设计，实验室可开展三类典型实验模式：</p>
+          <ul class="lab-mode-list">
+            <li><strong>机理研究实验：</strong>基于系统真实运行和性能退化数据，研究关键部件的失效机制和寿命预测规律；</li>
+            <li><strong>虚实一体化实验：</strong>将模拟故障数据与真实数据相融合，依托数字孪生与仿真系统验证PHM算法的鲁棒性与泛化能力；</li>
+            <li><strong>集群运维实验：</strong>结合机群仿真平台，将PHM融入维修决策、任务调度与保障资源的策略优化研究，评估不同策略下系统的综合运维效能。</li>
+          </ul>
+          <p>目前，实验室已与浙江长龙航空维修工程有限公司建立长期合作关系，获取了10年以上、超过15万架次A320机队飞行参数数据及2000余项真实维修工单；并与中国航空工业、中国船舶、华为2012实验室、工信部电子信息五所等单位共同开展系统PHM与智慧运维研究。同时，实验室与北航杭州国际创新研究院智慧民航科创中心的中法达索卓越教育中心、可靠性数字孪生实验室、机群运行与维修仿真实验室共享资源，实现复杂工程系统的设计—建模—仿真—验证全流程协同。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-panel content-page home-research" id="research" data-page="research">
+      <div class="page-shell">
+        <article class="prose">
+          <div class="research-intro">
+            <p><strong>中意健康管理与智能维修联合实验室</strong>以复杂工程系统的健康预测、数字孪生与系统韧性为核心研究主线，面向航空航天、能源交通、智能制造等领域的高端工程系统，构建<strong>“多模态智能认知—虚实融合建模—系统可靠保障”</strong>的研究体系。<span class="research-intro-lead">实验室重点开展：</span></p>
+          </div>
+
+          <div class="research-topic-list">
+            <details class="research-topic-card">
+              <summary>
+                <span class="research-topic-number">01</span>
+                <span class="research-topic-copy">
+                  <strong>多模态大模型与智能PHM算法研究</strong>
+                  <small>融合AI与机理模型，实现复杂系统健康状态的预测与诊断</small>
+                </span>
+                <span class="research-topic-action"><span class="research-topic-action-open">查看详情</span><span class="research-topic-action-close">收起详情</span></span>
+              </summary>
+              <div class="research-topic-detail">
+                <div class="research-topic-detail-inner">
+                <p>本研究方向以多模态大模型为核心，面向复杂工程系统PHM，构建从多源数据处理到模型训练与效能验证的完整技术体系。通过融合传感信号、运行参数、维修记录、环境条件等多维信息，探索PHM任务的认知建模与智能优化方法，为航空航天、能源、交通等领域的高可靠工程系统提供新一代健康管理解决方案。研究内容包括：</p>
+                <p><strong>（1）PHM多模态数据处理：</strong>研究异构数据的清洗、对齐与表征学习方法，构建多源数据标准化流程与高效表示框架，实现不同模态（结构、时序、图像、文本）数据的统一表达与动态融合。</p>
+                <p><strong>（2）PHM多模态大模型综合建模：</strong>构建面向PHM任务的多模态认知大模型，形成由数字孪生模块（物理约束）、知识增强模块（领域知识与专家经验）及二者间的动态融合机制组成的综合建模框架，实现机理与数据的深度协同。</p>
+                <p><strong>（3）多智能体协同的PHM大模型训练方法：</strong>基于多智能体强化学习（Multi-Agent Reinforcement Learning, MARL）和协同优化技术，研究多任务、多场景、多设备的联合训练策略，实现模型在复杂系统下的分布式感知与协同决策能力。</p>
+                <p><strong>（4）PHM多模态大模型虚实融合验证：</strong>通过将仿真生成数据与真实运行数据进行融合验证，在不同任务场景、故障剖面和运行条件下评估模型的鲁棒性、泛化性与工程可用度，构建可持续迭代的PHM智能模型验证体系。</p>
+                <p>该方向的目标是形成“数据驱动 + 机理约束 + 知识增强 + 智能协同 + 虚实验证”的多模态PHM研究框架，实现复杂工程系统的全生命周期预测性维护与自主智能保障。</p>
+                <figure class="research-figure">
+                  <img src="image/多模态大模型与PHM智能算法研究.png" alt="多模态大模型与PHM智能算法研究框架图" loading="lazy">
+                </figure>
+                </div>
+              </div>
+            </details>
+
+            <details class="research-topic-card">
+              <summary>
+                <span class="research-topic-number">02</span>
+                <span class="research-topic-copy">
+                  <strong>数字孪生建模与智慧运维决策优化</strong>
+                  <small>通过虚实一体化仿真实现工程系统运行与保障的智能决策</small>
+                </span>
+                <span class="research-topic-action"><span class="research-topic-action-open">查看详情</span><span class="research-topic-action-close">收起详情</span></span>
+              </summary>
+              <div class="research-topic-detail">
+                <div class="research-topic-detail-inner">
+                <p>本研究方向以数字孪生技术（Digital Twin, DT）为核心，研究复杂工程系统从需求、功能到物理层的全生命周期建模与虚实协同运行机制。通过模型驱动系统工程（MBSE）、多物理场仿真与数据驱动优化算法相结合，构建工程系统运行状态的实时映射与预测性决策框架，支撑高可靠、高效率的智能运维体系。主要研究内容包括：</p>
+                <p><strong>（1）数字孪生体系结构与多层级建模方法：</strong>研究复杂系统的多层级数字孪生体系，包括任务层、系统层、设备层与部件层建模。建立从“需求—功能—逻辑—物理—行为”的映射链路，实现虚实协同与多尺度关联建模。</p>
+                <p><strong>（2）多物理场建模与运行行为仿真：</strong>构建涵盖结构力学、热学、电气与流体等多物理场耦合仿真模型，研究工程系统在真实任务与极端环境下的动态响应与退化规律，为状态监测与寿命预测提供机理支撑。</p>
+                <p><strong>（3）基于数字孪生的系统运行状态评估与预测：</strong>研究数字孪生模型与实时传感数据的融合算法，实现对工程系统健康状态、任务性能与潜在故障风险的动态评估与前瞻预测。</p>
+                <p><strong>（4）智慧运维与决策优化算法：</strong>结合强化学习、多目标优化与演化计算方法，构建基于数字孪生反馈的运维决策模型，研究维修计划优化、任务调度、资源配置与应急恢复策略，实现运维效能与成本的最优平衡。</p>
+                <p><strong>（5）虚实闭环验证与智能仿真平台开发：</strong>构建虚实一体化实验验证平台，实现算法、模型与系统策略的闭环验证。开发基于AnyLogic、Modelica、Python的可扩展智能仿真系统，实现从仿真验证到工程部署的全链路支撑。</p>
+                <p>该方向形成了从“模型构建—仿真验证—智能决策—闭环优化”的一体化研究链路，为高端工程系统的可用度提升和全寿命周期管理提供系统解决方案。</p>
+                <figure class="research-figure">
+                  <img src="image/数字孪生建模与智慧运维决策优化.png" alt="数字孪生建模与智慧运维决策优化框架图" loading="lazy">
+                </figure>
+                </div>
+              </div>
+            </details>
+
+            <details class="research-topic-card">
+              <summary>
+                <span class="research-topic-number">03</span>
+                <span class="research-topic-copy">
+                  <strong>复杂系统韧性与确信可靠性分析</strong>
+                  <small>揭示系统结构演化规律，量化系统抗扰与恢复能力</small>
+                </span>
+                <span class="research-topic-action"><span class="research-topic-action-open">查看详情</span><span class="research-topic-action-close">收起详情</span></span>
+              </summary>
+              <div class="research-topic-detail">
+                <div class="research-topic-detail-inner">
+                <p>本研究方向面向航空航天、能源交通及智能制造等典型复杂工程体系，研究系统韧性（Resilience）与确信可靠性（Belief Reliability）的理论框架与工程化分析方法。通过融合复杂网络建模、人工智能分析与数字孪生仿真技术，揭示系统在多扰动、多耦合、多不确定条件下的结构脆弱性与动态演化规律，为高复杂度工程系统提供可量化的安全性与可靠性评估手段。研究内容包括：</p>
+                <p><strong>（1）复杂网络建模与系统耦合分析：</strong>研究复杂系统的结构特征、耦合关系与动态演化规律，构建多层、多域、多尺度的复杂系统网络模型。开展全关联超网络（OmniLink HyperNetwork, OHN）框架设计与动态构建方法研究，实现多实体、多关系、多时间尺度下的高维系统交互建模； 在此基础上，提出结构秩序熵（Structural Order Entropy）的定义与计算方法，用于度量系统结构复杂性与有序度变化，为系统稳健性与演化趋势提供数学刻画。</p>
+                <p><strong>（2）确信可靠性理论与不确定性量化：</strong>发展基于确信理论的系统可靠性建模方法，融合贝叶斯推断、证据理论与模糊逻辑，实现多源不确定信息的综合表达、更新与动态评估。</p>
+                <p><strong>（3）系统韧性评估与指标体系构建：</strong>研究系统在扰动、故障与外部冲击下的恢复能力与稳健性特征，建立韧性量化指标、演化模型与评价体系，为系统可恢复性与任务连续性分析提供支撑。</p>
+                <p><strong>（4）韧性增强与结构优化策略：</strong>面向高风险场景，设计自适应控制与结构重构方法，提出冗余配置与动态恢复决策策略，实现系统层级的韧性提升与风险主动防御。</p>
+                <p>该方向致力于建立融合网络科学、信息熵理论与AI建模的新型系统可靠性研究范式，支撑国家关键工程系统和基础设施的智能安全管理、抗扰性设计与任务持续能力提升。</p>
+                <figure class="research-figure">
+                  <img src="image/复杂系统韧性与确信可靠性分析.png" alt="复杂系统韧性与确信可靠性分析框架图" loading="lazy">
+                </figure>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <p class="research-outro">三个方向相互支撑，共同构成实验室<strong>“智能—仿真—保障”</strong>一体化创新体系，为未来高可靠、高智能、高韧性的工程系统提供理论基础与技术支撑。</p>
+        </article>
+        <button class="research-collapse-button" id="research-collapse-button" type="button" aria-hidden="true" tabindex="-1">
+          <span aria-hidden="true">↑</span>收起详情
+        </button>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="achievements" data-page="achievements">
+      <div class="section-shell">
+        <nav class="education-subnav achievement-subnav" aria-label="科研成果页面导航">
+          <button class="is-active" type="button" data-achievement-target="achievement-journals">期刊论文</button>
+          <button type="button" data-achievement-target="achievement-conferences">会议及其他</button>
+          <button type="button" data-achievement-target="achievement-books">专著</button>
+          <button type="button" data-achievement-target="achievement-patents">专利与软著</button>
+        </nav>
+        <div class="achievement-grid">
+          <article>
+            <strong id="achievement-journal-count">—</strong>
+            <h3>学术论文</h3>
+            <p>发表于可靠性、机械系统、人工智能等领域国际期刊。</p>
+          </article>
+          <article>
+            <strong>18</strong>
+            <h3>科研项目</h3>
+            <p>主持或联合主持国家级、省部级及重大工程科研项目。</p>
+          </article>
+          <article>
+            <strong>2</strong>
+            <h3>学术专著</h3>
+            <p>聚焦装备故障预测、健康管理与全寿命周期工程实践。</p>
+          </article>
+          <article>
+            <strong>1600+</strong>
+            <h3>论文总被引</h3>
+            <p>h-index 16、i10-index 21</p>
+          </article>
+        </div>
+
+        <div class="achievement-publications" aria-live="polite">
+          <section class="publication-block" id="achievement-journals"><p role="status">正在加载科研成果…</p></section>
+          <section class="publication-block" id="achievement-conferences"><p role="status">正在加载科研成果…</p></section>
+          <section class="publication-block" id="achievement-books"><p role="status">正在加载科研成果…</p></section>
+          <section class="publication-block" id="achievement-patents"><p role="status">正在加载科研成果…</p></section>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="education" data-page="education">
+      <div class="page-shell">
+        <nav class="education-subnav" aria-label="人才培养页面导航">
+          <button class="is-active" type="button" data-education-target="education-students">学生培养</button>
+          <button type="button" data-education-target="education-recruitment">招生说明</button>
+        </nav>
+        <article class="prose recruitment-content">
+          <section class="education-feature" id="education-students">
+            <h2 class="education-section-title">学生培养</h2>
+            <p class="student-summary">作为责任导师，指导专业型硕士、双学位硕士及留学生硕士；作为合作导师，联合指导课题组博士研究生与博士后多名，协助完成学术论文写作与算法框架设计等工作。</p>
+            <h3 class="student-subheading">在读 / 指导研究生（部分）</h3>
+            <ul class="student-list">
+              <li>刘东灿（博士，控制科学与工程，杭州国际创新研究院）</li>
+              <li>陈昕航（专业型硕士，电子信息）</li>
+              <li>邓畯（专业型硕士，电子信息）</li>
+              <li>李婧（专业型硕士，电子信息）</li>
+              <li>黄坤隆（专业型硕士，人工智能/电子信息）</li>
+              <li>吴妍妍（专业型硕士，人工智能/电子信息）</li>
+              <li>齐永鹏（专业型硕士，交通运输）</li>
+              <li>张琳涵（专业型硕士，机械）</li>
+              <li>魏芷寰（专业型硕士，机械）</li>
+              <li>彼得（留学生硕士）</li>
+              <li>美也喆（留学生硕士）</li>
+            </ul>
+          </section>
+
+          <section class="recruitment-section" id="education-recruitment">
+          <h2 class="education-section-title">招生说明</h2>
+          <h2>一、课题组基本情况介绍</h2>
+          <p>胡杨课题组隶属于杭州市北京航空航天大学国际创新研究院（北京航空航天大学国际创新学院）智慧民航科创中心，是一支年轻、活跃、富有创新力的科研团队。课题组现有固定研究人员包括副研究员2人、副教授1人、博士后3人，以及在读硕士、博士研究生10余人，形成“导师引领—骨干支撑—梯队协作”的高效科研组织架构。</p>
+          <p>课题组围绕国家重大战略需求，特别是新一代航空、航天、舰船、智能制造等高端工程系统的智能化运维、数字孪生建模、韧性可靠性分析等核心问题，开展基础理论研究与关键技术攻关。课题组拥有高性能计算集群、工业物联网数据采集平台、故障预测与健康管理（PHM）仿真验证系统、数字孪生建模环境（支持SysML、Modelica、AnyLogic等工具）、复杂网络分析平台等软硬件设施，与浙江大学、香港城市大学、意大利米兰理工大学、巴黎萨克雷大学等国内外高校保持密切学术联系，并与航空工业集团、中国航发、中国航天科技集团、中国商飞有限公司、工信部电子信息五所、华为2012实验室、长龙航空、金鹏航空等单位共同开展科研项目、共建联合实验室等合作，确保科研工作“顶天立地”——既有理论高度，又有工程落地能力。</p>
+          <p>课题组所在科研平台——“智慧民航科创中心”，由杭州市北京航空航天大学国际创新研究院牵头组建，联合法国国立民航大学（ENAC），是面向国家民航数智化转型战略需求的重要科教协同创新平台。中心聚焦飞机、发动机及机载系统在适航、运维、空管、机场运行等全生命周期环节的智能化升级，构建覆盖“感知—建模—决策—优化”闭环的数智化技术体系，为民航安全、高效、韧性运行提供坚实科研支撑。</p>
+          <p>中心下设多个功能完备、设备先进的专业实验室，为本课题组在故障预测与健康管理（PHM）、数字孪生、智能运维等方向的研究提供强有力的硬件保障与实验环境：</p>
+
+          <h3>1）智能健康管理虚实一体化实验室</h3>
+          <p>该实验室是支撑民机PHM大模型研究的核心平台，集成物理实验与虚拟仿真双重能力，支持从部件级退化机理研究到整机级PHM系统验证的全链条实验。平台配备空客A320/波音737全机仿真系统（覆盖12个子系统、300+参数、毫秒级故障注入）、高精度机械故障实验台（50kN液压加载、0.01Nm扭矩传感），以及专用算法开发环境——搭载128核CPU、1TB内存、2×NVIDIA A100 GPU的高性能计算集群，全面支持多模态大模型的训练、微调与推理任务。</p>
+          <h3>2）中法达索卓越教育中心</h3>
+          <p>依托达索系统3DEXPERIENCE平台（R2024x），构建覆盖飞机全生命周期的MBSE协同研发环境。平台集成CATIA（参数化建模）、SIMULIA（多物理场仿真）、DELMIA（维修流程优化）、ENOVIA（数据协同管理）等工业级软件模块，并配备Abaqus、Simpack、Isight、Magic MBSE等专业工具，支持高保真数字孪生建模、多学科优化与系统架构分析，为课题研究提供国际标准的工程化建模能力。</p>
+          <h3>3）可靠性数字孪生实验室 &amp; 机群运行与维修仿真实验室</h3>
+          <p>前者配备高低温老化试验箱（-70℃~+200℃）、半导体热阻测试仪、自动化数据采集系统（LabVIEW/MATLAB），支持关键部件失效机理建模与可靠性验证；后者部署AnyLogic仿真平台、AR沙盘交互系统、动态调度优化引擎，可模拟千架次规模机队在PHM支持下的维修资源分配与运行效能评估，实现从单机健康管理到机群智能运维的闭环验证。</p>
+          <p>平台已与意大利米兰理工大学共建“中意健康管理与智能维修联合实验室”，由国际PHM权威Enrico Zio教授与北航康锐教授共同领衔，定期开展国际联合培养、学术研讨与课程共建。同时，合作单位提供15万架次飞行数据、2000+真实故障工单及1000+册技术手册，确保研究数据真实、场景典型、成果可落地。</p>
+          <p>本平台软硬件设施完备、数据资源丰富、国际合作深入，可全面支撑硕士研究生开展高水平、工程化、国际化科研工作，无需依赖外部资源，保障研究高效推进与成果高质量产出。</p>
+          <p>课题组学术氛围浓厚，实行“不定期例会+个人周报+专题研讨+项目驱动”相结合的培养机制，鼓励学生参与国家级项目、国际会议、企业联合攻关，注重培养学生的系统思维、工程能力、学术表达与团队协作能力。研究生人均参与1-2项国家/省部级课题，人均发表SCI/EI论文1-2篇，部分优秀学生在硕士期间即参与国家重大专项课题研究，承担关键技术研发并在重要里程碑节点进行汇报。</p>
+
+          <h2>二、主要招生研究方向详解</h2>
+          <p>课题组以复杂工程系统的健康预测、数字孪生与系统韧性为核心研究主线，面向航空航天、能源交通、智能制造等领域的高端工程系统，构建“多模态智能认知—虚实融合建模—系统可靠运维”的研究体系。重点开展以下三个方面的研究（详见研究领域页面）：</p>
+          <p>（1）多模态大模型与智能PHM算法研究，融合AI与机理模型，实现复杂系统健康状态的预测与诊断；典型应用场景包括飞机、高铁、船舶、数控机床、风电、卫星电系统等。学生将掌握PHM领域主流算法（如CNN用于图像故障识别、RNN/LSTM用于时序退化建模、Transformer用于长序列依赖建模），并有机会参与国家重点型号工程系统的PHM系统设计与验证。</p>
+          <p>（2）数字孪生建模与智慧运维决策优化，通过虚实一体化仿真实现工程系统运行与保障的智能决策；该方向强调系统工程思维与仿真建模能力，适合对复杂系统建模、仿真优化、智能决策感兴趣的同学。课题组已构建航空保障系统、海上平台工程系统等多个数字孪生原型系统，学生可深度参与实际项目开发。</p>
+          <p>（3）复杂系统韧性与确信可靠性分析，揭示系统结构演化规律，量化系统抗扰与恢复能力；该方向理论性较强，适合数学基础扎实、对复杂系统动力学、网络科学、风险决策感兴趣的同学。研究成果可应用于航空航天体系、电力网络、城市基础设施等关键领域。</p>
+          <p>三大方向相互支撑，共同构成实验室“智能—仿真—保障”一体化创新体系，为未来高可靠、高智能、高韧性的工程系统提供理论基础与技术支撑。</p>
+          <p>欢迎计算机科学、自动化、人工智能、机械工程、航空航天工程、系统工程、应用数学等相关专业背景的学生报考。各方向均强调“问题导向、模型驱动、算法创新、系统实现”的研究范式，鼓励跨学科融合。</p>
+
+          <h2>三、对学生的基本要求与优先条件</h2>
+          <p>为确保研究生培养质量与科研项目顺利推进，课题组对学生提出以下基本要求：</p>
+          <h3>专业背景要求：</h3>
+          <ul>
+            <li>优先招收计算机科学与技术、人工智能、自动化、控制科学与工程、机械工程、航空航天、系统工程、应用数学等相关专业本科生/硕士生；</li>
+            <li>具备扎实的数理基础，尤其在线性代数、概率统计、最优化理论、微分方程等方面有良好掌握，原则上相应课程的成绩要达到优秀（90分以上）；</li>
+            <li>系统学习过《机器学习》《深度学习》《数据结构与算法》《信号与系统》《控制系统》等核心课程，成绩优良（原则上这些核心课程分不低于90分）；</li>
+          </ul>
+          <h3>技术能力要求：</h3>
+          <ul>
+            <li>熟练掌握Python、MATLAB、C++等至少一种编程语言；</li>
+            <li>熟悉主流深度学习框架（如PyTorch、TensorFlow），能独立实现CNN、RNN、LSTM、Transformer等神经网络模型；</li>
+            <li>具备一定的数学建模与数据分析能力，能使用Pandas、NumPy、Scikit-learn、Matplotlib等工具进行数据预处理与可视化；</li>
+            <li>了解PHM、数字孪生、强化学习、复杂网络等任一方向的基本概念者优先；</li>
+          </ul>
+          <h3>实践与竞赛经历（优先考虑）：</h3>
+          <ul>
+            <li>参加过全国大学生数学建模竞赛、数学竞赛、“挑战杯”、RoboMaster机甲大师赛、ACM程序设计竞赛、Kaggle数据科学竞赛等，并获得省级以上奖项者优先；</li>
+            <li>有科研项目参与经历、专利申请、论文撰写（即使未发表）经验者优先；</li>
+            <li>获得过国家奖学金、校级一等奖学金、三好学生标兵等荣誉者优先；</li>
+            <li>有企业实习经历（如互联网企业、航天院所、智能制造企业）者优先。</li>
+          </ul>
+          <h3>个人素质要求：</h3>
+          <ul>
+            <li>具备强烈的科研热情与自主学习能力，能承受科研压力，愿意挑战前沿难题；</li>
+            <li>具备良好的团队协作精神与沟通表达能力，能积极参与组会、项目讨论与学术汇报；</li>
+            <li>英语能力良好，能阅读英文文献、撰写英文学术论文，有托福/雅思/GRE成绩者优先；</li>
+            <li>有志于进入航空航天、高端制造、人工智能等国家重点行业就业者优先。</li>
+          </ul>
+
+          <h2>四、研究生培养方案与成果要求</h2>
+          <p>课题组实行“个性化定制+项目驱动+成果导向”的培养模式。入学后，导师将根据学生的专业背景、兴趣方向、职业规划，结合课题组在研项目，量身定制培养计划，确保“人尽其才、才尽其用”。</p>
+          <p><strong>成果要求（根据学生培养方向进行微调）：</strong></p>
+          <ol>
+            <li>以第一作者或导师一作学生二作身份发表高水平论文；</li>
+            <li>申请国家发明专利或软件著作权；</li>
+            <li>独立或主导开发原型系统/仿真平台，并通过验收或演示；</li>
+            <li>在领域相关国际学术会议（如ICML, PHM Society, IEEE Reliability, ESREL等）做口头报告或海报展示；</li>
+            <li>完成不少于3个月的企业或科研院所实习，并提交实习报告与单位评价；</li>
+            <li>获得校级以上科研竞赛奖项或奖学金。</li>
+          </ol>
+          <p>课题组将为每位研究生提供充足的科研经费支持、高性能计算资源、国内外学术交流机会，并积极推荐优秀学生赴海外联合培养或攻读博士学位。对于成果突出者，可优先推荐至合作单位（如航空工业、航天科技、华为、商飞等）就业。</p>
+
+          <h2>五、未来发展前景与职业路径</h2>
+          <p><strong>▶ 学术深造路径：</strong>课题组与多个海外实验室保持合作，支持联合培养与访问交流。优秀硕士/博士可优先获得本校或国内外知名高校（如巴黎萨克雷大学、米兰理工、香港城市大学等，前提是获得CSC奖学金）博士或博士后推荐资格。博士后</p>
+          <p><strong>▶ 就业路径：</strong>毕业生主要去向包括：航空航天院所（如601所、603所、航天一院、五院）、智能制造企业（华为、大疆）、人工智能公司（阿里云、商汤、旷视）、工业软件企业（达索、西门子）、能源电力系统（国家电网、南方电网）等，从事算法工程师、系统架构师、PHM工程师、数字孪生专家、可靠性分析师等岗位。</p>
+          <p><strong>▶ 创业与交叉发展：</strong>课题组鼓励创新思维，支持有创业意向的学生参与科技成果转化，已有毕业生成功创办智能运维、工业AI初创公司。</p>
+
+          <h2>六、申请方式与联系方式</h2>
+          <p>欢迎有志于投身智能系统、人工智能、系统工程前沿研究的同学积极联系！请将以下材料发送至邮箱： <strong>yang_hu@buaa.edu.cn</strong>，<strong>邮件标题格式：</strong>“硕士/博士研究生申请-姓名-本科学校-专业”。</p>
+          <p>博士后请参考 <a href="https://h3i.buaa.edu.cn/info/1141/1391.htm" target="_blank" rel="noopener">https://h3i.buaa.edu.cn/info/1141/1391.htm</a>，北航国新院为博士后提供一流的学术指导、科研条件和薪酬待遇。国新院提供A类博士后32万元年薪、B类博士后28万元年薪（均不含政府补贴），以及15万元的科研启动经费（含政府补贴）。同时，博士后可叠加申请杭州市、余杭区地方政府配套补贴，各项补贴累计金额最高可达219万元（详见杭州市余杭区“海创未来·卓越博士后”腾飞计划、杭州城西科创大走廊创新发展专项资金管理办法等，各类政策按照政府最新规定执行）。</p>
+          <p><strong>所需材料：</strong></p>
+          <ol>
+            <li>个人简历（含教育背景、科研/项目经历、竞赛获奖、技能证书等）；</li>
+            <li>本科/硕士成绩单（扫描件）；</li>
+            <li>代表性成果（如论文、专利、竞赛证书、项目报告等）；</li>
+            <li>个人陈述（500字左右，说明报考动机、研究兴趣、职业规划）；</li>
+            <li>（可选）推荐信1-2封。</li>
+          </ol>
+          <p>我们将对申请材料进行初审，并择优安排线上/线下面试。面试内容包括：基础知识考察、科研潜力评估、英语交流能力、项目设想讨论等。</p>
+          <p class="recruitment-conclusion">胡杨教授课题组是一个充满活力、追求卓越、注重实战的科研集体。我们不仅关注论文与专利，更重视学生综合能力的提升与未来职业的发展。在这里，你将接触到最前沿的科研课题，参与国家重大工程，与优秀的同门并肩作战，收获扎实的科研训练与宝贵的人生经历。</p>
+          <p class="recruitment-invitation">如果你热爱科研、勇于挑战、渴望成长，欢迎加入我们！让我们共同探索智能时代的系统运维新范式，为中国高端工程系统的智能化转型贡献智慧与力量！</p>
+          </section>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="contact" data-page="contact">
+      <div class="page-shell">
+        <article class="contact-page">
+          <h2 class="contact-title">联系方式</h2>
+          <dl class="contact-list">
+            <div class="contact-item">
+              <dt>邮箱</dt>
+              <dd>yang_hu [at] buaa [dot] edu [dot] cn</dd>
+            </div>
+            <div class="contact-item">
+              <dt>地址</dt>
+              <dd>浙江省杭州市余杭区瓶窑镇双红桥街166号 科研1号楼3115</dd>
+            </div>
+          </dl>
+
+          <section class="contact-recruitment">
+            <p>所在团队长期招收硕士、博士生、博士后，欢迎对故障预测与健康管理、智能运维、工业大数据、复杂系统建模仿真等领域感兴趣，想尝试在人工智能时代运用最酷的AI算法探索解决未知难题的同学加入团队。</p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-shell">
+      <p>© 2026 胡杨课题组 · 北航国新院</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/publications.js" defer></script>
+  <script>
+(() => {
+  document.documentElement.classList.add('js-ready');
+  const isEnglish = new URLSearchParams(window.location.search).get('lang') === 'en';
+
+  function configureLanguage() {
+    const currentUrl = new URL(window.location.href);
+    const chineseUrl = new URL(currentUrl);
+    const englishUrl = new URL(currentUrl);
+    chineseUrl.searchParams.delete('lang');
+    englishUrl.searchParams.set('lang', 'en');
+
+    const languageLinks = document.querySelectorAll('.language-switch a');
+    if (languageLinks.length === 2) {
+      languageLinks[0].href = `${chineseUrl.pathname}${chineseUrl.search}${chineseUrl.hash}`;
+      languageLinks[1].href = `${englishUrl.pathname}${englishUrl.search}${englishUrl.hash}`;
+      languageLinks[0].classList.toggle('is-active', !isEnglish);
+      languageLinks[1].classList.toggle('is-active', isEnglish);
+      languageLinks[0].setAttribute('aria-current', isEnglish ? 'false' : 'page');
+      languageLinks[1].setAttribute('aria-current', isEnglish ? 'page' : 'false');
+      languageLinks.forEach((link, index) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const targetUrl = new URL(window.location.href);
+          if (index === 1) targetUrl.searchParams.set('lang', 'en');
+          else targetUrl.searchParams.delete('lang');
+          window.location.assign(
+            `${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`
+          );
+        });
+      });
+    }
+
+    if (!isEnglish) return;
+
+    document.documentElement.lang = 'en';
+    document.title = 'Hu Yang Research Group - Beihang University';
+    document.querySelector('meta[name="description"]')?.setAttribute(
+      'content',
+      'The Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance advances intelligent operations and maintenance, prognostics and health management, digital twins, resilience, and reliability for complex engineering systems.'
+    );
+
+    const setHTML = (selector, html) => {
+      const element = document.querySelector(selector);
+      if (element) element.innerHTML = html;
+    };
+    const setText = (selector, text) => {
+      const element = document.querySelector(selector);
+      if (element) element.textContent = text;
+    };
+
+    document.querySelector('.navbar')?.setAttribute('aria-label', 'Primary navigation');
+    document.querySelector('.site-brand')?.setAttribute('aria-label', 'Return to home');
+    document.querySelector('.site-brand-logo')?.setAttribute('alt', 'Hangzhou International Innovation Institute, Beihang University');
+    document.querySelector('.language-switch')?.setAttribute('aria-label', 'Language selection');
+    document.querySelector('.hero-keywords')?.setAttribute('aria-label', 'Core research keywords');
+    setText('.nav-toggle', 'Menu');
+
+    const navigation = {
+      home: 'Home',
+      team: 'Laboratory',
+      research: 'Research',
+      achievements: 'Outputs',
+      education: 'Education',
+      contact: 'Contact'
+    };
+    document.querySelectorAll('.nav-links [data-page-link]').forEach((link) => {
+      link.textContent = navigation[link.dataset.pageLink] || link.textContent;
+    });
+
+    setHTML('.hero h1', 'Intelligent Operations, Maintenance<br>and Health Management for Complex Engineering Systems');
+    setText(
+      '.hero-lead',
+      'We advance prognostics and health management (PHM), digital twins, intelligent operations and maintenance, and resilience and reliability for complex systems by integrating artificial intelligence, modeling and simulation, and engineering data—translating frontier research into practical engineering solutions.'
+    );
+    document.querySelectorAll('.hero-actions [data-page-link]').forEach((link) => {
+      const arrow = link.querySelector('span')?.outerHTML || '';
+      link.innerHTML = `${navigation[link.dataset.pageLink]} ${arrow}`;
+    });
+    setText('#home-news-title', 'News');
+    setText('.news-meta span', 'Beihang Hangzhou International Campus');
+    setText('.news-copy h3', 'Reliability Engineering × a Sustainable Future: ICRE 2026');
+    setText(
+      '.news-copy p',
+      'The 10th International Conference on Reliability Engineering will be held in Hangzhou under the theme “Reliability Engineering for a Sustainable Future: From Classical Reliability to Intelligent Resilient Systems.”'
+    );
+
+    setHTML('.lab-introduction', `
+      <h2>Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance</h2>
+      <p>The Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance was jointly founded by Professor Rui Kang of Beihang University and Professor Enrico Zio of Politecnico di Milano, with Associate Research Fellow Yang Hu serving as Executive Director. Guided by the principles of cyber-physical integration, intelligence-driven innovation, and system-wide enablement, the laboratory focuses on prognostics and health management (PHM), modeling and simulation, intelligent operations and maintenance, and multimodal foundation models for complex engineering systems. Its end-to-end research chain spans models, algorithms, simulation, validation, and application, providing a multidisciplinary experimental platform for PHM and intelligent maintenance in aerospace, energy and transportation, and manufacturing. The team currently comprises two professors, two associate research fellows, one associate professor, three postdoctoral researchers, and thirteen graduate students.</p>
+      <figure class="lab-figure">
+        <img src="image/中意健康管理与智能维修联合实验室照片1.png" alt="Cyber-physical experimental platform of the Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance" loading="lazy">
+      </figure>
+      <p>The laboratory comprises <strong>four core modules</strong>, together forming an integrated cyber-physical environment for PHM and intelligent maintenance:</p>
+      <ol class="lab-module-list">
+        <li><strong>PHM simulation system:</strong> Simulates twelve critical subsystems and more than 300 key flight parameters for Airbus A320 and Boeing 737 aircraft. It supports fault injection at the LRU, equipment, and subsystem levels, flight-environment modeling, and data generation for validating PHM algorithms and maintenance strategies.</li>
+        <li><strong>Physical fault experimental platform:</strong> Reproduces typical fault modes in airborne gearboxes, bearings, electromechanical units, pumps, and related equipment. A dynamic torque sensor with 0.01 Nm accuracy and a hydraulic loading unit with a maximum load of 50 kN enable experiments on degradation mechanisms and fault evolution.</li>
+        <li><strong>Virtual fault experimental platform:</strong> Integrates a fault-logic database, virtual sensor-injection modules, and an airborne software-bus simulator. Operational data under normal and representative fault conditions can be transmitted in real time to the PHM simulation system, enabling multilevel simulation from signal anomalies to system-level failures.</li>
+        <li><strong>High-performance computing platform:</strong> A GPU cluster with a 128-core CPU environment, 1 TB of memory, and multiple NVIDIA A100 GPUs supports the pre-training, fine-tuning, and inference of multimodal foundation models, as well as intelligent diagnosis, reinforcement-learning decisions, and digital-twin simulation.</li>
+      </ol>
+      <figure class="lab-figure">
+        <img src="image/中意健康管理与智能维修联合实验室照片2.png" alt="Four core modules of the Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance" loading="lazy">
+      </figure>
+      <p>Through its integrated virtual and physical design, the laboratory supports three representative experimental modes:</p>
+      <ul class="lab-mode-list">
+        <li><strong>Mechanism-oriented experiments:</strong> Investigate failure mechanisms and lifetime-prediction patterns of critical components using real operational and performance-degradation data.</li>
+        <li><strong>Cyber-physical experiments:</strong> Fuse simulated fault data with real-world data and use digital twins and simulation systems to validate the robustness and generalizability of PHM algorithms.</li>
+        <li><strong>Fleet maintenance experiments:</strong> Integrate PHM into maintenance decisions, mission scheduling, and support-resource optimization on a fleet simulation platform, and assess overall operational and maintenance effectiveness under different strategies.</li>
+      </ul>
+      <p>The laboratory has established a long-term partnership with Zhejiang Loong Airlines Maintenance Engineering Co., Ltd., gaining access to more than ten years of flight-parameter data covering over 150,000 A320 flights and more than 2,000 authentic maintenance work orders. It also conducts joint research on system PHM and intelligent maintenance with the Aviation Industry Corporation of China, China State Shipbuilding Corporation, Huawei 2012 Laboratories, and the China Electronic Product Reliability and Environmental Testing Research Institute. Resources are shared with the Sino-French Dassault Systèmes Center of Excellence in Education, the Reliability Digital Twin Laboratory, and the Fleet Operations and Maintenance Simulation Laboratory within the Smart Civil Aviation Science and Technology Innovation Center at the Hangzhou International Innovation Institute, Beihang University, enabling coordinated design, modeling, simulation, and validation of complex engineering systems.</p>
+    `);
+
+    setHTML('#research article.prose', `
+      <div class="research-intro">
+        <p><strong>The Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance</strong> centers its research on health prognostics, digital twins, and system resilience for advanced engineering systems in aerospace, energy and transportation, and intelligent manufacturing. It has established an integrated framework of <strong>“multimodal intelligent cognition—cyber-physical modeling—reliable system assurance.”</strong><span class="research-intro-lead">The laboratory pursues three principal directions:</span></p>
+      </div>
+      <div class="research-topic-list">
+        <details class="research-topic-card">
+          <summary>
+            <span class="research-topic-number">01</span>
+            <span class="research-topic-copy"><strong>Multimodal Foundation Models and Intelligent PHM Algorithms</strong><small>Integrating AI with physics-based models to predict and diagnose the health of complex systems</small></span>
+            <span class="research-topic-action"><span class="research-topic-action-open">View details</span><span class="research-topic-action-close">Collapse</span></span>
+          </summary>
+          <div class="research-topic-detail"><div class="research-topic-detail-inner">
+            <p>This direction develops an end-to-end technical framework for PHM of complex engineering systems, from multi-source data processing to model training and performance validation, with multimodal foundation models at its core. By integrating sensor signals, operational parameters, maintenance records, environmental conditions, and other multidimensional information, we investigate cognitive modeling and intelligent optimization for PHM tasks and develop next-generation health-management solutions for highly reliable aerospace, energy, and transportation systems. Topics include:</p>
+            <p><strong>(1) Multimodal data processing for PHM:</strong> Data cleaning, alignment, and representation learning for heterogeneous sources; standardized multi-source workflows and efficient representation frameworks; and unified, dynamic fusion of structural, time-series, image, and text data.</p>
+            <p><strong>(2) Integrated multimodal foundation modeling for PHM:</strong> PHM-oriented cognitive foundation models that combine a digital-twin module for physical constraints, a knowledge-enhancement module for domain knowledge and expert experience, and a dynamic fusion mechanism to achieve deep coordination between mechanisms and data.</p>
+            <p><strong>(3) Multi-agent collaborative training of PHM foundation models:</strong> Joint training strategies for multiple tasks, scenarios, and devices based on multi-agent reinforcement learning (MARL) and collaborative optimization, enabling distributed perception and coordinated decision-making in complex systems.</p>
+            <p><strong>(4) Cyber-physical validation of multimodal PHM foundation models:</strong> Combined validation with simulation-generated and real operational data across task scenarios, fault profiles, and operating conditions to evaluate robustness, generalizability, and engineering readiness, creating a continuously improving validation system.</p>
+            <p>The goal is a multimodal PHM framework integrating data-driven learning, physical constraints, knowledge enhancement, intelligent collaboration, and cyber-physical validation to enable lifecycle-wide predictive maintenance and autonomous intelligent assurance for complex engineering systems.</p>
+            <figure class="research-figure"><img src="image/多模态大模型与PHM智能算法研究.png" alt="Framework for multimodal foundation models and intelligent PHM algorithms" loading="lazy"></figure>
+          </div></div>
+        </details>
+        <details class="research-topic-card">
+          <summary>
+            <span class="research-topic-number">02</span>
+            <span class="research-topic-copy"><strong>Digital-Twin Modeling and Intelligent Maintenance Decision Optimization</strong><small>Enabling intelligent operational and support decisions through integrated cyber-physical simulation</small></span>
+            <span class="research-topic-action"><span class="research-topic-action-open">View details</span><span class="research-topic-action-close">Collapse</span></span>
+          </summary>
+          <div class="research-topic-detail"><div class="research-topic-detail-inner">
+            <p>Centered on digital-twin (DT) technology, this direction studies lifecycle modeling of complex engineering systems from requirements and functions to physical implementation, together with mechanisms for coordinated operation between virtual and physical systems. Model-based systems engineering (MBSE), multiphysics simulation, and data-driven optimization are combined to create real-time state mapping and predictive decision frameworks for highly reliable and efficient intelligent maintenance. Topics include:</p>
+            <p><strong>(1) Digital-twin architectures and multilevel modeling:</strong> Mission-, system-, equipment-, and component-level digital twins, with a requirements—function—logic—physical—behavior mapping chain for cyber-physical coordination and multiscale associative modeling.</p>
+            <p><strong>(2) Multiphysics modeling and operational-behavior simulation:</strong> Coupled structural, thermal, electrical, and fluid models for studying dynamic responses and degradation under real missions and extreme environments, providing a mechanistic basis for condition monitoring and lifetime prediction.</p>
+            <p><strong>(3) Digital-twin-based system-state assessment and prediction:</strong> Fusion of digital-twin models with real-time sensor data for dynamic assessment and forward prediction of system health, mission performance, and potential fault risks.</p>
+            <p><strong>(4) Intelligent maintenance and decision optimization:</strong> Digital-twin-informed decision models combining reinforcement learning, multi-objective optimization, and evolutionary computation to optimize maintenance planning, mission scheduling, resource allocation, and emergency recovery while balancing effectiveness and cost.</p>
+            <p><strong>(5) Cyber-physical closed-loop validation and intelligent simulation platforms:</strong> Integrated experimental platforms for closed-loop validation of algorithms, models, and system strategies, alongside scalable AnyLogic-, Modelica-, and Python-based simulation systems supporting the full path from simulation validation to engineering deployment.</p>
+            <p>This direction forms an integrated chain of model construction, simulation validation, intelligent decision-making, and closed-loop optimization, providing systematic solutions for improving the availability and lifecycle management of advanced engineering systems.</p>
+            <figure class="research-figure"><img src="image/数字孪生建模与智慧运维决策优化.png" alt="Framework for digital-twin modeling and intelligent maintenance decision optimization" loading="lazy"></figure>
+          </div></div>
+        </details>
+        <details class="research-topic-card">
+          <summary>
+            <span class="research-topic-number">03</span>
+            <span class="research-topic-copy"><strong>Complex-System Resilience and Belief Reliability Analysis</strong><small>Revealing structural evolution and quantifying resistance to disruption and recovery capacity</small></span>
+            <span class="research-topic-action"><span class="research-topic-action-open">View details</span><span class="research-topic-action-close">Collapse</span></span>
+          </summary>
+          <div class="research-topic-detail"><div class="research-topic-detail-inner">
+            <p>This direction develops theoretical frameworks and engineering methods for resilience and belief reliability in complex aerospace, energy and transportation, and intelligent-manufacturing systems. Complex-network modeling, AI analysis, and digital-twin simulation reveal structural vulnerability and dynamic evolution under multiple disturbances, couplings, and uncertainties, enabling quantitative safety and reliability assessment. Topics include:</p>
+            <p><strong>(1) Complex-network modeling and system-coupling analysis:</strong> Multilayer, multidomain, and multiscale network models of structural characteristics, coupling relationships, and dynamic evolution. The OmniLink HyperNetwork (OHN) framework models high-dimensional interactions among multiple entities, relationships, and time scales. Structural Order Entropy measures structural complexity and changing order to mathematically characterize robustness and evolutionary trends.</p>
+            <p><strong>(2) Belief reliability theory and uncertainty quantification:</strong> Reliability models based on belief theory that integrate Bayesian inference, evidence theory, and fuzzy logic for the comprehensive representation, updating, and dynamic assessment of uncertain multi-source information.</p>
+            <p><strong>(3) System-resilience assessment and metric development:</strong> Recovery and robustness under disturbances, faults, and external shocks; quantitative resilience metrics, evolution models, and assessment systems supporting recoverability and mission-continuity analysis.</p>
+            <p><strong>(4) Resilience enhancement and structural optimization:</strong> Adaptive control and structural reconfiguration for high-risk scenarios, including redundancy allocation and dynamic recovery decisions for system-level resilience improvement and proactive risk defense.</p>
+            <p>The objective is a new reliability paradigm combining network science, information-entropy theory, and AI modeling to support intelligent safety management, disturbance-resistant design, and sustained mission capability in critical national engineering systems and infrastructure.</p>
+            <figure class="research-figure"><img src="image/复杂系统韧性与确信可靠性分析.png" alt="Framework for complex-system resilience and belief reliability analysis" loading="lazy"></figure>
+          </div></div>
+        </details>
+      </div>
+      <p class="research-outro">The three directions reinforce one another to form an integrated <strong>“intelligence—simulation—assurance”</strong> innovation system, providing theoretical and technical foundations for future engineering systems with high reliability, intelligence, and resilience.</p>
+    `);
+    setHTML('#research-collapse-button', '<span aria-hidden="true">↑</span>Collapse details');
+
+    setHTML('#achievements .section-shell', `
+      <nav class="education-subnav achievement-subnav" aria-label="Research outputs page navigation">
+        <button class="is-active" type="button" data-achievement-target="achievement-journals">Journal Articles</button>
+        <button type="button" data-achievement-target="achievement-conferences">Conferences &amp; Other</button>
+        <button type="button" data-achievement-target="achievement-books">Books</button>
+        <button type="button" data-achievement-target="achievement-patents">Patents &amp; Software</button>
+      </nav>
+      <div class="achievement-grid">
+        <article><strong id="achievement-journal-count">—</strong><h3>Academic Papers</h3><p>Published in leading international journals in reliability, mechanical systems, artificial intelligence, and related fields.</p></article>
+        <article><strong>18</strong><h3>Research Projects</h3><p>Led or co-led national, provincial and ministerial, and major engineering research projects.</p></article>
+        <article><strong>2</strong><h3>Academic Books</h3><p>Focused on equipment prognostics, health management, and lifecycle engineering practice.</p></article>
+        <article><strong>1600+</strong><h3>Total Citations</h3><p>h-index 16; i10-index 21</p></article>
+      </div>
+      <div class="achievement-publications" aria-live="polite">
+        <section class="publication-block" id="achievement-journals"><p role="status">Loading research outputs…</p></section>
+        <section class="publication-block" id="achievement-conferences"><p role="status">Loading research outputs…</p></section>
+        <section class="publication-block" id="achievement-books"><p role="status">Loading research outputs…</p></section>
+        <section class="publication-block" id="achievement-patents"><p role="status">Loading research outputs…</p></section>
+      </div>
+    `);
+
+    setHTML('#education .page-shell', `
+      <nav class="education-subnav" aria-label="Talent development page navigation">
+        <button class="is-active" type="button" data-education-target="education-students">Student Supervision</button>
+        <button type="button" data-education-target="education-recruitment">Admissions</button>
+      </nav>
+      <article class="prose recruitment-content">
+        <section class="education-feature" id="education-students">
+          <h2 class="education-section-title">Student Supervision</h2>
+          <p class="student-summary">As primary supervisor, Yang Hu advises professional master’s students, dual-degree master’s students, and international master’s students. As co-supervisor, he jointly advises doctoral researchers and postdoctoral fellows in the group, including work on academic writing and algorithmic framework design.</p>
+          <h3 class="student-subheading">Current / Supervised Graduate Students (Selected)</h3>
+          <ul class="student-list">
+            <li>Dongcan Liu (PhD, Control Science and Engineering, Hangzhou International Innovation Institute)</li>
+            <li>Xinhang Chen (Professional Master’s, Electronic Information)</li>
+            <li>Jun Deng (Professional Master’s, Electronic Information)</li>
+            <li>Jing Li (Professional Master’s, Electronic Information)</li>
+            <li>Kunlong Huang (Professional Master’s, Artificial Intelligence / Electronic Information)</li>
+            <li>Yanyan Wu (Professional Master’s, Artificial Intelligence / Electronic Information)</li>
+            <li>Yongpeng Qi (Professional Master’s, Transportation)</li>
+            <li>Linhan Zhang (Professional Master’s, Mechanical Engineering)</li>
+            <li>Zhihuan Wei (Professional Master’s, Mechanical Engineering)</li>
+            <li>Peter (International Master’s Student)</li>
+            <li>Meiye Zhe (International Master’s Student)</li>
+          </ul>
+        </section>
+        <section class="recruitment-section" id="education-recruitment">
+          <h2 class="education-section-title">Admissions Guide</h2>
+          <h2>I. About the Research Group</h2>
+          <p>The Hu Yang Research Group is part of the Smart Civil Aviation Science and Technology Innovation Center at the Hangzhou International Innovation Institute, Beihang University. Led by Associate Research Fellow and Doctoral Supervisor Yang Hu, it is a young, energetic, and innovative research team. The permanent research staff include two associate research fellows, one associate professor, and three postdoctoral researchers, alongside more than ten master’s and doctoral students. This structure supports efficient collaboration through faculty leadership, core-researcher support, and a well-developed talent pipeline.</p>
+          <p>Responding to major national strategic needs, the group conducts fundamental research and develops enabling technologies for intelligent operations and maintenance, digital-twin modeling, and resilience and reliability analysis in next-generation aviation, aerospace, naval, intelligent-manufacturing, and other advanced engineering systems. Facilities include a high-performance computing cluster, an industrial-IoT data-acquisition platform, a PHM simulation and validation system, digital-twin modeling environments supporting SysML, Modelica, and AnyLogic, and a complex-network analysis platform. We maintain close academic ties with Zhejiang University, City University of Hong Kong, Politecnico di Milano, and Université Paris-Saclay, and collaborate on research projects and joint laboratories with the Aviation Industry Corporation of China, Aero Engine Corporation of China, China Aerospace Science and Technology Corporation, Commercial Aircraft Corporation of China, the China Electronic Product Reliability and Environmental Testing Research Institute, Huawei 2012 Laboratories, Loong Airlines, and Suparna Airlines. Our research combines theoretical depth with deployable engineering outcomes.</p>
+          <p>The group’s host platform, the Smart Civil Aviation Science and Technology Innovation Center, was established by the Hangzhou International Innovation Institute, Beihang University in partnership with the French National University of Civil Aviation (ENAC). It is a major education–research innovation platform serving China’s strategy for the digital and intelligent transformation of civil aviation. The center advances intelligent capabilities throughout the lifecycle of aircraft, engines, and airborne systems—including airworthiness, maintenance, air traffic management, and airport operations—and develops a closed-loop technology system spanning perception, modeling, decision-making, and optimization to support safe, efficient, and resilient civil aviation.</p>
+          <p>The center houses several well-equipped specialist laboratories that provide a strong experimental foundation for our research in PHM, digital twins, and intelligent operations and maintenance:</p>
+          <h3>1) Integrated Cyber-Physical Laboratory for Intelligent Health Management</h3>
+          <p>This core platform for civil-aircraft PHM foundation-model research combines physical experimentation with virtual simulation, supporting the complete chain from component-degradation mechanisms to aircraft-level PHM validation. It includes Airbus A320 and Boeing 737 full-aircraft simulation systems covering twelve subsystems, more than 300 parameters, and millisecond-level fault injection; a high-precision mechanical-fault test rig with 50 kN hydraulic loading and 0.01 Nm torque sensing; and a dedicated algorithm-development environment with 128 CPU cores, 1 TB memory, and two NVIDIA A100 GPUs for multimodal foundation-model training, fine-tuning, and inference.</p>
+          <h3>2) Sino-French Dassault Systèmes Center of Excellence in Education</h3>
+          <p>Built on the Dassault Systèmes 3DEXPERIENCE platform (R2024x), the center provides an MBSE collaborative-development environment spanning the full aircraft lifecycle. It integrates industrial software including CATIA for parametric modeling, SIMULIA for multiphysics simulation, DELMIA for maintenance-process optimization, and ENOVIA for collaborative data management, together with Abaqus, Simpack, Isight, and Magic MBSE. The platform supports high-fidelity digital twins, multidisciplinary optimization, and system-architecture analysis to internationally recognized engineering standards.</p>
+          <h3>3) Reliability Digital Twin Laboratory &amp; Fleet Operations and Maintenance Simulation Laboratory</h3>
+          <p>The former includes high- and low-temperature aging chambers (-70°C to +200°C), a semiconductor thermal-resistance tester, and automated LabVIEW/MATLAB data acquisition for failure-mechanism modeling and reliability validation of critical components. The latter uses AnyLogic, an interactive AR sand-table system, and a dynamic scheduling-optimization engine to simulate PHM-supported maintenance-resource allocation and operational-effectiveness assessment for fleets at the thousand-flight scale, enabling closed-loop validation from individual-aircraft health management to intelligent fleet maintenance.</p>
+          <p>The platform and Politecnico di Milano jointly established the Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance, co-led by internationally recognized PHM scholar Professor Enrico Zio and Professor Rui Kang of Beihang University. It regularly delivers international joint training, academic seminars, and co-developed courses. Partner organizations provide data from 150,000 flights, more than 2,000 real fault work orders, and over 1,000 technical manuals, ensuring authentic data, representative scenarios, and deployable results.</p>
+          <p>With comprehensive facilities, rich data resources, and deep international collaboration, the platform independently supports high-level, engineering-oriented, and internationally connected master’s research, enabling efficient progress and high-quality outcomes.</p>
+          <p>The group fosters a rigorous academic culture through a combined mechanism of periodic group meetings, individual weekly reports, focused seminars, and project-driven training. Students are encouraged to participate in national projects, international conferences, and joint industry challenges, developing systems thinking, engineering competence, academic communication, and teamwork. Each graduate student typically participates in one or two national or provincial/ministerial projects and publishes one or two SCI/EI-indexed papers. Some outstanding master’s students contribute to national major special projects, undertake key technology development, and present at major milestones.</p>
+          <h2>II. Principal Research Directions</h2>
+          <p>Our central themes are health prognostics, digital twins, and system resilience for advanced aerospace, energy and transportation, and intelligent-manufacturing systems. We organize this work within a framework of multimodal intelligent cognition, cyber-physical modeling, and reliable system operation and maintenance. The three principal directions, described in detail on the Research page, are:</p>
+          <p>(1) <strong>Multimodal foundation models and intelligent PHM algorithms:</strong> integrating AI with physics-based models to predict and diagnose complex-system health. Applications include aircraft, high-speed trains, ships, CNC machine tools, wind power, and satellite electrical systems. Students learn mainstream PHM methods—including CNNs for image-based fault recognition, RNNs/LSTMs for time-series degradation modeling, and Transformers for long-range sequence dependencies—and may contribute to PHM design and validation for major national engineering systems.</p>
+          <p>(2) <strong>Digital-twin modeling and intelligent maintenance decision optimization:</strong> enabling intelligent operational and support decisions through integrated cyber-physical simulation. This direction emphasizes systems engineering and simulation modeling and suits students interested in complex-system modeling, simulation optimization, and intelligent decision-making. The group has developed several digital-twin prototypes for aviation support and offshore-platform engineering systems, offering substantial involvement in real projects.</p>
+          <p>(3) <strong>Complex-system resilience and belief reliability analysis:</strong> revealing structural evolution and quantifying resistance to disruption and recovery capacity. This theory-intensive direction suits students with strong mathematical foundations and interests in complex-system dynamics, network science, and risk-informed decision-making. Outcomes apply to aerospace systems, power networks, urban infrastructure, and other critical domains.</p>
+          <p>These directions reinforce one another to form an integrated intelligence—simulation—assurance innovation system and provide theoretical and technical foundations for highly reliable, intelligent, and resilient engineering systems.</p>
+          <p>Applications are welcome from students in computer science, automation, artificial intelligence, mechanical engineering, aerospace engineering, systems engineering, applied mathematics, and related disciplines. All directions emphasize problem orientation, model-driven research, algorithmic innovation, system implementation, and interdisciplinary integration.</p>
+          <h2>III. Core Requirements and Preferred Qualifications</h2>
+          <p>To ensure high-quality graduate education and effective research delivery, applicants should meet the following expectations:</p>
+          <h3>Academic background:</h3>
+          <ul>
+            <li>Priority is given to bachelor’s or master’s graduates in computer science and technology, artificial intelligence, automation, control science and engineering, mechanical engineering, aerospace, systems engineering, applied mathematics, or related disciplines.</li>
+            <li>A strong mathematical foundation is required, particularly in linear algebra, probability and statistics, optimization theory, and differential equations. As a general guideline, relevant course grades should be excellent (90 or above).</li>
+            <li>Applicants should have systematically studied core courses such as Machine Learning, Deep Learning, Data Structures and Algorithms, Signals and Systems, and Control Systems, normally with grades of at least 90 in these courses.</li>
+          </ul>
+          <h3>Technical capabilities:</h3>
+          <ul>
+            <li>Proficiency in at least one of Python, MATLAB, or C++.</li>
+            <li>Familiarity with mainstream deep-learning frameworks such as PyTorch or TensorFlow and the ability to independently implement CNN, RNN, LSTM, and Transformer models.</li>
+            <li>Competence in mathematical modeling and data analysis, including data preprocessing and visualization with Pandas, NumPy, Scikit-learn, and Matplotlib.</li>
+            <li>Prior understanding of PHM, digital twins, reinforcement learning, or complex networks is preferred.</li>
+          </ul>
+          <h3>Practical and competition experience (preferred):</h3>
+          <ul>
+            <li>Provincial-level or higher awards in competitions such as the China Undergraduate Mathematical Contest in Modeling, mathematics competitions, the Challenge Cup, RoboMaster, ACM programming contests, or Kaggle data-science competitions.</li>
+            <li>Experience in research projects, patent applications, or academic-paper preparation, whether or not published.</li>
+            <li>Honors such as the National Scholarship, a university first-class scholarship, or Outstanding Student recognition.</li>
+            <li>Industry internships, including at internet companies, aerospace institutes, or intelligent-manufacturing enterprises.</li>
+          </ul>
+          <h3>Personal qualities:</h3>
+          <ul>
+            <li>Strong enthusiasm for research and independent learning, resilience under research pressure, and willingness to tackle frontier problems.</li>
+            <li>Effective teamwork and communication, with active participation in group meetings, project discussions, and academic presentations.</li>
+            <li>Good English proficiency for reading literature and writing academic papers; TOEFL, IELTS, or GRE results are advantageous.</li>
+            <li>A career interest in nationally important sectors such as aerospace, advanced manufacturing, or artificial intelligence is preferred.</li>
+          </ul>
+          <h2>IV. Graduate Training and Expected Outcomes</h2>
+          <p>We follow an individualized, project-driven, and outcome-oriented training model. After enrollment, the supervisor develops a tailored plan based on each student’s background, interests, career goals, and the group’s active projects, ensuring that individual strengths are fully developed and effectively applied.</p>
+          <p><strong>Expected outcomes, adjusted where appropriate to each training pathway:</strong></p>
+          <ol>
+            <li>Publish a high-quality paper as first author, or as second author when the supervisor is first author.</li>
+            <li>Apply for a national invention patent or software copyright.</li>
+            <li>Independently develop or lead a prototype system or simulation platform that passes acceptance or demonstration.</li>
+            <li>Give an oral or poster presentation at a relevant international conference such as ICML, the PHM Society Conference, IEEE reliability conferences, or ESREL.</li>
+            <li>Complete an internship of at least three months at an enterprise or research institute and submit an internship report and host evaluation.</li>
+            <li>Receive a university-level or higher research-competition award or scholarship.</li>
+          </ol>
+          <p>Every graduate student receives adequate research funding, high-performance computing resources, and opportunities for academic exchange in China and abroad. Outstanding students are actively recommended for overseas joint training or doctoral study and may receive priority referrals to partner organizations including AVIC, CASC, Huawei, and COMAC.</p>
+          <h2>V. Career Development</h2>
+          <p><strong>▶ Further academic study:</strong> Through collaborations with overseas laboratories, we support joint training and research visits. Outstanding master’s and doctoral graduates may receive recommendations for doctoral or postdoctoral opportunities at Beihang or leading universities in China and abroad, including Université Paris-Saclay, Politecnico di Milano, and City University of Hong Kong, subject to securing a CSC scholarship where required.</p>
+          <p><strong>▶ Employment:</strong> Graduates pursue roles at aerospace institutes (including Institutes 601 and 603, and the First and Fifth Academies of CASC), intelligent-manufacturing companies such as Huawei and DJI, AI companies such as Alibaba Cloud, SenseTime, and Megvii, industrial-software companies such as Dassault Systèmes and Siemens, and power utilities such as State Grid and China Southern Power Grid. Typical positions include algorithm engineer, systems architect, PHM engineer, digital-twin specialist, and reliability analyst.</p>
+          <p><strong>▶ Entrepreneurship and interdisciplinary development:</strong> The group encourages innovation and supports students interested in commercializing research. Alumni have founded startups in intelligent maintenance and industrial AI.</p>
+          <h2>VI. How to Apply</h2>
+          <p>Students motivated to pursue frontier research in intelligent systems, artificial intelligence, and systems engineering are warmly invited to apply. Send the materials below to <strong>yang_hu@buaa.edu.cn</strong>. <strong>Email subject:</strong> “Master’s/PhD Application – Name – Undergraduate University – Major.”</p>
+          <p>Postdoctoral applicants should consult <a href="https://h3i.buaa.edu.cn/info/1141/1391.htm" target="_blank" rel="noopener">https://h3i.buaa.edu.cn/info/1141/1391.htm</a>. The institute provides first-class academic supervision, research conditions, and compensation. Annual salaries are RMB 320,000 for Category A and RMB 280,000 for Category B postdoctoral fellows, excluding government subsidies, plus RMB 150,000 in research start-up funding including government support. Fellows may also apply for supplementary subsidies from Hangzhou Municipality and Yuhang District, with cumulative benefits of up to RMB 2.19 million. See the Yuhang District “Future through Global Innovation · Outstanding Postdoctoral” Take-off Program, the Hangzhou West Science and Technology Innovation Corridor special-fund rules, and related policies; all benefits remain subject to the latest government regulations.</p>
+          <p><strong>Required materials:</strong></p>
+          <ol>
+            <li>Curriculum vitae, including education, research/project experience, competition awards, and professional certifications.</li>
+            <li>Undergraduate/master’s transcripts (scanned copies).</li>
+            <li>Representative outputs such as papers, patents, competition certificates, or project reports.</li>
+            <li>A personal statement of approximately 500 Chinese characters or comparable length in English, explaining motivation, research interests, and career plans.</li>
+            <li>Optional: one or two recommendation letters.</li>
+          </ol>
+          <p>Applications will undergo an initial review, followed by online or in-person interviews for shortlisted candidates. Interviews cover foundational knowledge, research potential, English communication, and discussion of proposed projects.</p>
+          <p class="recruitment-conclusion">The Hu Yang Research Group is an energetic, excellence-driven, and practice-oriented research community. Beyond papers and patents, we value each student’s comprehensive capabilities and long-term career development. You will engage with frontier research, contribute to major national engineering projects, work alongside outstanding peers, and gain rigorous research training and valuable professional experience.</p>
+          <p class="recruitment-invitation">If you are passionate about research, ready for challenges, and eager to grow, we welcome you to join us in exploring new paradigms for system operations and maintenance in the age of intelligence and contributing to the intelligent transformation of advanced engineering systems.</p>
+        </section>
+      </article>
+    `);
+
+    setHTML('.contact-page', `
+      <h2 class="contact-title">Contact</h2>
+      <dl class="contact-list">
+        <div class="contact-item"><dt>Email</dt><dd>yang_hu [at] buaa [dot] edu [dot] cn</dd></div>
+        <div class="contact-item"><dt>Address</dt><dd>Room 3115, Research Building 1, 166 Shuanghongqiao Street, Pingyao Town, Yuhang District, Hangzhou, Zhejiang, China</dd></div>
+      </dl>
+      <section class="contact-recruitment"><p>We continually recruit master’s and doctoral students and postdoctoral fellows. We welcome candidates interested in prognostics and health management, intelligent operations and maintenance, industrial big data, and complex-system modeling and simulation—especially those eager to apply advanced AI algorithms to challenging open problems.</p></section>
+    `);
+    setText('.site-footer p', '© 2026 Hu Yang Research Group · Hangzhou International Innovation Institute, Beihang University');
+  }
+
+  configureLanguage();
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.nav-links');
+  const links = Array.from(document.querySelectorAll('[data-page-link]'));
+  const panels = Array.from(document.querySelectorAll('[data-page]'));
+  const revealItems = Array.from(
+    document.querySelectorAll([
+      '.hero-content > *',
+      '.home-news-heading > *',
+      '.news-item > *',
+      '.team-intro .intro-copy > *',
+      '.lab-introduction > *',
+      '.research-intro',
+      '.research-topic-list > .research-topic-card',
+      '.research-outro',
+      '.achievement-grid > article',
+      '.achievement-publications > .publication-block',
+      '.education-feature > *',
+      '.recruitment-section > *',
+      '.contact-title',
+      '.contact-list > .contact-item',
+      '.contact-recruitment > *'
+    ].join(', '))
+  );
+
+  revealItems.forEach((item, index) => {
+    item.classList.add('reveal-on-scroll');
+    item.style.setProperty('--reveal-delay', `${(index % 4) * 70}ms`);
+  });
+
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -8% 0px'
+    });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+  }
+
+  document.addEventListener('publications:rendered', () => {
+    const items = Array.from(document.querySelectorAll('.achievement-publications .publication-list > li'));
+    items.forEach((item, index) => {
+      item.classList.add('reveal-on-scroll');
+      item.style.setProperty('--reveal-delay', `${(index % 4) * 70}ms`);
+    });
+    if (!('IntersectionObserver' in window)) {
+      items.forEach((item) => item.classList.add('is-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        currentObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    items.forEach((item) => observer.observe(item));
+  });
+
+  function showPage(pageName, options = {}) {
+    const targetName = panels.some((panel) => panel.dataset.page === pageName)
+      ? pageName
+      : 'home';
+
+    panels.forEach((panel) => {
+      panel.classList.toggle('is-active', panel.dataset.page === targetName);
+    });
+    updateResearchCollapseButton();
+
+    links.forEach((link) => {
+      link.classList.toggle('is-active', link.dataset.pageLink === targetName);
+    });
+
+    nav?.classList.remove('is-open');
+    toggle?.setAttribute('aria-expanded', 'false');
+
+    if (!options.skipHash && window.location.hash !== `#${targetName}`) {
+      history.pushState(null, '', `#${targetName}`);
+    }
+
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  links.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      showPage(link.dataset.pageLink);
+    });
+  });
+
+  const researchCards = Array.from(document.querySelectorAll('.research-topic-card'));
+  const researchCollapseButton = document.getElementById('research-collapse-button');
+  const researchAnimations = new WeakMap();
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function updateResearchCollapseButton() {
+    const researchPageIsActive = document.getElementById('research')?.classList.contains('is-active');
+    const hasOpenCard = researchCards.some((card) => card.open);
+    const shouldShow = Boolean(researchPageIsActive && hasOpenCard);
+
+    researchCollapseButton?.classList.toggle('is-visible', shouldShow);
+    researchCollapseButton?.setAttribute('aria-hidden', String(!shouldShow));
+    if (researchCollapseButton) researchCollapseButton.tabIndex = shouldShow ? 0 : -1;
+  }
+
+  function animateResearchCard(card, shouldOpen) {
+    const detail = card.querySelector('.research-topic-detail');
+    if (!detail) return;
+
+    researchAnimations.get(card)?.cancel();
+
+    if (prefersReducedMotion || typeof detail.animate !== 'function') {
+      card.open = shouldOpen;
+      updateResearchCollapseButton();
+      return;
+    }
+
+    if (shouldOpen) {
+      card.open = true;
+      updateResearchCollapseButton();
+    }
+
+    const computedStyle = getComputedStyle(detail);
+    const currentHeight = detail.getBoundingClientRect().height;
+    const expandedHeight = detail.scrollHeight;
+    const expandedPaddingTop = computedStyle.paddingTop;
+    const expandedPaddingBottom = computedStyle.paddingBottom;
+
+    const keyframes = shouldOpen
+      ? [
+          { height: '0px', paddingTop: '0px', paddingBottom: '0px', opacity: 0 },
+          {
+            height: `${expandedHeight}px`,
+            paddingTop: expandedPaddingTop,
+            paddingBottom: expandedPaddingBottom,
+            opacity: 1
+          }
+        ]
+      : [
+          {
+            height: `${currentHeight}px`,
+            paddingTop: expandedPaddingTop,
+            paddingBottom: expandedPaddingBottom,
+            opacity: 1
+          },
+          { height: '0px', paddingTop: '0px', paddingBottom: '0px', opacity: 0 }
+        ];
+
+    const animation = detail.animate(keyframes, {
+      duration: 520,
+      easing: 'cubic-bezier(.22, 1, .36, 1)'
+    });
+
+    researchAnimations.set(card, animation);
+    animation.addEventListener('finish', () => {
+      if (!shouldOpen) card.open = false;
+      researchAnimations.delete(card);
+      updateResearchCollapseButton();
+    }, { once: true });
+  }
+
+  researchCards.forEach((card) => {
+    card.querySelector('summary')?.addEventListener('click', (event) => {
+      event.preventDefault();
+      const shouldOpen = !card.open;
+
+      if (shouldOpen) {
+        researchCards.forEach((otherCard) => {
+          if (otherCard !== card && otherCard.open) {
+            animateResearchCard(otherCard, false);
+          }
+        });
+      }
+
+      animateResearchCard(card, shouldOpen);
+    });
+  });
+
+  researchCollapseButton?.addEventListener('click', () => {
+    const openCard = researchCards.find((card) => card.open);
+    if (!openCard) return;
+
+    researchCollapseButton.classList.remove('is-visible');
+    researchCollapseButton.setAttribute('aria-hidden', 'true');
+    researchCollapseButton.tabIndex = -1;
+    animateResearchCard(openCard, false);
+    openCard.querySelector('summary')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  });
+
+  function setupSectionSubnav(selector, datasetKey) {
+    const buttons = Array.from(document.querySelectorAll(selector));
+    const setActiveButton = (activeButton) => {
+      buttons.forEach((button) => {
+        button.classList.toggle('is-active', button === activeButton);
+      });
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        setActiveButton(button);
+        document.getElementById(button.dataset[datasetKey])?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+
+    if ('IntersectionObserver' in window && buttons.length) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const activeButton = buttons.find(
+            (button) => button.dataset[datasetKey] === entry.target.id
+          );
+          if (activeButton) setActiveButton(activeButton);
+        });
+      }, {
+        rootMargin: '-150px 0px -60% 0px',
+        threshold: 0
+      });
+
+      buttons.forEach((button) => {
+        const section = document.getElementById(button.dataset[datasetKey]);
+        if (section) sectionObserver.observe(section);
+      });
+    }
+  }
+
+  setupSectionSubnav('[data-education-target]', 'educationTarget');
+  setupSectionSubnav('[data-achievement-target]', 'achievementTarget');
+
+  window.addEventListener('popstate', () => {
+    showPage(window.location.hash.replace('#', ''), { skipHash: true, instant: true });
+  });
+
+  const initialTarget = window.location.hash.replace('#', '') || 'home';
+  showPage(initialTarget, {
+    skipHash: true,
+    instant: true
+  });
+
+  if (initialTarget === 'research') {
+    requestAnimationFrame(() => {
+      document.querySelector('#research')?.scrollIntoView();
+    });
+  }
+})();
+
+  </script>
+</body>
+</html>
