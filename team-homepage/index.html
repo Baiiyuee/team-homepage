@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="中意健康管理与智能维修联合实验室，聚焦复杂装备智能运维、故障预测与健康管理、数字孪生建模与韧性可靠性分析。">
-  <title>胡杨课题组 - 北航国新院</title>
+  <title>中意健康管理与智能维修实验室 - 北航国新院</title>
   <style>
 :root {
   --navy: #163a5f;
@@ -892,7 +892,7 @@ a {
   max-width: 820px;
   margin: 0;
   color: #153b5b;
-  font-size: clamp(42px, 4.8vw, 62px);
+  font-size: clamp(34px, 4vw, 52px);
   font-weight: 780;
   letter-spacing: -.025em;
   line-height: 1.2;
@@ -1644,7 +1644,7 @@ h2 {
   }
 
   .hero h1 {
-    font-size: clamp(34px, 10vw, 46px);
+    font-size: clamp(30px, 8vw, 40px);
   }
 
   .hero-lead {
@@ -1868,8 +1868,8 @@ h2 {
           <div class="hero-frame">
             <div class="hero-backdrop" aria-hidden="true"></div>
             <div class="hero-content">
-              <p class="eyebrow">HU YANG RESEARCH GROUP · BEIHANG UNIVERSITY</p>
-              <h1>面向复杂工程系统的<br>智能运维与健康管理</h1>
+              <p class="eyebrow">Sino-Italian JointResearch Laboratory on Prognostics and HealthManagement for Intelligent Maintenance (PHM-IM)</p>
+              <h1>中意健康管理与智能维修实验室</h1>
               <p class="hero-lead">聚焦故障预测与健康管理（PHM）、数字孪生、智能运维及复杂系统韧性可靠性，融合人工智能、建模仿真与工程数据，推动前沿方法从理论研究走向工程应用。</p>
               <ul class="hero-keywords" aria-label="核心研究关键词">
                 <li>PHM</li>
@@ -2196,7 +2196,7 @@ h2 {
           <dl class="contact-list">
             <div class="contact-item">
               <dt>邮箱</dt>
-              <dd>yang_hu [at] buaa [dot] edu [dot] cn</dd>
+              <dd>yang_hu@buaa.edu.cn</dd>
             </div>
             <div class="contact-item">
               <dt>地址</dt>
@@ -2214,7 +2214,7 @@ h2 {
 
   <footer class="site-footer">
     <div class="section-shell">
-      <p>© 2026 胡杨课题组 · 北航国新院</p>
+      <p>© 2026 中意健康管理与智能维修实验室 · 北航国新院</p>
     </div>
   </footer>
 
@@ -2255,7 +2255,7 @@ h2 {
     if (!isEnglish) return;
 
     document.documentElement.lang = 'en';
-    document.title = 'Hu Yang Research Group - Beihang University';
+    document.title = 'Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance - Beihang University';
     document.querySelector('meta[name="description"]')?.setAttribute(
       'content',
       'The Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance advances intelligent operations and maintenance, prognostics and health management, digital twins, resilience, and reliability for complex engineering systems.'
@@ -2289,7 +2289,7 @@ h2 {
       link.textContent = navigation[link.dataset.pageLink] || link.textContent;
     });
 
-    setHTML('.hero h1', 'Intelligent Operations, Maintenance<br>and Health Management for Complex Engineering Systems');
+    setText('.hero h1', 'Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance');
     setText(
       '.hero-lead',
       'We advance prognostics and health management (PHM), digital twins, intelligent operations and maintenance, and resilience and reliability for complex systems by integrating artificial intelligence, modeling and simulation, and engineering data—translating frontier research into practical engineering solutions.'
@@ -2524,12 +2524,12 @@ h2 {
     setHTML('.contact-page', `
       <h2 class="contact-title">Contact</h2>
       <dl class="contact-list">
-        <div class="contact-item"><dt>Email</dt><dd>yang_hu [at] buaa [dot] edu [dot] cn</dd></div>
+        <div class="contact-item"><dt>Email</dt><dd>yang_hu@buaa.edu.cn</dd></div>
         <div class="contact-item"><dt>Address</dt><dd>Room 3115, Research Building 1, 166 Shuanghongqiao Street, Pingyao Town, Yuhang District, Hangzhou, Zhejiang, China</dd></div>
       </dl>
       <section class="contact-recruitment"><p>We continually recruit master’s and doctoral students and postdoctoral fellows. We welcome candidates interested in prognostics and health management, intelligent operations and maintenance, industrial big data, and complex-system modeling and simulation—especially those eager to apply advanced AI algorithms to challenging open problems.</p></section>
     `);
-    setText('.site-footer p', '© 2026 Hu Yang Research Group · Hangzhou International Innovation Institute, Beihang University');
+    setText('.site-footer p', '© 2026 Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance · Hangzhou International Innovation Institute, Beihang University');
   }
 
   configureLanguage();
