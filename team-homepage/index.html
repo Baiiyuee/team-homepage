@@ -1093,7 +1093,8 @@ a {
 
 .lab-carousel {
   position: relative;
-  width: 100%;
+  width: min(820px, 100%);
+  margin: 0 auto;
   overflow: hidden;
   border: 1px solid #dbe6ee;
   border-radius: 10px;
@@ -1103,7 +1104,7 @@ a {
 
 .lab-carousel-slides {
   position: relative;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 16 / 9;
 }
 
 .lab-slide {
@@ -1140,69 +1141,11 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 36px 68px 18px;
+  padding: 34px 24px 16px;
   color: #fff;
   background: linear-gradient(to top, rgba(8, 32, 50, .72), transparent);
   font-size: 15px;
   letter-spacing: .02em;
-}
-
-.lab-carousel-control {
-  position: absolute;
-  z-index: 3;
-  top: 50%;
-  display: grid;
-  width: 42px;
-  height: 42px;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, .58);
-  border-radius: 50%;
-  color: #fff;
-  background: rgba(18, 48, 70, .48);
-  font: inherit;
-  font-size: 23px;
-  place-items: center;
-  transform: translateY(-50%);
-  cursor: pointer;
-  transition: background .2s ease, transform .2s ease;
-}
-
-.lab-carousel-control:hover {
-  background: rgba(18, 48, 70, .72);
-  transform: translateY(-50%) scale(1.05);
-}
-
-.lab-carousel-prev {
-  left: 18px;
-}
-
-.lab-carousel-next {
-  right: 18px;
-}
-
-.lab-carousel-dots {
-  position: absolute;
-  z-index: 3;
-  right: 18px;
-  bottom: 19px;
-  display: flex;
-  gap: 7px;
-}
-
-.lab-carousel-dot {
-  width: 7px;
-  height: 7px;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .58);
-  cursor: pointer;
-  transition: width .25s ease, background .25s ease;
-}
-
-.lab-carousel-dot.is-active {
-  width: 24px;
-  background: #fff;
 }
 
 .team-intro {
@@ -1800,30 +1743,12 @@ h2 {
   }
 
   .lab-carousel-slides {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
   }
 
   .lab-slide figcaption {
-    padding: 32px 58px 15px;
+    padding: 30px 16px 13px;
     font-size: 13px;
-  }
-
-  .lab-carousel-control {
-    width: 36px;
-    height: 36px;
-  }
-
-  .lab-carousel-prev {
-    left: 10px;
-  }
-
-  .lab-carousel-next {
-    right: 10px;
-  }
-
-  .lab-carousel-dots {
-    right: 12px;
-    bottom: 15px;
   }
 
   .news-item {
@@ -2065,7 +1990,7 @@ h2 {
             <p>GALLERY</p>
             <h2 id="lab-gallery-title">实验室风采</h2>
           </header>
-          <div class="lab-carousel" data-lab-carousel aria-roledescription="轮播图" tabindex="0">
+          <div class="lab-carousel" data-lab-carousel aria-roledescription="轮播图">
             <div class="lab-carousel-slides" aria-live="off">
               <figure class="lab-slide is-active">
                 <img src="image/lab1.png" alt="中意健康管理与智能维修联合实验室揭牌仪式">
@@ -2087,15 +2012,6 @@ h2 {
                 <img src="image/lab5.png" alt="实验室故障模拟与实验平台" loading="lazy">
                 <figcaption>实验室故障模拟与实验平台</figcaption>
               </figure>
-            </div>
-            <button class="lab-carousel-control lab-carousel-prev" type="button" aria-label="上一张照片">‹</button>
-            <button class="lab-carousel-control lab-carousel-next" type="button" aria-label="下一张照片">›</button>
-            <div class="lab-carousel-dots" aria-label="选择实验室照片">
-              <button class="lab-carousel-dot is-active" type="button" aria-label="查看第 1 张照片" aria-current="true"></button>
-              <button class="lab-carousel-dot" type="button" aria-label="查看第 2 张照片"></button>
-              <button class="lab-carousel-dot" type="button" aria-label="查看第 3 张照片"></button>
-              <button class="lab-carousel-dot" type="button" aria-label="查看第 4 张照片"></button>
-              <button class="lab-carousel-dot" type="button" aria-label="查看第 5 张照片"></button>
             </div>
           </div>
         </div>
@@ -2490,12 +2406,6 @@ h2 {
       if (figcaption && caption) figcaption.textContent = caption;
     });
     document.querySelector('[data-lab-carousel]')?.setAttribute('aria-roledescription', 'carousel');
-    document.querySelector('.lab-carousel-prev')?.setAttribute('aria-label', 'Previous photo');
-    document.querySelector('.lab-carousel-next')?.setAttribute('aria-label', 'Next photo');
-    document.querySelector('.lab-carousel-dots')?.setAttribute('aria-label', 'Select a laboratory photo');
-    document.querySelectorAll('.lab-carousel-dot').forEach((dot, index) => {
-      dot.setAttribute('aria-label', `View photo ${index + 1}`);
-    });
 
     setHTML('.lab-introduction', `
       <h2>Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance</h2>
@@ -2825,12 +2735,7 @@ h2 {
   const labCarousel = document.querySelector('[data-lab-carousel]');
   if (labCarousel) {
     const slides = Array.from(labCarousel.querySelectorAll('.lab-slide'));
-    const dots = Array.from(labCarousel.querySelectorAll('.lab-carousel-dot'));
-    const previousButton = labCarousel.querySelector('.lab-carousel-prev');
-    const nextButton = labCarousel.querySelector('.lab-carousel-next');
     let activeIndex = 0;
-    let autoplayTimer = 0;
-    let isInView = true;
 
     const showSlide = (index) => {
       activeIndex = (index + slides.length) % slides.length;
@@ -2838,64 +2743,12 @@ h2 {
         slide.classList.toggle('is-active', slideIndex === activeIndex);
         slide.setAttribute('aria-hidden', String(slideIndex !== activeIndex));
       });
-      dots.forEach((dot, dotIndex) => {
-        const isActive = dotIndex === activeIndex;
-        dot.classList.toggle('is-active', isActive);
-        if (isActive) dot.setAttribute('aria-current', 'true');
-        else dot.removeAttribute('aria-current');
-      });
     };
-
-    const stopAutoplay = () => {
-      window.clearInterval(autoplayTimer);
-      autoplayTimer = 0;
-    };
-
-    const startAutoplay = () => {
-      stopAutoplay();
-      if (prefersReducedMotion || !isInView || slides.length < 2) return;
-      autoplayTimer = window.setInterval(() => showSlide(activeIndex + 1), 5200);
-    };
-
-    previousButton?.addEventListener('click', () => {
-      showSlide(activeIndex - 1);
-      startAutoplay();
-    });
-    nextButton?.addEventListener('click', () => {
-      showSlide(activeIndex + 1);
-      startAutoplay();
-    });
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        showSlide(index);
-        startAutoplay();
-      });
-    });
-    labCarousel.addEventListener('keydown', (event) => {
-      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-      event.preventDefault();
-      showSlide(activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
-      startAutoplay();
-    });
-    labCarousel.addEventListener('mouseenter', stopAutoplay);
-    labCarousel.addEventListener('mouseleave', startAutoplay);
-    labCarousel.addEventListener('focusin', stopAutoplay);
-    labCarousel.addEventListener('focusout', (event) => {
-      if (!labCarousel.contains(event.relatedTarget)) startAutoplay();
-    });
-
-    if ('IntersectionObserver' in window) {
-      const carouselObserver = new IntersectionObserver((entries) => {
-        isInView = Boolean(entries[0]?.isIntersecting);
-        if (isInView) startAutoplay();
-        else stopAutoplay();
-      }, { threshold: 0.25 });
-      carouselObserver.observe(labCarousel);
-    } else {
-      startAutoplay();
-    }
 
     showSlide(0);
+    if (!prefersReducedMotion && slides.length > 1) {
+      window.setInterval(() => showSlide(activeIndex + 1), 5200);
+    }
   }
 
   const researchCards = Array.from(document.querySelectorAll('.research-topic-card'));
