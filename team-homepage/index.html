@@ -308,6 +308,11 @@ a {
     transform: none;
     transition: none;
   }
+
+  .lab-slide,
+  .lab-slide img {
+    transition: none;
+  }
 }
 
 .content-page {
@@ -880,6 +885,15 @@ a {
   letter-spacing: .16em;
 }
 
+.eyebrow-line,
+.hero-lead-line {
+  display: block;
+}
+
+.eyebrow-line {
+  margin-top: 3px;
+}
+
 .section-kicker {
   margin: 0 0 12px;
   color: var(--blue);
@@ -1054,6 +1068,141 @@ a {
   text-underline-offset: 4px;
 }
 
+.home-gallery {
+  padding: 0 0 96px;
+}
+
+.lab-gallery-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.lab-gallery-heading p {
+  margin: 0;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.lab-gallery-heading h2 {
+  font-size: 30px;
+}
+
+.lab-carousel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #dbe6ee;
+  border-radius: 10px;
+  background: #edf3f7;
+  box-shadow: 0 18px 48px rgba(27, 66, 96, .09);
+}
+
+.lab-carousel-slides {
+  position: relative;
+  aspect-ratio: 3 / 2;
+}
+
+.lab-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .8s ease;
+}
+
+.lab-slide.is-active {
+  z-index: 1;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lab-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.015);
+  transition: transform 6s ease;
+}
+
+.lab-slide.is-active img {
+  transform: scale(1);
+}
+
+.lab-slide figcaption {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 36px 68px 18px;
+  color: #fff;
+  background: linear-gradient(to top, rgba(8, 32, 50, .72), transparent);
+  font-size: 15px;
+  letter-spacing: .02em;
+}
+
+.lab-carousel-control {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, .58);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(18, 48, 70, .48);
+  font: inherit;
+  font-size: 23px;
+  place-items: center;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.lab-carousel-control:hover {
+  background: rgba(18, 48, 70, .72);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.lab-carousel-prev {
+  left: 18px;
+}
+
+.lab-carousel-next {
+  right: 18px;
+}
+
+.lab-carousel-dots {
+  position: absolute;
+  z-index: 3;
+  right: 18px;
+  bottom: 19px;
+  display: flex;
+  gap: 7px;
+}
+
+.lab-carousel-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .58);
+  cursor: pointer;
+  transition: width .25s ease, background .25s ease;
+}
+
+.lab-carousel-dot.is-active {
+  width: 24px;
+  background: #fff;
+}
+
 .team-intro {
   padding: 86px 0 72px;
 }
@@ -1163,45 +1312,17 @@ h2 {
   line-height: 1;
 }
 
-.research-card h3,
-.achievement-grid h3 {
+.research-card h3 {
   position: relative;
   margin: 30px 0 10px;
   color: var(--ink);
   font-size: 21px;
 }
 
-.research-card p,
-.achievement-grid p {
+.research-card p {
   position: relative;
   margin: 0;
   color: var(--muted);
-}
-
-.achievement-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-  margin-bottom: 72px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  background: var(--line);
-}
-
-.achievement-grid article {
-  min-height: 255px;
-  padding: 34px 28px;
-  background: var(--white);
-}
-
-.achievement-grid strong {
-  color: var(--blue);
-  font-size: 38px;
-}
-
-.achievement-grid h3 {
-  margin-top: 30px;
 }
 
 .achievement-subnav {
@@ -1565,9 +1686,6 @@ h2 {
     margin-left: 10px;
   }
 
-  .achievement-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 760px) {
@@ -1675,6 +1793,37 @@ h2 {
     padding: 58px 0 72px;
   }
 
+  .home-gallery {
+    padding-bottom: 72px;
+  }
+
+  .lab-carousel-slides {
+    aspect-ratio: 4 / 3;
+  }
+
+  .lab-slide figcaption {
+    padding: 32px 58px 15px;
+    font-size: 13px;
+  }
+
+  .lab-carousel-control {
+    width: 36px;
+    height: 36px;
+  }
+
+  .lab-carousel-prev {
+    left: 10px;
+  }
+
+  .lab-carousel-next {
+    right: 10px;
+  }
+
+  .lab-carousel-dots {
+    right: 12px;
+    bottom: 15px;
+  }
+
   .news-item {
     grid-template-columns: 1fr;
     align-items: flex-start;
@@ -1718,8 +1867,7 @@ h2 {
     padding: 68px 0;
   }
 
-  .research-grid,
-  .achievement-grid {
+  .research-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1809,8 +1957,7 @@ h2 {
     padding: 8px;
   }
 
-  .research-card,
-  .achievement-grid article {
+  .research-card {
     min-height: auto;
   }
 
@@ -1868,9 +2015,9 @@ h2 {
           <div class="hero-frame">
             <div class="hero-backdrop" aria-hidden="true"></div>
             <div class="hero-content">
-              <p class="eyebrow">Sino-Italian JointResearch Laboratory on Prognostics and HealthManagement for Intelligent Maintenance (PHM-IM)</p>
+              <p class="eyebrow">Sino-Italian JointResearch Laboratory on Prognostics and HealthManagement<span class="eyebrow-line">for Intelligent Maintenance (PHM-IM)</span></p>
               <h1>中意健康管理与智能维修实验室</h1>
-              <p class="hero-lead">聚焦故障预测与健康管理（PHM）、数字孪生、智能运维及复杂系统韧性可靠性，融合人工智能、建模仿真与工程数据，推动前沿方法从理论研究走向工程应用。</p>
+              <p class="hero-lead">聚焦故障预测与健康管理（PHM）、数字孪生、智能运维及复杂系统韧性可靠性，<span class="hero-lead-line">融合人工智能、建模仿真与工程数据，推动前沿方法从理论研究走向工程应用。</span></p>
               <ul class="hero-keywords" aria-label="核心研究关键词">
                 <li>PHM</li>
                 <li>ARTIFICIAL INTELLIGENCE</li>
@@ -1906,6 +2053,48 @@ h2 {
               </div>
               <a class="news-link" href="https://h3i.buaa.edu.cn/info/1708/4581.htm" target="_blank" rel="noopener">[Link]</a>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-gallery" aria-labelledby="lab-gallery-title">
+        <div class="section-shell">
+          <header class="lab-gallery-heading">
+            <p>GALLERY</p>
+            <h2 id="lab-gallery-title">实验室风采</h2>
+          </header>
+          <div class="lab-carousel" data-lab-carousel aria-roledescription="轮播图" tabindex="0">
+            <div class="lab-carousel-slides" aria-live="off">
+              <figure class="lab-slide is-active">
+                <img src="image/lab1.png" alt="中意健康管理与智能维修联合实验室揭牌仪式">
+                <figcaption>中意健康管理与智能维修联合实验室揭牌仪式</figcaption>
+              </figure>
+              <figure class="lab-slide">
+                <img src="image/lab2.png" alt="实验室交流与设备参观" loading="lazy">
+                <figcaption>实验室交流与设备参观</figcaption>
+              </figure>
+              <figure class="lab-slide">
+                <img src="image/lab3.png" alt="中意联合实验室学术研讨会" loading="lazy">
+                <figcaption>中意联合实验室学术研讨会</figcaption>
+              </figure>
+              <figure class="lab-slide">
+                <img src="image/lab4.png" alt="实验室国际学术交流" loading="lazy">
+                <figcaption>实验室国际学术交流</figcaption>
+              </figure>
+              <figure class="lab-slide">
+                <img src="image/lab5.png" alt="实验室故障模拟与实验平台" loading="lazy">
+                <figcaption>实验室故障模拟与实验平台</figcaption>
+              </figure>
+            </div>
+            <button class="lab-carousel-control lab-carousel-prev" type="button" aria-label="上一张照片">‹</button>
+            <button class="lab-carousel-control lab-carousel-next" type="button" aria-label="下一张照片">›</button>
+            <div class="lab-carousel-dots" aria-label="选择实验室照片">
+              <button class="lab-carousel-dot is-active" type="button" aria-label="查看第 1 张照片" aria-current="true"></button>
+              <button class="lab-carousel-dot" type="button" aria-label="查看第 2 张照片"></button>
+              <button class="lab-carousel-dot" type="button" aria-label="查看第 3 张照片"></button>
+              <button class="lab-carousel-dot" type="button" aria-label="查看第 4 张照片"></button>
+              <button class="lab-carousel-dot" type="button" aria-label="查看第 5 张照片"></button>
+            </div>
           </div>
         </div>
       </section>
@@ -2038,34 +2227,11 @@ h2 {
           <button type="button" data-achievement-target="achievement-books">专著</button>
           <button type="button" data-achievement-target="achievement-patents">专利与软著</button>
         </nav>
-        <div class="achievement-grid">
-          <article>
-            <strong id="achievement-journal-count">—</strong>
-            <h3>学术论文</h3>
-            <p>发表于可靠性、机械系统、人工智能等领域国际期刊。</p>
-          </article>
-          <article>
-            <strong>18</strong>
-            <h3>科研项目</h3>
-            <p>主持或联合主持国家级、省部级及重大工程科研项目。</p>
-          </article>
-          <article>
-            <strong>2</strong>
-            <h3>学术专著</h3>
-            <p>聚焦装备故障预测、健康管理与全寿命周期工程实践。</p>
-          </article>
-          <article>
-            <strong>1600+</strong>
-            <h3>论文总被引</h3>
-            <p>h-index 16、i10-index 21</p>
-          </article>
-        </div>
-
         <div class="achievement-publications" aria-live="polite">
-          <section class="publication-block" id="achievement-journals"><p role="status">正在加载科研成果…</p></section>
-          <section class="publication-block" id="achievement-conferences"><p role="status">正在加载科研成果…</p></section>
-          <section class="publication-block" id="achievement-books"><p role="status">正在加载科研成果…</p></section>
-          <section class="publication-block" id="achievement-patents"><p role="status">正在加载科研成果…</p></section>
+          <section class="publication-block" id="achievement-journals"></section>
+          <section class="publication-block" id="achievement-conferences"></section>
+          <section class="publication-block" id="achievement-books"></section>
+          <section class="publication-block" id="achievement-patents"></section>
         </div>
       </div>
     </section>
@@ -2223,6 +2389,7 @@ h2 {
 (() => {
   document.documentElement.classList.add('js-ready');
   const isEnglish = new URLSearchParams(window.location.search).get('lang') === 'en';
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function configureLanguage() {
     const currentUrl = new URL(window.location.href);
@@ -2290,9 +2457,9 @@ h2 {
     });
 
     setText('.hero h1', 'Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance');
-    setText(
+    setHTML(
       '.hero-lead',
-      'We advance prognostics and health management (PHM), digital twins, intelligent operations and maintenance, and resilience and reliability for complex systems by integrating artificial intelligence, modeling and simulation, and engineering data—translating frontier research into practical engineering solutions.'
+      'We advance prognostics and health management (PHM), digital twins, intelligent operations and maintenance, and resilience and reliability for complex systems.<span class="hero-lead-line">By integrating artificial intelligence, modeling and simulation, and engineering data, we translate frontier research into practical engineering solutions.</span>'
     );
     document.querySelectorAll('.hero-actions [data-page-link]').forEach((link) => {
       const arrow = link.querySelector('span')?.outerHTML || '';
@@ -2305,6 +2472,28 @@ h2 {
       '.news-copy p',
       'The 10th International Conference on Reliability Engineering will be held in Hangzhou under the theme “Reliability Engineering for a Sustainable Future: From Classical Reliability to Intelligent Resilient Systems.”'
     );
+    setText('#lab-gallery-title', 'Laboratory Highlights');
+    const galleryCaptions = [
+      'Inauguration of the Sino-Italian Joint Laboratory',
+      'Laboratory exchange and facilities visit',
+      'Sino-Italian Joint Laboratory academic seminar',
+      'International academic exchange',
+      'Fault-simulation and experimental platform'
+    ];
+    document.querySelectorAll('.lab-slide').forEach((slide, index) => {
+      const caption = galleryCaptions[index];
+      const image = slide.querySelector('img');
+      const figcaption = slide.querySelector('figcaption');
+      if (image && caption) image.alt = caption;
+      if (figcaption && caption) figcaption.textContent = caption;
+    });
+    document.querySelector('[data-lab-carousel]')?.setAttribute('aria-roledescription', 'carousel');
+    document.querySelector('.lab-carousel-prev')?.setAttribute('aria-label', 'Previous photo');
+    document.querySelector('.lab-carousel-next')?.setAttribute('aria-label', 'Next photo');
+    document.querySelector('.lab-carousel-dots')?.setAttribute('aria-label', 'Select a laboratory photo');
+    document.querySelectorAll('.lab-carousel-dot').forEach((dot, index) => {
+      dot.setAttribute('aria-label', `View photo ${index + 1}`);
+    });
 
     setHTML('.lab-introduction', `
       <h2>Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance</h2>
@@ -2397,17 +2586,11 @@ h2 {
         <button type="button" data-achievement-target="achievement-books">Books</button>
         <button type="button" data-achievement-target="achievement-patents">Patents &amp; Software</button>
       </nav>
-      <div class="achievement-grid">
-        <article><strong id="achievement-journal-count">—</strong><h3>Academic Papers</h3><p>Published in leading international journals in reliability, mechanical systems, artificial intelligence, and related fields.</p></article>
-        <article><strong>18</strong><h3>Research Projects</h3><p>Led or co-led national, provincial and ministerial, and major engineering research projects.</p></article>
-        <article><strong>2</strong><h3>Academic Books</h3><p>Focused on equipment prognostics, health management, and lifecycle engineering practice.</p></article>
-        <article><strong>1600+</strong><h3>Total Citations</h3><p>h-index 16; i10-index 21</p></article>
-      </div>
       <div class="achievement-publications" aria-live="polite">
-        <section class="publication-block" id="achievement-journals"><p role="status">Loading research outputs…</p></section>
-        <section class="publication-block" id="achievement-conferences"><p role="status">Loading research outputs…</p></section>
-        <section class="publication-block" id="achievement-books"><p role="status">Loading research outputs…</p></section>
-        <section class="publication-block" id="achievement-patents"><p role="status">Loading research outputs…</p></section>
+        <section class="publication-block" id="achievement-journals"></section>
+        <section class="publication-block" id="achievement-conferences"></section>
+        <section class="publication-block" id="achievement-books"></section>
+        <section class="publication-block" id="achievement-patents"></section>
       </div>
     `);
 
@@ -2542,12 +2725,13 @@ h2 {
       '.hero-content > *',
       '.home-news-heading > *',
       '.news-item > *',
+      '.lab-gallery-heading > *',
+      '.lab-carousel',
       '.team-intro .intro-copy > *',
       '.lab-introduction > *',
       '.research-intro',
       '.research-topic-list > .research-topic-card',
       '.research-outro',
-      '.achievement-grid > article',
       '.achievement-publications > .publication-block',
       '.education-feature > *',
       '.recruitment-section > *',
@@ -2637,10 +2821,85 @@ h2 {
     });
   });
 
+  const labCarousel = document.querySelector('[data-lab-carousel]');
+  if (labCarousel) {
+    const slides = Array.from(labCarousel.querySelectorAll('.lab-slide'));
+    const dots = Array.from(labCarousel.querySelectorAll('.lab-carousel-dot'));
+    const previousButton = labCarousel.querySelector('.lab-carousel-prev');
+    const nextButton = labCarousel.querySelector('.lab-carousel-next');
+    let activeIndex = 0;
+    let autoplayTimer = 0;
+    let isInView = true;
+
+    const showSlide = (index) => {
+      activeIndex = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle('is-active', slideIndex === activeIndex);
+        slide.setAttribute('aria-hidden', String(slideIndex !== activeIndex));
+      });
+      dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === activeIndex;
+        dot.classList.toggle('is-active', isActive);
+        if (isActive) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+    };
+
+    const stopAutoplay = () => {
+      window.clearInterval(autoplayTimer);
+      autoplayTimer = 0;
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      if (prefersReducedMotion || !isInView || slides.length < 2) return;
+      autoplayTimer = window.setInterval(() => showSlide(activeIndex + 1), 5200);
+    };
+
+    previousButton?.addEventListener('click', () => {
+      showSlide(activeIndex - 1);
+      startAutoplay();
+    });
+    nextButton?.addEventListener('click', () => {
+      showSlide(activeIndex + 1);
+      startAutoplay();
+    });
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showSlide(index);
+        startAutoplay();
+      });
+    });
+    labCarousel.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      showSlide(activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
+      startAutoplay();
+    });
+    labCarousel.addEventListener('mouseenter', stopAutoplay);
+    labCarousel.addEventListener('mouseleave', startAutoplay);
+    labCarousel.addEventListener('focusin', stopAutoplay);
+    labCarousel.addEventListener('focusout', (event) => {
+      if (!labCarousel.contains(event.relatedTarget)) startAutoplay();
+    });
+
+    if ('IntersectionObserver' in window) {
+      const carouselObserver = new IntersectionObserver((entries) => {
+        isInView = Boolean(entries[0]?.isIntersecting);
+        if (isInView) startAutoplay();
+        else stopAutoplay();
+      }, { threshold: 0.25 });
+      carouselObserver.observe(labCarousel);
+    } else {
+      startAutoplay();
+    }
+
+    showSlide(0);
+  }
+
   const researchCards = Array.from(document.querySelectorAll('.research-topic-card'));
   const researchCollapseButton = document.getElementById('research-collapse-button');
   const researchAnimations = new WeakMap();
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function updateResearchCollapseButton() {
     const researchPageIsActive = document.getElementById('research')?.classList.contains('is-active');

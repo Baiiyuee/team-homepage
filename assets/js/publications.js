@@ -1,6 +1,10 @@
 (() => {
   'use strict';
 
+  const scriptSource = document.currentScript?.src || '';
+  const dataUrl = scriptSource
+    ? new URL('../../data/publications.json', scriptSource)
+    : new URL('../data/publications.json', window.location.href);
   const language = new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'zh';
   const isEnglish = language === 'en';
   const categories = ['journals', 'conferences', 'books', 'patents'];
@@ -10,7 +14,6 @@
       conferences: '会议及其他',
       books: '专著',
       patents: '发明专利与软件著作权',
-      loading: '正在加载科研成果…',
       empty: '暂无内容。',
       link: '[链接]',
       fileError: '无法从本地文件直接加载科研成果。请在项目根目录运行 python3 -m http.server 8000，再通过 http://localhost:8000/ 预览。',
@@ -21,7 +24,6 @@
       conferences: 'Conferences & Other Publications',
       books: 'Books',
       patents: 'Invention Patents and Software Copyrights',
-      loading: 'Loading research outputs…',
       empty: 'No entries yet.',
       link: '[Link]',
       fileError: 'Research outputs cannot be loaded directly from a local file. Run python3 -m http.server 8000 in the project root, then preview at http://localhost:8000/.',
@@ -227,8 +229,6 @@
     }));
   }
 
-  setAllSectionsStatus(labels.loading);
-
   if (window.location.protocol === 'file:') {
     setAllSectionsStatus(labels.fileError, true);
     document.dispatchEvent(new CustomEvent('publications:error', {
@@ -237,7 +237,7 @@
     return;
   }
 
-  fetch('../data/publications.json', { cache: 'no-cache' })
+  fetch(dataUrl, { cache: 'no-store' })
     .then((response) => {
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       return response.json();
