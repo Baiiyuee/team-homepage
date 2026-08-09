@@ -127,7 +127,7 @@
   }
 
   function createHeading(category) {
-    if (category !== 'journals') {
+    if (category !== 'journals' || site.prefix === 'achievement') {
       const heading = document.createElement('h2');
       heading.textContent = labels[category];
       return heading;

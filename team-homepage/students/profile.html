@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="中意健康管理与智能维修实验室学生个人主页">
+  <title>学生个人主页｜中意健康管理与智能维修实验室</title>
+  <style>
+    :root {
+      --ink: #1d2936;
+      --muted: #667485;
+      --blue: #1e5a96;
+      --line: rgba(36, 66, 96, .14);
+      --paper: rgba(255, 255, 255, .78);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(99, 163, 205, .18), transparent 32%),
+        linear-gradient(145deg, #edf3f6 0%, #f7f9f8 52%, #e8f0f3 100%);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .7);
+      background: rgba(244, 248, 249, .76);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner,
+    .page {
+      width: min(100% - 40px, 1080px);
+      margin: 0 auto;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 66px;
+    }
+
+    .back-link {
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .language {
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .55);
+    }
+
+    .language a {
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .language a.is-active {
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .page {
+      padding: 72px 0 90px;
+    }
+
+    .profile-hero {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 46px;
+      align-items: center;
+      padding: 38px;
+      border: 1px solid rgba(255, 255, 255, .88);
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: 0 22px 55px rgba(33, 55, 76, .1);
+    }
+
+    .profile-photo {
+      width: 220px;
+      aspect-ratio: 4 / 5;
+      border-radius: 18px;
+      background: #fff;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 500;
+      line-height: 1.08;
+    }
+
+    .degree {
+      margin: 0 0 26px;
+      color: #46586b;
+      font-size: 18px;
+    }
+
+    .profile-meta {
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 9px 14px;
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .profile-meta dt {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .profile-meta dd {
+      margin: 0;
+    }
+
+    .profile-content {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .profile-section {
+      min-height: 190px;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, .82);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .63);
+    }
+
+    .profile-section h2 {
+      margin: 0 0 18px;
+      font-size: 19px;
+    }
+
+    .profile-section p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner,
+      .page {
+        width: min(100% - 28px, 1080px);
+      }
+
+      .page {
+        padding-top: 38px;
+      }
+
+      .profile-hero {
+        grid-template-columns: 112px minmax(0, 1fr);
+        gap: 22px;
+        padding: 22px;
+      }
+
+      .profile-photo {
+        width: 112px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .degree {
+        margin-bottom: 16px;
+        font-size: 15px;
+      }
+
+      .profile-meta {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .profile-meta dd + dt {
+        margin-top: 7px;
+      }
+
+      .profile-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-photo {
+        width: 132px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="back-link" id="back-link" href="../index.html#education">← 返回人才培养</a>
+      <nav class="language" aria-label="语言选择">
+        <a id="lang-zh" class="is-active" href="#">中文</a>
+        <a id="lang-en" href="#">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="profile-hero">
+      <img class="profile-photo" id="profile-photo" src="" alt="">
+      <div>
+        <p class="eyebrow" id="eyebrow">学生个人主页</p>
+        <h1 id="profile-name"></h1>
+        <p class="degree" id="profile-degree"></p>
+        <dl class="profile-meta">
+          <dt id="major-label">专业</dt>
+          <dd id="profile-major"></dd>
+          <dt id="email-label">邮箱</dt>
+          <dd id="profile-email"></dd>
+        </dl>
+      </div>
+    </section>
+
+    <div class="profile-content">
+      <section class="profile-section">
+        <h2 id="bio-title">个人简历</h2>
+        <p class="placeholder"></p>
+      </section>
+      <section class="profile-section">
+        <h2 id="research-title">研究方向</h2>
+        <p class="placeholder"></p>
+      </section>
+      <section class="profile-section">
+        <h2 id="papers-title">论文成果</h2>
+        <p class="placeholder"></p>
+      </section>
+      <section class="profile-section">
+        <h2 id="activities-title">学术活动</h2>
+        <p class="placeholder"></p>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (() => {
+      const students = {
+        'dongcan-liu': { zh: '刘东灿', en: 'Dongcan Liu', image: 'Dongcan Liu.png', degreeZh: '博士研究生', degreeEn: 'Doctoral Student', majorZh: '控制科学与工程', majorEn: 'Control Science and Engineering' },
+        'xinhang-chen': { zh: '陈昕航', en: 'Xinhang Chen', image: 'Xinhang Chen.png', degreeZh: '专业型硕士研究生', degreeEn: 'Professional Master’s Student', majorZh: '电子信息', majorEn: 'Electronic Information' },
+        'jun-deng': { zh: '邓畯', en: 'Jun Deng', image: 'Jun Deng.png', degreeZh: '专业型硕士研究生', degreeEn: 'Professional Master’s Student', majorZh: '电子信息', majorEn: 'Electronic Information' },
+        'jing-li': { zh: '李婧', en: 'Jing Li', image: 'Jing Li.png', degreeZh: '专业型硕士研究生', degreeEn: 'Professional Master’s Student', majorZh: '电子信息', majorEn: 'Electronic Information' },
+        'kunlong-huang': { zh: '黄坤隆', en: 'Kunlong Huang', image: 'Kunlong Huang.png', degreeZh: '专业型硕士研究生', degreeEn: 'Professional Master’s Student', majorZh: '人工智能 / 电子信息', majorEn: 'Artificial Intelligence / Electronic Information' },
+        'yanyan-wu': { zh: '吴妍妍', en: 'Yanyan Wu', image: 'Yanyan Wu.png', degreeZh: '专业型硕士研究生', degreeEn: 'Professional Master’s Student', majorZh: '人工智能 / 电子信息', majorEn: 'Artificial Intelligence / Electronic Information' },
+        'yongpeng-qi': { zh: '齐永鹏', en: 'Yongpeng Qi', image: 'Yongpeng Qi.png', degreeZh: '专业型硕士研究生', degreeEn: 'Professional Master’s Student', majorZh: '交通运输', majorEn: 'Transportation' },
+        'linhan-zhang': { zh: '张琳涵', en: 'Linhan Zhang', image: 'Linhan Zhang.png', degreeZh: '专业型硕士研究生', degreeEn: 'Professional Master’s Student', majorZh: '机械', majorEn: 'Mechanical Engineering' },
+        'zhihuan-wei': { zh: '魏芷寰', en: 'Zhihuan Wei', image: 'Zhihuan Wei.png', degreeZh: '专业型硕士研究生', degreeEn: 'Professional Master’s Student', majorZh: '机械', majorEn: 'Mechanical Engineering' },
+        'pedro-martin': { zh: '彼得', en: 'Pedro Martin', image: 'Pedro Martin.png', degreeZh: '留学生硕士', degreeEn: 'International Master’s Student', majorZh: '待补充', majorEn: 'To be added' },
+        'zuhaer-tousif': { zh: '美也喆', en: 'Zuhaer Tousif', image: 'Zuhaer Tousif.png', degreeZh: '留学生硕士', degreeEn: 'International Master’s Student', majorZh: '待补充', majorEn: 'To be added' }
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id') || 'dongcan-liu';
+      const student = students[id] || students['dongcan-liu'];
+      const isEnglish = params.get('lang') === 'en';
+      const copy = isEnglish
+        ? {
+            lang: 'en',
+            title: `${student.en} | Student Profile`,
+            back: '← Back to Talent Development',
+            eyebrow: 'Student Profile',
+            major: 'Major',
+            email: 'Email',
+            bio: 'Curriculum Vitae',
+            research: 'Research Interests',
+            papers: 'Publications',
+            activities: 'Academic Activities',
+            placeholder: 'Content to be added by the student.'
+          }
+        : {
+            lang: 'zh-CN',
+            title: `${student.zh}｜学生个人主页`,
+            back: '← 返回人才培养',
+            eyebrow: '学生个人主页',
+            major: '专业',
+            email: '邮箱',
+            bio: '个人简历',
+            research: '研究方向',
+            papers: '论文成果',
+            activities: '学术活动',
+            placeholder: '内容由学生后续补充。'
+          };
+
+      document.documentElement.lang = copy.lang;
+      document.title = copy.title;
+      document.getElementById('back-link').textContent = copy.back;
+      document.getElementById('back-link').href = `../index.html${isEnglish ? '?lang=en' : ''}#education`;
+      document.getElementById('eyebrow').textContent = copy.eyebrow;
+      document.getElementById('profile-name').textContent = isEnglish ? student.en : student.zh;
+      document.getElementById('profile-degree').textContent = isEnglish ? student.degreeEn : student.degreeZh;
+      document.getElementById('profile-major').textContent = isEnglish ? student.majorEn : student.majorZh;
+      document.getElementById('profile-email').textContent = '';
+      document.getElementById('major-label').textContent = copy.major;
+      document.getElementById('email-label').textContent = copy.email;
+      document.getElementById('bio-title').textContent = copy.bio;
+      document.getElementById('research-title').textContent = copy.research;
+      document.getElementById('papers-title').textContent = copy.papers;
+      document.getElementById('activities-title').textContent = copy.activities;
+      document.querySelectorAll('.placeholder').forEach((element) => {
+        element.textContent = copy.placeholder;
+      });
+
+      const photo = document.getElementById('profile-photo');
+      photo.src = `../image/${encodeURIComponent(student.image)}`;
+      photo.alt = isEnglish ? student.en : student.zh;
+
+      const zhUrl = `profile.html?id=${encodeURIComponent(id)}`;
+      const enUrl = `${zhUrl}&lang=en`;
+      document.getElementById('lang-zh').href = zhUrl;
+      document.getElementById('lang-en').href = enUrl;
+      document.getElementById('lang-zh').classList.toggle('is-active', !isEnglish);
+      document.getElementById('lang-en').classList.toggle('is-active', isEnglish);
+    })();
+  </script>
+</body>
+</html>

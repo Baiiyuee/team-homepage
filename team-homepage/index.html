@@ -485,25 +485,104 @@ a {
 }
 
 .student-subheading {
-  margin: 0 0 10px !important;
+  margin: 0 0 18px !important;
   color: var(--ink);
   font-size: 21px !important;
 }
 
-.student-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 42px;
-  row-gap: 0;
-  margin: 0 !important;
-  padding: 8px 0 0 26px !important;
+.student-group + .student-group {
+  margin-top: 34px;
 }
 
-.student-list li {
+.student-group-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px !important;
+  color: #40536a;
+  font-size: 14px !important;
+  font-weight: 750;
+  letter-spacing: .08em;
+}
+
+.student-group-title::after {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  content: "";
+}
+
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none;
+}
+
+.student-grid li {
   margin: 0;
-  padding: 3px 0;
   border: 0;
-  line-height: 1.65;
+}
+
+.student-card {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 14px;
+  min-height: 112px;
+  padding: 12px;
+  border: 1px solid rgba(37, 75, 114, .12);
+  border-radius: 14px;
+  color: inherit !important;
+  background: rgba(255, 255, 255, .68);
+  box-shadow: 0 7px 22px rgba(35, 57, 79, .055);
+  text-decoration: none !important;
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.student-card:hover {
+  border-color: rgba(30, 90, 150, .3);
+  box-shadow: 0 12px 28px rgba(35, 57, 79, .1);
+  transform: translateY(-2px);
+}
+
+.student-card img {
+  width: 88px;
+  height: 96px;
+  border-radius: 10px;
+  background: #fff;
+  object-fit: contain;
+  object-position: center;
+}
+
+.student-card-body {
+  min-width: 0;
+}
+
+.student-card-name {
+  display: block;
+  margin: 2px 0 6px;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 760;
+  line-height: 1.35;
+}
+
+.student-card-meta,
+.student-card-email {
+  display: block;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.student-card-link {
+  display: inline-block;
+  margin-top: 7px;
+  color: var(--blue);
+  font-size: 12.5px;
+  font-weight: 700;
 }
 
 .recruitment-section {
@@ -739,6 +818,7 @@ a {
 
 .personnel-bio,
 .personnel-research,
+.personnel-email,
 .personnel-placeholder {
   margin: 0 0 13px;
   color: #526171;
@@ -747,6 +827,10 @@ a {
 }
 
 .personnel-research strong {
+  color: #334155;
+}
+
+.personnel-email strong {
   color: #334155;
 }
 
@@ -780,6 +864,18 @@ a {
   border-color: #8fb1c9;
   color: #174f75;
   background: #f5f9fc;
+}
+
+.personnel-links .personnel-link-primary {
+  border-color: var(--blue);
+  color: #fff;
+  background: var(--blue);
+}
+
+.personnel-links .personnel-link-primary:hover {
+  border-color: #174f75;
+  color: #fff;
+  background: #174f75;
 }
 
 .lab-module-list {
@@ -1799,6 +1895,10 @@ h2 {
     margin-left: 10px;
   }
 
+  .student-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
 }
 
 @media (max-width: 760px) {
@@ -2020,9 +2120,8 @@ h2 {
     padding: 7px 14px;
   }
 
-  .student-list {
+  .student-grid {
     grid-template-columns: 1fr;
-    padding-left: 22px !important;
   }
 
   .recruitment-section > .education-section-title {
@@ -2270,17 +2369,18 @@ h2 {
                   <h3 class="personnel-name">胡杨 <span>Yang Hu</span></h3>
                   <p class="personnel-bio">北京航空航天大学杭州国际创新研究院副研究员、博士生导师，中意健康管理与智能维修联合实验室执行主任。2015年博士毕业于意大利米兰理工大学，长期从事复杂装备预测与健康管理、智能保障与数字化运维研究。</p>
                   <p class="personnel-research"><strong>研究方向：</strong>复杂系统故障预测与健康管理（PHM）、人工智能与工业大数据、装备系统建模与仿真。</p>
+                  <p class="personnel-email"><strong>邮箱：</strong>yang_hu@buaa.edu.cn</p>
                   <div class="personnel-links">
-                    <a href="https://shi.buaa.edu.cn/huyang" target="_blank" rel="noopener">个人主页</a>
-                    <a href="mailto:yang_hu@buaa.edu.cn">电子邮箱</a>
-                    <a href="https://scholar.google.com/citations?user=t0t8_BkAAAAJ&amp;hl=en" target="_blank" rel="noopener">论文与引用</a>
+                    <a class="personnel-link-primary" href="../huyang-homepage/" target="_blank" rel="noopener">个人主页</a>
+                    <a href="https://shi.buaa.edu.cn/huyang" target="_blank" rel="noopener">北航教师主页</a>
+                    <a href="https://scholar.google.com/citations?user=t0t8_BkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
                   </div>
                 </div>
               </article>
               <article class="personnel-card">
                 <img class="personnel-photo" src="image/Yang Li.png" alt="李洋老师" loading="lazy">
                 <div>
-                  <p class="personnel-role">教师</p>
+                  <p class="personnel-role">副教授</p>
                   <h3 class="personnel-name">李洋 <span>Yang Li</span></h3>
                   <p class="personnel-placeholder">个人简介、研究方向与学术链接待补充。</p>
                 </div>
@@ -2292,10 +2392,10 @@ h2 {
                   <h3 class="personnel-name">江肖禹 <span>Xiaoyu Jiang</span></h3>
                   <p class="personnel-bio">浙江大学控制科学与工程专业博士，曾在浙江大学、香港城市大学和美国堪萨斯大学开展博士后及访问研究。主要研究人工智能技术在智能制造、低空运维与智慧能源等领域的应用。</p>
                   <p class="personnel-research"><strong>研究方向：</strong>机器学习、大模型、智能体、工业大数据与AI驱动的科学研究（AI4Science）。</p>
+                  <p class="personnel-email"><strong>邮箱：</strong>jiangxiaoyu@buaa.edu.cn</p>
                   <div class="personnel-links">
-                    <a href="https://shi.buaa.edu.cn/jiangxiaoyu/zh_CN/index/219991/list/index.htm" target="_blank" rel="noopener">个人主页</a>
-                    <a href="mailto:jiangxiaoyu@buaa.edu.cn">电子邮箱</a>
-                    <a href="https://scholar.google.com.hk/citations?user=SZzM_wUAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener">论文与引用</a>
+                    <a href="https://shi.buaa.edu.cn/jiangxiaoyu/zh_CN/index/219991/list/index.htm" target="_blank" rel="noopener">北航教师主页</a>
+                    <a href="https://scholar.google.com.hk/citations?user=SZzM_wUAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener">Google Scholar</a>
                   </div>
                 </div>
               </article>
@@ -2453,19 +2553,27 @@ h2 {
             <h2 class="education-section-title">学生培养</h2>
             <p class="student-summary">作为责任导师，指导专业型硕士、双学位硕士及留学生硕士；作为合作导师，联合指导课题组博士研究生与博士后多名，协助完成学术论文写作与算法框架设计等工作。</p>
             <h3 class="student-subheading">在读 / 指导研究生（部分）</h3>
-            <ul class="student-list">
-              <li>刘东灿（博士，控制科学与工程，杭州国际创新研究院）</li>
-              <li>陈昕航（专业型硕士，电子信息）</li>
-              <li>邓畯（专业型硕士，电子信息）</li>
-              <li>李婧（专业型硕士，电子信息）</li>
-              <li>黄坤隆（专业型硕士，人工智能/电子信息）</li>
-              <li>吴妍妍（专业型硕士，人工智能/电子信息）</li>
-              <li>齐永鹏（专业型硕士，交通运输）</li>
-              <li>张琳涵（专业型硕士，机械）</li>
-              <li>魏芷寰（专业型硕士，机械）</li>
-              <li>彼得（留学生硕士）</li>
-              <li>美也喆（留学生硕士）</li>
-            </ul>
+            <div class="student-group">
+              <h4 class="student-group-title">博士研究生</h4>
+              <ul class="student-grid">
+                <li><a class="student-card" href="students/profile.html?id=dongcan-liu"><img src="image/Dongcan Liu.png" alt="刘东灿" loading="lazy"><span class="student-card-body"><span class="student-card-name">刘东灿</span><span class="student-card-meta">专业：控制科学与工程</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+              </ul>
+            </div>
+            <div class="student-group">
+              <h4 class="student-group-title">硕士研究生</h4>
+              <ul class="student-grid">
+                <li><a class="student-card" href="students/profile.html?id=xinhang-chen"><img src="image/Xinhang Chen.png" alt="陈昕航" loading="lazy"><span class="student-card-body"><span class="student-card-name">陈昕航</span><span class="student-card-meta">专业：电子信息</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=jun-deng"><img src="image/Jun Deng.png" alt="邓畯" loading="lazy"><span class="student-card-body"><span class="student-card-name">邓畯</span><span class="student-card-meta">专业：电子信息</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=jing-li"><img src="image/Jing Li.png" alt="李婧" loading="lazy"><span class="student-card-body"><span class="student-card-name">李婧</span><span class="student-card-meta">专业：电子信息</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=kunlong-huang"><img src="image/Kunlong Huang.png" alt="黄坤隆" loading="lazy"><span class="student-card-body"><span class="student-card-name">黄坤隆</span><span class="student-card-meta">专业：人工智能 / 电子信息</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=yanyan-wu"><img src="image/Yanyan Wu.png" alt="吴妍妍" loading="lazy"><span class="student-card-body"><span class="student-card-name">吴妍妍</span><span class="student-card-meta">专业：人工智能 / 电子信息</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=yongpeng-qi"><img src="image/Yongpeng Qi.png" alt="齐永鹏" loading="lazy"><span class="student-card-body"><span class="student-card-name">齐永鹏</span><span class="student-card-meta">专业：交通运输</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=linhan-zhang"><img src="image/Linhan Zhang.png" alt="张琳涵" loading="lazy"><span class="student-card-body"><span class="student-card-name">张琳涵</span><span class="student-card-meta">专业：机械</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=zhihuan-wei"><img src="image/Zhihuan Wei.png" alt="魏芷寰" loading="lazy"><span class="student-card-body"><span class="student-card-name">魏芷寰</span><span class="student-card-meta">专业：机械</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=pedro-martin"><img src="image/Pedro Martin.png" alt="彼得" loading="lazy"><span class="student-card-body"><span class="student-card-name">彼得</span><span class="student-card-meta">留学生硕士 · 专业待补充</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=zuhaer-tousif"><img src="image/Zuhaer Tousif.png" alt="美也喆" loading="lazy"><span class="student-card-body"><span class="student-card-name">美也喆</span><span class="student-card-meta">留学生硕士 · 专业待补充</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+              </ul>
+            </div>
           </section>
 
           <section class="recruitment-section" id="education-recruitment">
@@ -2743,17 +2851,18 @@ h2 {
               <h3 class="personnel-name">Yang Hu</h3>
               <p class="personnel-bio">Yang Hu is an Associate Research Fellow and Doctoral Supervisor at the Hangzhou International Innovation Institute, Beihang University, and Executive Director of the Sino-Italian Joint Laboratory. He received his Ph.D. from Politecnico di Milano in 2015 and works on prognostics and health management, intelligent support, and digital operations and maintenance for complex equipment.</p>
               <p class="personnel-research"><strong>Research:</strong> Prognostics and health management (PHM) of complex systems, artificial intelligence and industrial big data, and equipment-system modeling and simulation.</p>
+              <p class="personnel-email"><strong>Email:</strong> yang_hu@buaa.edu.cn</p>
               <div class="personnel-links">
-                <a href="https://shi.buaa.edu.cn/huyang" target="_blank" rel="noopener">Homepage</a>
-                <a href="mailto:yang_hu@buaa.edu.cn">Email</a>
-                <a href="https://scholar.google.com/citations?user=t0t8_BkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Publications &amp; Citations</a>
+                <a class="personnel-link-primary" href="../huyang-homepage/" target="_blank" rel="noopener">Personal Website</a>
+                <a href="https://shi.buaa.edu.cn/huyang" target="_blank" rel="noopener">Beihang Profile</a>
+                <a href="https://scholar.google.com/citations?user=t0t8_BkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
               </div>
             </div>
           </article>
           <article class="personnel-card">
             <img class="personnel-photo" src="image/Yang Li.png" alt="Yang Li" loading="lazy">
             <div>
-              <p class="personnel-role">Faculty Member</p>
+              <p class="personnel-role">Associate Professor</p>
               <h3 class="personnel-name">Yang Li</h3>
               <p class="personnel-placeholder">Biography, research interests, and academic links to be added.</p>
             </div>
@@ -2765,10 +2874,10 @@ h2 {
               <h3 class="personnel-name">Xiaoyu Jiang</h3>
               <p class="personnel-bio">Xiaoyu Jiang received his Ph.D. in Control Science and Engineering from Zhejiang University and conducted postdoctoral and visiting research at Zhejiang University, City University of Hong Kong, and the University of Kansas. His work applies artificial intelligence to intelligent manufacturing, low-altitude operations and maintenance, and smart energy.</p>
               <p class="personnel-research"><strong>Research:</strong> Machine learning, foundation models, intelligent agents, industrial big data, and AI for Science.</p>
+              <p class="personnel-email"><strong>Email:</strong> jiangxiaoyu@buaa.edu.cn</p>
               <div class="personnel-links">
                 <a href="https://shi.buaa.edu.cn/jiangxiaoyu/zh_CN/index/219991/list/index.htm" target="_blank" rel="noopener">Homepage</a>
-                <a href="mailto:jiangxiaoyu@buaa.edu.cn">Email</a>
-                <a href="https://scholar.google.com.hk/citations?user=SZzM_wUAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener">Publications &amp; Citations</a>
+                <a href="https://scholar.google.com.hk/citations?user=SZzM_wUAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener">Google Scholar</a>
               </div>
             </div>
           </article>
@@ -2877,19 +2986,27 @@ h2 {
           <h2 class="education-section-title">Student Supervision</h2>
           <p class="student-summary">As primary supervisor, Yang Hu advises professional master’s students, dual-degree master’s students, and international master’s students. As co-supervisor, he jointly advises doctoral researchers and postdoctoral fellows in the group, including work on academic writing and algorithmic framework design.</p>
           <h3 class="student-subheading">Current / Supervised Graduate Students (Selected)</h3>
-          <ul class="student-list">
-            <li>Dongcan Liu (PhD, Control Science and Engineering, Hangzhou International Innovation Institute)</li>
-            <li>Xinhang Chen (Professional Master’s, Electronic Information)</li>
-            <li>Jun Deng (Professional Master’s, Electronic Information)</li>
-            <li>Jing Li (Professional Master’s, Electronic Information)</li>
-            <li>Kunlong Huang (Professional Master’s, Artificial Intelligence / Electronic Information)</li>
-            <li>Yanyan Wu (Professional Master’s, Artificial Intelligence / Electronic Information)</li>
-            <li>Yongpeng Qi (Professional Master’s, Transportation)</li>
-            <li>Linhan Zhang (Professional Master’s, Mechanical Engineering)</li>
-            <li>Zhihuan Wei (Professional Master’s, Mechanical Engineering)</li>
-            <li>Peter (International Master’s Student)</li>
-            <li>Meiye Zhe (International Master’s Student)</li>
-          </ul>
+          <div class="student-group">
+            <h4 class="student-group-title">Doctoral Student</h4>
+            <ul class="student-grid">
+              <li><a class="student-card" href="students/profile.html?id=dongcan-liu&amp;lang=en"><img src="image/Dongcan Liu.png" alt="Dongcan Liu" loading="lazy"><span class="student-card-body"><span class="student-card-name">Dongcan Liu</span><span class="student-card-meta">Major: Control Science and Engineering</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+            </ul>
+          </div>
+          <div class="student-group">
+            <h4 class="student-group-title">Master’s Students</h4>
+            <ul class="student-grid">
+              <li><a class="student-card" href="students/profile.html?id=xinhang-chen&amp;lang=en"><img src="image/Xinhang Chen.png" alt="Xinhang Chen" loading="lazy"><span class="student-card-body"><span class="student-card-name">Xinhang Chen</span><span class="student-card-meta">Major: Electronic Information</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+              <li><a class="student-card" href="students/profile.html?id=jun-deng&amp;lang=en"><img src="image/Jun Deng.png" alt="Jun Deng" loading="lazy"><span class="student-card-body"><span class="student-card-name">Jun Deng</span><span class="student-card-meta">Major: Electronic Information</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+              <li><a class="student-card" href="students/profile.html?id=jing-li&amp;lang=en"><img src="image/Jing Li.png" alt="Jing Li" loading="lazy"><span class="student-card-body"><span class="student-card-name">Jing Li</span><span class="student-card-meta">Major: Electronic Information</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+              <li><a class="student-card" href="students/profile.html?id=kunlong-huang&amp;lang=en"><img src="image/Kunlong Huang.png" alt="Kunlong Huang" loading="lazy"><span class="student-card-body"><span class="student-card-name">Kunlong Huang</span><span class="student-card-meta">Major: Artificial Intelligence / Electronic Information</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+              <li><a class="student-card" href="students/profile.html?id=yanyan-wu&amp;lang=en"><img src="image/Yanyan Wu.png" alt="Yanyan Wu" loading="lazy"><span class="student-card-body"><span class="student-card-name">Yanyan Wu</span><span class="student-card-meta">Major: Artificial Intelligence / Electronic Information</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+              <li><a class="student-card" href="students/profile.html?id=yongpeng-qi&amp;lang=en"><img src="image/Yongpeng Qi.png" alt="Yongpeng Qi" loading="lazy"><span class="student-card-body"><span class="student-card-name">Yongpeng Qi</span><span class="student-card-meta">Major: Transportation</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+              <li><a class="student-card" href="students/profile.html?id=linhan-zhang&amp;lang=en"><img src="image/Linhan Zhang.png" alt="Linhan Zhang" loading="lazy"><span class="student-card-body"><span class="student-card-name">Linhan Zhang</span><span class="student-card-meta">Major: Mechanical Engineering</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+              <li><a class="student-card" href="students/profile.html?id=zhihuan-wei&amp;lang=en"><img src="image/Zhihuan Wei.png" alt="Zhihuan Wei" loading="lazy"><span class="student-card-body"><span class="student-card-name">Zhihuan Wei</span><span class="student-card-meta">Major: Mechanical Engineering</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+              <li><a class="student-card" href="students/profile.html?id=pedro-martin&amp;lang=en"><img src="image/Pedro Martin.png" alt="Pedro Martin" loading="lazy"><span class="student-card-body"><span class="student-card-name">Pedro Martin</span><span class="student-card-meta">International Master’s Student · Major pending</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+              <li><a class="student-card" href="students/profile.html?id=zuhaer-tousif&amp;lang=en"><img src="image/Zuhaer Tousif.png" alt="Zuhaer Tousif" loading="lazy"><span class="student-card-body"><span class="student-card-name">Zuhaer Tousif</span><span class="student-card-meta">International Master’s Student · Major pending</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+            </ul>
+          </div>
         </section>
         <section class="recruitment-section" id="education-recruitment">
           <h2 class="education-section-title">Admissions Guide</h2>
