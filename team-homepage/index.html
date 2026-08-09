@@ -626,6 +626,8 @@ a {
 
 .lab-introduction {
   color: #334155;
+  margin-bottom: 88px;
+  scroll-margin-top: 150px;
 }
 
 .lab-introduction > h2 {
@@ -645,6 +647,139 @@ a {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.lab-subnav {
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.lab-subnav::-webkit-scrollbar {
+  display: none;
+}
+
+.lab-subnav button {
+  flex: 0 0 auto;
+}
+
+.personnel-section {
+  scroll-margin-top: 150px;
+}
+
+.personnel-section + .personnel-section {
+  margin-top: 88px;
+}
+
+.personnel-section-title {
+  position: relative;
+  margin: 0 0 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 30px;
+  letter-spacing: -.02em;
+}
+
+.personnel-section-title::after {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 58px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--blue);
+  content: "";
+}
+
+.personnel-list {
+  border-top: 1px solid var(--line);
+}
+
+.personnel-card {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 42px;
+  align-items: start;
+  padding: 38px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.personnel-photo {
+  display: block;
+  width: 210px;
+  aspect-ratio: 4 / 5;
+  border-radius: 7px;
+  background: #eef3f7;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.personnel-role {
+  margin: 1px 0 8px;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 750;
+  letter-spacing: .04em;
+}
+
+.personnel-name {
+  margin: 0 0 17px;
+  color: var(--ink);
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+.personnel-name span {
+  margin-left: 8px;
+  color: #8a96a3;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.personnel-bio,
+.personnel-research,
+.personnel-placeholder {
+  margin: 0 0 13px;
+  color: #526171;
+  font-size: 15.5px;
+  line-height: 1.85;
+}
+
+.personnel-research strong {
+  color: #334155;
+}
+
+.personnel-placeholder {
+  color: #98a2ae;
+}
+
+.personnel-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+.personnel-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 13px;
+  border: 1px solid #ccdae6;
+  border-radius: 999px;
+  color: #315e7e;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+}
+
+.personnel-links a:hover {
+  border-color: #8fb1c9;
+  color: #174f75;
+  background: #f5f9fc;
 }
 
 .lab-module-list {
@@ -1789,6 +1924,28 @@ h2 {
     bottom: 16px;
   }
 
+  .lab-introduction {
+    margin-bottom: 64px;
+  }
+
+  .personnel-section + .personnel-section {
+    margin-top: 64px;
+  }
+
+  .personnel-card {
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 24px;
+    padding: 30px 0;
+  }
+
+  .personnel-photo {
+    width: 150px;
+  }
+
+  .personnel-name {
+    font-size: 24px;
+  }
+
   .news-item {
     grid-template-columns: 1fr;
     align-items: flex-start;
@@ -1932,6 +2089,14 @@ h2 {
 }
 
 @media (max-width: 430px) {
+  .personnel-card {
+    grid-template-columns: 1fr;
+  }
+
+  .personnel-photo {
+    width: 180px;
+  }
+
   .stats div {
     display: block;
   }
@@ -2065,7 +2230,12 @@ h2 {
 
     <section class="page-panel content-page" id="team" data-page="team">
       <div class="page-shell">
-        <article class="prose lab-introduction">
+        <nav class="education-subnav lab-subnav" aria-label="实验室页面导航">
+          <button class="is-active" type="button" data-lab-target="lab-overview">实验室简介</button>
+          <button type="button" data-lab-target="lab-faculty">教师团队</button>
+          <button type="button" data-lab-target="lab-postdocs">博士后</button>
+        </nav>
+        <article class="prose lab-introduction" id="lab-overview">
           <h2>中意健康管理与智能维修联合实验室</h2>
           <p>中意健康管理与智能维修联合实验室由北航康锐教授与米兰理工大学Enrico Zio教授共同创建，由胡杨副研究员担任执行主任。实验室以“虚实融合、智能驱动、体系赋能”为总体理念，聚焦复杂工程系统的故障预测与健康管理（PHM）、建模仿真、智慧运维、多模态大模型等研究，形成贯通“模型—算法—仿真—验证—应用”的完整研究链路，为航空航天、能源交通、生产制造等系统的PHM与智慧运维提供多学科交叉研究实验的平台。现有教授2人，副研究员2人，副教授1人，博士后3人，研究生13人。</p>
           <figure class="lab-figure">
@@ -2089,6 +2259,79 @@ h2 {
           </ul>
           <p>目前，实验室已与浙江长龙航空维修工程有限公司建立长期合作关系，获取了10年以上、超过15万架次A320机队飞行参数数据及2000余项真实维修工单；并与中国航空工业、中国船舶、华为2012实验室、工信部电子信息五所等单位共同开展系统PHM与智慧运维研究。同时，实验室与北航杭州国际创新研究院智慧民航科创中心的中法达索卓越教育中心、可靠性数字孪生实验室、机群运行与维修仿真实验室共享资源，实现复杂工程系统的设计—建模—仿真—验证全流程协同。</p>
         </article>
+        <div class="lab-personnel">
+          <section class="personnel-section" id="lab-faculty">
+            <h2 class="personnel-section-title">教师团队</h2>
+            <div class="personnel-list">
+              <article class="personnel-card">
+                <img class="personnel-photo" src="image/Yang Hu.png" alt="胡杨老师" loading="lazy">
+                <div>
+                  <p class="personnel-role">执行主任 · 副研究员 · 博士生导师</p>
+                  <h3 class="personnel-name">胡杨 <span>Yang Hu</span></h3>
+                  <p class="personnel-bio">北京航空航天大学杭州国际创新研究院副研究员、博士生导师，中意健康管理与智能维修联合实验室执行主任。2015年博士毕业于意大利米兰理工大学，长期从事复杂装备预测与健康管理、智能保障与数字化运维研究。</p>
+                  <p class="personnel-research"><strong>研究方向：</strong>复杂系统故障预测与健康管理（PHM）、人工智能与工业大数据、装备系统建模与仿真。</p>
+                  <div class="personnel-links">
+                    <a href="https://shi.buaa.edu.cn/huyang" target="_blank" rel="noopener">个人主页</a>
+                    <a href="mailto:yang_hu@buaa.edu.cn">电子邮箱</a>
+                    <a href="https://scholar.google.com/citations?user=t0t8_BkAAAAJ&amp;hl=en" target="_blank" rel="noopener">论文与引用</a>
+                  </div>
+                </div>
+              </article>
+              <article class="personnel-card">
+                <img class="personnel-photo" src="image/Yang Li.png" alt="李洋老师" loading="lazy">
+                <div>
+                  <p class="personnel-role">教师</p>
+                  <h3 class="personnel-name">李洋 <span>Yang Li</span></h3>
+                  <p class="personnel-placeholder">个人简介、研究方向与学术链接待补充。</p>
+                </div>
+              </article>
+              <article class="personnel-card">
+                <img class="personnel-photo" src="image/Xiaoyu Jiang.png" alt="江肖禹老师" loading="lazy">
+                <div>
+                  <p class="personnel-role">副研究员 · 硕士生导师</p>
+                  <h3 class="personnel-name">江肖禹 <span>Xiaoyu Jiang</span></h3>
+                  <p class="personnel-bio">浙江大学控制科学与工程专业博士，曾在浙江大学、香港城市大学和美国堪萨斯大学开展博士后及访问研究。主要研究人工智能技术在智能制造、低空运维与智慧能源等领域的应用。</p>
+                  <p class="personnel-research"><strong>研究方向：</strong>机器学习、大模型、智能体、工业大数据与AI驱动的科学研究（AI4Science）。</p>
+                  <div class="personnel-links">
+                    <a href="https://shi.buaa.edu.cn/jiangxiaoyu/zh_CN/index/219991/list/index.htm" target="_blank" rel="noopener">个人主页</a>
+                    <a href="mailto:jiangxiaoyu@buaa.edu.cn">电子邮箱</a>
+                    <a href="https://scholar.google.com.hk/citations?user=SZzM_wUAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener">论文与引用</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="personnel-section" id="lab-postdocs">
+            <h2 class="personnel-section-title">博士后研究人员</h2>
+            <div class="personnel-list">
+              <article class="personnel-card">
+                <img class="personnel-photo" src="image/Danyang Han.png" alt="韩丹阳博士后" loading="lazy">
+                <div>
+                  <p class="personnel-role">博士后</p>
+                  <h3 class="personnel-name">韩丹阳 <span>Danyang Han</span></h3>
+                  <p class="personnel-placeholder">个人简介、研究方向与学术链接待补充。</p>
+                </div>
+              </article>
+              <article class="personnel-card">
+                <img class="personnel-photo" src="image/Di Su.png" alt="苏迪博士后" loading="lazy">
+                <div>
+                  <p class="personnel-role">博士后</p>
+                  <h3 class="personnel-name">苏迪 <span>Di Su</span></h3>
+                  <p class="personnel-placeholder">个人简介、研究方向与学术链接待补充。</p>
+                </div>
+              </article>
+              <article class="personnel-card">
+                <img class="personnel-photo" src="image/Jiayu Wang.png" alt="王佳宇博士后" loading="lazy">
+                <div>
+                  <p class="personnel-role">博士后</p>
+                  <h3 class="personnel-name">王佳宇 <span>Jiayu Wang</span></h3>
+                  <p class="personnel-placeholder">个人简介、研究方向与学术链接待补充。</p>
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
       </div>
     </section>
 
@@ -2455,6 +2698,15 @@ h2 {
     document.querySelectorAll('.lab-carousel-dot').forEach((dot, index) => {
       dot.setAttribute('aria-label', `View photo ${index + 1}`);
     });
+    const labNavigation = {
+      'lab-overview': 'Laboratory',
+      'lab-faculty': 'Faculty',
+      'lab-postdocs': 'Postdoctoral Researchers'
+    };
+    document.querySelectorAll('[data-lab-target]').forEach((button) => {
+      button.textContent = labNavigation[button.dataset.labTarget] || button.textContent;
+    });
+    document.querySelector('.lab-subnav')?.setAttribute('aria-label', 'Laboratory page navigation');
 
     setHTML('.lab-introduction', `
       <h2>Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance</h2>
@@ -2479,6 +2731,66 @@ h2 {
         <li><strong>Fleet maintenance experiments:</strong> Integrate PHM into maintenance decisions, mission scheduling, and support-resource optimization on a fleet simulation platform, and assess overall operational and maintenance effectiveness under different strategies.</li>
       </ul>
       <p>The laboratory has established a long-term partnership with Zhejiang Loong Airlines Maintenance Engineering Co., Ltd., gaining access to more than ten years of flight-parameter data covering over 150,000 A320 flights and more than 2,000 authentic maintenance work orders. It also conducts joint research on system PHM and intelligent maintenance with the Aviation Industry Corporation of China, China State Shipbuilding Corporation, Huawei 2012 Laboratories, and the China Electronic Product Reliability and Environmental Testing Research Institute. Resources are shared with the Sino-French Dassault Systèmes Center of Excellence in Education, the Reliability Digital Twin Laboratory, and the Fleet Operations and Maintenance Simulation Laboratory within the Smart Civil Aviation Science and Technology Innovation Center at the Hangzhou International Innovation Institute, Beihang University, enabling coordinated design, modeling, simulation, and validation of complex engineering systems.</p>
+    `);
+    setHTML('.lab-personnel', `
+      <section class="personnel-section" id="lab-faculty">
+        <h2 class="personnel-section-title">Faculty</h2>
+        <div class="personnel-list">
+          <article class="personnel-card">
+            <img class="personnel-photo" src="image/Yang Hu.png" alt="Yang Hu" loading="lazy">
+            <div>
+              <p class="personnel-role">Executive Director · Associate Research Fellow · Doctoral Supervisor</p>
+              <h3 class="personnel-name">Yang Hu</h3>
+              <p class="personnel-bio">Yang Hu is an Associate Research Fellow and Doctoral Supervisor at the Hangzhou International Innovation Institute, Beihang University, and Executive Director of the Sino-Italian Joint Laboratory. He received his Ph.D. from Politecnico di Milano in 2015 and works on prognostics and health management, intelligent support, and digital operations and maintenance for complex equipment.</p>
+              <p class="personnel-research"><strong>Research:</strong> Prognostics and health management (PHM) of complex systems, artificial intelligence and industrial big data, and equipment-system modeling and simulation.</p>
+              <div class="personnel-links">
+                <a href="https://shi.buaa.edu.cn/huyang" target="_blank" rel="noopener">Homepage</a>
+                <a href="mailto:yang_hu@buaa.edu.cn">Email</a>
+                <a href="https://scholar.google.com/citations?user=t0t8_BkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Publications &amp; Citations</a>
+              </div>
+            </div>
+          </article>
+          <article class="personnel-card">
+            <img class="personnel-photo" src="image/Yang Li.png" alt="Yang Li" loading="lazy">
+            <div>
+              <p class="personnel-role">Faculty Member</p>
+              <h3 class="personnel-name">Yang Li</h3>
+              <p class="personnel-placeholder">Biography, research interests, and academic links to be added.</p>
+            </div>
+          </article>
+          <article class="personnel-card">
+            <img class="personnel-photo" src="image/Xiaoyu Jiang.png" alt="Xiaoyu Jiang" loading="lazy">
+            <div>
+              <p class="personnel-role">Associate Research Fellow · Master's Supervisor</p>
+              <h3 class="personnel-name">Xiaoyu Jiang</h3>
+              <p class="personnel-bio">Xiaoyu Jiang received his Ph.D. in Control Science and Engineering from Zhejiang University and conducted postdoctoral and visiting research at Zhejiang University, City University of Hong Kong, and the University of Kansas. His work applies artificial intelligence to intelligent manufacturing, low-altitude operations and maintenance, and smart energy.</p>
+              <p class="personnel-research"><strong>Research:</strong> Machine learning, foundation models, intelligent agents, industrial big data, and AI for Science.</p>
+              <div class="personnel-links">
+                <a href="https://shi.buaa.edu.cn/jiangxiaoyu/zh_CN/index/219991/list/index.htm" target="_blank" rel="noopener">Homepage</a>
+                <a href="mailto:jiangxiaoyu@buaa.edu.cn">Email</a>
+                <a href="https://scholar.google.com.hk/citations?user=SZzM_wUAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener">Publications &amp; Citations</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="personnel-section" id="lab-postdocs">
+        <h2 class="personnel-section-title">Postdoctoral Researchers</h2>
+        <div class="personnel-list">
+          <article class="personnel-card">
+            <img class="personnel-photo" src="image/Danyang Han.png" alt="Danyang Han" loading="lazy">
+            <div><p class="personnel-role">Postdoctoral Researcher</p><h3 class="personnel-name">Danyang Han</h3><p class="personnel-placeholder">Biography, research interests, and academic links to be added.</p></div>
+          </article>
+          <article class="personnel-card">
+            <img class="personnel-photo" src="image/Di Su.png" alt="Di Su" loading="lazy">
+            <div><p class="personnel-role">Postdoctoral Researcher</p><h3 class="personnel-name">Di Su</h3><p class="personnel-placeholder">Biography, research interests, and academic links to be added.</p></div>
+          </article>
+          <article class="personnel-card">
+            <img class="personnel-photo" src="image/Jiayu Wang.png" alt="Jiayu Wang" loading="lazy">
+            <div><p class="personnel-role">Postdoctoral Researcher</p><h3 class="personnel-name">Jiayu Wang</h3><p class="personnel-placeholder">Biography, research interests, and academic links to be added.</p></div>
+          </article>
+        </div>
+      </section>
     `);
 
     setHTML('#research article.prose', `
@@ -2689,6 +3001,8 @@ h2 {
       '.lab-gallery-heading > *',
       '.team-intro .intro-copy > *',
       '.lab-introduction > *',
+      '.personnel-section-title',
+      '.personnel-card',
       '.research-intro',
       '.research-topic-list > .research-topic-card',
       '.research-outro',
@@ -2974,6 +3288,7 @@ h2 {
 
   setupSectionSubnav('[data-education-target]', 'educationTarget');
   setupSectionSubnav('[data-achievement-target]', 'achievementTarget');
+  setupSectionSubnav('[data-lab-target]', 'labTarget');
 
   window.addEventListener('popstate', () => {
     showPage(window.location.hash.replace('#', ''), { skipHash: true, instant: true });
