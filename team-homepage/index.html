@@ -1141,11 +1141,44 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 34px 24px 16px;
+  padding: 34px 120px 16px 24px;
   color: #fff;
   background: linear-gradient(to top, rgba(8, 32, 50, .72), transparent);
   font-size: 15px;
   letter-spacing: .02em;
+}
+
+.lab-carousel-dots {
+  position: absolute;
+  z-index: 3;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.lab-carousel-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .58);
+  cursor: pointer;
+  transition: width .25s ease, background .25s ease, transform .25s ease;
+}
+
+.lab-carousel-dot:hover,
+.lab-carousel-dot:focus-visible {
+  background: #fff;
+  outline: none;
+  transform: scale(1.18);
+}
+
+.lab-carousel-dot.is-active {
+  width: 24px;
+  background: #fff;
 }
 
 .team-intro {
@@ -1747,8 +1780,13 @@ h2 {
   }
 
   .lab-slide figcaption {
-    padding: 30px 16px 13px;
+    padding: 30px 100px 13px 16px;
     font-size: 13px;
+  }
+
+  .lab-carousel-dots {
+    right: 14px;
+    bottom: 16px;
   }
 
   .news-item {
@@ -1997,21 +2035,28 @@ h2 {
                 <figcaption>中意健康管理与智能维修联合实验室揭牌仪式</figcaption>
               </figure>
               <figure class="lab-slide">
-                <img src="image/lab2.png" alt="实验室交流与设备参观" loading="lazy">
-                <figcaption>实验室交流与设备参观</figcaption>
+                <img src="image/lab2.png" alt="实验室国际学术交流" loading="lazy">
+                <figcaption>实验室国际学术交流</figcaption>
               </figure>
               <figure class="lab-slide">
-                <img src="image/lab3.png" alt="中意联合实验室学术研讨会" loading="lazy">
-                <figcaption>中意联合实验室学术研讨会</figcaption>
+                <img src="image/lab3.png" alt="实验室学术研讨会" loading="lazy">
+                <figcaption>实验室学术研讨会</figcaption>
               </figure>
               <figure class="lab-slide">
                 <img src="image/lab4.png" alt="实验室国际学术交流" loading="lazy">
                 <figcaption>实验室国际学术交流</figcaption>
               </figure>
               <figure class="lab-slide">
-                <img src="image/lab5.png" alt="实验室故障模拟与实验平台" loading="lazy">
-                <figcaption>实验室故障模拟与实验平台</figcaption>
+                <img src="image/lab5.png" alt="实验室设备" loading="lazy">
+                <figcaption>实验室设备</figcaption>
               </figure>
+            </div>
+            <div class="lab-carousel-dots" aria-label="选择实验室照片">
+              <button class="lab-carousel-dot is-active" type="button" aria-label="查看第 1 张照片" aria-current="true"></button>
+              <button class="lab-carousel-dot" type="button" aria-label="查看第 2 张照片"></button>
+              <button class="lab-carousel-dot" type="button" aria-label="查看第 3 张照片"></button>
+              <button class="lab-carousel-dot" type="button" aria-label="查看第 4 张照片"></button>
+              <button class="lab-carousel-dot" type="button" aria-label="查看第 5 张照片"></button>
             </div>
           </div>
         </div>
@@ -2406,6 +2451,10 @@ h2 {
       if (figcaption && caption) figcaption.textContent = caption;
     });
     document.querySelector('[data-lab-carousel]')?.setAttribute('aria-roledescription', 'carousel');
+    document.querySelector('.lab-carousel-dots')?.setAttribute('aria-label', 'Select a laboratory photo');
+    document.querySelectorAll('.lab-carousel-dot').forEach((dot, index) => {
+      dot.setAttribute('aria-label', `View photo ${index + 1}`);
+    });
 
     setHTML('.lab-introduction', `
       <h2>Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance</h2>
@@ -2735,7 +2784,9 @@ h2 {
   const labCarousel = document.querySelector('[data-lab-carousel]');
   if (labCarousel) {
     const slides = Array.from(labCarousel.querySelectorAll('.lab-slide'));
+    const dots = Array.from(labCarousel.querySelectorAll('.lab-carousel-dot'));
     let activeIndex = 0;
+    let autoplayTimer = 0;
 
     const showSlide = (index) => {
       activeIndex = (index + slides.length) % slides.length;
@@ -2743,12 +2794,42 @@ h2 {
         slide.classList.toggle('is-active', slideIndex === activeIndex);
         slide.setAttribute('aria-hidden', String(slideIndex !== activeIndex));
       });
+      dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === activeIndex;
+        dot.classList.toggle('is-active', isActive);
+        if (isActive) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
     };
 
+    const stopAutoplay = () => {
+      window.clearInterval(autoplayTimer);
+      autoplayTimer = 0;
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      if (prefersReducedMotion || slides.length < 2) return;
+      autoplayTimer = window.setInterval(() => showSlide(activeIndex + 1), 5200);
+    };
+
+    dots.forEach((dot, index) => {
+      const previewSlide = () => {
+        stopAutoplay();
+        showSlide(index);
+      };
+      dot.addEventListener('mouseenter', previewSlide);
+      dot.addEventListener('focus', previewSlide);
+      dot.addEventListener('mouseleave', startAutoplay);
+      dot.addEventListener('blur', startAutoplay);
+      dot.addEventListener('click', () => {
+        showSlide(index);
+        startAutoplay();
+      });
+    });
+
     showSlide(0);
-    if (!prefersReducedMotion && slides.length > 1) {
-      window.setInterval(() => showSlide(activeIndex + 1), 5200);
-    }
+    startAutoplay();
   }
 
   const researchCards = Array.from(document.querySelectorAll('.research-topic-card'));
