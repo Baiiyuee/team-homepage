@@ -3,14 +3,902 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=team-homepage/">
-  <meta name="robots" content="noindex">
-  <title>正在进入中意健康管理与智能维修实验室主页</title>
-  <script>
-    window.location.replace(`team-homepage/${window.location.search}${window.location.hash}`);
-  </script>
+  <meta name="description" content="中意健康管理与智能维修联合实验室，聚焦复杂装备智能运维、故障预测与健康管理、数字孪生建模与韧性可靠性分析。">
+  <title>中意健康管理与智能维修实验室 - 北航国新院</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <p>正在进入<a href="team-homepage/">中意健康管理与智能维修实验室主页</a>。</p>
+  <header class="site-header">
+    <div class="brand-banner">
+      <div class="brand-banner-inner">
+        <a class="brand-identity" href="#home" data-page-link="home" aria-label="返回首页">
+          <span class="brand-logo-placeholder" aria-hidden="true">LOGO</span>
+          <span class="brand-name">
+            <span class="brand-name-cn">中意健康管理与智能维修实验室</span>
+            <span class="brand-name-en">Sino-Italian JointResearch Laboratory on Prognostics and HealthManagement for Intelligent Maintenance (PHM-IM)</span>
+          </span>
+        </a>
+        <div class="header-utilities">
+          <button class="header-search" type="button" aria-label="搜索（功能建设中）" title="搜索（功能建设中）">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5"></circle>
+              <path d="m16 16 4.2 4.2"></path>
+            </svg>
+          </button>
+          <div class="language-switch header-language-switch" aria-label="语言选择">
+            <a href="?lang=en" lang="en" data-language="en">EN</a>
+            <span>/</span>
+            <a class="is-active" href="index.html" lang="zh-CN" data-language="zh">文</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar" aria-label="主导航">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">菜单</button>
+      <div class="nav-links" id="primary-nav">
+        <a class="is-active" href="#home" data-page-link="home">首页</a>
+        <div class="nav-item">
+          <button class="nav-parent" type="button" aria-expanded="false" data-parent-route="team">
+            <span data-nav-text data-nav-key="about-menu">中心简况</span>
+          </button>
+          <div class="nav-submenu">
+            <a href="#team" data-page-link="team">中心简介</a>
+            <a href="#center-philosophy" data-page-link="center-philosophy">中心理念</a>
+            <a href="#organization" data-page-link="organization">组织架构</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <button class="nav-parent" type="button" aria-expanded="false" data-parent-route="news-conferences">
+            <span data-nav-text data-nav-key="news-menu">新闻动态</span>
+          </button>
+          <div class="nav-submenu">
+            <a href="#news-conferences" data-page-link="news" data-route="news-conferences">学术会议</a>
+            <a href="#news-activities" data-page-link="news" data-route="news-activities">学术活动</a>
+            <a href="#news-papers" data-page-link="news" data-route="news-papers">论文成果</a>
+            <a href="#news-notices" data-page-link="news" data-route="news-notices">通知公告</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <button class="nav-parent" type="button" aria-expanded="false" data-parent-route="faculty-overview">
+            <span data-nav-text data-nav-key="faculty-menu">师资队伍</span>
+          </button>
+          <div class="nav-submenu">
+            <a href="#faculty-teachers" data-page-link="faculty" data-route="faculty-teachers" data-section-target="lab-faculty">教师</a>
+            <a href="#faculty-postdocs" data-page-link="faculty" data-route="faculty-postdocs" data-section-target="lab-postdocs">博士后</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <button class="nav-parent" type="button" aria-expanded="false" data-parent-route="research">
+            <span data-nav-text data-nav-key="research-menu">科学研究</span>
+          </button>
+          <div class="nav-submenu">
+            <a href="#research" data-page-link="research">科研方向</a>
+            <a href="#research-projects" data-page-link="research-projects">科研项目</a>
+            <a href="#achievements" data-page-link="achievements">科研成果</a>
+            <a href="#research-cooperation" data-page-link="research-cooperation">科研合作</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <button class="nav-parent" type="button" aria-expanded="false" data-parent-route="education">
+            <span data-nav-text data-nav-key="students-menu">学生培养</span>
+          </button>
+          <div class="nav-submenu">
+            <a href="#doctoral-students" data-page-link="education" data-route="doctoral-students" data-section-target="current-doctoral">博士研究生</a>
+            <a href="#masters-students" data-page-link="education" data-route="masters-students" data-section-target="current-masters">硕士研究生</a>
+            <div class="nav-submenu-group">
+              <button class="nav-submenu-parent" type="button" aria-expanded="false" data-nav-key="alumni-menu">往届研究生</button>
+              <div class="nav-submenu nav-submenu-nested">
+                <a href="#alumni-doctoral" data-page-link="alumni-doctoral">博士研究生</a>
+                <a href="#alumni-masters" data-page-link="alumni-masters">硕士研究生</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#teaching" data-page-link="teaching">课程教学</a>
+        <a href="#culture" data-page-link="culture">文化建设</a>
+        <div class="nav-item">
+          <button class="nav-parent" type="button" aria-expanded="false" data-parent-route="recruitment">
+            <span data-nav-text data-nav-key="recruitment-menu">英才招聘</span>
+          </button>
+          <div class="nav-submenu">
+            <a href="#recruitment-admissions" data-page-link="talent-recruitment" data-route="recruitment-admissions">招生信息</a>
+            <a href="#recruitment-talent" data-page-link="talent-recruitment" data-route="recruitment-talent">人才招聘</a>
+          </div>
+        </div>
+        <a href="#contact" data-page-link="contact">联系我们</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-panel is-active" id="home" data-page="home">
+      <section class="lab-carousel home-hero-carousel" data-lab-carousel aria-roledescription="轮播图">
+        <div class="lab-carousel-slides" aria-live="off">
+          <figure class="lab-slide is-active">
+            <img src="image/lab1.png" alt="实验室图片 1">
+          </figure>
+          <figure class="lab-slide">
+            <img src="image/lab2.png" alt="实验室图片 2" loading="lazy">
+          </figure>
+          <figure class="lab-slide">
+            <img src="image/lab3.png" alt="实验室图片 3" loading="lazy">
+          </figure>
+          <figure class="lab-slide">
+            <img src="image/lab6.jpg" alt="实验室图片 6" loading="lazy">
+          </figure>
+          <figure class="lab-slide">
+            <img src="image/lab5.png" alt="实验室图片 5" loading="lazy">
+          </figure>
+        </div>
+        <button class="lab-carousel-arrow is-prev" type="button" data-carousel-prev aria-label="查看上一张图片">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 5 8 12l7 7"></path>
+          </svg>
+        </button>
+        <button class="lab-carousel-arrow is-next" type="button" data-carousel-next aria-label="查看下一张图片">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m9 5 7 7-7 7"></path>
+          </svg>
+        </button>
+        <div class="lab-carousel-dots" aria-label="选择首页图片">
+          <span class="lab-carousel-route" aria-hidden="true"></span>
+          <span class="lab-carousel-plane" aria-hidden="true">✈</span>
+          <button class="lab-carousel-dot is-active" type="button" aria-label="查看第 1 张图片" aria-current="true"></button>
+          <button class="lab-carousel-dot" type="button" aria-label="查看第 2 张图片"></button>
+          <button class="lab-carousel-dot" type="button" aria-label="查看第 3 张图片"></button>
+          <button class="lab-carousel-dot" type="button" aria-label="查看第 4 张图片"></button>
+          <button class="lab-carousel-dot" type="button" aria-label="查看第 5 张图片"></button>
+        </div>
+      </section>
+
+      <section class="home-content-section home-information" aria-label="新闻动态与通知公告">
+        <div class="section-shell home-information-grid">
+          <section class="home-information-news" aria-labelledby="home-news-title">
+            <header class="home-block-heading">
+              <div class="home-block-heading-main">
+                <small>NEWS</small>
+                <h2 id="home-news-title">新闻动态</h2>
+              </div>
+              <a class="home-more" href="#news-conferences" data-page-link="news" data-route="news-conferences">更多</a>
+            </header>
+            <div class="home-news-board" data-home-news-board>
+              <figure class="home-news-cover" aria-label="新闻封面图">
+                <img class="is-active" src="image/icre-2026-cover.jpg" alt="ICRE 2026会议参会人员合影" data-home-news-cover="0">
+                <img src="image/summer-school-2026.jpg" alt="2026 数字赋能的航空安全国际暑期学校合影" data-home-news-cover="1" loading="lazy">
+              </figure>
+              <div class="home-news-list">
+                <a class="home-news-entry is-active" href="https://mp.weixin.qq.com/s/vTC1ejJQKDhgqZKh8jc96A" target="_blank" rel="noopener" data-home-news-entry="0">
+                  <h3>可靠性工程 × 可持续未来 ICRE 2026重磅来袭</h3>
+                </a>
+                <a class="home-news-entry" href="https://mp.weixin.qq.com/s/HlfpfIzE95P60b-ABVsFCw" target="_blank" rel="noopener" data-home-news-entry="1">
+                  <h3>2026 数字赋能的航空安全国际暑期学校</h3>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <aside class="home-information-notices" aria-labelledby="home-notice-title">
+            <header class="home-block-heading">
+              <div class="home-block-heading-main">
+                <small>NOTICE</small>
+                <h2 id="home-notice-title">通知公告</h2>
+              </div>
+              <a class="home-more" href="#news-notices" data-page-link="news" data-route="news-notices">更多</a>
+            </header>
+            <div class="home-notice-list">
+              <a class="home-notice-item" href="#recruitment-admissions" data-page-link="talent-recruitment" data-route="recruitment-admissions">
+                <strong>实验室长期招收硕士、博士研究生及博士后</strong>
+              </a>
+              <a class="home-notice-item" href="#research-cooperation" data-page-link="research-cooperation">
+                <strong>欢迎高校、科研院所及企业开展科研合作</strong>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="home-content-section home-directions" aria-labelledby="home-directions-title">
+        <div class="section-shell">
+          <header class="home-block-heading">
+            <div class="home-block-heading-main">
+              <small>RESEARCH</small>
+              <h2 id="home-directions-title">科研方向</h2>
+            </div>
+            <a class="home-more" href="#research" data-page-link="research">更多</a>
+          </header>
+          <div class="home-direction-constellation" aria-label="科研方向导航">
+            <a class="home-direction-star is-one" href="#research" data-home-research-index="0">
+              <span class="home-direction-star-core">
+                <span class="home-direction-star-label"><b>01</b><strong>多模态大模型与智能PHM算法研究</strong></span>
+              </span>
+            </a>
+            <a class="home-direction-star is-two" href="#research" data-home-research-index="1">
+              <span class="home-direction-star-core">
+                <span class="home-direction-star-label"><b>02</b><strong>数字孪生建模与智慧运维决策优化</strong></span>
+              </span>
+            </a>
+            <a class="home-direction-star is-three" href="#research" data-home-research-index="2">
+              <span class="home-direction-star-core">
+                <span class="home-direction-star-label"><b>03</b><strong>复杂系统韧性与确信可靠性分析</strong></span>
+              </span>
+            </a>
+            <span class="home-direction-star is-four" aria-hidden="true"><span class="home-direction-star-core"></span></span>
+            <span class="home-direction-star is-five" aria-hidden="true"><span class="home-direction-star-core"></span></span>
+            <span class="home-direction-star is-six" aria-hidden="true"><span class="home-direction-star-core"></span></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-content-section home-about" aria-labelledby="home-about-title">
+        <div class="section-shell home-about-grid">
+          <div class="home-about-copy">
+            <header class="home-block-heading">
+              <div class="home-block-heading-main">
+                <small>ABOUT US</small>
+                <h2 id="home-about-title">中心简介</h2>
+              </div>
+            </header>
+            <p>中意健康管理与智能维修联合实验室由北京航空航天大学与意大利米兰理工大学相关研究团队共同建设，聚焦复杂工程系统的故障预测与健康管理、建模仿真、智慧运维和多模态大模型研究。</p>
+            <p>实验室坚持“虚实融合、智能驱动、体系赋能”，构建贯通模型、算法、仿真、验证与应用的研究链路，为航空航天、能源交通和智能制造等领域提供跨学科科研与实验平台。</p>
+            <a class="home-more home-about-link" href="#team" data-page-link="team">了解更多</a>
+          </div>
+          <figure class="home-about-figure">
+            <img src="image/lab1.png" alt="中意健康管理与智能维修联合实验室揭牌" loading="lazy">
+          </figure>
+        </div>
+      </section>
+
+    </section>
+
+    <section class="page-panel content-page news-page" id="news" data-page="news">
+      <div class="page-shell">
+        <div class="placeholder-page">
+          <h1 data-placeholder-title>新闻动态</h1>
+          <section class="home-news" aria-label="新闻动态">
+            <div class="news-list">
+              <article class="news-item">
+                <div class="news-meta">
+                  <time datetime="2026-07-19">2026.07.19–21</time>
+                  <span>北航杭州国际校园</span>
+                </div>
+                <div class="news-copy">
+                  <h3>可靠性工程 × 可持续未来 ICRE 2026重磅来袭</h3>
+                  <p>第10届可靠性工程国际会议将在杭州举办，聚焦“面向可持续未来的可靠性工程：从经典可靠性到智能韧性系统”。</p>
+                </div>
+                <a class="news-link" href="https://h3i.buaa.edu.cn/info/1708/4581.htm" target="_blank" rel="noopener">[Link]</a>
+              </article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="team" data-page="team">
+      <div class="page-shell">
+        <article class="prose lab-introduction" id="lab-overview">
+          <h2>中意健康管理与智能维修联合实验室</h2>
+          <p>中意健康管理与智能维修联合实验室由北航康锐教授与米兰理工大学Enrico Zio教授共同创建，由胡杨副研究员担任执行主任。实验室以“虚实融合、智能驱动、体系赋能”为总体理念，聚焦复杂工程系统的故障预测与健康管理（PHM）、建模仿真、智慧运维、多模态大模型等研究，形成贯通“模型—算法—仿真—验证—应用”的完整研究链路，为航空航天、能源交通、生产制造等系统的PHM与智慧运维提供多学科交叉研究实验的平台。现有教授2人，副研究员2人，副教授1人，博士后4人，研究生13人。</p>
+          <figure class="lab-figure">
+            <img src="image/中意健康管理与智能维修联合实验室照片1.png" alt="中意健康管理与智能维修联合实验室虚实融合实验平台" loading="lazy">
+          </figure>
+          <p>实验室由<strong>四大核心模块</strong>构成，构成PHM与智慧运维虚实一体化的实验环境：</p>
+          <ol class="lab-module-list">
+            <li><strong>PHM仿真系统：</strong>可模拟空客A320与波音737两型飞机的12个关键子系统、300余项关键飞行参数，支持LRU、设备、分系统层级故障注入、飞行环境建模与数据生成，用于PHM算法和运维策略验证。</li>
+            <li><strong>物理故障实验平台：</strong>可模拟机载齿轮箱、轴承、机电、泵机等部件或设备的典型故障模式，配备动态扭矩传感器（精度0.01 Nm）与液压加载装置（最大载荷50 kN），可实现退化机理与故障演化实验。</li>
+            <li><strong>虚拟故障实验平台：</strong>包括故障逻辑数据库、传感器虚拟注入模块与机载软总线模拟器，模拟机载设备在正常与典型故障状态下的运行数据，经软总线处理后可实时传入PHM仿真系统，实现从信号异常到系统级失效的多层级模拟。</li>
+            <li><strong>高性能计算平台：</strong>配置128核CPU、1 TB内存及多张NVIDIA A100的GPU集群，支持多模态大模型的预训练、微调与推理，为智能诊断、强化学习决策与数字孪生推演提供算力保障。</li>
+          </ol>
+          <figure class="lab-figure">
+            <img src="image/中意健康管理与智能维修联合实验室照片2.png" alt="中意健康管理与智能维修联合实验室四大核心模块" loading="lazy">
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="faculty" data-page="faculty">
+      <div class="personnel-page-shell">
+        <div class="personnel-layout">
+          <aside class="personnel-sidebar" aria-label="师资队伍分类">
+            <button class="personnel-side-button personnel-side-overview is-active" type="button" data-personnel-view="overview">
+              <span>师资队伍</span>
+            </button>
+            <div class="personnel-side-list">
+              <div class="personnel-side-group" data-personnel-group="faculty">
+                <button class="personnel-side-button" type="button" data-personnel-view="faculty">
+                  <span>教师团队</span><span class="personnel-side-symbol" aria-hidden="true"></span>
+                </button>
+                <div class="personnel-side-members">
+                  <button type="button" data-personnel-member="person-yang-hu" data-personnel-member-view="faculty">胡杨</button>
+                  <button type="button" data-personnel-member="person-yang-li" data-personnel-member-view="faculty">李洋</button>
+                  <button type="button" data-personnel-member="person-xiaoyu-jiang" data-personnel-member-view="faculty">江肖禹</button>
+                </div>
+              </div>
+              <div class="personnel-side-group" data-personnel-group="postdocs">
+                <button class="personnel-side-button" type="button" data-personnel-view="postdocs">
+                  <span>博士后研究人员</span><span class="personnel-side-symbol" aria-hidden="true"></span>
+                </button>
+                <div class="personnel-side-members">
+                  <button type="button" data-personnel-member="person-danyang-han" data-personnel-member-view="postdocs">韩丹阳</button>
+                  <button type="button" data-personnel-member="person-di-su" data-personnel-member-view="postdocs">苏迪</button>
+                  <button type="button" data-personnel-member="person-jiayu-wang" data-personnel-member-view="postdocs">王佳宇</button>
+                  <button type="button" data-personnel-member="person-zhenqin-yin" data-personnel-member-view="postdocs">尹珍琴</button>
+                </div>
+              </div>
+            </div>
+          </aside>
+          <div class="personnel-main">
+            <header class="personnel-page-heading">
+              <h1 data-personnel-heading>师资队伍</h1>
+              <nav class="personnel-breadcrumb" aria-label="当前位置">
+                <button type="button" data-personnel-home>首页</button>
+                <i>/</i>
+                <button type="button" data-personnel-overview>师资队伍</button>
+                <i data-personnel-detail-separator hidden>/</i>
+                <strong data-personnel-current hidden></strong>
+              </nav>
+            </header>
+            <section class="personnel-view personnel-overview is-active" data-personnel-panel="overview">
+              <section class="personnel-overview-section" data-personnel-overview-group="faculty">
+                <div class="personnel-overview-grid">
+                  <article class="personnel-overview-card" data-personnel-overview-member="person-yang-hu" data-personnel-overview-view="faculty">
+                    <img src="image/Yang Hu.png" alt="胡杨老师" loading="lazy">
+                    <h3>胡杨 <span>Yang Hu</span></h3>
+                    <p>执行主任 / 副研究员 / 博士生导师</p>
+                  </article>
+                  <article class="personnel-overview-card" data-personnel-overview-member="person-yang-li" data-personnel-overview-view="faculty">
+                    <img src="image/Yang Li.png" alt="李洋老师" loading="lazy">
+                    <h3>李洋 <span>Yang Li</span></h3>
+                    <p>副教授</p>
+                  </article>
+                  <article class="personnel-overview-card" data-personnel-overview-member="person-xiaoyu-jiang" data-personnel-overview-view="faculty">
+                    <img src="image/Xiaoyu Jiang.png" alt="江肖禹老师" loading="lazy">
+                    <h3>江肖禹 <span>Xiaoyu Jiang</span></h3>
+                    <p>副研究员 / 硕士生导师</p>
+                  </article>
+                </div>
+              </section>
+              <section class="personnel-overview-section" data-personnel-overview-group="postdocs">
+                <div class="personnel-overview-grid">
+                  <article class="personnel-overview-card" data-personnel-overview-member="person-danyang-han" data-personnel-overview-view="postdocs">
+                    <img src="image/Danyang Han.png" alt="韩丹阳博士后" loading="lazy">
+                    <h3>韩丹阳 <span>Danyang Han</span></h3>
+                    <p>博士后研究人员</p>
+                  </article>
+                  <article class="personnel-overview-card" data-personnel-overview-member="person-di-su" data-personnel-overview-view="postdocs">
+                    <img src="image/Di Su.png" alt="苏迪博士后" loading="lazy">
+                    <h3>苏迪 <span>Di Su</span></h3>
+                    <p>博士后研究人员</p>
+                  </article>
+                  <article class="personnel-overview-card" data-personnel-overview-member="person-jiayu-wang" data-personnel-overview-view="postdocs">
+                    <img src="image/Jiayu Wang.png" alt="王佳宇博士后" loading="lazy">
+                    <h3>王佳宇 <span>Jiayu Wang</span></h3>
+                    <p>博士后研究人员</p>
+                  </article>
+                  <article class="personnel-overview-card" data-personnel-overview-member="person-zhenqin-yin" data-personnel-overview-view="postdocs">
+                    <span class="personnel-overview-photo-placeholder" aria-label="尹珍琴暂无照片">
+                      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="13"></circle><path d="M9 58c1.8-14 10.2-22 23-22s21.2 8 23 22H9z"></path></svg>
+                    </span>
+                    <h3>尹珍琴 <span>Zhenqin Yin</span></h3>
+                    <p>博士后研究人员</p>
+                  </article>
+                </div>
+              </section>
+            </section>
+        <div class="lab-personnel">
+          <section class="personnel-section personnel-detail-view" id="lab-faculty" data-personnel-panel="faculty">
+            <h2 class="personnel-section-title">教师团队</h2>
+            <div class="personnel-list">
+              <article class="personnel-card" id="person-yang-hu">
+                <img class="personnel-photo" src="image/Yang Hu.png" alt="胡杨老师" loading="lazy">
+                <div>
+                  <p class="personnel-role">执行主任 / 副研究员 / 博士生导师</p>
+                  <h3 class="personnel-name">胡杨 <span>Yang Hu</span></h3>
+                  <p class="personnel-research"><strong>研究方向：</strong>复杂系统故障预测与健康管理（PHM）、人工智能与工业大数据、装备系统建模与仿真。</p>
+                  <p class="personnel-email"><strong>邮箱：</strong>yang_hu@buaa.edu.cn</p>
+                  <div class="personnel-links">
+                    <a class="personnel-link-primary" href="huyang-homepage/" target="_blank" rel="noopener">个人主页</a>
+                    <a href="https://shi.buaa.edu.cn/huyang" target="_blank" rel="noopener">北航教师主页</a>
+                    <a href="https://scholar.google.com/citations?user=t0t8_BkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+                  </div>
+                </div>
+                <div class="personnel-profile-sections">
+                  <section class="personnel-profile-section">
+                    <h4>个人简介</h4>
+                    <p>胡杨，北京航空航天大学杭州国际创新研究院（国际创新学院）副研究员、博士生导师，智慧民航科创中心成员。2015年博士毕业于意大利米兰理工大学，师从Enrico Zio教授。近年来专注于复杂系统故障预测与健康管理（PHM）、人工智能、装备与系统体系建模及仿真等方面的研究。</p>
+                  </section>
+                  <section class="personnel-profile-section">
+                    <h4>研究方向</h4>
+                    <p>主要从事复杂系统故障预测与健康管理（PHM）、人工智能与工业大数据、装备与系统体系建模及仿真、智能运维与预测性维修决策优化等方面的研究。</p>
+                  </section>
+                  <section class="personnel-profile-section">
+                    <h4>学术成果</h4>
+                    <p>作为项目负责人或联合负责人，主持国家和省部级科研项目18项，累计经费3900余万元，围绕新一代航空装备保障体系、PHM保障模式、智能保障系统、保障效能仿真和保障大数据应用等方向完成多项研究。以第一作者或通讯作者在Reliability Engineering &amp; System Safety、Mechanical Systems and Signal Processing等国际期刊发表学术论文30余篇，Google Scholar总被引1600余次，h-index 16；出版专著2部，获授权国家发明专利5项、软件著作权2项。曾获中国航空学会自然科学奖二等奖1项、军队科学技术进步奖二等奖2项，并于2020年入选中国科协青年人才托举工程。</p>
+                  </section>
+                </div>
+              </article>
+              <article class="personnel-card" id="person-yang-li">
+                <img class="personnel-photo" src="image/Yang Li.png" alt="李洋老师" loading="lazy">
+                <div>
+                  <p class="personnel-role">副教授</p>
+                  <h3 class="personnel-name">李洋 <span>Yang Li</span></h3>
+                  <p class="personnel-research"><strong>研究方向：</strong>超越可靠性与自主智能，包括测试性设计与智能控制、故障诊断与容错、加速试验与寿命预测，以及可靠性、保障性和维修性设计。</p>
+                  <p class="personnel-email"><strong>邮箱：</strong></p>
+                </div>
+                <div class="personnel-profile-sections">
+                  <section class="personnel-profile-section">
+                    <h4>个人简介</h4>
+                    <p>北京航空航天大学副教授，硕士生导师，上海市“超级博士后”，意大利米兰理工大学－南京航空航天大学联合培养博士，上海大学控制科学与工程专业（一级学科，上海市高峰学科）博士后。</p>
+                  </section>
+                  <section class="personnel-profile-section">
+                    <h4>研究方向</h4>
+                    <p>主要从事超越可靠性与自主智能研究，具体包括测试性设计与智能控制、故障诊断与容错、加速试验与寿命预测、可靠性/保障性/维修性设计及其在复杂工程系统中的应用。</p>
+                  </section>
+                  <section class="personnel-profile-section">
+                    <h4>学术成果</h4>
+                    <p>累计发表学术论文50余篇，合著出版学术专著1部，申请/授权国家发明专利10余项。担任期刊Artificial Intelligence and Autonomous Systems、《仪器仪表学报（英文版）》、Intelligence &amp; Robotics等青年编委，以及SCI期刊Machines、Processes客座编委，兼任多个国际会议（如IEEE ICPS、QR2MSE、RCAE、ICRE等）专题分会主席、出版主席、程序委员会主席，并长期担任IEEE TSMC、IEEE TNNLS、IEEE TIM、IEEE TII等国际权威期刊审稿人。主持/参与国家自然科学基金项目、国家重点研发计划项目等10余项。曾荣获上海市自动化学会最佳论文奖、EECR最佳论文奖、RCAE最佳论文奖、CCDC最具人气论文奖、IEEE TIM杰出审稿人等荣誉。</p>
+                  </section>
+                </div>
+              </article>
+              <article class="personnel-card" id="person-xiaoyu-jiang">
+                <img class="personnel-photo" src="image/Xiaoyu Jiang.png" alt="江肖禹老师" loading="lazy">
+                <div>
+                  <p class="personnel-role">副研究员 / 硕士生导师</p>
+                  <h3 class="personnel-name">江肖禹 <span>Xiaoyu Jiang</span></h3>
+                  <p class="personnel-research"><strong>研究方向：</strong>机器学习、大模型、智能体等人工智能技术在智能制造、低空运维、智慧能源等工业领域的应用。</p>
+                  <p class="personnel-email"><strong>邮箱：</strong>jiangxiaoyu@buaa.edu.cn</p>
+                  <div class="personnel-links">
+                    <a href="https://shi.buaa.edu.cn/jiangxiaoyu/zh_CN/index/219991/list/index.htm" target="_blank" rel="noopener">北航教师主页</a>
+                    <a href="https://scholar.google.com.hk/citations?user=SZzM_wUAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener">Google Scholar</a>
+                  </div>
+                </div>
+                <div class="personnel-profile-sections">
+                  <section class="personnel-profile-section">
+                    <h4>个人简介</h4>
+                    <p>浙江大学控制科学与工程专业博士，现为北京航空航天大学硕士生导师、iData Group负责人。入选浙江省青年人才托举培养项目、浙江省博士后择优资助项目，获浙江省自然科学三等奖。曾在浙江大学工业控制技术全国重点实验室、香港城市大学系统工程系、美国堪萨斯大学航空工程系开展博士后和访问研究。</p>
+                  </section>
+                  <section class="personnel-profile-section">
+                    <h4>研究方向</h4>
+                    <p>主要从事机器学习、大模型、智能体等人工智能技术在智能制造、低空运维、智慧能源等工业领域的前沿研究。</p>
+                  </section>
+                  <section class="personnel-profile-section">
+                    <h4>学术成果</h4>
+                    <p>已累计在IEEE汇刊（IEEE TPAMI、TSMC、TIE、TII、TR、TASE、TIM、TAI）、IEEE JAS等高水平期刊及NeurIPS等国际会议发表相关论文60余篇，Google总被引超过1300次，其中5篇入选ESI高被引论文。相关研究成果已应用于化工过程、旋转设备、离散制造等复杂工业系统，申请和授权发明专利20余项。近年来主持国家自然科学基金青年项目、浙江省自然科学基金探索项目、杭州市自然科学基金青年项目等，并作为核心成员参与科技部重大项目和国家重点研发计划课题。</p>
+                  </section>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="personnel-section personnel-detail-view" id="lab-postdocs" data-personnel-panel="postdocs">
+            <h2 class="personnel-section-title">博士后研究人员</h2>
+            <div class="personnel-list">
+              <article class="personnel-card" id="person-danyang-han">
+                <img class="personnel-photo" src="image/Danyang Han.png" alt="韩丹阳博士后" loading="lazy">
+                <div>
+                  <p class="personnel-role">博士后</p>
+                  <h3 class="personnel-name">韩丹阳 <span>Danyang Han</span></h3>
+                  <p class="personnel-email"><strong>邮箱：</strong></p>
+                  <div class="personnel-profile-sections">
+                    <section class="personnel-profile-section"><h4>个人简介</h4><p>北京航空航天大学工学博士，现为北京航空航天大学博士后。博士期间曾获北京航空航天大学优秀研究生、博士生奖学金等荣誉。现任中国指挥控制学会可靠性系统科学与工程专业委员会委员，SCI期刊客座编辑。</p></section>
+                    <section class="personnel-profile-section"><h4>研究方向</h4><p>长期从事复杂设备剩余寿命预测与全寿命复杂系统健康感知与诊断研究工作。面向工业制造、“三航”产业，基于数字孪生理论，结合物理信息与深度学习模型，开展复杂设备健康状态信息融合、性能退化建模、剩余寿命预测、故障诊断等技术研究。</p></section>
+                    <section class="personnel-profile-section"><h4>学术成果</h4><p>曾参与国家自然基金、国家重点研发计划、装备预先研究项目以及多项平行单位合作项目。出版学术专著1部，发表学术论文20余篇，授权发明专利10余项。</p></section>
+                  </div>
+                </div>
+              </article>
+              <article class="personnel-card" id="person-di-su">
+                <img class="personnel-photo" src="image/Di Su.png" alt="苏迪博士后" loading="lazy">
+                <div>
+                  <p class="personnel-role">博士后</p>
+                  <h3 class="personnel-name">苏迪 <span>Di Su</span></h3>
+                  <p class="personnel-email"><strong>邮箱：</strong></p>
+                  <div class="personnel-profile-sections">
+                    <section class="personnel-profile-section"><h4>个人简介</h4></section>
+                    <section class="personnel-profile-section"><h4>研究方向</h4></section>
+                    <section class="personnel-profile-section"><h4>学术成果</h4></section>
+                  </div>
+                </div>
+              </article>
+              <article class="personnel-card" id="person-jiayu-wang">
+                <img class="personnel-photo" src="image/Jiayu Wang.png" alt="王佳宇博士后" loading="lazy">
+                <div>
+                  <p class="personnel-role">博士后</p>
+                  <h3 class="personnel-name">王佳宇 <span>Jiayu Wang</span></h3>
+                  <p class="personnel-email"><strong>邮箱：</strong></p>
+                  <div class="personnel-profile-sections">
+                    <section class="personnel-profile-section">
+                      <h4>个人简介</h4>
+                      <p>江南大学自动化本科，控制科学与工程专业博士，博士期间受CSC资助前往University of Auckland于新西兰皇家科学院院士Brent Young教授团队联合培养，目前为北京航空航天大学博士后。</p>
+                    </section>
+                    <section class="personnel-profile-section">
+                      <h4>研究方向</h4>
+                      <p>主要从事深度学习、大模型、智能体等人工智能技术在智能制造、低空运维等工业过程的软测量、质量监测方面的前沿研究。</p>
+                    </section>
+                    <section class="personnel-profile-section">
+                      <h4>学术成果</h4>
+                      <p>已累计在IEEE TII、TIM、IOTJ等高水平期刊及会议发表第一或通讯作者论文10余篇，授权国家发明专利3项。主持并结题江苏省研究生科研与实践创新计划1项，荣获2025年江南大学优秀博士毕业论文奖、国家奖学金、校十佳研究生等荣誉。</p>
+                    </section>
+                  </div>
+                </div>
+              </article>
+              <article class="personnel-card" id="person-zhenqin-yin">
+                <span class="personnel-photo-placeholder" aria-label="尹珍琴暂无照片">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="13"></circle><path d="M9 58c1.8-14 10.2-22 23-22s21.2 8 23 22H9z"></path></svg>
+                </span>
+                <div>
+                  <p class="personnel-role">博士后</p>
+                  <h3 class="personnel-name">尹珍琴 <span>Zhenqin Yin</span></h3>
+                  <p class="personnel-email"><strong>邮箱：</strong></p>
+                  <div class="personnel-profile-sections">
+                    <section class="personnel-profile-section">
+                      <h4>个人简介</h4>
+                      <p>浙江大学控制科学与工程专业博士，现为北京航空航天大学博士后。博士期间曾获浙江大学优秀研究生、博士生奖学金等荣誉，并获国家建设高水平大学公派研究生项目资助。曾在浙江大学工业控制技术全国重点实验室开展科研工作，并赴日本京都大学情报学研究科开展访问研究。</p>
+                    </section>
+                    <section class="personnel-profile-section">
+                      <h4>研究方向</h4>
+                      <p>主要从事机器学习、人工智能安全、数据驱动建模与工业智能系统等方面的研究。</p>
+                    </section>
+                    <section class="personnel-profile-section">
+                      <h4>学术成果</h4>
+                      <p>近五年来参与科技创新2030“新一代人工智能”重大项目、国家自然科学基金重点项目等科研项目，围绕工业过程数据智能建模、智能模型安全与鲁棒学习、过程监测与故障诊断等方向开展研究。已在IEEE TII、TIFS、TITS、RESS等高水平期刊及学会推荐A类国际会议发表多篇相关论文，研究成果涉及复杂工业环境下的数据驱动建模、安全评估与可靠学习等问题。</p>
+                    </section>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-panel content-page home-research" id="research" data-page="research">
+      <div class="page-shell">
+        <article class="prose">
+          <div class="research-intro">
+            <p><strong>中意健康管理与智能维修联合实验室</strong>以复杂工程系统的健康预测、数字孪生与系统韧性为核心研究主线，面向航空航天、能源交通、智能制造等领域的高端工程系统，构建<strong>“多模态智能认知—虚实融合建模—系统可靠保障”</strong>的研究体系。<span class="research-intro-lead">实验室重点开展：</span></p>
+          </div>
+
+          <div class="research-topic-list">
+            <details class="research-topic-card">
+              <summary>
+                <span class="research-topic-number">01</span>
+                <span class="research-topic-copy">
+                  <strong>多模态大模型<br>与智能PHM算法研究</strong>
+                  <small>融合AI与机理模型，实现复杂系统健康状态的预测与诊断</small>
+                </span>
+                <span class="research-topic-action"><span class="research-topic-action-open">查看详情</span><span class="research-topic-action-close">收起详情</span></span>
+              </summary>
+              <div class="research-topic-detail">
+                <div class="research-topic-detail-inner">
+                <p>本研究方向以多模态大模型为核心，面向复杂工程系统PHM，构建从多源数据处理到模型训练与效能验证的完整技术体系。通过融合传感信号、运行参数、维修记录、环境条件等多维信息，探索PHM任务的认知建模与智能优化方法，为航空航天、能源、交通等领域的高可靠工程系统提供新一代健康管理解决方案。研究内容包括：</p>
+                <p><strong>（1）PHM多模态数据处理：</strong>研究异构数据的清洗、对齐与表征学习方法，构建多源数据标准化流程与高效表示框架，实现不同模态（结构、时序、图像、文本）数据的统一表达与动态融合。</p>
+                <p><strong>（2）PHM多模态大模型综合建模：</strong>构建面向PHM任务的多模态认知大模型，形成由数字孪生模块（物理约束）、知识增强模块（领域知识与专家经验）及二者间的动态融合机制组成的综合建模框架，实现机理与数据的深度协同。</p>
+                <p><strong>（3）多智能体协同的PHM大模型训练方法：</strong>基于多智能体强化学习（Multi-Agent Reinforcement Learning, MARL）和协同优化技术，研究多任务、多场景、多设备的联合训练策略，实现模型在复杂系统下的分布式感知与协同决策能力。</p>
+                <p><strong>（4）PHM多模态大模型虚实融合验证：</strong>通过将仿真生成数据与真实运行数据进行融合验证，在不同任务场景、故障剖面和运行条件下评估模型的鲁棒性、泛化性与工程可用度，构建可持续迭代的PHM智能模型验证体系。</p>
+                <p>该方向的目标是形成“数据驱动 + 机理约束 + 知识增强 + 智能协同 + 虚实验证”的多模态PHM研究框架，实现复杂工程系统的全生命周期预测性维护与自主智能保障。</p>
+                <figure class="research-figure">
+                  <img src="image/多模态大模型与PHM智能算法研究.png" alt="多模态大模型与PHM智能算法研究框架图" loading="lazy">
+                </figure>
+                </div>
+              </div>
+            </details>
+
+            <details class="research-topic-card">
+              <summary>
+                <span class="research-topic-number">02</span>
+                <span class="research-topic-copy">
+                  <strong>数字孪生建模<br>与智慧运维决策优化</strong>
+                  <small>通过虚实一体化仿真实现工程系统运行与保障的智能决策</small>
+                </span>
+                <span class="research-topic-action"><span class="research-topic-action-open">查看详情</span><span class="research-topic-action-close">收起详情</span></span>
+              </summary>
+              <div class="research-topic-detail">
+                <div class="research-topic-detail-inner">
+                <p>本研究方向以数字孪生技术（Digital Twin, DT）为核心，研究复杂工程系统从需求、功能到物理层的全生命周期建模与虚实协同运行机制。通过模型驱动系统工程（MBSE）、多物理场仿真与数据驱动优化算法相结合，构建工程系统运行状态的实时映射与预测性决策框架，支撑高可靠、高效率的智能运维体系。主要研究内容包括：</p>
+                <p><strong>（1）数字孪生体系结构与多层级建模方法：</strong>研究复杂系统的多层级数字孪生体系，包括任务层、系统层、设备层与部件层建模。建立从“需求—功能—逻辑—物理—行为”的映射链路，实现虚实协同与多尺度关联建模。</p>
+                <p><strong>（2）多物理场建模与运行行为仿真：</strong>构建涵盖结构力学、热学、电气与流体等多物理场耦合仿真模型，研究工程系统在真实任务与极端环境下的动态响应与退化规律，为状态监测与寿命预测提供机理支撑。</p>
+                <p><strong>（3）基于数字孪生的系统运行状态评估与预测：</strong>研究数字孪生模型与实时传感数据的融合算法，实现对工程系统健康状态、任务性能与潜在故障风险的动态评估与前瞻预测。</p>
+                <p><strong>（4）智慧运维与决策优化算法：</strong>结合强化学习、多目标优化与演化计算方法，构建基于数字孪生反馈的运维决策模型，研究维修计划优化、任务调度、资源配置与应急恢复策略，实现运维效能与成本的最优平衡。</p>
+                <p><strong>（5）虚实闭环验证与智能仿真平台开发：</strong>构建虚实一体化实验验证平台，实现算法、模型与系统策略的闭环验证。开发基于AnyLogic、Modelica、Python的可扩展智能仿真系统，实现从仿真验证到工程部署的全链路支撑。</p>
+                <p>该方向形成了从“模型构建—仿真验证—智能决策—闭环优化”的一体化研究链路，为高端工程系统的可用度提升和全寿命周期管理提供系统解决方案。</p>
+                <figure class="research-figure">
+                  <img src="image/数字孪生建模与智慧运维决策优化.png" alt="数字孪生建模与智慧运维决策优化框架图" loading="lazy">
+                </figure>
+                </div>
+              </div>
+            </details>
+
+            <details class="research-topic-card">
+              <summary>
+                <span class="research-topic-number">03</span>
+                <span class="research-topic-copy">
+                  <strong>复杂系统韧性<br>与确信可靠性分析</strong>
+                  <small>揭示系统结构演化规律，量化系统抗扰与恢复能力</small>
+                </span>
+                <span class="research-topic-action"><span class="research-topic-action-open">查看详情</span><span class="research-topic-action-close">收起详情</span></span>
+              </summary>
+              <div class="research-topic-detail">
+                <div class="research-topic-detail-inner">
+                <p>本研究方向面向航空航天、能源交通及智能制造等典型复杂工程体系，研究系统韧性（Resilience）与确信可靠性（Belief Reliability）的理论框架与工程化分析方法。通过融合复杂网络建模、人工智能分析与数字孪生仿真技术，揭示系统在多扰动、多耦合、多不确定条件下的结构脆弱性与动态演化规律，为高复杂度工程系统提供可量化的安全性与可靠性评估手段。研究内容包括：</p>
+                <p><strong>（1）复杂网络建模与系统耦合分析：</strong>研究复杂系统的结构特征、耦合关系与动态演化规律，构建多层、多域、多尺度的复杂系统网络模型。开展全关联超网络（OmniLink HyperNetwork, OHN）框架设计与动态构建方法研究，实现多实体、多关系、多时间尺度下的高维系统交互建模； 在此基础上，提出结构秩序熵（Structural Order Entropy）的定义与计算方法，用于度量系统结构复杂性与有序度变化，为系统稳健性与演化趋势提供数学刻画。</p>
+                <p><strong>（2）确信可靠性理论与不确定性量化：</strong>发展基于确信理论的系统可靠性建模方法，融合贝叶斯推断、证据理论与模糊逻辑，实现多源不确定信息的综合表达、更新与动态评估。</p>
+                <p><strong>（3）系统韧性评估与指标体系构建：</strong>研究系统在扰动、故障与外部冲击下的恢复能力与稳健性特征，建立韧性量化指标、演化模型与评价体系，为系统可恢复性与任务连续性分析提供支撑。</p>
+                <p><strong>（4）韧性增强与结构优化策略：</strong>面向高风险场景，设计自适应控制与结构重构方法，提出冗余配置与动态恢复决策策略，实现系统层级的韧性提升与风险主动防御。</p>
+                <p>该方向致力于建立融合网络科学、信息熵理论与AI建模的新型系统可靠性研究范式，支撑国家关键工程系统和基础设施的智能安全管理、抗扰性设计与任务持续能力提升。</p>
+                <figure class="research-figure">
+                  <img src="image/复杂系统韧性与确信可靠性分析.png" alt="复杂系统韧性与确信可靠性分析框架图" loading="lazy">
+                </figure>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <p class="research-outro">三个方向相互支撑，共同构成实验室<strong>“智能—仿真—保障”</strong>一体化创新体系，为未来高可靠、高智能、高韧性的工程系统提供理论基础与技术支撑。</p>
+        </article>
+        <button class="research-collapse-button" id="research-collapse-button" type="button" aria-hidden="true" tabindex="-1">
+          <span aria-hidden="true">↑</span>收起详情
+        </button>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="achievements" data-page="achievements">
+      <div class="section-shell">
+        <nav class="education-subnav achievement-subnav" aria-label="科研成果页面导航">
+          <button class="is-active" type="button" data-achievement-target="achievement-journals">期刊论文</button>
+          <button type="button" data-achievement-target="achievement-conferences">会议及其他</button>
+          <button type="button" data-achievement-target="achievement-books">专著</button>
+          <button type="button" data-achievement-target="achievement-patents">专利与软著</button>
+        </nav>
+        <div class="achievement-publications" aria-live="polite">
+          <section class="publication-block" id="achievement-journals"></section>
+          <section class="publication-block" id="achievement-conferences"></section>
+          <section class="publication-block" id="achievement-books"></section>
+          <section class="publication-block" id="achievement-patents"></section>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="education" data-page="education">
+      <div class="page-shell">
+        <nav class="education-subnav" aria-label="人才培养页面导航">
+          <button class="is-active" type="button" data-education-target="education-students">学生培养</button>
+          <button type="button" data-education-target="education-recruitment">招生说明</button>
+        </nav>
+        <article class="prose recruitment-content">
+          <section class="education-feature" id="education-students">
+            <h2 class="education-section-title">学生培养</h2>
+            <p class="student-summary">作为责任导师，指导专业型硕士、双学位硕士及留学生硕士；作为合作导师，联合指导课题组博士研究生与博士后多名，协助完成学术论文写作与算法框架设计等工作。</p>
+            <h3 class="student-subheading">在读 / 指导研究生（部分）</h3>
+            <div class="student-group" id="current-doctoral">
+              <h4 class="student-group-title">博士研究生</h4>
+              <ul class="student-grid">
+                <li><a class="student-card" href="students/profile.html?id=dongcan-liu"><img src="image/Dongcan Liu.png" alt="刘东灿" loading="lazy"><span class="student-card-body"><span class="student-card-name">刘东灿</span><span class="student-card-meta">专业：控制科学与工程</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+              </ul>
+            </div>
+            <div class="student-group" id="current-masters">
+              <h4 class="student-group-title">硕士研究生</h4>
+              <ul class="student-grid">
+                <li><a class="student-card" href="students/profile.html?id=xinhang-chen"><img src="image/Xinhang Chen.png" alt="陈昕航" loading="lazy"><span class="student-card-body"><span class="student-card-name">陈昕航</span><span class="student-card-meta">专业：电子信息</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=jun-deng"><img src="image/Jun Deng.png" alt="邓畯" loading="lazy"><span class="student-card-body"><span class="student-card-name">邓畯</span><span class="student-card-meta">专业：电子信息</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=jing-li"><img src="image/Jing Li.png" alt="李婧" loading="lazy"><span class="student-card-body"><span class="student-card-name">李婧</span><span class="student-card-meta">专业：电子信息</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=kunlong-huang"><img src="image/Kunlong Huang.png" alt="黄坤隆" loading="lazy"><span class="student-card-body"><span class="student-card-name">黄坤隆</span><span class="student-card-meta">专业：人工智能 / 电子信息</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=yanyan-wu"><img src="image/Yanyan Wu.png" alt="吴妍妍" loading="lazy"><span class="student-card-body"><span class="student-card-name">吴妍妍</span><span class="student-card-meta">专业：人工智能 / 电子信息</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=yongpeng-qi"><img src="image/Yongpeng Qi.png" alt="齐永鹏" loading="lazy"><span class="student-card-body"><span class="student-card-name">齐永鹏</span><span class="student-card-meta">专业：交通运输</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=linhan-zhang"><img src="image/Linhan Zhang.png" alt="张琳涵" loading="lazy"><span class="student-card-body"><span class="student-card-name">张琳涵</span><span class="student-card-meta">专业：机械</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=zhihuan-wei"><img src="image/Zhihuan Wei.png" alt="魏芷寰" loading="lazy"><span class="student-card-body"><span class="student-card-name">魏芷寰</span><span class="student-card-meta">专业：机械</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=pedro-martin"><img src="image/Pedro Martin.png" alt="彼得" loading="lazy"><span class="student-card-body"><span class="student-card-name">彼得</span><span class="student-card-meta">留学生硕士</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+                <li><a class="student-card" href="students/profile.html?id=zuhaer-tousif"><img src="image/Zuhaer Tousif.png" alt="美也喆" loading="lazy"><span class="student-card-body"><span class="student-card-name">美也喆</span><span class="student-card-meta">留学生硕士</span><span class="student-card-email">邮箱：</span><span class="student-card-link">个人主页 →</span></span></a></li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="recruitment-section" id="education-recruitment">
+          <h2 class="education-section-title">招生说明</h2>
+          <h2>一、课题组基本情况介绍</h2>
+          <p>实验室面向国家重大战略需求，聚焦航空航天、舰船与智能制造等高端工程系统的智能运维、数字孪生和韧性可靠性研究，开展基础理论与关键技术攻关。依托高性能计算、工业物联网、PHM仿真验证及数字孪生建模等平台，实验室与国内外高校及航空工业、商飞、华为、长龙航空等单位开展科研合作，推动研究成果与工程应用衔接。</p>
+          <p>实验室所在科研平台——“智慧民航科创中心”，由杭州市北京航空航天大学国际创新研究院牵头组建，联合法国国立民航大学（ENAC），是面向国家民航数智化转型战略需求的重要科教协同创新平台。中心聚焦飞机、发动机及机载系统在适航、运维、空管、机场运行等全生命周期环节的智能化升级，构建覆盖“感知—建模—决策—优化”闭环的数智化技术体系，为民航安全、高效、韧性运行提供坚实科研支撑。</p>
+          <p>中心下设多个功能完备、设备先进的专业实验室，为本课题组在故障预测与健康管理（PHM）、数字孪生、智能运维等方向的研究提供强有力的硬件保障与实验环境：</p>
+
+          <h3>1）智能健康管理虚实一体化实验室</h3>
+          <p>该实验室是支撑民机PHM大模型研究的核心平台，集成物理实验与虚拟仿真双重能力，支持从部件级退化机理研究到整机级PHM系统验证的全链条实验。平台配备空客A320/波音737全机仿真系统（覆盖12个子系统、300+参数、毫秒级故障注入）、高精度机械故障实验台（50kN液压加载、0.01Nm扭矩传感），以及专用算法开发环境——搭载128核CPU、1TB内存、2×NVIDIA A100 GPU的高性能计算集群，全面支持多模态大模型的训练、微调与推理任务。</p>
+          <h3>2）中法达索卓越教育中心</h3>
+          <p>依托达索系统3DEXPERIENCE平台（R2024x），构建覆盖飞机全生命周期的MBSE协同研发环境。平台集成CATIA（参数化建模）、SIMULIA（多物理场仿真）、DELMIA（维修流程优化）、ENOVIA（数据协同管理）等工业级软件模块，并配备Abaqus、Simpack、Isight、Magic MBSE等专业工具，支持高保真数字孪生建模、多学科优化与系统架构分析，为课题研究提供国际标准的工程化建模能力。</p>
+          <h3>3）可靠性数字孪生实验室 &amp; 机群运行与维修仿真实验室</h3>
+          <p>前者配备高低温老化试验箱（-70℃~+200℃）、半导体热阻测试仪、自动化数据采集系统（LabVIEW/MATLAB），支持关键部件失效机理建模与可靠性验证；后者部署AnyLogic仿真平台、AR沙盘交互系统、动态调度优化引擎，可模拟千架次规模机队在PHM支持下的维修资源分配与运行效能评估，实现从单机健康管理到机群智能运维的闭环验证。</p>
+          <p>平台已与意大利米兰理工大学共建“中意健康管理与智能维修联合实验室”，由国际PHM权威Enrico Zio教授与北航康锐教授共同领衔，定期开展国际联合培养、学术研讨与课程共建。同时，合作单位提供15万架次飞行数据、2000+真实故障工单及1000+册技术手册，确保研究数据真实、场景典型、成果可落地。</p>
+          <p>本平台软硬件设施完备、数据资源丰富、国际合作深入，可全面支撑硕士研究生开展高水平、工程化、国际化科研工作，无需依赖外部资源，保障研究高效推进与成果高质量产出。</p>
+          <p>课题组学术氛围浓厚，实行“不定期例会+个人周报+专题研讨+项目驱动”相结合的培养机制，鼓励学生参与国家级项目、国际会议、企业联合攻关，注重培养学生的系统思维、工程能力、学术表达与团队协作能力。研究生人均参与1-2项国家/省部级课题，人均发表SCI/EI论文1-2篇，部分优秀学生在硕士期间即参与国家重大专项课题研究，承担关键技术研发并在重要里程碑节点进行汇报。</p>
+
+          <h2>二、主要招生研究方向详解</h2>
+          <p>实验室以复杂工程系统的健康预测、数字孪生与系统韧性为核心研究主线，面向航空航天、能源交通、智能制造等领域的高端工程系统，构建“多模态智能认知—虚实融合建模—系统可靠运维”的研究体系。重点开展以下三个方面的研究（详见科学研究页面）：</p>
+          <p>（1）多模态大模型与智能PHM算法研究，融合AI与机理模型，实现复杂系统健康状态的预测与诊断；典型应用场景包括飞机、高铁、船舶、数控机床、风电、卫星电系统等。学生将掌握PHM领域主流算法（如CNN用于图像故障识别、RNN/LSTM用于时序退化建模、Transformer用于长序列依赖建模），并有机会参与国家重点型号工程系统的PHM系统设计与验证。</p>
+          <p>（2）数字孪生建模与智慧运维决策优化，通过虚实一体化仿真实现工程系统运行与保障的智能决策；该方向强调系统工程思维与仿真建模能力，适合对复杂系统建模、仿真优化、智能决策感兴趣的同学。课题组已构建航空保障系统、海上平台工程系统等多个数字孪生原型系统，学生可深度参与实际项目开发。</p>
+          <p>（3）复杂系统韧性与确信可靠性分析，揭示系统结构演化规律，量化系统抗扰与恢复能力；该方向理论性较强，适合数学基础扎实、对复杂系统动力学、网络科学、风险决策感兴趣的同学。研究成果可应用于航空航天体系、电力网络、城市基础设施等关键领域。</p>
+          <p>三大方向相互支撑，共同构成实验室“智能—仿真—保障”一体化创新体系，为未来高可靠、高智能、高韧性的工程系统提供理论基础与技术支撑。</p>
+          <p>欢迎计算机科学、自动化、人工智能、机械工程、航空航天工程、系统工程、应用数学等相关专业背景的学生报考。各方向均强调“问题导向、模型驱动、算法创新、系统实现”的研究范式，鼓励跨学科融合。</p>
+
+          <h2>三、对学生的基本要求与优先条件</h2>
+          <p>为确保研究生培养质量与科研项目顺利推进，课题组对学生提出以下基本要求：</p>
+          <h3>专业背景要求：</h3>
+          <ul>
+            <li>优先招收计算机科学与技术、人工智能、自动化、控制科学与工程、机械工程、航空航天、系统工程、应用数学等相关专业本科生/硕士生；</li>
+            <li>具备扎实的数理基础，尤其在线性代数、概率统计、最优化理论、微分方程等方面有良好掌握，原则上相应课程的成绩要达到优秀（90分以上）；</li>
+            <li>系统学习过《机器学习》《深度学习》《数据结构与算法》《信号与系统》《控制系统》等核心课程，成绩优良（原则上这些核心课程分不低于90分）；</li>
+          </ul>
+          <h3>技术能力要求：</h3>
+          <ul>
+            <li>熟练掌握Python、MATLAB、C++等至少一种编程语言；</li>
+            <li>熟悉主流深度学习框架（如PyTorch、TensorFlow），能独立实现CNN、RNN、LSTM、Transformer等神经网络模型；</li>
+            <li>具备一定的数学建模与数据分析能力，能使用Pandas、NumPy、Scikit-learn、Matplotlib等工具进行数据预处理与可视化；</li>
+            <li>了解PHM、数字孪生、强化学习、复杂网络等任一方向的基本概念者优先；</li>
+          </ul>
+          <h3>实践与竞赛经历（优先考虑）：</h3>
+          <ul>
+            <li>参加过全国大学生数学建模竞赛、数学竞赛、“挑战杯”、RoboMaster机甲大师赛、ACM程序设计竞赛、Kaggle数据科学竞赛等，并获得省级以上奖项者优先；</li>
+            <li>有科研项目参与经历、专利申请、论文撰写（即使未发表）经验者优先；</li>
+            <li>获得过国家奖学金、校级一等奖学金、三好学生标兵等荣誉者优先；</li>
+            <li>有企业实习经历（如互联网企业、航天院所、智能制造企业）者优先。</li>
+          </ul>
+          <h3>个人素质要求：</h3>
+          <ul>
+            <li>具备强烈的科研热情与自主学习能力，能承受科研压力，愿意挑战前沿难题；</li>
+            <li>具备良好的团队协作精神与沟通表达能力，能积极参与组会、项目讨论与学术汇报；</li>
+            <li>英语能力良好，能阅读英文文献、撰写英文学术论文，有托福/雅思/GRE成绩者优先；</li>
+            <li>有志于进入航空航天、高端制造、人工智能等国家重点行业就业者优先。</li>
+          </ul>
+
+          <h2>四、研究生培养方案与成果要求</h2>
+          <p>课题组实行“个性化定制+项目驱动+成果导向”的培养模式。入学后，导师将根据学生的专业背景、兴趣方向、职业规划，结合课题组在研项目，量身定制培养计划，确保“人尽其才、才尽其用”。</p>
+          <p><strong>成果要求（根据学生培养方向进行微调）：</strong></p>
+          <ol>
+            <li>以第一作者或导师一作学生二作身份发表高水平论文；</li>
+            <li>申请国家发明专利或软件著作权；</li>
+            <li>独立或主导开发原型系统/仿真平台，并通过验收或演示；</li>
+            <li>在领域相关国际学术会议（如ICML, PHM Society, IEEE Reliability, ESREL等）做口头报告或海报展示；</li>
+            <li>完成不少于3个月的企业或科研院所实习，并提交实习报告与单位评价；</li>
+            <li>获得校级以上科研竞赛奖项或奖学金。</li>
+          </ol>
+          <p>课题组将为每位研究生提供充足的科研经费支持、高性能计算资源、国内外学术交流机会，并积极推荐优秀学生赴海外联合培养或攻读博士学位。对于成果突出者，可优先推荐至合作单位（如航空工业、航天科技、华为、商飞等）就业。</p>
+
+          <h2>五、未来发展前景与职业路径</h2>
+          <p><strong>▶ 学术深造路径：</strong>课题组与多个海外实验室保持合作，支持联合培养与访问交流。优秀硕士/博士可优先获得本校或国内外知名高校（如巴黎萨克雷大学、米兰理工、香港城市大学等，前提是获得CSC奖学金）博士或博士后推荐资格。博士后</p>
+          <p><strong>▶ 就业路径：</strong>毕业生主要去向包括：航空航天院所（如601所、603所、航天一院、五院）、智能制造企业（华为、大疆）、人工智能公司（阿里云、商汤、旷视）、工业软件企业（达索、西门子）、能源电力系统（国家电网、南方电网）等，从事算法工程师、系统架构师、PHM工程师、数字孪生专家、可靠性分析师等岗位。</p>
+          <p><strong>▶ 创业与交叉发展：</strong>课题组鼓励创新思维，支持有创业意向的学生参与科技成果转化，已有毕业生成功创办智能运维、工业AI初创公司。</p>
+
+          <h2>六、申请方式与联系方式</h2>
+          <p>欢迎有志于投身智能系统、人工智能、系统工程前沿研究的同学积极联系！请将以下材料发送至邮箱： <strong>yang_hu@buaa.edu.cn</strong>，<strong>邮件标题格式：</strong>“硕士/博士研究生申请-姓名-本科学校-专业”。</p>
+          <p>博士后请参考 <a href="https://h3i.buaa.edu.cn/info/1141/1391.htm" target="_blank" rel="noopener">https://h3i.buaa.edu.cn/info/1141/1391.htm</a>，北航国新院为博士后提供一流的学术指导、科研条件和薪酬待遇。国新院提供A类博士后32万元年薪、B类博士后28万元年薪（均不含政府补贴），以及15万元的科研启动经费（含政府补贴）。同时，博士后可叠加申请杭州市、余杭区地方政府配套补贴，各项补贴累计金额最高可达219万元（详见杭州市余杭区“海创未来·卓越博士后”腾飞计划、杭州城西科创大走廊创新发展专项资金管理办法等，各类政策按照政府最新规定执行）。</p>
+          <p><strong>所需材料：</strong></p>
+          <ol>
+            <li>个人简历（含教育背景、科研/项目经历、竞赛获奖、技能证书等）；</li>
+            <li>本科/硕士成绩单（扫描件）；</li>
+            <li>代表性成果（如论文、专利、竞赛证书、项目报告等）；</li>
+            <li>个人陈述（500字左右，说明报考动机、研究兴趣、职业规划）；</li>
+            <li>（可选）推荐信1-2封。</li>
+          </ol>
+          <p>我们将对申请材料进行初审，并择优安排线上/线下面试。面试内容包括：基础知识考察、科研潜力评估、英语交流能力、项目设想讨论等。</p>
+          <p class="recruitment-conclusion">中意实验室是一个充满活力、追求卓越、注重实战的科研集体。我们不仅关注论文与专利，更重视学生综合能力的提升与未来职业的发展。在这里，你将接触到最前沿的科研课题，参与国家重大工程，与优秀的同门并肩作战，收获扎实的科研训练与宝贵的人生经历。</p>
+          <p class="recruitment-invitation">如果你热爱科研、勇于挑战、渴望成长，欢迎加入我们！让我们共同探索智能时代的系统运维新范式，为中国高端工程系统的智能化转型贡献智慧与力量！</p>
+          </section>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="teaching" data-page="teaching">
+      <div class="course-page-shell" data-course-app></div>
+    </section>
+
+    <section class="page-panel content-page" id="culture" data-page="culture">
+      <div class="culture-page-shell" data-culture-app></div>
+    </section>
+
+    <section class="page-panel content-page" id="center-philosophy" data-page="center-philosophy">
+      <div class="page-shell">
+        <article class="placeholder-page" data-placeholder-page data-title-en="Center Philosophy">
+          <h1>中心理念</h1>
+          <p>栏目内容待补充。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="organization" data-page="organization">
+      <div class="page-shell">
+        <article class="placeholder-page" data-placeholder-page data-title-en="Organization">
+          <h1>组织架构</h1>
+          <p>栏目内容待补充。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="research-projects" data-page="research-projects">
+      <div class="page-shell">
+        <article class="placeholder-page" data-placeholder-page data-title-en="Research Projects">
+          <h1>科研项目</h1>
+          <p>栏目内容待补充。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="research-cooperation" data-page="research-cooperation">
+      <div class="page-shell">
+        <article class="placeholder-page" data-placeholder-page data-title-en="Research Collaboration">
+          <h1>科研合作</h1>
+          <p>栏目内容待补充。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="talent-recruitment" data-page="talent-recruitment">
+      <div class="recruitment-page-shell" data-recruitment-app></div>
+    </section>
+
+    <section class="page-panel content-page" id="alumni-doctoral" data-page="alumni-doctoral">
+      <div class="page-shell">
+        <article class="placeholder-page" data-placeholder-page data-title-en="Doctoral Alumni">
+          <h1>往届博士研究生</h1>
+          <p>栏目内容待补充。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="alumni-masters" data-page="alumni-masters">
+      <div class="page-shell">
+        <article class="placeholder-page" data-placeholder-page data-title-en="Master's Alumni">
+          <h1>往届硕士研究生</h1>
+          <p>栏目内容待补充。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-panel content-page" id="contact" data-page="contact">
+      <div class="page-shell">
+        <article class="contact-page">
+          <header class="contact-heading">
+            <h2 class="contact-title">联系方式</h2>
+            <nav class="personnel-breadcrumb" aria-label="面包屑导航">
+              <button type="button" data-contact-home>首页</button>
+              <span>/</span>
+              <strong>联系我们</strong>
+            </nav>
+          </header>
+          <figure class="contact-map">
+            <img src="image/school_lc.png" alt="北京航空航天大学杭州国际创新研究院位置图" loading="lazy">
+          </figure>
+          <dl class="contact-list">
+            <div class="contact-item">
+              <dt>地址</dt>
+              <dd>浙江省杭州市余杭区瓶窑镇双红桥街166号 北京航空航天大学杭州国际创新研究院</dd>
+            </div>
+            <div class="contact-item">
+              <dt>邮编</dt>
+              <dd>311115</dd>
+            </div>
+            <div class="contact-item">
+              <dt>邮箱</dt>
+              <dd>yang_hu@buaa.edu.cn</dd>
+            </div>
+          </dl>
+
+          <section class="contact-recruitment">
+            <p>所在团队长期招收硕士、博士生、博士后，欢迎对故障预测与健康管理、智能运维、工业大数据、复杂系统建模仿真等领域感兴趣，想尝试在人工智能时代运用最酷的AI算法探索解决未知难题的同学加入团队。</p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-scene">
+      <img src="image/bottom.png" alt="北京航空航天大学杭州国际创新研究院园区建筑" loading="lazy">
+    </div>
+    <div class="section-shell">
+      <p>© 2026 中意健康管理与智能维修实验室 · 北航国新院</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/publications.js" defer></script>
+  <script src="assets/js/content-data.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

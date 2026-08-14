@@ -272,7 +272,7 @@
               <p class="personnel-research"><strong>Research:</strong> Prognostics and health management (PHM) of complex systems, artificial intelligence and industrial big data, and equipment-system modeling and simulation.</p>
               <p class="personnel-email"><strong>Email:</strong> yang_hu@buaa.edu.cn</p>
               <div class="personnel-links">
-                <a class="personnel-link-primary" href="../huyang-homepage/" target="_blank" rel="noopener">Personal Website</a>
+                <a class="personnel-link-primary" href="huyang-homepage/" target="_blank" rel="noopener">Personal Website</a>
                 <a href="https://shi.buaa.edu.cn/huyang" target="_blank" rel="noopener">Beihang Profile</a>
                 <a href="https://scholar.google.com/citations?user=t0t8_BkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
               </div>
