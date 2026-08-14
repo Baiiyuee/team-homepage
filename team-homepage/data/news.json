@@ -1,0 +1,37 @@
+{
+  "conferences": [
+    {
+      "date": "2026.07.19-21",
+      "title": "可靠性工程 × 可持续未来 ICRE 2026重磅来袭",
+      "titleEn": "Reliability Engineering × a Sustainable Future: ICRE 2026",
+      "summary": "第10届可靠性工程国际会议在杭州举行，来自相关领域的专家学者围绕可靠性工程与智能韧性系统前沿研究展开交流。",
+      "summaryEn": "The 10th International Conference on Reliability Engineering gathered scholars in Hangzhou to exchange frontier research on reliability engineering and intelligent resilient systems.",
+      "image": "image/icre-2026-cover.jpg",
+      "url": "https://mp.weixin.qq.com/s/vTC1ejJQKDhgqZKh8jc96A"
+    }
+  ],
+  "activities": [
+    {
+      "date": "2026.07.12-25",
+      "title": "2026 数字赋能的航空安全国际暑期学校",
+      "titleEn": "2026 International Summer School of Aviation Safety",
+      "summary": "暑期学校汇聚中外学生与专家学者，围绕数字赋能的航空安全开展课程学习、专题研讨与学术交流。",
+      "summaryEn": "The summer school brought together international students and scholars for academic exchange on digitally empowered aviation safety.",
+      "image": "image/summer-school-2026.jpg",
+      "url": "https://mp.weixin.qq.com/s/HlfpfIzE95P60b-ABVsFCw"
+    }
+  ],
+  "papers": [],
+  "notices": [
+    {
+      "title": "实验室长期招收硕士、博士研究生及博士后",
+      "titleEn": "Admissions",
+      "url": "#recruitment-admissions"
+    },
+    {
+      "title": "欢迎高校、科研院所及企业开展科研合作",
+      "titleEn": "Research Collaboration",
+      "url": "#research-cooperation"
+    }
+  ]
+}
