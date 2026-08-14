@@ -1,5 +1,6 @@
 const navLinks = Array.from(document.querySelectorAll('.nav-inner a'));
-const sections = navLinks
+const sectionLinks = navLinks.filter((link) => link.getAttribute('href').startsWith('#'));
+const sections = sectionLinks
   .map((link) => document.querySelector(link.getAttribute('href')))
   .filter(Boolean);
 
@@ -12,7 +13,7 @@ if ('IntersectionObserver' in window) {
 
       if (!visible) return;
 
-      navLinks.forEach((link) => {
+      sectionLinks.forEach((link) => {
         link.classList.toggle('is-active', link.getAttribute('href') === `#${visible.target.id}`);
       });
     },
