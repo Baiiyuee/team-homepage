@@ -53,8 +53,8 @@
 
     document.querySelector('.navbar')?.setAttribute('aria-label', 'Primary navigation');
     document.querySelector('.brand-identity')?.setAttribute('aria-label', 'Return to home');
-    document.querySelector('.header-search')?.setAttribute('aria-label', 'Search (coming soon)');
-    document.querySelector('.header-search')?.setAttribute('title', 'Search (coming soon)');
+    document.querySelector('.header-search')?.setAttribute('aria-label', 'Search');
+    document.querySelector('.header-search')?.setAttribute('title', 'Search');
     document.querySelector('.language-switch')?.setAttribute('aria-label', 'Language selection');
     document.querySelector('.hero-keywords')?.setAttribute('aria-label', 'Core research keywords');
     setText('.nav-toggle', 'Menu');
@@ -87,7 +87,15 @@
       'alumni-masters': 'Master’s Alumni',
       education: 'Students',
       teaching: 'Teaching',
+      'teaching-menu': 'Teaching',
+      'teaching-undergraduate': 'Undergraduate Courses',
+      'teaching-graduate': 'Graduate Courses',
       culture: 'Culture',
+      'culture-menu': 'Culture',
+      'culture-gallery': 'Culture Gallery',
+      'culture-party': 'Party-Building Activities',
+      'culture-academic': 'Academic Exchange',
+      'culture-team': 'Team Building',
       'recruitment-menu': 'Recruitment',
       recruitment: 'Admissions',
       'recruitment-admissions': 'Admissions',
@@ -227,7 +235,7 @@
     });
     const overviewPeople = [
       ['Yang Hu', 'Executive Director · Associate Research Fellow · Doctoral Supervisor'],
-      ['Yang Li', 'Associate Professor'],
+      ['Yang Li', 'Associate Professor · Master’s Supervisor'],
       ['Xiaoyu Jiang', 'Associate Research Fellow · Master’s Supervisor'],
       ['Danyang Han', 'Postdoctoral Researcher'],
       ['Di Su', 'Postdoctoral Researcher'],
@@ -295,10 +303,10 @@
           <article class="personnel-card" id="person-yang-li">
             <img class="personnel-photo" src="image/Yang Li.png" alt="Yang Li" loading="lazy">
             <div>
-              <p class="personnel-role">Associate Professor</p>
+              <p class="personnel-role">Associate Professor · Master’s Supervisor</p>
               <h3 class="personnel-name">Yang Li</h3>
               <p class="personnel-research"><strong>Research:</strong> Beyond-reliability and autonomous intelligence, including testability design and intelligent control, fault diagnosis and fault tolerance, accelerated testing and life prediction, and reliability, supportability, and maintainability design.</p>
-              <p class="personnel-email"><strong>Email:</strong></p>
+              <p class="personnel-email"><strong>Email:</strong> yongerli@buaa.edu.cn</p>
             </div>
             <div class="personnel-profile-sections">
               <section class="personnel-profile-section">
@@ -1405,8 +1413,8 @@
     const advisorOrder = { '胡杨': 0, '李洋': 1, '江肖禹': 2 };
     const yearLabel = (year) => isEnglish ? `Class of ${year}` : `${year}级`;
     const yearBranches = (category) => {
-      const categoryYears = category === 'doctoral'
-        ? academicYears.filter((year) => year !== '2024')
+      const categoryYears = category === 'doctoral' || category === 'alumni-doctoral'
+        ? academicYears.filter((year) => year !== '2024' && year !== '2025')
         : academicYears;
       return categoryYears.map((year) => {
       const members = studentsByYear[`${category}-${year}`] || [];
@@ -1745,6 +1753,7 @@
       }
       if (separator) separator.hidden = false;
     };
+    showStudentMemberView = showStudentMember;
 
     layout.querySelectorAll('[data-student-view]').forEach((button) => {
       const routes = {
@@ -1815,46 +1824,318 @@
     layout.querySelector('[data-student-overview]')?.addEventListener('click', () => showPage('education'));
   }
 
+  let showStudentMemberView = () => {};
   upgradeEducationPage();
   let resetCourseView = () => {};
 
   function setupCourses() {
     const app = document.querySelector('[data-course-app]');
     if (!app) return;
-    const courses = [
-      {
-        id: 'ai-foundation-models',
-        title: isEnglish ? 'Artificial Intelligence and Foundation Models' : '人工智能与大模型',
-        type: isEnglish ? 'Graduate Course' : '研究生课程',
-        category: 'graduate'
+    const courseText = {
+      ai: {
+        title: isEnglish ? 'Artificial Intelligence and Advanced Large Models' : '人工智能与高级大模型',
+        type: isEnglish ? 'Graduate Theoretical Course' : '研究生理论课程',
+        category: 'graduate-theory',
+        description: isEnglish
+          ? 'A 32-hour graduate course that treats AI as an end-to-end engineering system, helping students build durable orientation across foundation models, RAG, agents, evaluation, deployment, safety, and AI for engineering systems.'
+          : '将人工智能视为“数据—建模—训练—推理—评估—部署—治理”的端到端工程系统，帮助学生建立面向基础模型、RAG、智能体、评估、安全与工程应用的整体认知。',
+        facts: isEnglish
+          ? [
+              ['Course Code', 'D253041002'],
+              ['Contact Hours', '32 hours · 16 sessions'],
+              ['Target Students', 'Engineering graduate students'],
+              ['Prerequisites', 'Python, linear algebra, introductory probability'],
+              ['Course Form', 'Conceptual framework + hands-on lab + debrief'],
+              ['Project Mode', 'Teams of 3–5 students']
+            ]
+          : [
+              ['课程代码', 'D253041002'],
+              ['学时安排', '32学时 · 16次课'],
+              ['授课对象', '航空、材料、物理、机械、电气、交通等工程类研究生'],
+              ['先修基础', 'Python 编程、线性代数、概率基础'],
+              ['课程形式', '概念框架 + 上机实践 + 复盘讨论'],
+              ['项目组织', '3–5人团队项目']
+            ],
+        goals: isEnglish
+          ? [
+              'Build a global map of modern AI covering data, models, training, inference, evaluation, safety, productization, and governance.',
+              'Understand the historical trajectory and core ideas behind neural networks, CNNs, Transformers, GNNs, PINNs, and foundation models.',
+              'Design a minimal working AI system such as a RAG workflow or agent-based engineering assistant, then improve it through evaluation.',
+              'Use AI tools as reusable learning and engineering workflows rather than one-off prompt tricks.',
+              'Apply AI to engineering and scientific contexts including aerospace maintenance reasoning, literature mining, and simulation support.'
+            ]
+          : [
+              '建立现代 AI 的全局地图，理解数据、模型、训练、推理、评估、安全、产品化与治理之间的关系。',
+              '掌握神经网络、CNN、注意力机制、Transformer、图神经网络、物理信息神经网络与基础模型的核心思想。',
+              '设计一个最小可运行的 AI 系统，例如 RAG 流程或工程智能体，并通过评估持续改进。',
+              '把 AI 工具沉淀为可复用的学习与工程工作流，而不是停留在一次性提示词使用。',
+              '面向航空维修推理、材料/工程文献挖掘、仿真支持等场景理解 AI for Science / AI for Engineering 的应用路径。'
+            ],
+        modules: isEnglish
+          ? [
+              ['System Map and Learning Flywheel', 'AI as an engineering system; history, hierarchy, global map, project themes, and team formation.'],
+              ['Tool-Driven Workflows', 'Prompting, reading, synthesis, self-testing, notebooks, and reusable personal/team workflow assets.'],
+              ['Modern Model Foundations', 'Classic ML, neural networks, CNNs, attention, Transformers, GNNs, PINNs, data thinking, and compute reality.'],
+              ['Foundation Models in Practice', 'Post-training, alignment, RAG, agents, tool use, multimodal extraction, and structured engineering pipelines.'],
+              ['Evaluation, Reliability, and Safety', 'Benchmarks, private evals, error taxonomy, prompt injection, data exposure, and fail-safe design.'],
+              ['Engineering Applications and Final Demo', 'AI for Science / Engineering Systems cases, efficient adaptation, inference systems, team demo, and growth plan.']
+            ]
+          : [
+              ['系统地图与学习飞轮', '从工程系统视角理解 AI，梳理发展历史、层级结构、全局地图、项目主题与组队机制。'],
+              ['工具驱动工作流', '从提示词、阅读、总结、自测到 Notebook 与评估脚本，沉淀个人/团队可复用工具包。'],
+              ['现代模型基础', '覆盖经典机器学习、神经网络、CNN、注意力机制、Transformer、GNN、PINNs、数据质量与算力现实。'],
+              ['基础模型实践', '理解后训练、对齐、RAG、智能体、工具调用、多模态抽取与工程化流水线。'],
+              ['评估、可靠性与安全', '围绕基准、私有评测、误差分析、提示注入、数据暴露与失效保护建立工程判断。'],
+              ['工程应用与最终展示', '结合 AI for Science / Engineering Systems 案例、高效适配、推理系统与团队 Demo 完成课程闭环。']
+            ],
+        teaching: isEnglish
+          ? 'Each session combines a concise conceptual framework, a hands-on lab, and a short debrief. The course emphasizes evaluation-driven iteration, tooling fluency, engineering realism, and transferable learning routines.'
+          : '每次课通常由概念框架、上机实践与复盘讨论组成。课程强调以评估为主线、以工具驱动能力形成，同时把成本、延迟、可靠性与安全作为真实工程约束。',
+        assessment: isEnglish
+          ? [
+              ['Attendance and participation', '20%'],
+              ['Continuous team assignments', '20%'],
+              ['Midterm individual milestone', '20%'],
+              ['Final team project', '40%']
+            ]
+          : [
+              ['出勤与课堂参与', '20%'],
+              ['团队连续作业', '20%'],
+              ['个人期中里程碑', '20%'],
+              ['团队期末项目', '40%']
+            ],
+        outputs: isEnglish
+          ? [
+              'Domain-specific AI system map',
+              'Reusable workflow kit: prompt library, notebook templates, and evaluation scripts',
+              'Working AI demo for an engineering or scientific scenario',
+              'Evaluation report with measurable iteration and error analysis',
+              'Academic paper proposal for applying advanced AI in a specific research domain'
+            ]
+          : [
+              '面向所在领域的一页 AI 系统地图',
+              '可复用工具工作流包：提示词库、Notebook 模板与评估脚本',
+              '面向工程或科学场景的可运行 AI Demo',
+              '包含可度量迭代与误差分析的评估报告',
+              '面向具体研究领域的高级 AI 应用论文设想'
+            ],
+        references: []
       },
+      probability: {
+        title: isEnglish ? 'Probability & Statistics (Taught in English)' : 'Probability & Statistics（概率统计，全英文授课）',
+        type: isEnglish ? 'International Graduate Theoretical Course' : '国际留学研究生理论课程',
+        category: 'graduate-theory',
+        description: isEnglish
+          ? 'A 42-hour graduate course that builds a rigorous foundation in probability theory, statistical inference, regression, ANOVA, non-parametric methods, Bayesian estimation, and data-based decision-making.'
+          : '系统讲授概率论、统计推断、方差分析、回归与相关分析、非参数方法、贝叶斯估计等内容，服务科研与工程中的不确定性分析和数据决策。',
+        facts: isEnglish
+          ? [
+              ['Course Code', 'D253011004'],
+              ['Contact Hours', '42 hours'],
+              ['Course Type', 'International graduate course'],
+              ['Target Students', 'Graduate students'],
+              ['Prerequisites', 'Calculus and linear algebra'],
+              ['Teaching Language', 'Fully English-taught']
+            ]
+          : [
+              ['课程代码', 'D253011004'],
+              ['学时安排', '42学时'],
+              ['课程类型', '国际留学研究生课程'],
+              ['授课对象', '研究生'],
+              ['先修基础', '微积分、线性代数'],
+              ['授课语言', '全英文授课']
+            ],
+        goals: isEnglish
+          ? [
+              'Understand and apply core principles of probability theory.',
+              'Analyze discrete, continuous, and joint random variables and their distributions.',
+              'Use point estimation, interval estimation, hypothesis testing, ANOVA, regression, and correlation analysis.',
+              'Apply non-parametric methods and Bayesian estimation where appropriate.',
+              'Translate probability and statistics concepts into research, engineering, economics, and industrial problem solving.'
+            ]
+          : [
+              '理解并应用概率论基本原理。',
+              '分析离散、连续及联合随机变量及其分布。',
+              '掌握点估计、区间估计、假设检验、方差分析、回归与相关分析等统计推断方法。',
+              '了解非参数方法与贝叶斯估计的适用场景。',
+              '将概率统计方法用于科研、工程、经济与工业问题分析。'
+            ],
+        modules: isEnglish
+          ? [
+              ['Probability Foundations', 'Introduction, probability theory, discrete random variables, continuous random variables, and joint probability distributions.'],
+              ['Sampling and Inference', 'Statistics, sampling distributions, point estimation, interval estimation, and hypothesis testing.'],
+              ['Modeling and Comparison', 'Analysis of variance, regression, correlation analysis, and chi-square tests.'],
+              ['Project Practice', 'Group project and presentation applying statistical methods to a real-world problem.']
+            ]
+          : [
+              ['概率基础', '课程导论、概率论、离散随机变量、连续随机变量与联合概率分布。'],
+              ['抽样与推断', '统计量与抽样分布、点估计、区间估计与假设检验。'],
+              ['建模与比较', '方差分析、回归与相关分析、卡方检验。'],
+              ['项目实践', '小组项目与展示，将统计方法应用于真实问题。']
+            ],
+        teaching: isEnglish
+          ? 'The course combines lectures, case studies, practical applications, class discussion, problem-solving sessions, brief student self-introductions, weekly office hours, and continuous feedback through a course representative.'
+          : '课程采用课堂讲授、案例分析、实践应用、课堂讨论与问题求解相结合的方式，并通过学生自我介绍、每周答疑、课程代表反馈等机制提升课堂互动。',
+        assessment: isEnglish
+          ? [
+              ['Attendance and participation', '20%'],
+              ['Regular homework assignments', '20%'],
+              ['Group project and presentation', '20%'],
+              ['Final examination', '40%']
+            ]
+          : [
+              ['出勤与课堂参与', '20%'],
+              ['平时作业', '20%'],
+              ['小组项目与展示', '20%'],
+              ['期末考试', '40%']
+            ],
+        outputs: isEnglish
+          ? [
+              'Regular problem sets with feedback',
+              'Group project on a real-world statistical problem',
+              '7-minute project presentation and 3-minute Q&A',
+              'Comprehensive final examination'
+            ]
+          : [
+              '带反馈的平时习题作业',
+              '面向真实问题的小组项目',
+              '7分钟项目汇报与3分钟问答',
+              '覆盖全课程内容的综合期末考试'
+            ],
+        references: [
+          isEnglish
+            ? 'Modern Mathematical Statistics with Applications, Jay L. Devore, Kenneth N. Berk, Matthew A. Carlton, 3rd edition.'
+            : 'Modern Mathematical Statistics with Applications，Jay L. Devore、Kenneth N. Berk、Matthew A. Carlton，第3版。'
+        ],
+        officialUrl: 'https://shi.buaa.edu.cn/huyang/zh_CN/skxx/214379/content/4323.htm#skxx'
+      },
+      aviation: {
+        title: isEnglish ? 'Design and Simulation of Aviation System Health Management' : '航空系统健康管理设计与仿真',
+        type: isEnglish ? 'Graduate Experimental Course' : '研究生实验课程',
+        category: 'graduate-experiment',
+        description: isEnglish
+          ? 'A 16-hour graduate course on aviation PHM system architecture, design principles, simulation modeling, and algorithm development, combining lectures with practical simulation work.'
+          : '围绕航空系统 PHM 体系架构、设计原则、仿真建模与算法开发展开，采用课堂讲授与上机实践结合的方式训练系统设计能力。',
+        facts: isEnglish
+          ? [
+              ['Course Code', 'D571061031'],
+              ['Contact Hours', '16 hours'],
+              ['Course Type', 'Graduate experimental course'],
+              ['Target Students', 'Transportation, electronic information, mechanical engineering, and related graduate students'],
+              ['Prerequisites', 'Introduction to Aviation Systems or Computer Simulation'],
+              ['Keywords', 'Aviation system, PHM, architecture, simulation, algorithm development']
+            ]
+          : [
+              ['课程代码', 'D571061031'],
+              ['学时安排', '16学时'],
+              ['课程类型', '研究生实验课程'],
+              ['授课对象', '交通运输、电子信息、机械工程等相关专业研究生'],
+              ['先修课程', '航空系统概论或计算机仿真技术'],
+              ['关键词', '航空系统、健康管理、PHM系统、系统架构、仿真、算法开发']
+            ],
+        goals: isEnglish
+          ? [
+              'Understand the complexity and system-level characteristics of aviation equipment health management.',
+              'Master the architecture, core functions, design principles, and development workflow of aviation PHM systems.',
+              'Use simulation tools to design, test, and iterate PHM system components.',
+              'Develop practical capability by building core PHM frameworks and algorithms for specific tasks.',
+              'Strengthen professional competitiveness for civil aviation fleet operation and maintenance roles.'
+            ]
+          : [
+              '理解航空装备健康管理系统的复杂性、整体性与工程背景。',
+              '掌握航空 PHM 系统的体系架构、核心功能、设计原则与研发流程。',
+              '使用仿真工具完成 PHM 系统组件设计、测试与迭代。',
+              '通过创建 PHM 核心框架和算法，提升动手能力与实践技能。',
+              '增强面向民航机队运维等岗位的工程竞争力。'
+            ],
+        modules: isEnglish
+          ? [
+              ['Introduction to Aviation Systems and PHM', 'Definitions, key concepts, PHM importance in aviation, and the role of fault prediction and health management.'],
+              ['PHM System Architecture', 'Core components, architectural structure, design principles, key functions, and integration with other aviation systems.'],
+              ['Design Principles and Development Workflow', 'Aviation PHM design principles, development and implementation process, data acquisition, fault modeling, decision support, and case analysis.'],
+              ['Simulation and Modeling', 'Role of simulation, PHM simulation techniques, tool practice, and model development and testing.'],
+              ['Algorithm Development', 'Common PHM algorithms, application-oriented development, and practical design for specific PHM tasks.']
+            ]
+          : [
+              ['航空系统与 PHM 简介', '航空系统及健康管理的定义、关键概念、PHM 在航空中的重要性及其在装备运维中的作用。'],
+              ['PHM 系统架构', 'PHM 系统核心组成、体系结构、架构设计原则、状态监控、故障诊断、寿命预测与维修决策功能。'],
+              ['设计原则与开发流程', '航空 PHM 系统设计原则、开发实施过程、数据采集、故障建模、决策支持与案例分析。'],
+              ['仿真与建模', '仿真在 PHM 设计中的作用、故障预测与健康管理仿真技术、仿真工具实践与模型测试。'],
+              ['算法开发', 'PHM 常用算法概述、面向系统应用的算法开发，以及特定任务算法设计与实现。']
+            ],
+        teaching: isEnglish
+          ? 'Teaching combines lectures with computer-based practice. Lectures cover system design, principles, and cases; practical sessions use simulation tools and small projects to design and test PHM components.'
+          : '课程采用课堂讲授与上机实践相结合的方式。讲授部分聚焦系统设计、原则与案例；上机部分通过仿真工具和小型项目完成 PHM 系统设计与测试。',
+        assessment: isEnglish
+          ? [
+              ['Attendance', '30%'],
+              ['After-class exercises', '30%'],
+              ['Final course project', '40%']
+            ]
+          : [
+              ['出勤情况', '30%'],
+              ['课后练习', '30%'],
+              ['课程大作业', '40%']
+            ],
+        outputs: isEnglish
+          ? [
+              'PHM system design exercises',
+              'Simulation model development and testing',
+              'Task-oriented PHM algorithm implementation',
+              'Final project integrating architecture, simulation, and algorithm design'
+            ]
+          : [
+              'PHM 系统设计练习',
+              '仿真模型开发与测试',
+              '面向具体任务的 PHM 算法实现',
+              '融合架构、仿真与算法设计的课程大作业'
+            ],
+        references: isEnglish
+          ? [
+              '智预——装备故障预测与健康管理：全寿命周期解读与实践, Hu Yang, Han Danyang, Zhu Qingyu, Publishing House of Electronics Industry, 2025.06.',
+              '民用客机健康管理系统, Lv Zhenbang et al., Shanghai Jiao Tong University Press, 2019.12.'
+            ]
+          : [
+              '《智预——装备故障预测与健康管理：全寿命周期解读与实践》，胡杨、韩丹阳、祝青钰，电子工业出版社，2025.06。',
+              '《民用客机健康管理系统》，吕镇邦等，上海交通大学出版社，2019.12。'
+            ]
+      }
+    };
+    const courses = [
       {
         id: 'military-theory',
         title: isEnglish ? 'Military Theory' : '军事理论',
         type: isEnglish ? 'Undergraduate Course' : '本科生课程',
-        category: 'undergraduate'
-      },
-      {
-        id: 'probability-statistics',
-        title: 'Probability & Statistics',
-        type: isEnglish ? 'International Graduate Course' : '国际留学研究生课程',
-        category: 'graduate',
+        category: 'undergraduate',
         description: isEnglish
-          ? 'This course develops a practical foundation in probability, statistical reasoning, and data-based inference. It emphasizes connecting core concepts with scientific research and engineering decisions, preparing students for later work in modeling, intelligent systems, and quantitative analysis.'
-          : '本课程围绕概率基础、统计推断与数据分析方法展开，强调将基本理论与科研及工程问题相结合，帮助学生建立从随机现象建模到数据驱动决策的完整思维框架，并为后续的智能系统、工程建模与定量研究打下基础。'
+          ? 'Detailed course information will be added later.'
+          : '课程详细信息待补充。',
+        facts: [],
+        goals: [],
+        modules: [],
+        assessment: [],
+        outputs: [],
+        references: []
       },
+      { id: 'ai-foundation-models', ...courseText.ai },
+      { id: 'probability-statistics', ...courseText.probability },
       {
-        id: 'aviation-phm',
-        title: isEnglish ? 'Design and Simulation of Aviation System Health Management' : '航空系统健康管理设计与仿真',
-        type: isEnglish ? 'Graduate Course' : '研究生课程',
-        category: 'graduate'
+        id: 'stochastic-process',
+        title: 'Stochastic Process',
+        type: isEnglish ? 'Dual-Degree Graduate Course' : '双学位研究生课程',
+        category: 'graduate-theory',
+        teacher: isEnglish ? 'Yang Li' : '李洋',
+        description: isEnglish
+          ? 'Detailed course information will be added later.'
+          : '课程详细信息待补充。',
+        facts: [],
+        goals: [],
+        modules: [],
+        assessment: [],
+        outputs: [],
+        references: []
       },
-      {
-        id: 'fleet-maintenance-simulation',
-        title: isEnglish ? 'Fleet Maintenance and Simulation Experiments' : '机群维修与仿真实验',
-        type: isEnglish ? 'Graduate Course' : '研究生课程',
-        category: 'graduate'
-      }
+      { id: 'aviation-phm', ...courseText.aviation }
     ];
     const labels = isEnglish
       ? {
@@ -1862,6 +2143,8 @@
           home: 'Home',
           undergraduate: 'Undergraduate Courses',
           graduate: 'Graduate Courses',
+          theory: 'Theoretical Courses',
+          experiment: 'Experimental Courses',
           tag: 'COURSE',
           instructor: 'Instructor',
           teacher: 'Yang Hu',
@@ -1869,19 +2152,12 @@
           view: 'View details',
           back: '← Back to courses',
           pending: 'Detailed course information will be added later.',
-          facts: [
-            ['Instructor', 'Yang Hu'],
-            ['Academic Year', '2025–2026'],
-            ['Semester', 'Fall'],
-            ['Course Number', 'D253011004'],
-            ['Credits', '3.0'],
-            ['Contact Hours', '48'],
-            ['Course Type', 'International Graduate Course'],
-            ['Enrollment', '92 students'],
-            ['Language', 'English / International Graduate Students']
-          ],
-          reference: 'Textbook and Reference',
-          book: 'Modern Mathematical Statistics with Applications, Jay L. Devore, Kenneth N. Berk, and Matthew A. Carlton, 3rd edition.',
+          overview: 'Course Rationale',
+          factsTitle: 'Key Information',
+          goals: 'Learning Outcomes',
+          teaching: 'Teaching Method',
+          assessment: 'Assessment',
+          reference: 'Textbooks and References',
           official: 'View the Beihang course page'
         }
       : {
@@ -1889,6 +2165,8 @@
           home: '首页',
           undergraduate: '本科生课程',
           graduate: '研究生课程',
+          theory: '理论课程',
+          experiment: '实验课程',
           tag: '课程',
           instructor: '授课教师',
           teacher: '胡杨',
@@ -1896,19 +2174,12 @@
           view: '查看课程详情',
           back: '← 返回课程列表',
           pending: '课程详细信息待补充。',
-          facts: [
-            ['授课教师', '胡杨'],
-            ['开课学年', '2025–2026'],
-            ['开课学期', '秋学期'],
-            ['课程号', 'D253011004'],
-            ['学分', '3.0'],
-            ['课时', '48'],
-            ['课程类型', '国际留学研究生课程'],
-            ['选课人数', '92人'],
-            ['授课对象', '国际留学研究生']
-          ],
+          overview: '课程定位',
+          factsTitle: '关键信息',
+          goals: '学习目标',
+          teaching: '教学方式',
+          assessment: '考核方式',
           reference: '教材与参考书',
-          book: 'Modern Mathematical Statistics with Applications，Jay L. Devore、Kenneth N. Berk、Matthew A. Carlton，第3版。',
           official: '查看北航课程主页'
         };
 
@@ -1917,7 +2188,15 @@
         <aside class="personnel-sidebar" aria-label="${labels.pageTitle}">
           <div class="course-side-list">
             <button class="personnel-side-button is-active" type="button" data-course-category="undergraduate">${labels.undergraduate}</button>
-            <button class="personnel-side-button" type="button" data-course-category="graduate">${labels.graduate}</button>
+            <div class="personnel-side-group course-side-group is-expanded" data-course-branch="graduate">
+              <button class="personnel-side-button" type="button" data-course-branch-toggle="graduate" aria-expanded="true">
+                <span>${labels.graduate}</span><span class="personnel-side-symbol" aria-hidden="true"></span>
+              </button>
+              <div class="personnel-side-members course-side-members">
+                <button class="personnel-side-button" type="button" data-course-category="graduate-theory">${labels.theory}</button>
+                <button class="personnel-side-button" type="button" data-course-category="graduate-experiment">${labels.experiment}</button>
+              </div>
+            </div>
           </div>
         </aside>
         <div class="course-main">
@@ -1937,7 +2216,7 @@
                 <span class="course-card-tag">${labels.tag}</span>
                 <h2>${course.title}</h2>
                 <span class="course-card-meta">
-                  <span>${labels.instructor}：${labels.teacher}</span>
+                  <span>${labels.instructor}：${course.teacher || labels.teacher}</span>
                   <span>${labels.type}：${course.type}</span>
                 </span>
               </button>
@@ -1950,47 +2229,96 @@
 
     const grid = app.querySelector('[data-course-grid]');
     const detail = app.querySelector('[data-course-detail]');
+    const categoryTitles = {
+      undergraduate: labels.undergraduate,
+      graduate: labels.graduate,
+      'graduate-theory': labels.theory,
+      'graduate-experiment': labels.experiment
+    };
+    const validCategories = Object.keys(categoryTitles);
+    const renderFacts = (facts = []) => facts.length ? `
+      <section class="course-detail-section">
+        <h3>${labels.factsTitle}</h3>
+        <dl class="course-facts">
+          ${facts.map(([term, value]) => `<div class="course-fact"><dt>${term}</dt><dd>${value}</dd></div>`).join('')}
+        </dl>
+      </section>
+    ` : '';
+    const renderList = (title, items = []) => items.length ? `
+      <section class="course-detail-section">
+        <h3>${title}</h3>
+        <ul class="course-bullet-list">
+          ${items.map((item) => `<li>${item}</li>`).join('')}
+        </ul>
+      </section>
+    ` : '';
+    const renderAssessment = (items = []) => items.length ? `
+      <section class="course-detail-section">
+        <h3>${labels.assessment}</h3>
+        <div class="course-assessment-grid">
+          ${items.map(([item, weight]) => `<div><strong>${weight}</strong><span>${item}</span></div>`).join('')}
+        </div>
+      </section>
+    ` : '';
+    const renderParagraph = (title, body) => body ? `
+      <section class="course-detail-section">
+        <h3>${title}</h3>
+        <p class="course-section-text">${body}</p>
+      </section>
+    ` : '';
+    const renderReferences = (course) => {
+      const references = course.references || [];
+      if (!references.length && !course.officialUrl) return '';
+      return `
+        <section class="course-reference">
+          <h3>${labels.reference}</h3>
+          ${references.length ? `<ul>${references.map((item) => `<li>${item}</li>`).join('')}</ul>` : ''}
+          ${course.officialUrl ? `<p><a href="${course.officialUrl}" target="_blank" rel="noopener">${labels.official} →</a></p>` : ''}
+        </section>
+      `;
+    };
     let currentCategory = 'undergraduate';
     const showCourseCategory = (category) => {
-      currentCategory = category === 'graduate' ? 'graduate' : 'undergraduate';
+      currentCategory = validCategories.includes(category) ? category : 'undergraduate';
       app.querySelectorAll('[data-course-category]').forEach((button) => {
         button.classList.toggle('is-active', button.dataset.courseCategory === currentCategory);
       });
+      const graduateIsActive = currentCategory.startsWith('graduate');
+      const graduateBranch = app.querySelector('[data-course-branch="graduate"]');
+      graduateBranch?.classList.toggle('is-expanded', graduateIsActive);
+      const graduateToggle = app.querySelector('[data-course-branch-toggle="graduate"]');
+      graduateToggle?.classList.toggle('is-active', graduateIsActive);
+      graduateToggle?.setAttribute('aria-expanded', String(graduateBranch?.classList.contains('is-expanded') ?? true));
       app.querySelectorAll('[data-course-group]').forEach((card) => {
-        card.hidden = card.dataset.courseGroup !== currentCategory;
+        card.hidden = currentCategory === 'graduate'
+          ? !card.dataset.courseGroup.startsWith('graduate')
+          : card.dataset.courseGroup !== currentCategory;
       });
       const heading = app.querySelector('[data-course-heading]');
-      if (heading) heading.textContent = labels[currentCategory];
+      if (heading) heading.textContent = categoryTitles[currentCategory];
       const current = app.querySelector('[data-course-current]');
-      if (current) current.textContent = labels[currentCategory];
+      if (current) current.textContent = categoryTitles[currentCategory];
       if (grid) grid.hidden = false;
       if (detail) detail.hidden = true;
       app.querySelector('.course-page-heading')?.removeAttribute('hidden');
     };
-    resetCourseView = () => {
-      showCourseCategory(currentCategory);
+    resetCourseView = (category) => {
+      showCourseCategory(validCategories.includes(category) ? category : currentCategory);
     };
     const showCourse = (course) => {
       if (!grid || !detail) return;
       grid.hidden = true;
       app.querySelector('.course-page-heading')?.setAttribute('hidden', '');
-      const isProbability = course.id === 'probability-statistics';
       detail.innerHTML = `
         <button class="course-back" type="button" data-course-back>${labels.back}</button>
         <section class="course-detail-hero">
+          <span class="course-detail-kicker">${course.type}</span>
           <h2>${course.title}</h2>
           <p>${course.description || labels.pending}</p>
         </section>
-        ${isProbability ? `
-          <dl class="course-facts">
-            ${labels.facts.map(([term, value]) => `<div class="course-fact"><dt>${term}</dt><dd>${value}</dd></div>`).join('')}
-          </dl>
-          <section class="course-reference">
-            <h3>${labels.reference}</h3>
-            <p>${labels.book}</p>
-            <p><a href="https://shi.buaa.edu.cn/huyang/zh_CN/skxx/214379/content/4323.htm#skxx" target="_blank" rel="noopener">${labels.official} →</a></p>
-          </section>
-        ` : ''}
+        ${renderFacts(course.facts)}
+        ${renderList(labels.goals, course.goals)}
+        ${renderReferences(course)}
       `;
       detail.hidden = false;
       detail.querySelector('[data-course-back]')?.addEventListener('click', resetCourseView);
@@ -2004,6 +2332,16 @@
     });
     app.querySelectorAll('[data-course-category]').forEach((button) => {
       button.addEventListener('click', () => showCourseCategory(button.dataset.courseCategory));
+    });
+    app.querySelector('[data-course-branch-toggle="graduate"]')?.addEventListener('click', () => {
+      const group = app.querySelector('[data-course-branch="graduate"]');
+      if (!group) return;
+      if (!currentCategory.startsWith('graduate')) {
+        showCourseCategory('graduate-theory');
+        return;
+      }
+      const isExpanded = group.classList.toggle('is-expanded');
+      app.querySelector('[data-course-branch-toggle="graduate"]')?.setAttribute('aria-expanded', String(isExpanded));
     });
     app.querySelector('[data-course-home]')?.addEventListener('click', () => showPage('home'));
     app.querySelector('[data-course-overview]')?.addEventListener('click', () => {
@@ -2022,22 +2360,102 @@
       ? {
           home: 'Home',
           title: 'Culture',
+          gallery: 'Culture Gallery',
           party: 'Party-Building Activities',
-          academic: 'Academic Culture',
-          team: 'Team Building'
+          academic: 'Academic Exchange',
+          team: 'Team Building',
+          empty: 'Content coming soon.',
+          detail: 'View details',
+          backToAcademic: '← Back to Academic Exchange',
+          previous: 'Previous culture photo',
+          next: 'Next culture photo'
         }
       : {
           home: '首页',
           title: '文化建设',
+          gallery: '文化掠影',
           party: '党建活动',
-          academic: '学术文化',
-          team: '团队建设'
+          academic: '学术交流',
+          team: '团队建设',
+          empty: '栏目内容待补充。',
+          detail: '了解详情',
+          backToAcademic: '← 返回学术交流',
+          previous: '上一张文化建设图片',
+          next: '下一张文化建设图片'
         };
+    const culturePhotos = [
+      {
+        src: 'image/cul1.jpg',
+        alt: isEnglish ? 'Culture gallery photo 1' : '文化建设图片 1'
+      },
+      {
+        src: 'image/cul2.jpg',
+        alt: isEnglish ? 'Culture gallery photo 2' : '文化建设图片 2'
+      },
+      {
+        src: 'image/cul3.jpg',
+        alt: isEnglish ? 'Culture gallery photo 3' : '文化建设图片 3'
+      }
+    ];
     const sections = [
       ['party', labels.party],
       ['academic', labels.academic],
       ['team', labels.team]
     ];
+    const academicExchangeItem = isEnglish
+      ? {
+          day: '06.15–23',
+          year: '2026',
+          title: 'ESREL 2026 and Academic Visit to Politecnico di Milano',
+          text: 'The delegation attended the 36th European Safety and Reliability Conference in Braga, Portugal, and visited Professor Enrico Zio\'s team at Politecnico di Milano for joint-laboratory development and academic exchange.'
+        }
+      : {
+          day: '06.15–23',
+          year: '2026',
+          title: '赴葡萄牙参加 ESREL 2026 并访问米兰理工大学开展学术交流',
+          text: '团组参加第36届欧洲安全与可靠性工程学会年会，并访问米兰理工大学 Enrico Zio 教授团队，围绕联合实验室建设、科研合作与人才交流展开深入研讨。'
+        };
+    const academicExchangeDetail = isEnglish
+      ? {
+          title: academicExchangeItem.title,
+          date: 'June 14–25, 2026',
+          sections: [
+            ['Visit Overview', 'The delegation departed Shanghai on June 14, transferred in Brussels, arrived in Lisbon and continued to Braga. It attended ESREL 2026 from June 15 to 19, visited Politecnico di Milano from June 20 to 23, departed from Milan Malpensa Airport on June 24 and returned to China on June 25.'],
+            ['ESREL 2026', 'The conference covered 16 methodological and 13 application areas, with 643 oral presentations, 33 posters and 502 accepted papers. The delegation attended the opening ceremony, Mario P. Brito\'s keynote, the MA9 Prognostics and System Health Management session, and sessions on energy, risk assessment, simulation for safety and reliability, and natural hazards.'],
+            ['Conference Activities', 'The delegation joined two roundtables on balancing development and safety and on whether we live in a safe world. On June 16, it chaired the SS-08 Generative AI for Predictive Maintenance special session and delivered a presentation, then attended the conference banquet and closing ceremony.'],
+            ['Joint Laboratory and Research Collaboration', 'At Politecnico di Milano, Professor Enrico Zio\'s team and the delegation agreed on a joint publication plan under the Sino-Italian laboratory, discussed visits by postdoctoral researchers Luca and Giovanni, and explored a future High-End Foreign Expert Program proposal. Further discussions covered multimodal foundation models for reliability, risk and resilience engineering and education, as well as an initial plan for a joint journal special issue. The delegation also visited the LASAR3 laboratory and its research platforms.'],
+            ['Academic Seminar and Next Steps', 'On June 23, the delegation delivered the seminar “From design to discovery: a new looking of PHM in the age of complexity and large AI model,” followed by one-to-one discussions with researchers and exchanges with students. Both sides will continue advancing joint publications, researcher visits, program applications, special-issue planning and summer-school participation.']
+          ]
+        }
+      : {
+          title: academicExchangeItem.title,
+          date: '2026年6月14日—25日',
+          sections: [
+            ['出访概况', '团组于6月14日从上海出发，经比利时布鲁塞尔转机抵达里斯本，随后前往布拉加。6月15日至19日参加第36届欧洲安全与可靠性工程学会年会（ESREL 2026），6月20日至23日访问米兰理工大学，6月24日从米兰马尔彭萨机场返程，6月25日回到国内。'],
+            ['ESREL 2026 会议交流', '本届会议设置16个方法论领域与13个应用领域，共接收口头报告643个、海报33个，收录论文502篇。团组参加开幕式，聆听 Mario P. Brito 主旨报告，并参加故障预测与系统健康管理、能源、风险评估、安全与可靠性仿真分析、自然灾害等分会场交流。'],
+            ['专题活动与学术汇报', '团组参加“如何平衡发展与安全”和“我们是否生活在一个安全的世界”两场圆桌会议。6月16日主持 SS-08 Generative AI for Predictive Maintenance 特别分会场并完成汇报，后续出席会议晚宴并参加闭幕式。'],
+            ['联合实验室与科研合作', '在米兰理工大学，团组与 Enrico Zio 教授团队就中意健康管理联合实验室的深度发展达成多项共识，敲定以联合实验室名义共同发表学术论文的方案，并沟通 Luca 和 Giovanni 博士后来访安排。双方还研讨了高端外国专家计划申报，深入探讨多模态大模型在可靠性、风险、韧性工程及教育领域的发展方向，初步敲定联合组建期刊专题的方案，并参观 LASAR3 实验室及科研平台。'],
+            ['学术报告与后续工作', '6月23日，团组为米兰理工大学研究组及相关学者作“From design to discovery: a new looking of PHM in the age of complexity and large AI model”学术报告，并与实验室团队开展一对一学术交流。双方将继续推进联合论文、人员互访、外专项目申报、期刊专题与暑期学校等合作事项。']
+          ]
+        };
+    const buildAcademicExchangeTimeline = () => `
+      <div class="news-timeline culture-academic-timeline">
+          <button class="news-timeline-item culture-academic-entry" type="button" data-culture-academic-entry>
+            <time class="news-timeline-date"><strong>${academicExchangeItem.day}</strong>${academicExchangeItem.year}</time>
+            <span class="news-timeline-plane" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5Z"></path></svg>
+            </span>
+            <span class="news-timeline-image">
+              <img src="image/cul3.jpg" alt="${isEnglish ? 'Academic exchange at ESREL 2026 and Politecnico di Milano' : 'ESREL 2026与米兰理工大学学术交流'}" loading="lazy">
+            </span>
+            <span class="news-timeline-content">
+              <h2>${academicExchangeItem.title}</h2>
+              <p>${academicExchangeItem.text}</p>
+              <span class="news-timeline-detail">${labels.detail}</span>
+            </span>
+          </button>
+      </div>
+    `;
     app.innerHTML = `
       <div class="culture-layout">
         <aside class="personnel-sidebar" aria-label="${labels.title}">
@@ -2048,23 +2466,61 @@
           </div>
         </aside>
         <div class="culture-main">
-          <header class="personnel-page-heading">
-            <h1 data-culture-heading>${labels.party}</h1>
+          <header class="personnel-page-heading" data-culture-header>
+            <h1 data-culture-heading>${labels.gallery}</h1>
             <nav class="personnel-breadcrumb" aria-label="Breadcrumb">
               <button type="button" data-culture-home>${labels.home}</button>
               <span>/</span>
               <button type="button" data-culture-overview>${labels.title}</button>
               <i>/</i>
-              <strong data-culture-current>${labels.party}</strong>
+              <strong data-culture-current>${labels.gallery}</strong>
             </nav>
           </header>
-          <section class="culture-empty-view" aria-live="polite"></section>
+          <section class="culture-gallery-view" aria-roledescription="carousel" aria-label="${labels.gallery}" data-culture-gallery>
+            <div class="culture-gallery-stage" data-culture-stage>
+              ${culturePhotos.map((photo, index) => `
+                <figure class="culture-gallery-card${index === 0 ? ' is-current' : index === 1 ? ' is-next' : index === culturePhotos.length - 1 ? ' is-previous' : ' is-hidden'}" data-culture-photo="${index}">
+                  <img src="${photo.src}" alt="${photo.alt}">
+                </figure>
+              `).join('')}
+            </div>
+            <div class="culture-gallery-dots" aria-label="${labels.gallery}">
+              ${culturePhotos.map((_, index) => `
+                <button class="culture-gallery-dot${index === 0 ? ' is-active' : ''}" type="button" data-culture-dot="${index}" aria-label="${isEnglish ? `View photo ${index + 1}` : `查看第 ${index + 1} 张图片`}"${index === 0 ? ' aria-current="true"' : ''}></button>
+              `).join('')}
+            </div>
+          </section>
+          ${sections.map(([key]) => `
+            <section class="center-page-panel news-page-panel culture-section-panel" data-culture-content="${key}" hidden>
+              ${key === 'academic' ? buildAcademicExchangeTimeline() : `<p class="news-empty-view">${labels.empty}</p>`}
+            </section>
+          `).join('')}
+          <article class="culture-academic-detail" data-culture-academic-detail hidden>
+            <button class="course-back" type="button" data-culture-academic-back>${labels.backToAcademic}</button>
+            <figure class="culture-academic-detail-figure">
+              <img src="image/cul3.jpg" alt="${isEnglish ? 'Academic exchange at ESREL 2026 and Politecnico di Milano' : 'ESREL 2026与米兰理工大学学术交流'}">
+            </figure>
+            <header class="culture-academic-detail-header">
+              <time>${academicExchangeDetail.date}</time>
+              <h1>${academicExchangeDetail.title}</h1>
+            </header>
+            <div class="culture-academic-detail-body">
+              ${academicExchangeDetail.sections.map(([title, text]) => `
+                <section>
+                  <h2>${title}</h2>
+                  <p>${text}</p>
+                </section>
+              `).join('')}
+            </div>
+          </article>
         </div>
       </div>
     `;
 
-    let currentSection = 'party';
+    let cultureGalleryTimer = 0;
+    let currentSection = 'gallery';
     const showCultureSection = (sectionName) => {
+      window.clearInterval(cultureGalleryTimer);
       currentSection = sections.some(([key]) => key === sectionName) ? sectionName : 'party';
       const currentLabel = sections.find(([key]) => key === currentSection)?.[1] || labels.party;
       app.querySelectorAll('[data-culture-section]').forEach((button) => {
@@ -2072,15 +2528,90 @@
       });
       const heading = app.querySelector('[data-culture-heading]');
       const current = app.querySelector('[data-culture-current]');
+      app.querySelector('[data-culture-header]')?.removeAttribute('hidden');
+      app.querySelector('[data-culture-gallery]')?.setAttribute('hidden', '');
+      app.querySelector('[data-culture-academic-detail]')?.setAttribute('hidden', '');
+      app.querySelectorAll('[data-culture-content]').forEach((panel) => {
+        panel.hidden = panel.dataset.cultureContent !== currentSection;
+      });
       if (heading) heading.textContent = currentLabel;
       if (current) current.textContent = currentLabel;
     };
-    resetCultureView = () => showCultureSection(currentSection);
+    resetCultureView = (sectionName) => {
+      if (sections.some(([key]) => key === sectionName)) showCultureSection(sectionName);
+      else showCultureGallery();
+    };
     app.querySelectorAll('[data-culture-section]').forEach((button) => {
       button.addEventListener('click', () => showCultureSection(button.dataset.cultureSection));
     });
     app.querySelector('[data-culture-home]')?.addEventListener('click', () => showPage('home'));
-    app.querySelector('[data-culture-overview]')?.addEventListener('click', () => showCultureSection('party'));
+    app.querySelector('[data-culture-overview]')?.addEventListener('click', () => showCultureGallery());
+    app.querySelector('[data-culture-academic-entry]')?.addEventListener('click', () => {
+      app.querySelector('[data-culture-header]')?.setAttribute('hidden', '');
+      app.querySelectorAll('[data-culture-content]').forEach((panel) => {
+        panel.hidden = true;
+      });
+      app.querySelector('[data-culture-academic-detail]')?.removeAttribute('hidden');
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    });
+    app.querySelector('[data-culture-academic-back]')?.addEventListener('click', () => {
+      showCultureSection('academic');
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    });
+
+    const cards = Array.from(app.querySelectorAll('[data-culture-photo]'));
+    let currentPhoto = 0;
+    const photoIndex = (index) => (index + culturePhotos.length) % culturePhotos.length;
+    const renderCultureGallery = () => {
+      if (!culturePhotos.length) return;
+      cards.forEach((card) => {
+        const index = Number(card.dataset.culturePhoto);
+        const offset = photoIndex(index - currentPhoto);
+        card.classList.toggle('is-current', offset === 0);
+        card.classList.toggle('is-next', offset === 1);
+        card.classList.toggle('is-previous', offset === culturePhotos.length - 1);
+        card.classList.toggle('is-hidden', offset > 1 && offset < culturePhotos.length - 1);
+      });
+      app.querySelectorAll('[data-culture-dot]').forEach((dot) => {
+        const isActive = Number(dot.dataset.cultureDot) === currentPhoto;
+        dot.classList.toggle('is-active', isActive);
+        if (isActive) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+    };
+    const goToCulturePhoto = (index) => {
+      currentPhoto = photoIndex(index);
+      renderCultureGallery();
+    };
+    const startCultureGallery = () => {
+      window.clearInterval(cultureGalleryTimer);
+      cultureGalleryTimer = window.setInterval(() => goToCulturePhoto(currentPhoto + 1), 4800);
+    };
+    const showCultureGallery = () => {
+      currentSection = 'gallery';
+      app.querySelectorAll('[data-culture-section]').forEach((button) => {
+        button.classList.remove('is-active');
+      });
+      app.querySelector('[data-culture-header]')?.setAttribute('hidden', '');
+      app.querySelector('[data-culture-gallery]')?.removeAttribute('hidden');
+      app.querySelector('[data-culture-academic-detail]')?.setAttribute('hidden', '');
+      app.querySelectorAll('[data-culture-content]').forEach((panel) => {
+        panel.hidden = true;
+      });
+      const heading = app.querySelector('[data-culture-heading]');
+      const current = app.querySelector('[data-culture-current]');
+      if (heading) heading.textContent = labels.gallery;
+      if (current) current.textContent = labels.gallery;
+      renderCultureGallery();
+      startCultureGallery();
+    };
+    app.querySelectorAll('[data-culture-dot]').forEach((dot) => {
+      dot.addEventListener('click', () => {
+        goToCulturePhoto(Number(dot.dataset.cultureDot));
+        startCultureGallery();
+      });
+    });
+    showCultureGallery();
   }
 
   setupCulturePage();
@@ -2546,6 +3077,38 @@
       page: 'education',
       studentView: 'alumni-masters'
     },
+    teaching: {
+      page: 'teaching',
+      courseCategory: 'undergraduate'
+    },
+    'teaching-undergraduate': {
+      page: 'teaching',
+      courseCategory: 'undergraduate'
+    },
+    'teaching-graduate': {
+      page: 'teaching',
+      courseCategory: 'graduate'
+    },
+    culture: {
+      page: 'culture',
+      cultureSection: 'gallery'
+    },
+    'culture-gallery': {
+      page: 'culture',
+      cultureSection: 'gallery'
+    },
+    'culture-party': {
+      page: 'culture',
+      cultureSection: 'party'
+    },
+    'culture-academic': {
+      page: 'culture',
+      cultureSection: 'academic'
+    },
+    'culture-team': {
+      page: 'culture',
+      cultureSection: 'team'
+    },
     'person-yang-hu': {
       page: 'faculty',
       view: 'faculty',
@@ -2635,8 +3198,8 @@
       if (recruitmentWrap) recruitmentWrap.hidden = !isRecruitment;
       if (!isRecruitment) showStudentView(route.studentView || 'overview');
     }
-    if (targetName === 'teaching') resetCourseView();
-    if (targetName === 'culture') resetCultureView();
+    if (targetName === 'teaching') resetCourseView(route.courseCategory);
+    if (targetName === 'culture') resetCultureView(route.cultureSection);
     if (route.newsView) showNewsView(route.newsView);
     if (route.recruitmentView) showRecruitmentView(route.recruitmentView);
     if (route.researchView) showResearchPageView(route.researchView);
@@ -2653,6 +3216,188 @@
       });
     }
   }
+
+  function setupSiteSearch() {
+    const searchButton = document.querySelector('.header-search');
+    if (!searchButton) return;
+    const labels = isEnglish
+      ? {
+          open: 'Search',
+          close: 'Close search',
+          placeholder: 'Search people, courses, research, news...',
+          title: 'Site Search',
+          empty: 'No matching results',
+          idle: 'Type a keyword to search the site.',
+          hint: 'Press Enter to open the first result, Esc to close.',
+          results: 'Search results'
+        }
+      : {
+          open: '搜索',
+          close: '关闭搜索',
+          placeholder: '搜索人员、课程、科研、新闻...',
+          title: '站内搜索',
+          empty: '未找到匹配结果',
+          idle: '请输入关键词进行站内搜索。',
+          hint: '按 Enter 打开第一条结果，Esc 关闭。',
+          results: '搜索结果'
+        };
+    const entries = [
+      ['home', isEnglish ? 'Home' : '首页', isEnglish ? 'Laboratory homepage, news, notices, research directions, profile' : '实验室首页、新闻动态、通知公告、科研方向、中心简介', 'home'],
+      ['team', isEnglish ? 'Center Profile' : '中心简介', isEnglish ? 'Sino-Italian Joint Laboratory, overview, platform, mission' : '中意健康管理与智能维修实验室、中心概况、平台介绍', 'team'],
+      ['faculty', isEnglish ? 'Faculty' : '师资队伍', isEnglish ? 'Yang Hu, Yang Li, Xiaoyu Jiang, postdoctoral researchers' : '胡杨、李洋、江肖禹、博士后、教师团队', 'faculty-overview'],
+      ['yang-hu', isEnglish ? 'Yang Hu' : '胡杨', isEnglish ? 'Associate Research Fellow, doctoral supervisor, PHM, digital twin' : '副研究员、博士生导师、PHM、数字孪生、智能运维', 'person-yang-hu'],
+      ['yang-li', isEnglish ? 'Yang Li' : '李洋', isEnglish ? 'Associate Professor, master’s supervisor, reliability, fault diagnosis' : '副教授、硕士生导师、可靠性、故障诊断、容错', 'person-yang-li'],
+      ['xiaoyu-jiang', isEnglish ? 'Xiaoyu Jiang' : '江肖禹', isEnglish ? 'Associate Research Fellow, machine learning, agents, industrial AI' : '副研究员、硕士生导师、机器学习、大模型、智能体、工业智能', 'person-xiaoyu-jiang'],
+      ['students', isEnglish ? 'Students' : '学生培养', isEnglish ? 'Doctoral students, master’s students, student profiles, admissions' : '博士研究生、硕士研究生、学生主页、学生培养', 'education'],
+      ['research', isEnglish ? 'Research Directions' : '科研方向', isEnglish ? 'Multimodal foundation models, PHM, digital twin, resilience, reliability' : '多模态大模型、PHM、数字孪生、智慧运维、复杂系统韧性、可靠性', 'research'],
+      ['projects', isEnglish ? 'Research Projects' : '科研项目', isEnglish ? 'National projects, enterprise collaboration, funded research' : '国家项目、企业合作、科研项目、项目列表', 'research-projects'],
+      ['outputs', isEnglish ? 'Research Outputs' : '科研成果', isEnglish ? 'Publications, journal papers, conference papers, patents, books' : '论文成果、期刊论文、会议论文、专利、软著、专著', 'achievements'],
+      ['cooperation', isEnglish ? 'Research Collaboration' : '科研合作', isEnglish ? 'Domestic universities, international partners, enterprise collaboration' : '科研合作、国内高校、国际合作、企业合作', 'research-cooperation'],
+      ['teaching', isEnglish ? 'Teaching' : '课程教学', isEnglish ? 'Graduate courses, theoretical courses, experimental courses' : '课程教学、研究生课程、理论课程、实验课程', 'teaching'],
+      ['ai-course', isEnglish ? 'Artificial Intelligence and Advanced Large Models' : '人工智能与高级大模型', isEnglish ? 'AI, large models, RAG, agents, evaluation, engineering assistant' : '人工智能、大模型、RAG、智能体、评估、工程智能助手', 'teaching'],
+      ['probability-course', isEnglish ? 'Probability & Statistics (Taught in English)' : 'Probability & Statistics（概率统计，全英文授课）', isEnglish ? 'Probability, statistics, English-taught course, regression, ANOVA, hypothesis testing' : 'Probability & Statistics、概率统计、全英文授课、统计推断、回归分析、方差分析、假设检验', 'teaching'],
+      ['stochastic-process-course', 'Stochastic Process', isEnglish ? 'Dual-degree graduate course, Yang Li, stochastic process' : '双学位研究生课程、李洋、随机过程、Stochastic Process', 'teaching'],
+      ['aviation-phm-course', isEnglish ? 'Design and Simulation of Aviation System Health Management' : '航空系统健康管理设计与仿真', isEnglish ? 'Aviation PHM, simulation, system architecture, algorithm development' : '航空系统、健康管理、PHM、仿真、系统架构、算法开发', 'teaching'],
+      ['news', isEnglish ? 'News' : '新闻动态', isEnglish ? 'Academic conferences, activities, papers, notices' : '新闻动态、学术会议、学术活动、论文成果、通知公告', 'news'],
+      ['icre', isEnglish ? 'ICRE 2026 Conference' : '2026年第十届可靠性工程国际会议', isEnglish ? 'ICRE, reliability engineering, conference news' : 'ICRE、可靠性工程国际会议、学术会议', 'news-conferences'],
+      ['summer-school', isEnglish ? '2026 International Summer School on Aviation Safety' : '2026 数字赋能的航空安全国际暑期学校', isEnglish ? 'Summer school, aviation safety, academic activity' : '暑期学校、航空安全、学术活动、数字赋能', 'news-activities'],
+      ['recruitment', isEnglish ? 'Admissions and Recruitment' : '招生招聘', isEnglish ? 'Master, doctoral, postdoctoral, admissions, talent recruitment' : '招生信息、人才招聘、硕士、博士、博士后', 'recruitment-admissions'],
+      ['contact', isEnglish ? 'Contact' : '联系我们', isEnglish ? 'Email, address, contact information' : '联系我们、邮箱、地址、联系方式', 'contact']
+    ].map(([id, title, summary, route]) => ({
+      id,
+      title,
+      summary,
+      route,
+      text: `${title} ${summary}`.toLowerCase()
+    }));
+    const studentEntries = Object.entries(window.TEAM_HOMEPAGE_DATA?.studentProfiles || {})
+      .map(([studentId, profile]) => {
+        const title = isEnglish ? profile.enName : profile.name;
+        const summary = isEnglish
+          ? [
+              profile.majorEn,
+              profile.advisorEn ? `Supervisor: ${profile.advisorEn}` : '',
+              profile.year ? `Year: ${profile.year}` : '',
+              profile.researchEn
+            ].filter(Boolean).join(' · ')
+          : [
+              profile.major,
+              profile.advisor ? `指导教师：${profile.advisor}` : '',
+              profile.year ? `${profile.year}级` : '',
+              profile.research
+            ].filter(Boolean).join(' · ');
+        return {
+          id: `student-${studentId}`,
+          title,
+          summary,
+          route: 'education',
+          studentId,
+          studentCategory: profile.category === 'doctoral' ? 'doctoral' : 'masters',
+          text: [
+            profile.name,
+            profile.enName,
+            profile.major,
+            profile.majorEn,
+            profile.advisor,
+            profile.advisorEn,
+            profile.year,
+            profile.research,
+            profile.researchEn
+          ].filter(Boolean).join(' ').toLowerCase()
+        };
+      });
+    entries.push(...studentEntries);
+    const overlay = document.createElement('div');
+    overlay.className = 'site-search-overlay';
+    overlay.hidden = true;
+    overlay.innerHTML = `
+      <div class="site-search-panel" role="dialog" aria-modal="true" aria-labelledby="site-search-title">
+        <button class="site-search-close" type="button" aria-label="${labels.close}">×</button>
+        <h2 id="site-search-title">${labels.title}</h2>
+        <input class="site-search-input" type="search" autocomplete="off" placeholder="${labels.placeholder}" aria-label="${labels.open}">
+        <p class="site-search-hint">${labels.hint}</p>
+        <div class="site-search-results" role="list" aria-label="${labels.results}"></div>
+      </div>
+    `;
+    document.body.append(overlay);
+    const input = overlay.querySelector('.site-search-input');
+    const results = overlay.querySelector('.site-search-results');
+    const closeButton = overlay.querySelector('.site-search-close');
+
+    const closeSearch = () => {
+      overlay.hidden = true;
+      document.body.classList.remove('is-search-open');
+      searchButton.focus();
+    };
+    const openSearch = () => {
+      overlay.hidden = false;
+      document.body.classList.add('is-search-open');
+      input.value = '';
+      renderResults('');
+      requestAnimationFrame(() => input.focus());
+    };
+    const openEntry = (entry) => {
+      closeSearch();
+      if (entry.studentId) {
+        showPage('education');
+        requestAnimationFrame(() => {
+          showStudentMemberView(entry.studentId, entry.studentCategory);
+        });
+        return;
+      }
+      showPage(entry.route);
+    };
+    const renderResults = (query) => {
+      const normalizedQuery = query.trim().toLowerCase();
+      if (!normalizedQuery) {
+        results.innerHTML = `<p class="site-search-empty">${labels.idle}</p>`;
+        return;
+      }
+      const matches = entries.filter((entry) => entry.text.includes(normalizedQuery));
+      results.innerHTML = matches.length
+        ? matches.map((entry) => `
+          <button class="site-search-result" type="button" data-search-entry="${entry.id}">
+            <strong>${entry.title}</strong>
+            <span>${entry.summary}</span>
+          </button>
+        `).join('')
+        : `<p class="site-search-empty">${labels.empty}</p>`;
+      results.querySelectorAll('[data-search-entry]').forEach((button) => {
+        const entry = entries.find((item) => item.id === button.dataset.searchEntry);
+        button.addEventListener('click', () => {
+          if (entry) openEntry(entry);
+        });
+      });
+    };
+
+    searchButton.setAttribute('aria-label', labels.open);
+    searchButton.setAttribute('title', labels.open);
+    searchButton.addEventListener('click', openSearch);
+    closeButton?.addEventListener('click', closeSearch);
+    overlay.addEventListener('click', (event) => {
+      if (event.target === overlay) closeSearch();
+    });
+    input?.addEventListener('input', () => renderResults(input.value));
+    input?.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeSearch();
+        return;
+      }
+      if (event.key !== 'Enter') return;
+      const firstId = results.querySelector('[data-search-entry]')?.dataset.searchEntry;
+      const firstEntry = entries.find((entry) => entry.id === firstId);
+      if (firstEntry) {
+        event.preventDefault();
+        openEntry(firstEntry);
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !overlay.hidden) closeSearch();
+    });
+  }
+
+  setupSiteSearch();
 
   if (toggle && nav) {
     toggle.addEventListener('click', () => {
@@ -3005,6 +3750,19 @@
     skipHash: true,
     instant: true
   });
+
+  const pendingStudentId = sessionStorage.getItem('teamHomepagePendingStudent');
+  if (pendingStudentId) {
+    sessionStorage.removeItem('teamHomepagePendingStudent');
+    const pendingProfile = window.TEAM_HOMEPAGE_DATA?.studentProfiles?.[pendingStudentId];
+    showPage('education', { skipHash: true, instant: true });
+    requestAnimationFrame(() => {
+      showStudentMemberView(
+        pendingStudentId,
+        pendingProfile?.category === 'doctoral' ? 'doctoral' : 'masters'
+      );
+    });
+  }
 
   if (initialTarget === 'research') {
     requestAnimationFrame(() => {

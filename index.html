@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="中意健康管理与智能维修联合实验室，聚焦复杂装备智能运维、故障预测与健康管理、数字孪生建模与韧性可靠性分析。">
   <title>中意健康管理与智能维修实验室 - 北航国新院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif+SC:wght@500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -15,11 +18,11 @@
           <span class="brand-logo-placeholder" aria-hidden="true">LOGO</span>
           <span class="brand-name">
             <span class="brand-name-cn">中意健康管理与智能维修实验室</span>
-            <span class="brand-name-en">Sino-Italian JointResearch Laboratory on Prognostics and HealthManagement for Intelligent Maintenance (PHM-IM)</span>
+            <span class="brand-name-en">Sino-Italian Joint Research Laboratory on Prognostics and Health Management for Intelligent Maintenance (PHM-IM)</span>
           </span>
         </a>
         <div class="header-utilities">
-          <button class="header-search" type="button" aria-label="搜索（功能建设中）" title="搜索（功能建设中）">
+          <button class="header-search" type="button" aria-label="搜索" title="搜索">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="11" cy="11" r="6.5"></circle>
               <path d="m16 16 4.2 4.2"></path>
@@ -94,8 +97,26 @@
             </div>
           </div>
         </div>
-        <a href="#teaching" data-page-link="teaching">课程教学</a>
-        <a href="#culture" data-page-link="culture">文化建设</a>
+        <div class="nav-item">
+          <button class="nav-parent" type="button" aria-expanded="false" data-parent-route="teaching">
+            <span data-nav-text data-nav-key="teaching-menu">课程教学</span>
+          </button>
+          <div class="nav-submenu">
+            <a href="#teaching-undergraduate" data-page-link="teaching" data-route="teaching-undergraduate">本科生课程</a>
+            <a href="#teaching-graduate" data-page-link="teaching" data-route="teaching-graduate">研究生课程</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <button class="nav-parent" type="button" aria-expanded="false" data-parent-route="culture">
+            <span data-nav-text data-nav-key="culture-menu">文化建设</span>
+          </button>
+          <div class="nav-submenu">
+            <a href="#culture-gallery" data-page-link="culture" data-route="culture-gallery">文化掠影</a>
+            <a href="#culture-party" data-page-link="culture" data-route="culture-party">党建活动</a>
+            <a href="#culture-academic" data-page-link="culture" data-route="culture-academic">学术交流</a>
+            <a href="#culture-team" data-page-link="culture" data-route="culture-team">团队建设</a>
+          </div>
+        </div>
         <div class="nav-item">
           <button class="nav-parent" type="button" aria-expanded="false" data-parent-route="recruitment">
             <span data-nav-text data-nav-key="recruitment-menu">英才招聘</span>
@@ -277,7 +298,7 @@
       <div class="page-shell">
         <article class="prose lab-introduction" id="lab-overview">
           <h2>中意健康管理与智能维修联合实验室</h2>
-          <p>中意健康管理与智能维修联合实验室由北航康锐教授与米兰理工大学Enrico Zio教授共同创建，由胡杨副研究员担任执行主任。实验室以“虚实融合、智能驱动、体系赋能”为总体理念，聚焦复杂工程系统的故障预测与健康管理（PHM）、建模仿真、智慧运维、多模态大模型等研究，形成贯通“模型—算法—仿真—验证—应用”的完整研究链路，为航空航天、能源交通、生产制造等系统的PHM与智慧运维提供多学科交叉研究实验的平台。现有教授2人，副研究员2人，副教授1人，博士后4人，研究生13人。</p>
+          <p>中意健康管理与智能维修联合实验室由北航康锐教授与米兰理工大学Enrico Zio教授共同创建，由胡杨副研究员担任执行主任。实验室以“虚实融合、智能驱动、体系赋能”为总体理念，聚焦复杂工程系统的故障预测与健康管理（PHM）、建模仿真、智慧运维、多模态大模型等研究，形成贯通“模型—算法—仿真—验证—应用”的完整研究链路，为航空航天、能源交通、生产制造等系统的PHM与智慧运维提供多学科交叉研究实验的平台。现有教授2人，副教授1人，副研究员2人，博士后4人，研究生13人。</p>
           <figure class="lab-figure">
             <img src="image/中意健康管理与智能维修联合实验室照片1.png" alt="中意健康管理与智能维修联合实验室虚实融合实验平台" loading="lazy">
           </figure>
@@ -348,7 +369,7 @@
                   <article class="personnel-overview-card" data-personnel-overview-member="person-yang-li" data-personnel-overview-view="faculty">
                     <img src="image/Yang Li.png" alt="李洋老师" loading="lazy">
                     <h3>李洋 <span>Yang Li</span></h3>
-                    <p>副教授</p>
+                    <p>副教授 / 硕士生导师</p>
                   </article>
                   <article class="personnel-overview-card" data-personnel-overview-member="person-xiaoyu-jiang" data-personnel-overview-view="faculty">
                     <img src="image/Xiaoyu Jiang.png" alt="江肖禹老师" loading="lazy">
@@ -419,10 +440,10 @@
               <article class="personnel-card" id="person-yang-li">
                 <img class="personnel-photo" src="image/Yang Li.png" alt="李洋老师" loading="lazy">
                 <div>
-                  <p class="personnel-role">副教授</p>
+                  <p class="personnel-role">副教授 / 硕士生导师</p>
                   <h3 class="personnel-name">李洋 <span>Yang Li</span></h3>
                   <p class="personnel-research"><strong>研究方向：</strong>超越可靠性与自主智能，包括测试性设计与智能控制、故障诊断与容错、加速试验与寿命预测，以及可靠性、保障性和维修性设计。</p>
-                  <p class="personnel-email"><strong>邮箱：</strong></p>
+                  <p class="personnel-email"><strong>邮箱：</strong>yongerli@buaa.edu.cn</p>
                 </div>
                 <div class="personnel-profile-sections">
                   <section class="personnel-profile-section">

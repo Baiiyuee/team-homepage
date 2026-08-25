@@ -147,12 +147,34 @@
   }
 
   function renderJournals(section, entries) {
-    const years = [...new Set(entries.map((entry) => entry.year))].sort((a, b) => b - a);
-    years.forEach((year) => {
-      const heading = document.createElement('h3');
-      heading.className = 'publication-year';
-      heading.textContent = String(year);
-      section.append(heading, createList(entries.filter((entry) => entry.year === year), true));
+    const appendYears = (parent, groupedEntries) => {
+      const years = [...new Set(groupedEntries.map((entry) => entry.year))].sort((a, b) => b - a);
+      years.forEach((year) => {
+        const heading = document.createElement('h3');
+        heading.className = 'publication-year';
+        heading.textContent = String(year);
+        parent.append(heading, createList(groupedEntries.filter((entry) => entry.year === year), true));
+      });
+    };
+
+    if (site.prefix !== 'achievement') {
+      appendYears(section, entries);
+      return;
+    }
+
+    const ranges = [
+      ['2026', (year) => year === 2026],
+      ['2025', (year) => year === 2025],
+      ['2024', (year) => year === 2024],
+      ['2023-2018', (year) => year >= 2018 && year <= 2023],
+      ['2017-2013', (year) => year >= 2013 && year <= 2017]
+    ];
+    ranges.forEach(([range, includesYear]) => {
+      const group = document.createElement('div');
+      group.className = 'publication-year-group';
+      group.id = `achievement-journals-${range}`;
+      appendYears(group, entries.filter((entry) => includesYear(Number(entry.year))));
+      section.append(group);
     });
   }
 
@@ -188,7 +210,7 @@
       }
     });
     const nav = site.prefix === 'achievement'
-      ? document.querySelector('.achievement-subnav')
+      ? document.querySelector('[data-journal-year-nav]')
       : document.querySelector('.publication-timeline');
     nav?.setAttribute(
       'aria-label',
