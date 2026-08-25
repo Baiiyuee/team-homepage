@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Zhi Mang Xing";
+  src: url("../fonts/ZhiMangXing-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../fonts/CormorantGaramond-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+
 :root {
   --navy: #163a5f;
   --blue: #1e5a96;
@@ -8,6 +24,39 @@
   --line: #e3e9ef;
   --surface: #f5f8fb;
   --white: #fff;
+
+  --color-primary: var(--blue);
+  --color-primary-dark: var(--navy);
+  --color-primary-light: var(--blue-light);
+  --color-text-primary: var(--ink);
+  --color-text-body: var(--text);
+  --color-text-muted: var(--muted);
+  --color-border: var(--line);
+  --color-surface: var(--surface);
+  --color-background: var(--white);
+
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  --font-heading: var(--font-body);
+  --font-brand-cn: "Zhi Mang Xing", "STKaiti", "KaiTi", serif;
+  --font-brand-en: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-serif: "Songti SC", "STSong", "SimSun", serif;
+  --font-label: Arial, sans-serif;
+
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-card: 12px;
+  --radius-card-lg: 14px;
+  --radius-circle: 50%;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 8px 28px rgba(31, 41, 55, .045);
+  --shadow-card-hover: 0 14px 38px rgba(31, 41, 55, .08);
+  --shadow-panel: 0 7px 22px rgba(35, 57, 79, .055);
+  --shadow-panel-hover: 0 12px 28px rgba(35, 57, 79, .1);
 }
 
 * {
@@ -21,10 +70,9 @@ html {
 
 body {
   margin: 0;
-  color: var(--text);
-  background: var(--white);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  color: var(--color-text-body);
+  background: var(--color-background);
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
@@ -56,7 +104,7 @@ a {
 
 .home-research {
   scroll-margin-top: 72px;
-  background: var(--white);
+  background: var(--color-background);
 }
 
 .research-intro {
@@ -102,10 +150,10 @@ a {
 .research-topic-card {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: var(--white);
-  box-shadow: 0 8px 28px rgba(31, 41, 55, .045);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-background);
+  box-shadow: var(--shadow-card);
   transition: border-color .25s ease, box-shadow .25s ease;
 }
 
@@ -116,7 +164,7 @@ a {
 .research-topic-card:hover,
 .research-topic-card[open] {
   border-color: rgba(30, 90, 150, .35);
-  box-shadow: 0 14px 38px rgba(31, 41, 55, .08);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .research-topic-card summary {
@@ -129,18 +177,25 @@ a {
   list-style: none;
 }
 
-.research-topic-card summary::before {
-  display: grid;
+.research-topic-image {
+  display: block;
   width: 100%;
   height: 148px;
-  place-items: center;
-  color: #8ba0ad;
+  overflow: hidden;
   background: linear-gradient(135deg, #edf3f6, #f7f9fa);
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  content: "IMAGE";
+}
+
+.research-topic-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .4s ease;
+}
+
+.research-topic-card:hover .research-topic-image img {
+  transform: scale(1.025);
 }
 
 .research-topic-card[open] summary {
@@ -150,7 +205,7 @@ a {
   padding: 18px;
 }
 
-.research-topic-card[open] summary::before {
+.research-topic-card[open] .research-topic-image {
   grid-column: 1;
   grid-row: 1 / 3;
   height: 150px;
@@ -163,12 +218,15 @@ a {
 .research-topic-number {
   position: absolute;
   z-index: 1;
-  top: 12px;
+  top: 7px;
   left: 14px;
-  color: rgba(30, 90, 150, .48);
+  color: rgba(22, 58, 95, .68);
+  text-shadow: 0 1px 4px rgba(255, 255, 255, .86);
   font-size: 25px;
   font-weight: 800;
   letter-spacing: -.03em;
+  transform: scaleY(1.08);
+  transform-origin: top left;
 }
 
 .research-topic-copy {
@@ -207,8 +265,8 @@ a {
   gap: 7px;
   padding: 7px 12px;
   border: 1px solid rgba(30, 90, 150, .24);
-  border-radius: 999px;
-  color: var(--blue);
+  border-radius: var(--radius-pill);
+  color: var(--color-primary);
   font-size: 13px;
   font-weight: 750;
   white-space: nowrap;
@@ -1818,7 +1876,7 @@ a {
 .home-about-copy > p {
   margin: 0 0 18px;
   color: #536977;
-  font-family: "Songti SC", "STSong", "SimSun", serif;
+  font-family: var(--font-serif);
   font-size: 17px;
   line-height: 2;
 }
@@ -2971,8 +3029,8 @@ h2 {
     padding: 0 0 20px;
   }
 
-  .research-topic-card summary::before,
-  .research-topic-card[open] summary::before {
+  .research-topic-image,
+  .research-topic-card[open] .research-topic-image {
     grid-column: 1;
     grid-row: auto;
     height: 148px;
@@ -3096,7 +3154,7 @@ h2 {
   max-width: calc(100% - max(0px, calc((100% - 1080px) / 2)) - 170px);
   min-width: 0;
   margin-left: max(0px, calc((100% - 1080px) / 2));
-  transform: translateY(-3px);
+  transform: translate(18px, -3px);
 }
 
 .brand-logo-placeholder {
@@ -3125,36 +3183,36 @@ h2 {
 .brand-name-cn {
   display: block;
   width: 100%;
-  color: #e8e3d8;
-  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", serif;
-  font-size: clamp(36px, 2.85vw, 46px);
-  font-weight: 600;
-  letter-spacing: .055em;
-  line-height: 1.24;
+  color: #cbd3d8;
+  font-family: var(--font-brand-cn);
+  font-size: 58px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.1;
   text-align: left;
   text-align-last: left;
   text-rendering: geometricPrecision;
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
-  text-shadow: 0 2px 6px rgba(0, 22, 34, .34);
+  text-shadow: 0 2px 6px rgba(0, 22, 34, .46);
 }
 
 .brand-name-en {
   display: block;
   max-width: none;
-  margin-top: 10px;
-  color: #bfd0d7;
-  font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-  font-size: clamp(11.5px, .96vw, 14px);
-  font-weight: 500;
-  letter-spacing: .045em;
-  line-height: 1.5;
+  margin-top: -2px;
+  color: #e8f7fb;
+  font-family: var(--font-brand-en);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.4;
   text-align: left;
   text-align-last: left;
   text-rendering: geometricPrecision;
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
-  text-shadow: 0 1px 4px rgba(0, 22, 34, .38);
+  text-shadow: 0 1px 3px rgba(0, 18, 30, .78), 0 0 8px rgba(0, 18, 30, .34);
 }
 
 .header-utilities {
@@ -4264,7 +4322,7 @@ body.is-search-open {
 .student-profile-section p {
   margin: 0;
   color: #435a68;
-  font-family: "Songti SC", "STSong", "SimSun", serif;
+  font-family: var(--font-serif);
   font-size: 17px;
   line-height: 1.95;
   white-space: pre-line;
@@ -4603,7 +4661,7 @@ body.is-search-open {
 .culture-academic-detail-body p {
   margin: 0;
   color: #536977;
-  font-family: "Songti SC", "STSong", "SimSun", serif;
+  font-family: var(--font-serif);
   font-size: 16.5px;
   line-height: 2;
 }
@@ -5282,16 +5340,64 @@ body.is-search-open {
 }
 
 .cooperation-category-image {
-  display: grid;
+  display: block;
   height: 145px;
-  place-items: center;
   border-bottom: 1px solid #dde6ea;
-  color: #8da1ad;
-  background: #eef3f6;
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .12em;
+  background: #fff;
+}
+
+.cooperation-category-logos {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  gap: 14px;
+  align-items: center;
+  justify-items: center;
+  padding: 18px 22px;
+}
+
+.cooperation-category-logos img {
+  display: block;
+  max-width: 100%;
+  max-height: 62px;
+  object-fit: contain;
+}
+
+.cooperation-category-logos--domestic {
+  grid-template-columns: 1fr;
+}
+
+.cooperation-category-logos--domestic img {
+  max-height: 92px;
+}
+
+.cooperation-category-logos--international {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cooperation-category-logos--enterprise {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px 14px;
+  padding: 14px 18px;
+}
+
+.cooperation-category-logos--enterprise img {
+  grid-column: span 2;
+  max-width: 76px;
+  max-height: 48px;
+}
+
+.cooperation-category-logos--enterprise img:nth-child(2) {
+  max-width: 44px;
+  max-height: 54px;
+}
+
+.cooperation-category-logos--enterprise img:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.cooperation-category-logos--enterprise img:nth-child(5) {
+  grid-column: 4 / span 2;
 }
 
 .cooperation-category-copy {
@@ -5314,55 +5420,54 @@ body.is-search-open {
   line-height: 1.7;
 }
 
-.cooperation-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.cooperation-card {
+.cooperation-partner-list {
+  width: min(100%, 760px);
+  margin: 28px 0 0;
   padding: 0;
-  overflow: hidden;
-  border: 1px solid #d6e0e6;
-  border-radius: 3px;
-  color: inherit;
-  background: #fff;
-  font: inherit;
-  text-align: left;
+  list-style: none;
 }
 
-.cooperation-logo-placeholder {
+.cooperation-partner-item {
   display: grid;
-  height: 112px;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 22px;
+  align-items: center;
+  min-height: 92px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e2e9ed;
+}
+
+.cooperation-partner-item:first-child {
+  border-top: 1px solid #e2e9ed;
+}
+
+.cooperation-partner-logo {
+  display: grid;
+  width: 104px;
+  height: 64px;
   place-items: center;
-  border-bottom: 1px solid #e1e8ec;
-  color: #8ca0ad;
-  background: #f3f6f8;
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .12em;
 }
 
-.cooperation-card-copy {
+.cooperation-partner-logo img {
   display: block;
-  min-height: 132px;
-  padding: 18px;
+  max-width: 100%;
+  max-height: 64px;
+  object-fit: contain;
 }
 
-.cooperation-card-copy strong {
-  display: block;
+.cooperation-partner-mark {
+  color: #1d5e88;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
+.cooperation-partner-item > strong {
   color: #29475a;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.cooperation-card-copy small {
-  display: block;
-  margin-top: 9px;
-  color: #71818c;
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.55;
 }
 
 .cooperation-detail[hidden],
@@ -5397,7 +5502,7 @@ body.is-search-open {
   border: 1px solid #dae3e8;
   color: #8ca0ad;
   background: #f3f6f8;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-label);
   font-weight: 700;
   letter-spacing: .14em;
 }
@@ -5803,7 +5908,7 @@ body.is-search-open {
 .personnel-profile-section p {
   margin: 0;
   color: #435a68;
-  font-family: "Songti SC", "STSong", "SimSun", serif;
+  font-family: var(--font-serif);
   font-size: 17px;
   line-height: 1.95;
 }
@@ -5827,14 +5932,14 @@ body.is-search-open {
   }
 
   .brand-name-cn {
-    font-size: 31px;
-    letter-spacing: .025em;
+    font-size: 42px;
+    letter-spacing: 0;
   }
 
   .brand-name-en {
     max-width: none;
-    font-size: 11.5px;
-    letter-spacing: .02em;
+    font-size: 15px;
+    letter-spacing: 0;
   }
 
   .brand-name {
@@ -5858,13 +5963,13 @@ body.is-search-open {
   }
 
   .brand-name-cn {
-    font-size: 27px;
-    letter-spacing: .02em;
+    font-size: 35px;
+    letter-spacing: 0;
   }
 
   .brand-name-en {
     max-width: none;
-    font-size: 10.5px;
+    font-size: 13px;
   }
 
   .brand-name {
@@ -5873,7 +5978,7 @@ body.is-search-open {
 
   .brand-identity {
     gap: 22px;
-    transform: translateY(-3px);
+    transform: translate(10px, -3px);
   }
 
   .header-utilities {
@@ -5998,7 +6103,7 @@ body.is-search-open {
     align-items: flex-start;
     gap: 14px;
     width: min(100% - 28px, 1360px);
-    min-height: 132px;
+    min-height: 180px;
     padding: 20px 0 52px;
   }
 
@@ -6014,19 +6119,21 @@ body.is-search-open {
   }
 
   .brand-name-cn {
-    font-size: 23px;
-    letter-spacing: .01em;
+    font-size: 30px;
+    letter-spacing: 0;
     text-align: left;
     text-align-last: left;
     white-space: normal;
   }
 
   .brand-name-en {
-    margin-top: 5px;
-    font-size: 9.5px;
+    margin-top: -2px;
+    font-size: 11.5px;
     line-height: 1.35;
     text-align: left;
     text-align-last: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .brand-name {
@@ -6156,7 +6263,6 @@ body.is-search-open {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .cooperation-grid,
   .cooperation-category-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -6294,9 +6400,22 @@ body.is-search-open {
     width: 100%;
   }
 
-  .cooperation-grid,
   .cooperation-category-grid {
     grid-template-columns: 1fr;
+  }
+
+  .cooperation-partner-item {
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .cooperation-partner-logo {
+    width: 82px;
+    height: 56px;
+  }
+
+  .cooperation-partner-logo img {
+    max-height: 56px;
   }
 
   .cooperation-subnav {
