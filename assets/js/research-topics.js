@@ -63,6 +63,11 @@
       `;
       researchTopicPage.querySelectorAll('.research-topic-page-content p > strong:first-child').forEach((heading) => {
         heading.textContent = heading.textContent.replace(/[：:]\s*$/, '');
+        heading.parentElement.classList.add('research-topic-section');
+        const body = document.createElement('span');
+        body.className = 'research-topic-paragraph-body';
+        while (heading.nextSibling) body.append(heading.nextSibling);
+        heading.after(body);
       });
       researchTopicPage.hidden = false;
       researchTopicPage.querySelector('.research-topic-page-back')?.addEventListener('click', () => {

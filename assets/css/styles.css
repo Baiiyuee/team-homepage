@@ -1,3 +1,6 @@
+@import url("https://fontsapi.zeoseven.com/292/main/result.css");
+@import url("https://fontsapi.zeoseven.com/285/main/result.css");
+
 @font-face {
   font-family: "Zhi Mang Xing";
   src: url("../fonts/ZhiMangXing-Regular.ttf") format("truetype");
@@ -11,6 +14,14 @@
   src: url("../fonts/CormorantGaramond-Variable.ttf") format("truetype");
   font-style: normal;
   font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ma Shan Zheng Home";
+  src: url("../fonts/MaShanZheng-HomeTitles.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
   font-display: swap;
 }
 
@@ -114,12 +125,15 @@ a {
   margin-left: auto;
   padding: 0;
   color: #2f3b49;
+  font-family: "Noto Serif CJK", "Source Han Serif SC", "Songti SC", serif;
   font-size: 17px;
+  font-weight: 600;
   line-height: 1.95;
 }
 
 .research-intro p {
   margin-bottom: 16px;
+  text-indent: 2em;
 }
 
 .research-intro p:last-child {
@@ -136,7 +150,8 @@ a {
   display: block;
   margin-top: 14px;
   color: var(--ink);
-  font-weight: 500;
+  font-weight: 600;
+  text-indent: 2em;
 }
 
 .research-topic-list {
@@ -374,6 +389,11 @@ a {
 }
 
 .research-topic-page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px 16px;
   margin-bottom: 26px;
 }
 
@@ -385,10 +405,12 @@ a {
 }
 
 .research-topic-page-header p {
-  margin: 8px 0 0;
+  margin: 0 0 0 auto;
   color: #5d7180;
-  font-size: 16px;
+  font-size: 14.5px;
   line-height: 1.75;
+  text-align: right;
+  white-space: nowrap;
 }
 
 .research-topic-page-content {
@@ -403,6 +425,9 @@ a {
 
 .research-topic-page-content p {
   margin: 0 0 20px;
+  font-family: "Noto Serif CJK", "Source Han Serif SC", "Songti SC", serif;
+  font-weight: 600;
+  text-indent: 2em;
 }
 
 .research-topic-page-content p > strong:first-child {
@@ -412,8 +437,20 @@ a {
   padding-bottom: 10px;
   border-bottom: 1px solid var(--line);
   color: #274f67;
+  font-family: var(--font-body);
   font-size: 18px;
+  font-weight: 700;
   line-height: 1.55;
+  text-indent: 0;
+}
+
+.research-topic-paragraph-body {
+  display: block;
+  text-indent: 2em;
+}
+
+.research-topic-section {
+  padding-top: 14px;
 }
 
 .research-topic-page-content p > strong:first-child::after {
@@ -431,8 +468,11 @@ a {
   width: min(100%, 900px);
   margin: 28px auto 0 !important;
   color: #334155;
+  font-family: "Noto Serif CJK", "Source Han Serif SC", "Songti SC", serif;
   font-size: 16.5px;
+  font-weight: 600;
   line-height: 1.9;
+  text-indent: 2em;
 }
 
 .research-collapse-button {
@@ -695,7 +735,10 @@ a {
 .student-summary {
   margin-bottom: 26px !important;
   color: var(--muted);
+  font-family: "Noto Serif CJK", "Source Han Serif SC", "Songti SC", serif;
   font-size: 17px;
+  font-weight: 600;
+  text-indent: 2em;
 }
 
 .student-subheading {
@@ -922,6 +965,8 @@ a {
 .lab-introduction {
   color: #334155;
   margin-bottom: 88px;
+  font-family: "Noto Serif CJK", "Source Han Serif SC", "Songti SC", serif;
+  font-weight: 600;
   scroll-margin-top: 150px;
 }
 
@@ -931,6 +976,7 @@ a {
 
 .lab-introduction > p {
   line-height: 1.95;
+  text-indent: 2em;
 }
 
 .lab-figure {
@@ -1535,13 +1581,30 @@ a {
 
 .home-block-heading-main small {
   color: var(--blue);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: .18em;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0;
+  transform: translateY(3px);
 }
 
 .home-block-heading-main h2 {
   font-size: clamp(28px, 3vw, 38px);
+}
+
+html[lang^="zh"] :is(
+  #home-news-title,
+  #home-notice-title,
+  #home-directions-title,
+  #home-about-title
+) {
+  color: #243b4a;
+  font-family: "Ma Shan Zheng Home", "STKaiti", "KaiTi", serif;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.15;
+  transform: translateY(3px);
 }
 
 .home-more {
@@ -1589,15 +1652,21 @@ a {
 .home-information .home-block-heading {
   margin-bottom: 18px;
   padding-bottom: 9px;
-  border-bottom: 3px solid #7391a3;
+  border-bottom: 3px solid #8ba5b3;
 }
 
-.home-information .home-block-heading-main small {
-  font-size: 9px;
-}
-
-.home-information .home-more {
+.home-information .home-more,
+.home-directions .home-more,
+.home-about .home-more {
   font-size: 11px;
+}
+
+.home-directions .home-block-heading,
+.home-about .home-block-heading {
+  width: 53%;
+  margin-bottom: 18px;
+  padding-bottom: 9px;
+  border-bottom: 3px solid #8ba5b3;
 }
 
 .home-news-board {
@@ -1632,6 +1701,7 @@ a {
 .home-news-list {
   display: grid;
   align-content: start;
+  transform: translateX(-18px);
 }
 
 .home-news-entry {
@@ -1715,10 +1785,8 @@ a {
 .home-directions {
   position: relative;
   overflow: hidden;
-  padding-bottom: 42px;
-  background:
-    linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 8%, rgba(255, 255, 255, 0) 92%, #fff 100%),
-    linear-gradient(135deg, #eef6f9, #f8fbfc 54%, #edf5f8);
+  padding-bottom: 18px;
+  background: #fff;
 }
 
 .home-directions::before {
@@ -1738,12 +1806,192 @@ a {
 }
 
 .home-direction-constellation {
+  isolation: isolate;
   position: relative;
+  left: 50%;
   z-index: 1;
-  width: min(100%, 1060px);
-  height: 320px;
-  margin: 18px auto 0;
+  width: 100vw;
+  max-width: none;
+  height: 540px;
+  margin: 0;
   padding: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 32% 66%, rgba(255, 255, 255, .9) 0, rgba(235, 247, 252, .58) 18%, transparent 44%),
+    radial-gradient(ellipse at 62% 56%, rgba(252, 255, 255, .84) 0, rgba(228, 243, 250, .48) 22%, transparent 48%),
+    radial-gradient(circle at 83% 28%, rgba(240, 249, 253, .7), transparent 36%),
+    linear-gradient(155deg, #dbeaf3 0%, #e2eff5 38%, #e8f3f7 66%, #dcecf4 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, .42) 7%, #000 18%, #000 82%, rgba(0, 0, 0, .42) 93%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, .42) 7%, #000 18%, #000 82%, rgba(0, 0, 0, .42) 93%, transparent 100%);
+  transform: translateX(-50%);
+}
+
+.home-research-starfield {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.home-research-sequence {
+  position: absolute;
+  inset: 8% 4% 7%;
+  z-index: 2;
+  pointer-events: none;
+  transform: translate(2%, 4%);
+}
+
+.home-research-sequence-line {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.home-research-sequence-line polyline {
+  fill: none;
+  stroke: rgba(69, 91, 103, .34);
+  stroke-width: 1;
+  stroke-dasharray: 4 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.home-research-sequence-item {
+  position: absolute;
+  top: var(--node-y);
+  left: var(--node-x);
+  z-index: 2;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+}
+
+.home-research-sequence-item.is-populated {
+  pointer-events: auto;
+}
+
+.home-research-sequence-trigger {
+  display: grid;
+  position: absolute;
+  inset: -8px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  place-items: center;
+}
+
+.home-research-sequence-trigger:focus-visible {
+  outline: 2px solid rgba(45, 79, 96, .65);
+  outline-offset: 3px;
+}
+
+.home-research-sequence-marker {
+  display: block;
+  width: 19px;
+  height: 19px;
+  background: #496574;
+  filter: drop-shadow(0 2px 3px rgba(42, 66, 78, .2));
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 4 2 2 4 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 4 2 2 4 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z'/%3E%3C/svg%3E") center / contain no-repeat;
+  transform: rotate(var(--plane-angle, 0deg));
+  transition: width .35s ease, height .35s ease, background-color .35s ease, filter .35s ease, transform .35s ease;
+}
+
+.home-research-sequence-item.is-placeholder .home-research-sequence-marker {
+  width: 16px;
+  height: 16px;
+  background: rgba(93, 125, 140, .62);
+  filter: none;
+}
+
+.home-research-sequence-item.is-active {
+  z-index: 5;
+}
+
+.home-research-sequence-item.is-active .home-research-sequence-marker {
+  width: 23px;
+  height: 23px;
+  background: #294d60;
+  filter: drop-shadow(0 3px 5px rgba(37, 65, 79, .28));
+  transform: rotate(var(--plane-angle, 0deg)) scale(1.06);
+}
+
+.home-research-sequence-card {
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: var(--panel-x);
+  width: min(390px, calc(100vw - 48px));
+  min-height: 132px;
+  padding: 20px 24px 18px 72px;
+  overflow: hidden;
+  border: 1px solid rgba(77, 101, 113, .25);
+  border-left: 3px solid #496979;
+  border-radius: 4px;
+  opacity: 0;
+  color: #293e49;
+  background: rgba(250, 253, 254, .94);
+  box-shadow: 0 16px 36px rgba(42, 65, 77, .13);
+  clip-path: inset(0 100% 0 0);
+  transform: translate(10px, -50%);
+  transition: clip-path .56s cubic-bezier(.22, .8, .24, 1), opacity .28s ease, transform .56s cubic-bezier(.22, .8, .24, 1), visibility 0s linear .56s;
+}
+
+.home-research-sequence-item.is-active .home-research-sequence-card {
+  visibility: visible;
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  transform: translate(18px, -50%);
+  transition-delay: 0s;
+}
+
+.home-research-sequence-number {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  color: #6c818c;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.home-research-sequence-card strong {
+  display: block;
+  margin: 0 0 8px;
+  color: #243b47;
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 720;
+  line-height: 1.45;
+}
+
+.home-research-sequence-card p {
+  margin: 0 0 9px;
+  color: #576c77;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.home-research-sequence-card a {
+  color: #355f74;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-research-sequence-card a:hover,
+.home-research-sequence-card a:focus-visible {
+  color: #203f50;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .home-direction-star {
@@ -1823,6 +2071,25 @@ a {
   color: #8aa5b4;
 }
 
+.home-direction-star.is-four .home-particle-star-core {
+  position: relative;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.home-particle-star-canvas {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 230px;
+  height: 230px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
 .home-direction-star:hover .home-direction-star-core {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .72), 0 22px 52px rgba(31, 79, 104, .14);
   transform: translateY(-4px);
@@ -1858,7 +2125,7 @@ a {
 }
 
 .home-about {
-  padding-top: 48px;
+  padding-top: 34px;
   background: #fff;
 }
 
@@ -1869,20 +2136,14 @@ a {
   align-items: center;
 }
 
-.home-about-copy .home-block-heading {
-  margin-bottom: 24px;
-}
-
 .home-about-copy > p {
   margin: 0 0 18px;
   color: #536977;
-  font-family: var(--font-serif);
-  font-size: 17px;
+  font-family: "LXGW WenKai", "STKaiti", "KaiTi", serif;
+  font-size: 20px;
+  font-weight: 600;
   line-height: 2;
-}
-
-.home-about-link {
-  margin-top: 9px;
+  text-indent: 2em;
 }
 
 .home-about-figure {
@@ -2555,8 +2816,11 @@ h2 {
 
 .contact-item dd {
   margin: 0;
+  font-family: "Noto Serif CJK", "Source Han Serif SC", "Songti SC", serif;
   font-size: 17px;
+  font-weight: 600;
   line-height: 1.8;
+  text-indent: 0;
 }
 
 .contact-item a {
@@ -2589,8 +2853,11 @@ h2 {
 .contact-recruitment p {
   margin: 0;
   color: #334155;
-  font-size: 18px;
+  font-family: "Noto Serif CJK", "Source Han Serif SC", "Songti SC", serif;
+  font-size: 19px;
+  font-weight: 600;
   line-height: 1.95;
+  text-indent: 2em;
 }
 
 .site-footer {
@@ -2717,6 +2984,19 @@ h2 {
     padding: 60px 0;
   }
 
+  .home-directions {
+    padding-bottom: 18px;
+  }
+
+  .home-about {
+    padding-top: 34px;
+  }
+
+  .home-directions .home-block-heading,
+  .home-about .home-block-heading {
+    width: 100%;
+  }
+
   .home-information-grid,
   .home-about-grid {
     grid-template-columns: 1fr;
@@ -2732,17 +3012,45 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .home-news-list {
+    transform: none;
+  }
+
   .home-news-cover {
     min-height: auto;
     aspect-ratio: 16 / 10;
   }
 
   .home-direction-constellation {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 10px;
-    height: auto;
+    display: block;
+    height: 390px;
     padding-top: 0;
+  }
+
+  .home-research-sequence {
+    right: 2%;
+    left: 2%;
+  }
+
+  .home-research-sequence-card {
+    width: min(252px, calc(100vw - 48px));
+    min-height: 122px;
+    padding: 17px 16px 15px 54px;
+  }
+
+  .home-research-sequence-number {
+    top: 19px;
+    left: 17px;
+    font-size: 13px;
+  }
+
+  .home-research-sequence-card strong {
+    font-size: 15px;
+  }
+
+  .home-research-sequence-card p {
+    font-size: 12.5px;
+    line-height: 1.55;
   }
 
   .home-direction-star.is-one,
@@ -2765,6 +3073,11 @@ h2 {
     width: min(42vw, 148px);
     height: min(42vw, 148px);
     border-width: 8px;
+  }
+
+  .home-particle-star-canvas {
+    width: min(56vw, 205px);
+    height: min(56vw, 205px);
   }
 
   .home-direction-star-label {
@@ -2979,7 +3292,7 @@ h2 {
   }
 
   .contact-recruitment p {
-    font-size: 16.5px;
+    font-size: 18px;
   }
 
   .education-subnav {
@@ -3012,6 +3325,16 @@ h2 {
     margin-bottom: 24px;
     padding: 0;
     font-size: 16px;
+  }
+
+  .research-topic-page-header {
+    display: block;
+  }
+
+  .research-topic-page-header p {
+    margin-top: 8px;
+    text-align: left;
+    white-space: normal;
   }
 
   .research-topic-list {
@@ -3183,7 +3506,7 @@ h2 {
 .brand-name-cn {
   display: block;
   width: 100%;
-  color: #cbd3d8;
+  color: #e2f1f5;
   font-family: var(--font-brand-cn);
   font-size: 58px;
   font-weight: 400;
@@ -3217,8 +3540,8 @@ h2 {
 
 .header-utilities {
   position: absolute;
-  top: 50%;
-  right: 0;
+  top: calc(50% - 12px);
+  right: 48px;
   display: flex;
   flex: 0 0 auto;
   align-items: center;
@@ -3440,7 +3763,7 @@ body.is-search-open {
   min-height: 56px;
   padding-right: 17px;
   padding-left: 17px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .site-header.is-nav-compact .nav-links {
@@ -3480,7 +3803,7 @@ body.is-search-open {
   color: #233d50;
   background: transparent;
   font: inherit;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 650;
   white-space: nowrap;
   cursor: pointer;
@@ -4254,8 +4577,7 @@ body.is-search-open {
   grid-template-columns: 190px minmax(0, 1fr);
   gap: 36px;
   align-items: start;
-  padding: 4px 0 34px;
-  border-bottom: 1px solid #dce4e9;
+  padding: 4px 0 24px;
 }
 
 .student-profile-photo {
@@ -4290,7 +4612,7 @@ body.is-search-open {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 26px;
-  padding-top: 34px;
+  padding-top: 26px;
 }
 
 .student-profile-section {
@@ -4555,6 +4877,17 @@ body.is-search-open {
   opacity: .52;
   filter: saturate(.82) contrast(.92);
   box-shadow: 0 10px 26px rgba(28, 58, 76, .12);
+  cursor: pointer;
+}
+
+.culture-gallery-card.is-previous:hover,
+.culture-gallery-card.is-next:hover,
+.culture-gallery-card.is-previous:focus-visible,
+.culture-gallery-card.is-next:focus-visible {
+  opacity: .7;
+  filter: saturate(.94) contrast(.98);
+  outline: 2px solid rgba(40, 111, 145, .55);
+  outline-offset: 3px;
 }
 
 .culture-gallery-card.is-previous {
@@ -4713,6 +5046,21 @@ body.is-search-open {
   margin: 0 0 18px;
 }
 
+.recruitment-page-content > p,
+.recruitment-closing > p,
+.recruitment-admission-section > p {
+  font-family: "Noto Serif CJK", "Source Han Serif SC", "Songti SC", serif;
+  font-weight: 600;
+  text-indent: 2em;
+}
+
+.recruitment-page-content > ul > li,
+.recruitment-page-content > ol > li,
+.recruitment-requirements > li {
+  font-family: "Noto Serif CJK", "Source Han Serif SC", "Songti SC", serif;
+  font-weight: 600;
+}
+
 .recruitment-page-content li {
   margin: 7px 0;
 }
@@ -4760,11 +5108,23 @@ body.is-search-open {
   padding-left: 14px;
 }
 
-.recruitment-requirement-intro {
+.recruitment-admission-section > p.recruitment-requirement-intro {
   margin-bottom: 8px !important;
   color: #334e5e;
   font-size: 16.5px;
-  font-weight: 650;
+  font-weight: 700;
+  text-indent: 0;
+}
+
+.recruitment-email-address {
+  font-size: 19px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.recruitment-page-content > .recruitment-materials-title {
+  font-weight: 700;
+  text-indent: 0;
 }
 
 .recruitment-requirements {
@@ -5095,6 +5455,7 @@ body.is-search-open {
 .center-organization-person {
   margin: 0;
   text-align: left;
+  cursor: pointer;
 }
 
 .center-organization-person:first-child {
@@ -5121,6 +5482,18 @@ body.is-search-open {
   background: #fff;
   object-fit: contain;
   object-position: center;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.center-organization-person:hover img,
+.center-organization-person:focus-visible img {
+  box-shadow: 0 9px 22px rgba(37, 76, 98, .16);
+  transform: translateY(-2px);
+}
+
+.center-organization-person:focus-visible {
+  outline: 2px solid rgba(40, 111, 145, .55);
+  outline-offset: 5px;
 }
 
 .center-organization-person figcaption {
@@ -5221,7 +5594,7 @@ body.is-search-open {
 
 .research-project-year h2 {
   position: relative;
-  margin: 0 0 14px;
+  margin: 0 0 4px;
   padding-bottom: 11px;
   border-bottom: 1px solid var(--line);
   color: var(--ink);
@@ -5250,12 +5623,25 @@ body.is-search-open {
 
 .research-project-item {
   display: grid;
+  position: relative;
   grid-template-columns: 165px minmax(0, 1fr);
   gap: 26px;
   align-items: start;
   padding: 18px 4px;
-  border-bottom: 1px solid #dce5ea;
   transition: background-color .16s ease;
+}
+
+.research-project-item + .research-project-item::before {
+  position: absolute;
+  top: 0;
+  right: 24px;
+  left: 20px;
+  border-top: 1px dashed #ccd7de;
+  content: "";
+}
+
+.research-project-item:first-child {
+  padding-top: 10px;
 }
 
 .research-project-item:hover {
@@ -5263,33 +5649,31 @@ body.is-search-open {
 }
 
 .research-project-period {
+  width: 100%;
   color: #376b86;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.65;
+  text-align: center;
   white-space: nowrap;
 }
 
 .research-project-item h3 {
   margin: 0;
   color: #263f51;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 720;
   line-height: 1.55;
-}
-
-.research-project-meta {
-  margin: 5px 0 0;
-  color: #627580;
-  font-size: 15px;
-  line-height: 1.65;
 }
 
 .cooperation-intro {
   margin: 0 0 30px;
   color: #4f6370;
+  font-family: "Noto Serif CJK", "Source Han Serif SC", "Songti SC", serif;
   font-size: 16px;
+  font-weight: 600;
   line-height: 1.95;
+  text-indent: 2em;
 }
 
 .cooperation-subnav {
@@ -5434,7 +5818,6 @@ body.is-search-open {
   align-items: center;
   min-height: 92px;
   padding: 14px 0;
-  border-bottom: 1px solid #e2e9ed;
 }
 
 .cooperation-partner-item:first-child {
@@ -5636,8 +6019,11 @@ body.is-search-open {
   position: relative;
   padding-left: 18px;
   color: #435566;
+  font-family: "Noto Serif CJK", "Source Han Serif SC", "Songti SC", serif;
   font-size: 15.5px;
+  font-weight: 600;
   line-height: 1.75;
+  text-indent: 0;
 }
 
 .course-bullet-list li::before {
@@ -5729,7 +6115,10 @@ body.is-search-open {
 .course-reference li {
   margin: 0;
   color: #647682;
+  font-family: "Noto Serif CJK", "Source Han Serif SC", "Songti SC", serif;
+  font-weight: 600;
   line-height: 1.8;
+  text-indent: 0;
 }
 
 .course-reference ul {
@@ -5919,6 +6308,11 @@ body.is-search-open {
     width: min(100% - 48px, 1080px);
   }
 
+  .header-utilities {
+    top: 50%;
+    right: 0;
+  }
+
   .brand-identity {
     gap: 30px;
     max-width: calc(100% - 170px);
@@ -5949,7 +6343,14 @@ body.is-search-open {
   .nav-links > a,
   .nav-parent {
     padding: 0 10px;
-    font-size: 14px;
+    font-size: 15px;
+  }
+
+  .site-header.is-nav-compact .nav-links > a,
+  .site-header.is-nav-compact .nav-parent {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 15px;
   }
 
   .nav-links {

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=24">
 </head>
 <body>
   <header class="site-header">
@@ -227,45 +227,75 @@
             </div>
             <a class="home-more" href="#research" data-page-link="research">更多</a>
           </header>
-          <div class="home-direction-constellation" aria-label="科研方向导航">
-            <a class="home-direction-star is-one" href="#research" data-home-research-index="0">
-              <span class="home-direction-star-core">
-                <span class="home-direction-star-label"><b>01</b><strong>多模态大模型与智能PHM算法研究</strong></span>
-              </span>
-            </a>
-            <a class="home-direction-star is-two" href="#research" data-home-research-index="1">
-              <span class="home-direction-star-core">
-                <span class="home-direction-star-label"><b>02</b><strong>数字孪生建模与智慧运维决策优化</strong></span>
-              </span>
-            </a>
-            <a class="home-direction-star is-three" href="#research" data-home-research-index="2">
-              <span class="home-direction-star-core">
-                <span class="home-direction-star-label"><b>03</b><strong>复杂系统韧性与确信可靠性分析</strong></span>
-              </span>
-            </a>
-            <span class="home-direction-star is-four" aria-hidden="true"><span class="home-direction-star-core"></span></span>
-            <span class="home-direction-star is-five" aria-hidden="true"><span class="home-direction-star-core"></span></span>
-            <span class="home-direction-star is-six" aria-hidden="true"><span class="home-direction-star-core"></span></span>
+          <div class="home-direction-constellation" aria-label="科研方向动态星域">
+            <canvas class="home-research-starfield" data-home-research-starfield aria-hidden="true"></canvas>
+            <div class="home-research-sequence" data-home-research-sequence>
+              <svg class="home-research-sequence-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <polyline points="10,58 26,14 50,31 61,63 78,46 78,7"></polyline>
+              </svg>
+
+              <div class="home-research-sequence-item is-populated" data-research-sequence-item style="--node-x: 10%; --node-y: 58%; --panel-x: 14px; --plane-angle: 0deg;">
+                <button class="home-research-sequence-trigger" type="button" aria-expanded="false" aria-label="查看多模态大模型与智能PHM算法研究">
+                  <span class="home-research-sequence-marker"></span>
+                </button>
+                <article class="home-research-sequence-card">
+                  <span class="home-research-sequence-number">01</span>
+                  <strong>多模态大模型与智能PHM算法研究</strong>
+                  <p>融合AI与机理模型，实现复杂系统健康状态的预测与诊断</p>
+                  <a href="#research" data-home-research-index="0">见详情 <span aria-hidden="true">→</span></a>
+                </article>
+              </div>
+
+              <div class="home-research-sequence-item is-populated" data-research-sequence-item style="--node-x: 26%; --node-y: 14%; --panel-x: -40px; --plane-angle: 62deg;">
+                <button class="home-research-sequence-trigger" type="button" aria-expanded="false" aria-label="查看数字孪生建模与智慧运维决策优化">
+                  <span class="home-research-sequence-marker"></span>
+                </button>
+                <article class="home-research-sequence-card">
+                  <span class="home-research-sequence-number">02</span>
+                  <strong>数字孪生建模与智慧运维决策优化</strong>
+                  <p>通过虚实一体化仿真实现工程系统运行与保障的智能决策</p>
+                  <a href="#research" data-home-research-index="1">见详情 <span aria-hidden="true">→</span></a>
+                </article>
+              </div>
+
+              <div class="home-research-sequence-item is-populated" data-research-sequence-item style="--node-x: 50%; --node-y: 31%; --panel-x: -130px; --plane-angle: 72deg;">
+                <button class="home-research-sequence-trigger" type="button" aria-expanded="false" aria-label="查看复杂系统韧性与确信可靠性分析">
+                  <span class="home-research-sequence-marker"></span>
+                </button>
+                <article class="home-research-sequence-card">
+                  <span class="home-research-sequence-number">03</span>
+                  <strong>复杂系统韧性与确信可靠性分析</strong>
+                  <p>揭示系统结构演化规律，量化系统抗扰与恢复能力</p>
+                  <a href="#research" data-home-research-index="2">见详情 <span aria-hidden="true">→</span></a>
+                </article>
+              </div>
+
+              <span class="home-research-sequence-item is-placeholder" style="--node-x: 61%; --node-y: 63%; --plane-angle: 0deg;" aria-hidden="true"><span class="home-research-sequence-marker"></span></span>
+              <span class="home-research-sequence-item is-placeholder" style="--node-x: 78%; --node-y: 46%; --plane-angle: -48deg;" aria-hidden="true"><span class="home-research-sequence-marker"></span></span>
+              <span class="home-research-sequence-item is-placeholder" style="--node-x: 78%; --node-y: 7%; --plane-angle: -48deg;" aria-hidden="true"><span class="home-research-sequence-marker"></span></span>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="home-content-section home-about" aria-labelledby="home-about-title">
-        <div class="section-shell home-about-grid">
-          <div class="home-about-copy">
-            <header class="home-block-heading">
-              <div class="home-block-heading-main">
-                <small>ABOUT US</small>
-                <h2 id="home-about-title">中心简介</h2>
-              </div>
-            </header>
-            <p>中意健康管理与智能维修联合实验室由北京航空航天大学与意大利米兰理工大学相关研究团队共同建设，聚焦复杂工程系统的故障预测与健康管理、建模仿真、智慧运维和多模态大模型研究。</p>
-            <p>实验室坚持“虚实融合、智能驱动、体系赋能”，构建贯通模型、算法、仿真、验证与应用的研究链路，为航空航天、能源交通和智能制造等领域提供跨学科科研与实验平台。</p>
-            <a class="home-more home-about-link" href="#team" data-page-link="team">了解更多</a>
+        <div class="section-shell">
+          <header class="home-block-heading">
+            <div class="home-block-heading-main">
+              <small>ABOUT US</small>
+              <h2 id="home-about-title">中心简介</h2>
+            </div>
+            <a class="home-more" href="#team" data-page-link="team">更多</a>
+          </header>
+          <div class="home-about-grid">
+            <div class="home-about-copy">
+              <p>中意健康管理与智能维修联合实验室由北京航空航天大学与意大利米兰理工大学相关研究团队共同建设，聚焦复杂工程系统的故障预测与健康管理、建模仿真、智慧运维和多模态大模型研究。</p>
+              <p>实验室坚持“虚实融合、智能驱动、体系赋能”，构建贯通模型、算法、仿真、验证与应用的研究链路，为航空航天、能源交通和智能制造等领域提供跨学科科研与实验平台。</p>
+            </div>
+            <figure class="home-about-figure">
+              <img src="image/lab1.png" alt="中意健康管理与智能维修联合实验室揭牌" loading="lazy">
+            </figure>
           </div>
-          <figure class="home-about-figure">
-            <img src="image/lab1.png" alt="中意健康管理与智能维修联合实验室揭牌" loading="lazy">
-          </figure>
         </div>
       </section>
 
@@ -797,9 +827,9 @@
           <p><strong>▶ 创业与交叉发展：</strong>课题组鼓励创新思维，支持有创业意向的学生参与科技成果转化，已有毕业生成功创办智能运维、工业AI初创公司。</p>
 
           <h2>六、申请方式与联系方式</h2>
-          <p>欢迎有志于投身智能系统、人工智能、系统工程前沿研究的同学积极联系！请将以下材料发送至邮箱： <strong>yang_hu@buaa.edu.cn</strong>，<strong>邮件标题格式：</strong>“硕士/博士研究生申请-姓名-本科学校-专业”。</p>
+          <p>欢迎有志于投身智能系统、人工智能、系统工程前沿研究的同学积极联系！请将以下材料发送至邮箱： <strong class="recruitment-email-address">yang_hu@buaa.edu.cn</strong>，<strong>邮件标题格式：</strong>“硕士/博士研究生申请-姓名-本科学校-专业”。</p>
           <p>博士后请参考 <a href="https://h3i.buaa.edu.cn/info/1141/1391.htm" target="_blank" rel="noopener">https://h3i.buaa.edu.cn/info/1141/1391.htm</a>，北航国新院为博士后提供一流的学术指导、科研条件和薪酬待遇。国新院提供A类博士后32万元年薪、B类博士后28万元年薪（均不含政府补贴），以及15万元的科研启动经费（含政府补贴）。同时，博士后可叠加申请杭州市、余杭区地方政府配套补贴，各项补贴累计金额最高可达219万元（详见杭州市余杭区“海创未来·卓越博士后”腾飞计划、杭州城西科创大走廊创新发展专项资金管理办法等，各类政策按照政府最新规定执行）。</p>
-          <p><strong>所需材料：</strong></p>
+          <p class="recruitment-materials-title"><strong>所需材料：</strong></p>
           <ol>
             <li>个人简历（含教育背景、科研/项目经历、竞赛获奖、技能证书等）；</li>
             <li>本科/硕士成绩单（扫描件）；</li>
@@ -931,10 +961,10 @@
   <script src="assets/js/content-data.js"></script>
   <script src="assets/js/site-config.js"></script>
   <script src="assets/js/site-search.js"></script>
-  <script src="assets/js/home-interactions.js"></script>
+  <script src="assets/js/home-interactions.js?v=37"></script>
   <script src="assets/js/site-navigation.js"></script>
   <script src="assets/js/scroll-reveal.js"></script>
-  <script src="assets/js/research-topics.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/research-topics.js?v=3"></script>
+  <script src="assets/js/main.js?v=8"></script>
 </body>
 </html>

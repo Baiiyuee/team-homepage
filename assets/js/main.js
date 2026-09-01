@@ -107,16 +107,32 @@
       if (time) time.textContent = text[0];
       if (title) title.textContent = text[1];
     });
-    const homeDirectionText = [
-      'Multimodal Foundation Models and Intelligent PHM Algorithms',
-      'Digital Twin Modeling and Smart Maintenance Decision Optimization',
-      'Complex-System Resilience and Belief Reliability Analysis'
+    document.querySelector('.home-direction-constellation')?.setAttribute('aria-label', 'Dynamic research star field');
+    const homeResearchDirections = [
+      {
+        title: 'Multimodal Foundation Models and Intelligent PHM Algorithms',
+        description: 'Integrating AI with physics-based models to predict and diagnose the health states of complex systems.'
+      },
+      {
+        title: 'Digital Twin Modeling and Intelligent O&M Decision Optimization',
+        description: 'Enabling intelligent engineering operation and support decisions through cyber-physical integrated simulation.'
+      },
+      {
+        title: 'Complex-System Resilience and Belief Reliability Analysis',
+        description: 'Revealing system evolution mechanisms and quantifying disturbance resistance and recovery capability.'
+      }
     ];
-    document.querySelectorAll('.home-direction-star[data-home-research-index]').forEach((card, index) => {
-      const text = homeDirectionText[index];
-      if (!text) return;
-      const title = card.querySelector('.home-direction-star-label strong');
-      if (title) title.textContent = text;
+    document.querySelectorAll('.home-research-sequence-item.is-populated').forEach((item, index) => {
+      const direction = homeResearchDirections[index];
+      if (!direction) return;
+      const title = item.querySelector('.home-research-sequence-card strong');
+      const description = item.querySelector('.home-research-sequence-card p');
+      const detailLink = item.querySelector('.home-research-sequence-card a');
+      const trigger = item.querySelector('.home-research-sequence-trigger');
+      if (title) title.textContent = direction.title;
+      if (description) description.textContent = direction.description;
+      if (detailLink) detailLink.innerHTML = 'View details <span aria-hidden="true">→</span>';
+      trigger?.setAttribute('aria-label', `View ${direction.title}`);
     });
     const homeAboutText = [
       'The Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance was jointly established by research teams from Beihang University and Politecnico di Milano. It focuses on prognostics and health management, modeling and simulation, intelligent operations and maintenance, and multimodal foundation models for complex engineering systems.',
@@ -540,9 +556,9 @@
           <p><strong>▶ Employment:</strong> Graduates pursue roles at aerospace institutes (including Institutes 601 and 603, and the First and Fifth Academies of CASC), intelligent-manufacturing companies such as Huawei and DJI, AI companies such as Alibaba Cloud, SenseTime, and Megvii, industrial-software companies such as Dassault Systèmes and Siemens, and power utilities such as State Grid and China Southern Power Grid. Typical positions include algorithm engineer, systems architect, PHM engineer, digital-twin specialist, and reliability analyst.</p>
           <p><strong>▶ Entrepreneurship and interdisciplinary development:</strong> The group encourages innovation and supports students interested in commercializing research. Alumni have founded startups in intelligent maintenance and industrial AI.</p>
           <h2>VI. How to Apply</h2>
-          <p>Students motivated to pursue frontier research in intelligent systems, artificial intelligence, and systems engineering are warmly invited to apply. Send the materials below to <strong>yang_hu@buaa.edu.cn</strong>. <strong>Email subject:</strong> “Master’s/PhD Application – Name – Undergraduate University – Major.”</p>
+          <p>Students motivated to pursue frontier research in intelligent systems, artificial intelligence, and systems engineering are warmly invited to apply. Send the materials below to <strong class="recruitment-email-address">yang_hu@buaa.edu.cn</strong>. <strong>Email subject:</strong> “Master’s/PhD Application – Name – Undergraduate University – Major.”</p>
           <p>Postdoctoral applicants should consult <a href="https://h3i.buaa.edu.cn/info/1141/1391.htm" target="_blank" rel="noopener">https://h3i.buaa.edu.cn/info/1141/1391.htm</a>. The institute provides first-class academic supervision, research conditions, and compensation. Annual salaries are RMB 320,000 for Category A and RMB 280,000 for Category B postdoctoral fellows, excluding government subsidies, plus RMB 150,000 in research start-up funding including government support. Fellows may also apply for supplementary subsidies from Hangzhou Municipality and Yuhang District, with cumulative benefits of up to RMB 2.19 million. See the Yuhang District “Future through Global Innovation · Outstanding Postdoctoral” Take-off Program, the Hangzhou West Science and Technology Innovation Corridor special-fund rules, and related policies; all benefits remain subject to the latest government regulations.</p>
-          <p><strong>Required materials:</strong></p>
+          <p class="recruitment-materials-title"><strong>Required materials:</strong></p>
           <ol>
             <li>Curriculum vitae, including education, research/project experience, competition awards, and professional certifications.</li>
             <li>Undergraduate/master’s transcripts (scanned copies).</li>
@@ -788,15 +804,15 @@
     introPanel.querySelector('.lab-introduction > h2:first-child')?.remove();
     organizationPanel.innerHTML = `
       <div class="center-organization-grid">
-        <figure class="center-organization-person">
+        <figure class="center-organization-person" data-center-member="person-yang-hu" role="button" tabindex="0" aria-label="${isEnglish ? 'View Yang Hu profile' : '查看胡杨教师页面'}">
           <img src="image/Yang Hu.png" alt="${isEnglish ? 'Yang Hu' : '胡杨'}" loading="lazy">
           <figcaption><strong>${isEnglish ? 'Yang Hu' : '胡杨'}</strong><small>${labels.executiveDirector}</small></figcaption>
         </figure>
-        <figure class="center-organization-person">
+        <figure class="center-organization-person" data-center-member="person-yang-li" role="button" tabindex="0" aria-label="${isEnglish ? 'View Yang Li profile' : '查看李洋教师页面'}">
           <img src="image/Yang Li.png" alt="${isEnglish ? 'Yang Li' : '李洋'}" loading="lazy">
           <figcaption><strong>${isEnglish ? 'Yang Li' : '李洋'}</strong></figcaption>
         </figure>
-        <figure class="center-organization-person">
+        <figure class="center-organization-person" data-center-member="person-xiaoyu-jiang" role="button" tabindex="0" aria-label="${isEnglish ? 'View Xiaoyu Jiang profile' : '查看江肖禹教师页面'}">
           <img src="image/Xiaoyu Jiang.png" alt="${isEnglish ? 'Xiaoyu Jiang' : '江肖禹'}" loading="lazy">
           <figcaption><strong>${isEnglish ? 'Xiaoyu Jiang' : '江肖禹'}</strong></figcaption>
         </figure>
@@ -824,6 +840,15 @@
     };
     app.querySelectorAll('[data-center-view]').forEach((button) => {
       button.addEventListener('click', () => showPage(routeNames[button.dataset.centerView]));
+    });
+    app.querySelectorAll('[data-center-member]').forEach((person) => {
+      const openMember = () => showPage(person.dataset.centerMember);
+      person.addEventListener('click', openMember);
+      person.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        openMember();
+      });
     });
     app.querySelector('[data-center-home]')?.addEventListener('click', () => showPage('home'));
     app.querySelector('[data-center-overview]')?.addEventListener('click', () => showPage('team'));
@@ -960,12 +985,11 @@
           <section class="research-project-year">
             <h2>${year}</h2>
             <ol class="research-project-list">
-              ${yearProjects.map(([, period, title, meta]) => `
+              ${yearProjects.map(([, period, title]) => `
                 <li class="research-project-item">
                   <time class="research-project-period">${period}</time>
                   <div>
                     <h3>${title}</h3>
-                    <p class="research-project-meta">${meta}</p>
                   </div>
                 </li>
               `).join('')}
@@ -2200,14 +2224,6 @@
       'graduate-experiment': labels.experiment
     };
     const validCategories = Object.keys(categoryTitles);
-    const renderFacts = (facts = []) => facts.length ? `
-      <section class="course-detail-section">
-        <h3>${labels.factsTitle}</h3>
-        <dl class="course-facts">
-          ${facts.map(([term, value]) => `<div class="course-fact"><dt>${term}</dt><dd>${value}</dd></div>`).join('')}
-        </dl>
-      </section>
-    ` : '';
     const renderList = (title, items = []) => items.length ? `
       <section class="course-detail-section">
         <h3>${title}</h3>
@@ -2280,7 +2296,6 @@
           <h2>${course.title}</h2>
           <p>${course.description || labels.pending}</p>
         </section>
-        ${renderFacts(course.facts)}
         ${renderList(labels.goals, course.goals)}
         ${renderReferences(course)}
       `;
@@ -2443,7 +2458,7 @@
           <section class="culture-gallery-view" aria-roledescription="carousel" aria-label="${labels.gallery}" data-culture-gallery>
             <div class="culture-gallery-stage" data-culture-stage>
               ${culturePhotos.map((photo, index) => `
-                <figure class="culture-gallery-card${index === 0 ? ' is-current' : index === 1 ? ' is-next' : index === culturePhotos.length - 1 ? ' is-previous' : ' is-hidden'}" data-culture-photo="${index}">
+                <figure class="culture-gallery-card${index === 0 ? ' is-current' : index === 1 ? ' is-next' : index === culturePhotos.length - 1 ? ' is-previous' : ' is-hidden'}" data-culture-photo="${index}" role="button" tabindex="${index === 1 || index === culturePhotos.length - 1 ? '0' : '-1'}" aria-label="${isEnglish ? `View photo ${index + 1}` : `查看第 ${index + 1} 张图片`}">
                   <img src="${photo.src}" alt="${photo.alt}">
                 </figure>
               `).join('')}
@@ -2531,10 +2546,16 @@
       cards.forEach((card) => {
         const index = Number(card.dataset.culturePhoto);
         const offset = photoIndex(index - currentPhoto);
-        card.classList.toggle('is-current', offset === 0);
-        card.classList.toggle('is-next', offset === 1);
-        card.classList.toggle('is-previous', offset === culturePhotos.length - 1);
+        const isCurrent = offset === 0;
+        const isNext = offset === 1;
+        const isPrevious = offset === culturePhotos.length - 1;
+        card.classList.toggle('is-current', isCurrent);
+        card.classList.toggle('is-next', isNext);
+        card.classList.toggle('is-previous', isPrevious);
         card.classList.toggle('is-hidden', offset > 1 && offset < culturePhotos.length - 1);
+        card.tabIndex = isNext || isPrevious ? 0 : -1;
+        if (isCurrent) card.setAttribute('aria-current', 'true');
+        else card.removeAttribute('aria-current');
       });
       app.querySelectorAll('[data-culture-dot]').forEach((dot) => {
         const isActive = Number(dot.dataset.cultureDot) === currentPhoto;
@@ -2573,6 +2594,20 @@
       dot.addEventListener('click', () => {
         goToCulturePhoto(Number(dot.dataset.cultureDot));
         startCultureGallery();
+      });
+    });
+    cards.forEach((card) => {
+      const selectCard = () => {
+        const index = Number(card.dataset.culturePhoto);
+        if (index === currentPhoto) return;
+        goToCulturePhoto(index);
+        startCultureGallery();
+      };
+      card.addEventListener('click', selectCard);
+      card.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        selectCard();
       });
     });
     showCultureGallery();
