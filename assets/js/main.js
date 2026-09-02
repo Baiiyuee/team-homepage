@@ -463,7 +463,6 @@
       <article class="prose recruitment-content">
         <section class="education-feature" id="education-students">
           <h2 class="education-section-title">Student Supervision</h2>
-          <p class="student-summary">As primary supervisor, Yang Hu advises professional master’s students, dual-degree master’s students, and international master’s students. As co-supervisor, he jointly advises doctoral researchers and postdoctoral fellows in the group, including work on academic writing and algorithmic framework design.</p>
           <h3 class="student-subheading">Current / Supervised Graduate Students (Selected)</h3>
           <div class="student-group" id="current-doctoral">
             <h4 class="student-group-title">Doctoral Student</h4>

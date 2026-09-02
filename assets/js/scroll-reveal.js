@@ -14,7 +14,7 @@
     '.research-topic-list > .research-topic-card',
     '.research-outro',
     '.achievement-publications > .publication-block',
-    '.education-feature > *',
+    '.education-feature:not(#education-students) > *',
     '.recruitment-section > *',
     '.contact-title',
     '.contact-list > .contact-item',
