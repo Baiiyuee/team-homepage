@@ -1,9 +1,6 @@
-@import url("https://fontsapi.zeoseven.com/292/main/result.css");
-@import url("https://fontsapi.zeoseven.com/285/main/result.css");
-
 @font-face {
   font-family: "Zhi Mang Xing";
-  src: url("../fonts/ZhiMangXing-Regular.ttf") format("truetype");
+  src: url("../fonts/ZhiMangXing-BrandSubset.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -11,9 +8,9 @@
 
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("../fonts/CormorantGaramond-Variable.ttf") format("truetype");
+  src: url("../fonts/CormorantGaramond-BrandSubset.ttf") format("truetype");
   font-style: normal;
-  font-weight: 300 700;
+  font-weight: 600;
   font-display: swap;
 }
 
@@ -1581,7 +1578,7 @@ a {
 
 .home-block-heading-main small {
   color: var(--blue);
-  font-family: "Inter", Arial, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 0;
@@ -1958,7 +1955,7 @@ html[lang^="zh"] :is(
   top: 22px;
   left: 22px;
   color: #6c818c;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 15px;
   font-weight: 700;
 }
@@ -3455,7 +3452,7 @@ h2 {
   background:
     linear-gradient(90deg, rgba(5, 38, 55, .42) 0%, rgba(7, 51, 70, .28) 58%, rgba(8, 57, 77, .12) 100%),
     linear-gradient(180deg, rgba(7, 43, 62, .04), rgba(8, 57, 80, .24)),
-    url("../../image/school_bg-enhanced.png") center 70% / 100% 210% no-repeat;
+    url("../../image/school_bg-enhanced.webp") center 70% / 100% 210% no-repeat;
 }
 
 .brand-banner-inner {
