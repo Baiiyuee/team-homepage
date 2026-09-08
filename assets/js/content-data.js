@@ -147,6 +147,22 @@
         achievements: '已发表学术论文 3 篇，其中 ICRE 2026 论文获评最佳学生论文，并于 2024—2025 学年获得一等学业奖学金。',
         achievementsEn: 'He has published three academic papers; his ICRE 2026 paper received the Best Student Paper award. He also received a first-class academic scholarship for the 2024–2025 academic year.'
       },
+      'jun-deng': {
+        category: 'masters',
+        name: '邓畯',
+        enName: 'Jun Deng',
+        year: '2024',
+        advisor: '胡杨',
+        advisorEn: 'Yang Hu',
+        major: '专业：电子信息',
+        majorEn: 'Master’s Student in Electronic Information',
+        bio: '北京航空航天大学电子信息专业硕士研究生，本科就读于中国农业大学自动化专业。',
+        bioEn: 'A master’s student in Electronic Information at Beihang University, with undergraduate study in Automation at China Agricultural University.',
+        research: '主要从事强化学习、仿真技术等在航空运维领域的应用研究。',
+        researchEn: 'His research focuses on applications of reinforcement learning and simulation technologies in aviation operations and maintenance.',
+        achievements: '暂无。',
+        achievementsEn: 'To be added.'
+      },
       'zhihuan-wei': {
         category: 'masters',
         name: '魏芷寰',
