@@ -497,8 +497,8 @@
               <li><a class="student-card" href="students/profile.html?id=yongpeng-qi&amp;lang=en"><img src="image/Yongpeng Qi.png" alt="Yongpeng Qi" loading="lazy"><span class="student-card-body"><span class="student-card-name">Yongpeng Qi</span><span class="student-card-meta">Major: Transportation</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
               <li><a class="student-card" href="students/profile.html?id=linhan-zhang&amp;lang=en"><img src="image/Linhan Zhang.png" alt="Linhan Zhang" loading="lazy"><span class="student-card-body"><span class="student-card-name">Linhan Zhang</span><span class="student-card-meta">Major: Mechanical Engineering</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
               <li><a class="student-card" href="students/profile.html?id=zhihuan-wei&amp;lang=en"><img src="image/Zhihuan Wei.png" alt="Zhihuan Wei" loading="lazy"><span class="student-card-body"><span class="student-card-name">Zhihuan Wei</span><span class="student-card-meta">Major: Mechanical Engineering</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
-              <li><a class="student-card" href="students/profile.html?id=pedro-martin&amp;lang=en"><img src="image/Pedro Martin.png" alt="Pedro Martin" loading="lazy"><span class="student-card-body"><span class="student-card-name">Pedro Martin</span><span class="student-card-meta">International Master’s Student · Major pending</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
-              <li><a class="student-card" href="students/profile.html?id=zuhaer-tousif&amp;lang=en"><img src="image/Zuhaer Tousif.png" alt="Zuhaer Tousif" loading="lazy"><span class="student-card-body"><span class="student-card-name">Zuhaer Tousif</span><span class="student-card-meta">International Master’s Student · Major pending</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+              <li><a class="student-card" href="students/profile.html?id=pedro-martin&amp;lang=en"><img src="image/Pedro Martin.png" alt="Pedro Martin" loading="lazy"><span class="student-card-body"><span class="student-card-name">Pedro Martin</span><span class="student-card-meta">International Master’s Student</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+              <li><a class="student-card" href="students/profile.html?id=zuhaer-tousif&amp;lang=en"><img src="image/Zuhaer Tousif.png" alt="Zuhaer Tousif" loading="lazy"><span class="student-card-body"><span class="student-card-name">Zuhaer Tousif</span><span class="student-card-meta">International Master’s Student</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
             </ul>
           </div>
         </section>
@@ -1391,9 +1391,12 @@
       const list = targetGroup.querySelector('.student-grid');
       if (!list) return;
       const item = document.createElement('li');
+      const avatarMarkup = profile.photo
+        ? `<img src="${profile.photo}" alt="${isEnglish ? profile.enName : profile.name}" loading="lazy">`
+        : `<span class="student-card-avatar-placeholder" aria-label="${isEnglish ? `No photo available for ${profile.enName}` : `${profile.name}暂无照片`}">${placeholderIcon}</span>`;
       item.innerHTML = `
         <a class="student-card" href="students/profile.html?id=${memberId}&amp;lang=${isEnglish ? 'en' : 'zh'}">
-          <span class="student-card-avatar-placeholder" aria-label="${isEnglish ? `No photo available for ${profile.enName}` : `${profile.name}暂无照片`}">${placeholderIcon}</span>
+          ${avatarMarkup}
           <span class="student-card-body">
             <span class="student-card-name">${isEnglish ? profile.enName : profile.name}</span>
             <span class="student-card-meta">${isEnglish ? profile.majorEn : profile.major}</span>
@@ -1413,7 +1416,9 @@
       'kunlong-huang': '2025',
       'yanyan-wu': '2025',
       'yongpeng-qi': '2025',
-      'linhan-zhang': '2025'
+      'linhan-zhang': '2025',
+      'pedro-martin': '2025',
+      'zuhaer-tousif': '2025'
     };
     const studentsByYear = {};
     const advisorOrder = { '胡杨': 0, '李洋': 1, '江肖禹': 2 };
