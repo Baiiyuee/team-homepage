@@ -107,32 +107,48 @@
       if (time) time.textContent = text[0];
       if (title) title.textContent = text[1];
     });
-    document.querySelector('.home-direction-constellation')?.setAttribute('aria-label', 'Dynamic research star field');
+    document.querySelector('.home-direction-list')?.setAttribute('aria-label', 'Research direction list');
     const homeResearchDirections = [
       {
         title: 'Multimodal Foundation Models and Intelligent PHM Algorithms',
-        description: 'Integrating AI with physics-based models to predict and diagnose the health states of complex systems.'
+        description: 'Integrating multi-source information such as sensor signals, operating parameters, maintenance records, and environmental conditions to build PHM foundation-model methods for health prediction, intelligent diagnosis, and validation.',
+        link: 'View full direction'
       },
       {
         title: 'Digital Twin Modeling and Intelligent O&M Decision Optimization',
-        description: 'Enabling intelligent engineering operation and support decisions through cyber-physical integrated simulation.'
+        description: 'Combining MBSE, multiphysics simulation, and data-driven optimization across the lifecycle of complex engineering systems to support condition assessment, predictive decisions, and closed-loop intelligent O&M verification.',
+        link: 'View full direction'
       },
       {
         title: 'Complex-System Resilience and Belief Reliability Analysis',
-        description: 'Revealing system evolution mechanisms and quantifying disturbance resistance and recovery capability.'
+        description: 'Combining complex-network modeling, AI analysis, and digital-twin simulation to characterize structural vulnerability, recovery capability, and reliability under coupled disturbances and uncertainty.',
+        link: 'View full direction'
+      },
+      {
+        title: '',
+        description: 'Studying risk identification, health monitoring, mission support, and safety assessment methods for low-altitude aircraft, unmanned systems, and emerging transportation platforms.',
+        link: 'View related projects'
+      },
+      {
+        title: '',
+        description: 'Exploring multi-agent collaboration, knowledge-driven reasoning, and autonomous task planning for aviation maintenance, intelligent manufacturing, energy, and transportation scenarios.',
+        link: 'View related projects'
+      },
+      {
+        title: '',
+        description: 'Advancing reliability, maintainability, supportability, and PHM technologies through the Sino-Italian joint laboratory and industry partnerships for major engineering systems.',
+        link: 'View research collaboration'
       }
     ];
-    document.querySelectorAll('.home-research-sequence-item.is-populated').forEach((item, index) => {
+    document.querySelectorAll('.home-direction-card').forEach((item, index) => {
       const direction = homeResearchDirections[index];
       if (!direction) return;
-      const title = item.querySelector('.home-research-sequence-card strong');
-      const description = item.querySelector('.home-research-sequence-card p');
-      const detailLink = item.querySelector('.home-research-sequence-card a');
-      const trigger = item.querySelector('.home-research-sequence-trigger');
+      const title = item.querySelector('h3');
+      const description = item.querySelector('.home-direction-detail p');
+      const detailLink = item.querySelector('.home-direction-detail a');
       if (title) title.textContent = direction.title;
       if (description) description.textContent = direction.description;
-      if (detailLink) detailLink.innerHTML = 'View details <span aria-hidden="true">→</span>';
-      trigger?.setAttribute('aria-label', `View ${direction.title}`);
+      if (detailLink) detailLink.innerHTML = `${direction.link} <span aria-hidden="true">→</span>`;
     });
     const homeAboutText = [
       'The Sino-Italian Joint Laboratory for Health Management and Intelligent Maintenance was jointly established by research teams from Beihang University and Politecnico di Milano. It focuses on prognostics and health management, modeling and simulation, intelligent operations and maintenance, and multimodal foundation models for complex engineering systems.',
@@ -1297,7 +1313,10 @@
       setResearchDetailBreadcrumb('');
       if (targetView === 'directions') resetResearchTopicDetail();
       if (targetView === 'cooperation') showCooperationOverview();
-      if (targetView === 'outputs') showOutputCategory(currentOutputCategory);
+      if (targetView === 'outputs') {
+        document.dispatchEvent(new CustomEvent('publications:load'));
+        showOutputCategory(currentOutputCategory);
+      }
     };
     app.querySelectorAll('[data-research-page-view]').forEach((button) => {
       button.addEventListener('click', () => {
@@ -1820,7 +1839,9 @@
     if (!app) return;
     const courseText = {
       ai: {
-        title: isEnglish ? 'Artificial Intelligence and Advanced Large Models' : '人工智能与高级大模型',
+        title: isEnglish
+          ? 'Artificial Intelligence and Advanced Large Models'
+          : 'Artificial Intelligence and Advanced Large Models（人工智能与高级大模型，全英文授课）',
         type: isEnglish ? 'Graduate Theoretical Course' : '研究生理论课程',
         category: 'graduate-theory',
         description: isEnglish
@@ -2131,7 +2152,7 @@
           undergraduate: 'Undergraduate Courses',
           graduate: 'Graduate Courses',
           theory: 'Theoretical Courses',
-          experiment: 'Experimental Courses',
+          experiment: 'Practical Courses',
           tag: 'COURSE',
           instructor: 'Instructor',
           teacher: 'Yang Hu',
@@ -2153,7 +2174,7 @@
           undergraduate: '本科生课程',
           graduate: '研究生课程',
           theory: '理论课程',
-          experiment: '实验课程',
+          experiment: '实践课程',
           tag: '课程',
           instructor: '授课教师',
           teacher: '胡杨',
@@ -2663,10 +2684,10 @@
           researchLink: 'See Research Directions for details',
           programs: 'Eligible Degree Programs',
           programItems: [
-            ['Academic Doctoral Supervisor', 'Safety Science and Engineering (0837; Reliability Systems Engineering); Control Science and Engineering (0811; Industrial Internet and Knowledge-Driven Automation)'],
-            ['Professional Doctoral Supervisor', 'Electronic Information (0854); Mechanical Engineering (0855)'],
-            ['Academic Master’s Supervisor', 'Control Science and Engineering (0811); Low-Altitude Intelligent Transportation Engineering (9904; Low-Altitude Safety Assurance Technology)'],
-            ['Professional Master’s Supervisor', 'Electronic Information (0854); Mechanical Engineering (0855); Transportation (0861)']
+            ['Academic PhD', 'Safety Science and Engineering (0837; Reliability Systems Engineering); Control Science and Engineering (0811; Industrial Internet and Knowledge-Driven Automation)'],
+            ['Professional Doctorate', 'Electronic Information (0854); Mechanical Engineering (0855)'],
+            ['Academic Master’s', 'Control Science and Engineering (0811); Low-Altitude Intelligent Transportation Engineering (9904; Low-Altitude Safety Assurance Technology)'],
+            ['Professional Master’s', 'Electronic Information (0854); Mechanical Engineering (0855); Transportation (0861)']
           ],
           requirements: [
             'Applicants from computer science, artificial intelligence, automation, control, mechanical engineering, aerospace, systems engineering, applied mathematics, and related fields are welcome.',
@@ -2687,10 +2708,10 @@
           researchLink: '具体研究内容详见科研方向',
           programs: '招生专业',
           programItems: [
-            ['博士生导师（学术型）', '安全科学与工程（0837，方向：可靠性系统工程）、控制科学与工程（0811，方向：工业互联网与知识驱动自动化）'],
-            ['博士生导师（专业型）', '电子信息（0854）、机械（0855）'],
-            ['硕士生导师（学术型）', '控制科学与工程（0811）、低空智能运载工程（9904，方向：低空安全保障技术）'],
-            ['硕士生导师（专业型）', '电子信息（0854）、机械（0855）、交通运输（0861）']
+            ['学术型博士', '安全科学与工程（0837，方向：可靠性系统工程）、控制科学与工程（0811，方向：工业互联网与知识驱动自动化）'],
+            ['专业型博士', '电子信息（0854）、机械（0855）'],
+            ['学术型硕士', '控制科学与工程（0811）、低空智能运载工程（9904，方向：低空安全保障技术）'],
+            ['专业型硕士', '电子信息（0854）、机械（0855）、交通运输（0861）']
           ],
           requirements: [
             '欢迎计算机、人工智能、自动化、控制、机械、航空航天、系统工程、应用数学等相关专业学生报考。',

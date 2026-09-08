@@ -259,17 +259,28 @@
     return;
   }
 
-  fetch(dataUrl, { cache: 'no-store' })
-    .then((response) => {
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response.json();
-    })
-    .then(render)
-    .catch((error) => {
-      console.error('Failed to load publications:', error);
-      setAllSectionsStatus(labels.fetchError, true);
-      document.dispatchEvent(new CustomEvent('publications:error', {
-        detail: { reason: 'fetch-failed', prefix: site.prefix }
-      }));
-    });
+  let hasLoaded = false;
+  function loadPublications() {
+    if (hasLoaded) return;
+    hasLoaded = true;
+    fetch(dataUrl)
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then(render)
+      .catch((error) => {
+        console.error('Failed to load publications:', error);
+        setAllSectionsStatus(labels.fetchError, true);
+        document.dispatchEvent(new CustomEvent('publications:error', {
+          detail: { reason: 'fetch-failed', prefix: site.prefix }
+        }));
+      });
+  }
+
+  if (site.prefix === 'achievement' && window.location.hash !== '#achievements') {
+    document.addEventListener('publications:load', loadPublications, { once: true });
+  } else {
+    loadPublications();
+  }
 })();
