@@ -358,11 +358,11 @@
           <article class="personnel-card" id="person-di-su">
             <img class="personnel-photo" src="image/Di Su.png" alt="Di Su" loading="lazy">
             <div>
-              <p class="personnel-role">Postdoctoral Researcher</p><h3 class="personnel-name">Di Su</h3><p class="personnel-email"><strong>Email:</strong></p>
+              <p class="personnel-role">Postdoctoral Researcher</p><h3 class="personnel-name">Di Su</h3><p class="personnel-email"><strong>Email:</strong> sudi314@buaa.edu.cn</p>
               <div class="personnel-profile-sections">
-                <section class="personnel-profile-section"><h4>Personal Profile</h4></section>
-                <section class="personnel-profile-section"><h4>Research Interests</h4></section>
-                <section class="personnel-profile-section"><h4>Academic Achievements</h4></section>
+                <section class="personnel-profile-section"><h4>Personal Profile</h4><p>Di Su received his Ph.D. and is currently a postdoctoral researcher at Beihang University. He completed his bachelor’s, master’s, and doctoral studies at the School of Aerospace Engineering, Beijing Institute of Technology. He previously served as a Qianjiang Researcher at the Hangzhou Institute for Extremely-Weak Magnetic Field Major National Science and Technology Infrastructure, with experience in both research and engineering project implementation. He has led projects funded by the China Postdoctoral Science Foundation, Zhejiang Postdoctoral Research Excellence Program, and enterprise research programs.</p></section>
+                <section class="personnel-profile-section"><h4>Research Interests</h4><p>His research focuses on intelligent support for aviation equipment, covering digital twins, multi-agent modeling and intelligent decision-making, prognostics and health management, and reliability analysis. He works on state perception, risk assessment, and collaborative operations-and-maintenance optimization for complex equipment.</p></section>
+                <section class="personnel-profile-section"><h4>Academic Achievements</h4><p>He has published more than 10 SCI/EI papers and holds more than 10 authorized national invention patents. He has led four projects, including China Postdoctoral Science Foundation funding, Zhejiang Postdoctoral Research Excellence Program funding, and enterprise-sponsored projects, with total funding of RMB 2.55 million. He has also contributed as a core team member to major national science and technology infrastructure projects and intelligent aviation-equipment support projects.</p></section>
               </div>
             </div>
           </article>
@@ -479,7 +479,7 @@
       <article class="prose recruitment-content">
         <section class="education-feature" id="education-students">
           <h2 class="education-section-title">Student Supervision</h2>
-          <h3 class="student-subheading">Current / Supervised Graduate Students (Selected)</h3>
+          <h3 class="student-subheading">Current / Supervised Students (Selected)</h3>
           <div class="student-group" id="current-doctoral">
             <h4 class="student-group-title">Doctoral Student</h4>
             <ul class="student-grid">
@@ -497,8 +497,14 @@
               <li><a class="student-card" href="students/profile.html?id=yongpeng-qi&amp;lang=en"><img src="image/Yongpeng Qi.png" alt="Yongpeng Qi" loading="lazy"><span class="student-card-body"><span class="student-card-name">Yongpeng Qi</span><span class="student-card-meta">Major: Transportation</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
               <li><a class="student-card" href="students/profile.html?id=linhan-zhang&amp;lang=en"><img src="image/Linhan Zhang.png" alt="Linhan Zhang" loading="lazy"><span class="student-card-body"><span class="student-card-name">Linhan Zhang</span><span class="student-card-meta">Major: Mechanical Engineering</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
               <li><a class="student-card" href="students/profile.html?id=zhihuan-wei&amp;lang=en"><img src="image/Zhihuan Wei.png" alt="Zhihuan Wei" loading="lazy"><span class="student-card-body"><span class="student-card-name">Zhihuan Wei</span><span class="student-card-meta">Major: Mechanical Engineering</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
-              <li><a class="student-card" href="students/profile.html?id=pedro-martin&amp;lang=en"><img src="image/Pedro Martin.png" alt="Pedro Martin" loading="lazy"><span class="student-card-body"><span class="student-card-name">Pedro Martin</span><span class="student-card-meta">International Master’s Student</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+              <li><a class="student-card" href="students/profile.html?id=pedro-martin&amp;lang=en"><img src="image/Pedro Martin.png" alt="Pedro Martin" loading="lazy"><span class="student-card-body"><span class="student-card-name">Pedro Martin</span><span class="student-card-meta">Major: Microsatellite Technology</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
               <li><a class="student-card" href="students/profile.html?id=zuhaer-tousif&amp;lang=en"><img src="image/Zuhaer Tousif.png" alt="Zuhaer Tousif" loading="lazy"><span class="student-card-body"><span class="student-card-name">Zuhaer Tousif</span><span class="student-card-meta">International Master’s Student</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
+            </ul>
+          </div>
+          <div class="student-group" id="current-undergraduates">
+            <h4 class="student-group-title">Undergraduate Students</h4>
+            <ul class="student-grid">
+              <li><a class="student-card" href="students/profile.html?id=minghan-sui&amp;lang=en"><span class="student-card-avatar-placeholder" aria-label="No photo available for Minghan Sui">${placeholderIcon}</span><span class="student-card-body"><span class="student-card-name">Minghan Sui</span><span class="student-card-meta">Undergraduate Student</span><span class="student-card-email">Email:</span><span class="student-card-link">Personal Profile →</span></span></a></li>
             </ul>
           </div>
         </section>
@@ -1369,6 +1375,7 @@
     pageShell.querySelector('.education-subnav')?.remove();
     const doctoralGroup = document.getElementById('current-doctoral');
     const mastersGroup = document.getElementById('current-masters');
+    const undergraduatesGroup = document.getElementById('current-undergraduates');
     if (!doctoralGroup || !mastersGroup) return;
 
     const academicYears = ['2024', '2025', '2026'];
@@ -1387,7 +1394,12 @@
     const studentProfiles = window.TEAM_HOMEPAGE_DATA?.studentProfiles || {};
     Object.entries(studentProfiles).forEach(([memberId, profile]) => {
       if (existingMemberIds.has(memberId)) return;
-      const targetGroup = profile.category === 'doctoral' ? doctoralGroup : mastersGroup;
+      const targetGroup = profile.category === 'doctoral'
+        ? doctoralGroup
+        : profile.category === 'undergraduates'
+          ? undergraduatesGroup
+          : mastersGroup;
+      if (!targetGroup) return;
       const list = targetGroup.querySelector('.student-grid');
       if (!list) return;
       const item = document.createElement('li');
@@ -1442,7 +1454,8 @@
       }).join('');
     };
 
-    const memberLinks = (group, category) => {
+    const memberLinks = (group, category, options = {}) => {
+      const includeInSidebar = options.includeInSidebar !== false;
       Array.from(group.querySelectorAll('.student-card')).forEach((card) => {
       const name = card.querySelector('.student-card-name')?.textContent.trim() || '';
       const profileUrl = new URL(card.getAttribute('href'), window.location.href);
@@ -1452,7 +1465,7 @@
       const advisorValue = profile?.advisor || '胡杨';
       const meta = card.querySelector('.student-card-meta');
       if (profile && meta) meta.textContent = isEnglish ? profile.majorEn : profile.major;
-      if (gradeValue) {
+      if (includeInSidebar && gradeValue) {
         const yearKey = `${category}-${gradeValue}`;
         studentsByYear[yearKey] ||= [];
         studentsByYear[yearKey].push({ id: memberId, name, advisor: advisorValue });
@@ -1478,8 +1491,10 @@
         : (profile?.advisor || '胡杨');
       advisor.textContent = isEnglish ? `Supervisor: ${advisorName}` : `指导教师：${advisorName}`;
       if (cardBody && detailLabel) {
-        cardBody.insertBefore(grade, detailLabel);
-        cardBody.insertBefore(advisor, detailLabel);
+        if (category !== 'undergraduates') {
+          cardBody.insertBefore(grade, detailLabel);
+          cardBody.insertBefore(advisor, detailLabel);
+        }
       }
       if (detailLabel) detailLabel.textContent = isEnglish ? 'View details →' : '查看详情 →';
       });
@@ -1505,8 +1520,9 @@
             (memberA, memberB) => (advisorOrder[memberA.advisor] ?? 99) - (advisorOrder[memberB.advisor] ?? 99)
           );
         });
-      return yearBranches(category);
+      return includeInSidebar ? yearBranches(category) : '';
     };
+    if (undergraduatesGroup) memberLinks(undergraduatesGroup, 'undergraduates', { includeInSidebar: false });
 
     const labels = isEnglish
       ? {
@@ -1514,6 +1530,7 @@
           overview: 'Student Overview',
           doctoral: 'Doctoral Students',
           masters: 'Master’s Students',
+          undergraduates: 'Undergraduate Students',
           alumni: 'Alumni',
           alumniDoctoral: 'Doctoral Alumni',
           alumniMasters: 'Master’s Alumni',
@@ -1524,6 +1541,7 @@
           overview: '学生培养',
           doctoral: '博士研究生',
           masters: '硕士研究生',
+          undergraduates: '本科生',
           alumni: '往届研究生',
           alumniDoctoral: '博士研究生',
           alumniMasters: '硕士研究生',
@@ -1599,6 +1617,7 @@
     recruitmentWrap.hidden = true;
 
     const groups = { doctoral: doctoralGroup, masters: mastersGroup };
+    if (undergraduatesGroup) groups.undergraduates = undergraduatesGroup;
     showStudentView = (viewName = 'overview') => {
       const validViews = ['doctoral', 'masters', 'alumni-doctoral', 'alumni-masters'];
       const targetView = validViews.includes(viewName) ? viewName : 'overview';
@@ -1648,6 +1667,7 @@
         overview: labels.title,
         doctoral: labels.doctoral,
         masters: labels.masters,
+        undergraduates: labels.undergraduates,
         'alumni-doctoral': labels.alumniDoctoral,
         'alumni-masters': labels.alumniMasters
       }[targetView] || labels.title;
@@ -3092,12 +3112,14 @@
   if (pendingStudentId) {
     sessionStorage.removeItem('teamHomepagePendingStudent');
     const pendingProfile = window.TEAM_HOMEPAGE_DATA?.studentProfiles?.[pendingStudentId];
+    const pendingCategory = pendingProfile?.category === 'doctoral'
+      ? 'doctoral'
+      : pendingProfile?.category === 'undergraduates'
+        ? 'undergraduates'
+        : 'masters';
     showPage('education', { skipHash: true, instant: true });
     requestAnimationFrame(() => {
-      showStudentMemberView(
-        pendingStudentId,
-        pendingProfile?.category === 'doctoral' ? 'doctoral' : 'masters'
-      );
+      showStudentMemberView(pendingStudentId, pendingCategory);
     });
   }
 

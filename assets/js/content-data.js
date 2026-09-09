@@ -85,6 +85,38 @@
         achievements: '暂无。',
         achievementsEn: 'To be added.'
       },
+      'jiaqi-tian': {
+        category: 'masters',
+        name: '田家旗',
+        enName: 'Jiaqi Tian',
+        year: '2026',
+        advisor: '胡杨',
+        advisorEn: 'Yang Hu',
+        major: '硕士研究生',
+        majorEn: 'Master’s Student',
+        bio: '',
+        bioEn: '',
+        research: '',
+        researchEn: '',
+        achievements: '',
+        achievementsEn: ''
+      },
+      'rui-yan': {
+        category: 'masters',
+        name: '严睿',
+        enName: 'Rui Yan',
+        year: '2026',
+        advisor: '胡杨',
+        advisorEn: 'Yang Hu',
+        major: '硕士研究生',
+        majorEn: 'Master’s Student',
+        bio: '',
+        bioEn: '',
+        research: '',
+        researchEn: '',
+        achievements: '',
+        achievementsEn: ''
+      },
       'wenle-xiang': {
         category: 'masters',
         name: '项文乐',
@@ -94,6 +126,7 @@
         advisorEn: 'Yang Li',
         major: '专业：计算机技术',
         majorEn: 'Master’s Student in Computer Technology',
+        photo: 'image/Wenle Xiang.jpg',
         bio: '北京航空航天大学计算机技术专业硕士研究生，本科就读于杭州电子科技大学计算机科学与技术专业。',
         bioEn: 'A master’s student in Computer Technology at Beihang University, with undergraduate study in Computer Science and Technology at Hangzhou Dianzi University.',
         research: '暂无。',
@@ -293,14 +326,18 @@ Patent:
         year: '2025',
         advisor: '胡杨',
         advisorEn: 'Yang Hu',
-        major: '留学生硕士',
-        majorEn: 'International Master’s Student',
-        bio: '暂无。',
-        bioEn: 'To be added.',
-        research: '暂无。',
-        researchEn: 'To be added.',
-        achievements: '暂无。',
-        achievementsEn: 'To be added.'
+        major: '专业：微卫星技术',
+        majorEn: 'Major: Microsatellite Technology',
+        bio: '秘鲁籍，获航空科学学士学位，具有飞行员和空中交通管制相关航空运行背景，工作内容覆盖飞机运行、飞行监控，以及通过运行空域监控和交通管理软件开展基于雷达的秘鲁空域监视。曾在秘鲁、巴西和比利时积累专业与学术经验。',
+        bioEn: `Peruvian, with a B.Sc. in Aeronautical Science and an operational background in aviation as a pilot and in air traffic control, covering aircraft operations, flight monitoring and radar-based surveillance of Peruvian airspace through operational air-monitoring and traffic management software, with professional and academic experience gained in Peru, Brazil and Belgium.`,
+        research: '主要从事面向地球观测 CubeSat 的星载自主技术研究，聚焦现代遥感中的关键约束：小卫星获取的数据远多于其可下传的数据。研究内容包括任务可编程决策层和轻量化深度学习模型，在严格功耗、存储和带宽约束下，对下传前图像进行筛选、分级和优先级排序，并在接近飞行条件的嵌入式硬件上验证。更广泛的兴趣包括载荷与任务设计、面向低轨星座的 AI 驱动频谱管理与路由优化，以及面向环境监测和灾害响应的遥感应用。',
+        researchEn: `Onboard autonomy for Earth-observation CubeSats, addressing a central constraint of modern remote sensing: small satellites acquire far more data than they can transmit. Mission-programmable decision layers and lightweight deep-learning models that triage and prioritise imagery before downlink, built within strict power, memory and bandwidth budgets and validated on flight-representative embedded hardware. Wider interests include payload and mission design, AI-driven spectrum management and routing optimisation for LEO constellations, and remote sensing for environmental monitoring and disaster response.`,
+        achievements: `[1] 期刊论文，在审：A Mission-Programmable Onboard Decision Layer for Earth-Observation CubeSats，Remote Sensing（MDPI，Q1），major revision。
+[2] 会议论文，在审：Lightweight Difficulty-Adaptive Early-Exit Inference for Lunar Surface Segmentation，IPSPACE 2026 Congress，2026年11月。
+[3] 北京航空航天大学冯如杯学术竞赛三等奖：AI-driven spectrum management and routing optimisation for LEO CubeSat constellations，14个决赛项目中排名第7。`,
+        achievementsEn: `[1] Journal article, under review: A Mission-Programmable Onboard Decision Layer for Earth-Observation CubeSats, Remote Sensing (MDPI, Q1), major revision.
+[2] Conference paper, under review: Lightweight Difficulty-Adaptive Early-Exit Inference for Lunar Surface Segmentation, IPSPACE 2026 Congress, November 2026.
+[3] Third Prize, Fengru Cup Academic Competition, Beihang University: AI-driven spectrum management and routing optimisation for LEO CubeSat constellations; 7th of 14 finalist projects.`
       },
       'zuhaer-tousif': {
         category: 'masters',
@@ -317,6 +354,38 @@ Patent:
         researchEn: 'To be added.',
         achievements: '暂无。',
         achievementsEn: 'To be added.'
+      },
+      'xiangyang-wu': {
+        category: 'masters',
+        name: '吴湘阳',
+        enName: 'Xiangyang Wu',
+        year: '2025',
+        advisor: '胡杨',
+        advisorEn: 'Yang Hu',
+        major: '硕士研究生',
+        majorEn: 'Master’s Student',
+        bio: '',
+        bioEn: '',
+        research: '',
+        researchEn: '',
+        achievements: '',
+        achievementsEn: ''
+      },
+      'qingli-zhang': {
+        category: 'masters',
+        name: '张清栎',
+        enName: 'Qingli Zhang',
+        year: '2025',
+        advisor: '胡杨',
+        advisorEn: 'Yang Hu',
+        major: '硕士研究生',
+        majorEn: 'Master’s Student',
+        bio: '',
+        bioEn: '',
+        research: '',
+        researchEn: '',
+        achievements: '',
+        achievementsEn: ''
       },
       'xiaoyang-li': {
         category: 'masters',
@@ -349,6 +418,22 @@ Patent:
         researchEn: 'His research focuses on autonomous perception and intelligent UAV inspection in practical engineering environments, especially 3D scene understanding and autonomous planning for regular structures such as scaffolding, with the goal of applying unmanned systems to infrastructure operations and maintenance.',
         achievements: '暂无。',
         achievementsEn: 'To be added.'
+      },
+      'minghan-sui': {
+        category: 'undergraduates',
+        name: '隋明翰',
+        enName: 'Minghan Sui',
+        year: '',
+        advisor: '',
+        advisorEn: '',
+        major: '本科生',
+        majorEn: 'Undergraduate Student',
+        bio: '',
+        bioEn: '',
+        research: '',
+        researchEn: '',
+        achievements: '',
+        achievementsEn: ''
       }
     };
 })();
