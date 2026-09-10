@@ -92,14 +92,15 @@
         year: '2026',
         advisor: '胡杨',
         advisorEn: 'Yang Hu',
-        major: '硕士研究生',
-        majorEn: 'Master’s Student',
-        bio: '',
-        bioEn: '',
-        research: '',
-        researchEn: '',
-        achievements: '',
-        achievementsEn: ''
+        major: '专业：交通运输',
+        majorEn: 'Master’s Student in Transportation',
+        photo: 'image/Jiaqi Tian.jpg',
+        bio: '北京航空航天大学交通运输专业硕士研究生，本科就读于华北水利水电大学人工智能专业。',
+        bioEn: 'A master’s student in Transportation at Beihang University, with undergraduate study in Artificial Intelligence at North China University of Water Resources and Electric Power.',
+        research: '暂无。',
+        researchEn: 'To be added.',
+        achievements: '暂无。',
+        achievementsEn: 'To be added.'
       },
       'rui-yan': {
         category: 'masters',
@@ -198,6 +199,23 @@
         researchEn: 'His research focuses on applications of reinforcement learning and simulation technologies in aviation operations and maintenance.',
         achievements: '暂无。',
         achievementsEn: 'To be added.'
+      },
+      'kunlong-huang': {
+        category: 'masters',
+        name: '黄坤隆',
+        enName: 'Kunlong Huang',
+        year: '2025',
+        advisor: '胡杨',
+        advisorEn: 'Yang Hu',
+        major: '专业：电子信息',
+        majorEn: 'Master’s Student in Electronic Information',
+        photo: 'image/Kunlong Huang.jpg',
+        bio: '北京航空航天大学电子信息专业硕士研究生，本科毕业于北京化工大学自动化专业，现参与同花顺校企联合培养。',
+        bioEn: 'A master’s student in Electronic Information at Beihang University, with a bachelor’s degree in Automation from Beijing University of Chemical Technology. He is currently participating in a Tonghuashun industry-university joint training program.',
+        research: '主要从事大语言模型驱动的自主智能系统研究，关注多智能体协作（Multi-Agent Collaboration）、运行支撑框架（Agent Harness / Engine）与智能化软件工程，重点探索 AI 原生软件团队与多智能体协作在金融研究和真实业务场景中的应用。',
+        researchEn: 'His research focuses on large-language-model-driven autonomous intelligent systems, including Multi-Agent Collaboration, Agent Harness / Engine frameworks, and intelligent software engineering, with emphasis on AI-native software teams and multi-agent collaboration for financial research and real business scenarios.',
+        achievements: '主导构建 BUAA-Bearing-Multi-condition-2026 轴承故障诊断数据集，覆盖稳态与变工况、0 N/1000 N 双载荷；在统一实验流程下与 CWRU、HUST 数据集完成横向验证，多类别故障识别性能优异。',
+        achievementsEn: 'He led the construction of the BUAA-Bearing-Multi-condition-2026 bearing fault diagnosis dataset, covering steady-state and variable-condition settings with dual 0 N/1000 N loads. Under a unified experimental workflow, cross-dataset validation with CWRU and HUST demonstrated strong multi-class fault-recognition performance.'
       },
       'zhihuan-wei': {
         category: 'masters',
