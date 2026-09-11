@@ -109,14 +109,15 @@
         year: '2026',
         advisor: '胡杨',
         advisorEn: 'Yang Hu',
-        major: '硕士研究生',
-        majorEn: 'Master’s Student',
-        bio: '',
-        bioEn: '',
-        research: '',
-        researchEn: '',
-        achievements: '',
-        achievementsEn: ''
+        major: '专业：机械',
+        majorEn: 'Master’s Student in Mechanical Engineering',
+        photo: 'image/Rui Yan.jpg',
+        bio: '北京航空航天大学机械专业硕士研究生，本科毕业于南京工业大学机械工程专业。',
+        bioEn: 'A master’s student in Mechanical Engineering at Beihang University, with a bachelor’s degree in Mechanical Engineering from Nanjing Tech University.',
+        research: '暂无。',
+        researchEn: 'To be added.',
+        achievements: '曾获全球校园人工智能算法精英大赛国家一等奖、全国大学生数学建模竞赛国家三等奖，荣获南京工业大学优秀毕业生等荣誉。',
+        achievementsEn: 'His honors include a national first prize in the Global Campus Artificial Intelligence Algorithm Elite Competition, a national third prize in the China Undergraduate Mathematical Contest in Modeling, and recognition as an Outstanding Graduate of Nanjing Tech University.'
       },
       'wenle-xiang': {
         category: 'masters',
